@@ -1,10 +1,6 @@
 # HUAWEI-HMS-MLKit-Sample
 
 
-## build status
-![Android CI](https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/workflows/Android%20CI/badge.svg)
-
-
 ## Table of Contents
 
  * [Introduction](#introduction)
