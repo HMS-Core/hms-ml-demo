@@ -123,12 +123,9 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
             return;
         }
         // Replace background.
-        this.foregroundBitmap = originalCameraImage;
+        this.foregroundBitmap = results.getOriginal();
         int facing = frameMetadata.getCameraFacing();
-        // Perform front camera mirror conversion.
-        if (facing == CameraConfiguration.CAMERA_FACING_FRONT) {
-            this.foregroundBitmap = this.convert(originalCameraImage);
-        }
+
         Bitmap resultBitmap = this.changeNextBackground(masks);
         if (facing == CameraConfiguration.CAMERA_FACING_FRONT) {
             resultBitmap = this.convert(resultBitmap);
