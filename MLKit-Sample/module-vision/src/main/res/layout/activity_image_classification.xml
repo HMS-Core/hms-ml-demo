@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <com.mlkit.sample.camera.LensEnginePreview
+        android:id="@+id/classification_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <com.mlkit.sample.views.overlay.GraphicOverlay
+            android:id="@+id/classification_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true" />
+    </com.mlkit.sample.camera.LensEnginePreview>
+
+    <ImageButton
+        android:id="@+id/classification_back"
+        android:layout_width="@dimen/icon_back_width"
+        android:layout_height="@dimen/icon_back_height"
+        android:layout_marginLeft="@dimen/icon_back_margin"
+        android:layout_marginTop="@dimen/icon_back_margin"
+        android:background="@drawable/button_circle_background"
+        android:src="@drawable/black_back" />
+
+    <ImageButton
+        android:id="@+id/imageSwitch"
+        android:layout_width="@dimen/icon_back_width"
+        android:layout_height="@dimen/icon_back_height"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/icon_back_margin"
+        android:background="@drawable/button_circle_background"
+        android:tint="@color/secondary_text_color"
+        android:src="@mipmap/album_round" />
+
+
+    <ToggleButton
+        android:id="@+id/classification_facingSwitch"
+        android:layout_width="@dimen/circle_stroke_radius"
+        android:layout_height="@dimen/circle_stroke_radius"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/facingswitch_stroke"
+        android:textOff=""
+        android:textOn="" />
+
+</RelativeLayout>

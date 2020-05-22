@@ -1,0 +1,27 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="start_icon_width">45dp</dimen>
+    <dimen name="facing_switch_width">35dp</dimen>
+    <dimen name="icon_new_width">18dp</dimen>
+    <dimen name="icon_new_height">15dp</dimen>
+    <dimen name="toolbar_height">45dp</dimen>
+
+    <dimen name="dialog_text_size">13sp</dimen>
+    <dimen name="toolbar_title_size">17sp</dimen>
+    <dimen name="toolbar_back_size">14sp</dimen>
+
+    <dimen name="icon_back_width">30dp</dimen>
+    <dimen name="icon_back_height">30dp</dimen>
+    <dimen name="icon_back_margin">15dp</dimen>
+
+    <dimen name="tab_title_text_size">16sp</dimen>
+
+    <dimen name="common_margin_top">5dp</dimen>
+
+    <dimen name="circle_stroke_radius">65dp</dimen>
+
+    <dimen name="start_logo_height">250dp</dimen>
+    <dimen name="start_logo_margin">230dp</dimen>
+    <dimen name="start_margin_top">70dp</dimen>
+</resources>

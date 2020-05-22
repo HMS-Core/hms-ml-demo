@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/black_back"
+                android:text="@string/back"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/translate"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="17sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_margin_top"
+            android:background="@color/primary_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"></View>
+
+
+        <Spinner
+            android:id="@+id/spSourceType"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/secondary_text_color"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@id/buttonSwitchLang"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></Spinner>
+
+        <ImageButton
+            android:id="@+id/buttonSwitchLang"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/translate_switch"
+            app:layout_constraintEnd_toStartOf="@+id/spDestType"
+            app:layout_constraintStart_toEndOf="@+id/spSourceType"
+            app:layout_constraintTop_toTopOf="@id/spSourceType" />
+
+        <Spinner
+            android:id="@+id/spDestType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/secondary_text_color"
+            app:layout_constraintBottom_toBottomOf="@id/spSourceType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonSwitchLang"
+            app:layout_constraintTop_toTopOf="@id/spSourceType"></Spinner>
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_edit_text"
+            android:gravity="top"
+            android:minLines="5"
+            android:textColor="@color/secondary_text_color"
+            android:padding="5dp"
+            android:text="@string/translate_text_hint"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spDestType" />
+
+        <TextView
+            android:id="@+id/tv_src_len"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/zero_character"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_input"
+            app:layout_constraintEnd_toEndOf="@id/et_input" />
+
+        <TextView
+            android:id="@+id/tv_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_edit_text"
+            android:gravity="top"
+            android:minLines="5"
+            android:padding="5dp"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_input" />
+
+        <TextView
+            android:id="@+id/tv_dst_len"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/zero_character"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_output"
+            app:layout_constraintEnd_toEndOf="@id/tv_output" />
+
+        <Button
+            android:id="@+id/btn_translator"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_back"
+            android:text="@string/translate_v"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_output" />
+
+        <Button
+            android:id="@+id/btn_identification"
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="35dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_back"
+            android:text="@string/language_recognition"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toEndOf="@id/btn_translator"
+            app:layout_constraintTop_toBottomOf="@id/tv_output" />
+
+        <TextView
+            android:id="@+id/tv_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/elapsed_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_translator" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 ms"
+            app:layout_constraintBottom_toBottomOf="@id/tv_time_label"
+            app:layout_constraintStart_toEndOf="@id/tv_time_label"
+            app:layout_constraintTop_toBottomOf="@id/btn_translator"
+            app:layout_constraintTop_toTopOf="@id/tv_time_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

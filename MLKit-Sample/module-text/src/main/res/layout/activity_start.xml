@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_logo_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/logo_background"
+        android:scaleType="fitXY">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/title"
+            android:src="@drawable/icon_logo"></ImageView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80dp"
+            android:text="MACHINE\n LEARNING"
+            android:textColor="@color/white"
+            android:textSize="22sp"></TextView>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/start_logo_margin"
+        android:background="@drawable/logo_circle_background"></ImageView>
+
+    <ImageView
+        android:id="@+id/setting_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/icon_setting" />
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="@dimen/start_margin_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:verticalSpacing="40dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3">
+    </GridView>
+</RelativeLayout>
