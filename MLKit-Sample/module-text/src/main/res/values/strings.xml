@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Kit</string>
+
+    <string name="camera_permission_rationale">This sample app requires camera, storage, and microphone
+        permissions in order to demo the API.</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+
+    <string name="cloud_text">Cloud Text Recognition</string>
+
+    <string name="select_from_album">Select image from album</string>
+    <string name="take_photo">Take photo</string>
+    <string name="video_frame">Video stream</string>
+    <string name="versions">Version:</string>
+    <string name="simplified_chinese">Simplified chinese</string>
+    <string name="english_choose">English</string>
+    <string name="japanese_choose">Japanese</string>
+    <string name="korean_choose">Korean</string>
+    <string name="latin_choose">Latin</string>
+    <string name="get_data_failed">Failed to get data.</string>
+    <string name="loading_data">Loading…</string>
+    <string name="chinese">chinese</string>
+    <string name="nonetwork">nonetwork</string>
+    <string name="abnormal">service is abnormal</string>
+    <string name="replay">replay</string>
+
+    <string name="icr_s">ID Card Recognition</string>
+    <string name="text_detection_s">Text Recognition</string>
+    <string name="document_recognition_s">Document Recognition</string>
+    <string name="bcr_s">Bank Card Recognition</string>
+    <string name="ucr_s">General Card Recognition</string>
+    <string name="asr_s">Speech Recognition</string>
+    <string name="tts_s">Text to speech</string>
+
+    <string name="document_recognition">Document</string>
+    <string name="translate">Translation</string>
+    <string name="bcr">BCR</string>
+    <string name="gcr">GCR</string>
+    <string name="icr">ICR</string>
+    <string name="text_detection">Text</string>
+    <string name="asr">ASR</string>
+    <string name="tts">TTS</string>
+
+    <string name="all">all</string>
+    <string name="coming_soon">coming soon</string>
+    <string name="back">back</string>
+    <string name="translate_v">Translate</string>
+    <string name="language_recognition">Language Recognition</string>
+    <string name="elapsed_time">Elapsed Time: </string>
+    <string name="zero_character"> 0 character</string>
+    <string name="translate_text_hint">Machine Learning</string>
+    <string name="intro">text to speak</string>
+    <string name="queue_add">speech</string>
+    <string name="release_tts">stop</string>
+    <string name="pause">pause</string>
+    <string name="resume">resume</string>
+
+    <string name="icr_upload_self_photo">Upload photos of your ID card</string>
+    <string name="icr_upload_face">Photo side</string>
+    <string name="icr_upload_back">Other side</string>
+    <string name="icr_hint_upload_valid_photo">Upload photos of your valid ID card.</string>
+    <string name="icr_hint_image_not_complete">Something may be blocking important information in the photo. Retake the photo if needed.</string>
+    <string name="icr_hint_ensure_user_info_security">Your personal information will be protected in accordance with the law.</string>
+    <string name="recognition_results">Recognition results:</string>
+    <string name="icr_mark">*This is for Chinese mainland residents only</string>
+    <string name="device_side">Device Side</string>
+    <string name="cloud_side">Cloud</string>
+
+    <string name="gcr_upload_self_photo">Upload photos of your card</string>
+    <string name="gcr_upload">Upload card</string>
+    <string name="hk_pass">Hong Kong, Macao and Taiwan pass</string>
+    <string name="hk_id_card">Hong Kong Identity Card</string>
+    <string name="home_card">Mainland Travel Permit (Hong Kong, Macao, and Taiwan residents)</string>
+    <string name="click_to_switch"><u>Click to switch</u></string>
+    <string name="vedio_tip">Recognizing, please align the edges.</string>
+    <string name="capture_tip">Taking photo…\nKeep the edges aligned</string>
+
+    <string name="bcr_upload_self_photo">"Please upload the bank card"</string>
+    <string name="bcr_upload">Upload card</string>
+
+    <string name="language">Language:</string>
+
+    <string name="start">start</string>
+    <string name="example_say">You could say that.</string>
+    <string name="example_one">I want to take a taxi to Wanda Plazaz</string>
+    <string name="example_two">I want to see Infernal Affairs</string>
+    <string name="example_three">Where is the nearest Shentong express</string>
+    <string name="record_path">/mlkit-asr</string>
+    <string name="record_text_name">text.txt</string>
+    <string name="record_json_name">description.json</string>
+    <string name="record_pcm_name">audio.pcm</string>
+
+    <string name="style">Style:</string>
+    <string name="mode">Play Mode:</string>
+    <string name="volume">Volume:</string>
+    <string name="speech_rate">Speech Rate:</string>
+    <string name="queuing_mode">Queuing Mode</string>
+    <string name="clear_mode">Clear Mode</string>
+    <string name="please_enter_text">Please enter text~</string>
+
+    <string name="male_zh">Male-zh</string>
+    <string name="male_en">Male-en</string>
+    <string name="female_en">Female-en</string>
+    <string name="female_zh">Female-zh</string>
+    <string name="init_progress">50%</string>
+    <string name="special">\n</string>
+</resources>

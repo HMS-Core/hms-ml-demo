@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">IDPhotoDIY</string>
+    <string name="mwc_title">ID Photo DIY</string>
+    <string name="mwc_subject">Make your own ID photo</string>
+    <string name="white_background">White Background</string>
+    <string name="blue_background">Blue Background</string>
+    <string name="mwc_detail">Choose the right background to make an ID photo</string>
+    <string name="please_select_picture">Please select a background to process~</string>
+    <string name="camera_permission_rationale">This app requires camera and storage access in order to
+        demo the API.</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="cut">Cut</string>
+    <string name="replace_background">Background</string>
+    <string name="save">Save</string>
+    <string name="cut_success">Cut success</string>
+    <string name="no_pic_neededSave">Null Image needed to save</string>
+    <string name="save_success">Save success</string>
+</resources>

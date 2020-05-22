@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PhotoTranslate</string>
+    <string name="title">Photo Translate</string>
+    <string name="subject">Translate the words in your photo</string>
+    <string name="take_photo">take photo</string>
+    <string name="select_photo">Start</string>
+    <string name="detail">Choose a photo to do the translation</string>
+    <string name="please_select_picture">Please select a photo to process~</string>
+    <string name="camera_permission_rationale">This app requires camera and storage access in order to
+        demo the API.</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="translate">Translate</string>
+    <string name="save">Save</string>
+    <string name="translate_success">Translate success</string>
+    <string name="translate_start">Translate starts</string>
+    <string name="no_pic_neededSave">Null Image needed to save</string>
+    <string name="save_success">Save success</string>
+</resources>

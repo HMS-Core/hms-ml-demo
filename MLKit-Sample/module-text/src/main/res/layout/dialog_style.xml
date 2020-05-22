@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/female_zh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:gravity="center"
+        android:text="@string/female_zh"
+        android:textColor="@drawable/text_selector"
+        android:textSize="@dimen/dialog_text_size"></TextView>
+
+    <View style="@style/common_line" />
+
+    <TextView
+        android:id="@+id/female_en"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:gravity="center"
+        android:text="@string/female_en"
+        android:textColor="@drawable/text_selector"
+        android:textSize="@dimen/dialog_text_size"></TextView>
+
+    <View style="@style/common_line" />
+
+    <TextView
+        android:id="@+id/male_zh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:gravity="center"
+        android:text="@string/male_zh"
+        android:textColor="@drawable/text_selector"
+        android:textSize="@dimen/dialog_text_size"></TextView>
+
+    <View style="@style/common_line" />
+
+    <TextView
+        android:id="@+id/male_en"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:gravity="center"
+        android:text="@string/male_en"
+        android:textColor="@drawable/text_selector"
+        android:textSize="@dimen/dialog_text_size"></TextView>
+
+</LinearLayout>

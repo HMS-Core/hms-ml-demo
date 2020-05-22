@@ -1,0 +1,5 @@
+include 'ID-Photo-DIY:app'
+include 'Smile-Camera:app'
+include 'Photo-Translate:app'
+include 'MLKit-Sample:module-vision'
+include 'MLKit-Sample:module-text'

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Kit</string>
+
+    <string name="camera_permission_rationale">This sample app requires camera and storage access in order to
+        demo the API.</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+
+    <string name="cloud_classification">Cloud Image Classification</string>
+
+    <string name="select_from_album">Select image from album</string>
+    <string name="take_photo">Take photo</string>
+    <string name="more_face_data">Show more facial data</string>
+    <string name="versions">Version：</string>
+
+    <string name="get_data_failed">Failed to get data.</string>
+    <string name="loading_data">Loading…</string>
+    <string name="load_pictures">Load pictures</string>
+
+    <string name="image_segmentation_s">Image Segmentation</string>
+    <string name="photographed_shopping_s">Product Visual Search</string>
+    <string name="face_detection_s">Face Detection</string>
+    <string name="object_detection_s">Object Detection and Tracking</string>
+    <string name="image_classification_s">Image Classification</string>
+    <string name="landmark_s">Landmark Recognition</string>
+
+    <string name="image_segmentation">Segmentation</string>
+    <string name="photographed_shopping">Shopping</string>
+    <string name="face_detection">Face</string>
+    <string name="object_detection">Object</string>
+    <string name="image_classification">Classification</string>
+    <string name="landmark">Landmark</string>
+
+    <string name="all">all</string>
+    <string name="coming_soon">coming soon</string>
+    <string name="back">back</string>
+
+    <string name="background_substitution">Substitution</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="cutout">Cutout</string>
+    <string name="cut">Cut</string>
+    <string name="cut_success">Cut success</string>
+    <string name="save_success">Save success</string>
+
+    <string name="replace_background">Background</string>
+    <string name="save">Save</string>
+    <string name="please_select_picture">Please select a picture to process~</string>
+    <string name="click_add_picture">Click to add picture~</string>
+    <string name="no_pic_neededSave">Null Image needed to save</string>
+
+    <string name="target_object">Object</string>
+    <string name="color">Color</string>
+
+    <string name="similar_products">Similar Products</string>
+    <string name="empty">Empty</string>
+
+</resources>

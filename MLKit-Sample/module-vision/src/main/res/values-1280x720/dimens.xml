@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="start_logo_height">200dp</dimen>
+    <dimen name="start_logo_margin">180dp</dimen>
+    <dimen name="start_margin_top">50dp</dimen>
+</resources>

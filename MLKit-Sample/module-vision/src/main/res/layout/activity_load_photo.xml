@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linear_views"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/image_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"></ImageView>
+    </RelativeLayout>
+
+
+    <com.mlkit.sample.views.overlay.GraphicOverlay
+        android:id="@+id/previewOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="2dp" />
+
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="@dimen/icon_back_width"
+        android:layout_height="@dimen/icon_back_height"
+        android:layout_marginLeft="@dimen/icon_back_margin"
+        android:layout_marginTop="@dimen/icon_back_margin"
+        android:background="@drawable/button_circle_background"
+        android:src="@drawable/black_back" />
+
+    <LinearLayout
+        android:id="@+id/linear_views"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/objectChooser"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/object"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/target_object"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/dialog_text_size" />
+
+            <HorizontalScrollView
+                android:id="@+id/scroll_objects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/object"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/linear_objects"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"></LinearLayout>
+            </HorizontalScrollView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/color"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/dialog_text_size" />
+
+            <com.mlkit.sample.views.color.ColorSelector
+                android:id="@+id/color_selector"
+                android:layout_width="350dp"
+                android:layout_height="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/color"
+                app:indicatorColor="@color/primary_background" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

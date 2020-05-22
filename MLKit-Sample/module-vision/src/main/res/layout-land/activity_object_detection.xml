@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <com.mlkit.sample.camera.LensEnginePreview
+        android:id="@+id/object_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp">
+
+        <com.mlkit.sample.views.overlay.GraphicOverlay
+            android:id="@+id/object_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true" />
+    </com.mlkit.sample.camera.LensEnginePreview>
+
+    <ImageButton
+        android:id="@+id/object_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_circle_background"
+        android:src="@drawable/black_back" />
+
+    <ToggleButton
+        android:id="@+id/object_facingSwitch"
+        android:layout_width="@dimen/circle_stroke_radius"
+        android:layout_height="@dimen/circle_stroke_radius"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/facingswitch_stroke"
+        android:textOff=""
+        android:textOn="" />
+</RelativeLayout>

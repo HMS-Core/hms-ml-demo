@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mlkit.sample">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="com.huawei.mlkit.asr.permission" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <permission
+        android:name="com.huawei.mlkit.asr.permission"
+        android:label="ASR"></permission>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/icon"
+        android:label="ML Kit Text test"
+        android:theme="@style/MaterialTheme">
+        <activity android:name=".activity.TtsAudioActivity"/>
+
+        <activity
+            android:name=".activity.StartActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.TextRecognitionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.RemoteDetectionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:exported="true" />
+
+        <activity android:name=".activity.TranslatorActivity" />
+        <activity android:name=".activity.AsrAudioActivity"/>
+
+        <activity
+            android:name=".activity.IDCardRecognitionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+
+        <activity
+            android:name=".activity.GeneralCardRecognitionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+        <activity
+            android:name=".activity.BankCardRecognitionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/apk_file_provider" />
+        </provider>
+        <meta-data
+            android:name="com.huawei.hms.ml.DEPENDENCY"
+            android:value="object,ocr,face,label,icr,imgseg" />
+    </application>
+
+</manifest>

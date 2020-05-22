@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/dialog_background"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/english"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:textSize="@dimen/dialog_text_size"
+        android:gravity="center"
+        android:textColor="@drawable/text_selector"
+        android:text="@string/english_choose">
+    </TextView>
+    <View
+        style="@style/common_line"></View>
+    <TextView
+        android:id="@+id/simple_cn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:textSize="@dimen/dialog_text_size"
+        android:gravity="center"
+        android:textColor="@drawable/text_selector"
+        android:text="@string/simplified_chinese">
+    </TextView>
+    <View
+        style="@style/common_line"></View>
+    <TextView
+        android:id="@+id/japanese"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:textSize="@dimen/dialog_text_size"
+        android:gravity="center"
+        android:textColor="@drawable/text_selector"
+        android:text="@string/japanese_choose">
+    </TextView>
+    <View
+        style="@style/common_line"></View>
+    <TextView
+        android:id="@+id/korean"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:textSize="@dimen/dialog_text_size"
+        android:gravity="center"
+        android:textColor="@drawable/text_selector"
+        android:text="@string/korean_choose">
+    </TextView>
+    <View
+        style="@style/common_line"></View>
+    <TextView
+        android:id="@+id/latin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_icon_width"
+        android:textSize="@dimen/dialog_text_size"
+        android:gravity="center"
+        android:textColor="@drawable/text_selector"
+        android:text="@string/latin_choose">
+    </TextView>
+
+
+</LinearLayout>

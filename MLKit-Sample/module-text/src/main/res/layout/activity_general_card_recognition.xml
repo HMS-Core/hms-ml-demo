@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/black_back"
+            android:text="@string/back"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/toolbar_back_size" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ucr_s"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/toolbar_title_size" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:fillViewport="true"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ucr_upload_photo_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/upload_card_tint_margin"
+                android:layout_marginTop="@dimen/upload_card_tint_margin"
+                android:layout_marginEnd="@dimen/upload_card_tint_margin"
+                android:fontFamily="HwChinese-regular"
+                android:gravity="center_horizontal"
+                android:text="@string/gcr_upload_self_photo"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/upload_card_tint_size" />
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/upload_card_layout_width"
+                android:layout_height="@dimen/upload_card_layout_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/upload_card_layout_margin_top"
+                android:background="@drawable/rn_dashed_box"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/avatar_sample_img"
+                    android:layout_width="@dimen/card_background_width"
+                    android:layout_height="@dimen/card_background_height"
+                    android:layout_marginStart="@dimen/card_background_margin_start"
+                    android:layout_marginTop="@dimen/card_background_margin_top"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/icon_gcr_background" />
+
+                <ImageView
+                    android:id="@+id/avatar_img"
+                    android:layout_width="@dimen/card_image_width"
+                    android:layout_height="@dimen/card_image_height"
+                    android:layout_marginStart="@dimen/card_image_margin"
+                    android:layout_marginTop="@dimen/card_image_margin"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/avatar_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_card_add_width"
+                        android:layout_height="@dimen/icon_card_add_height"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:src="@drawable/icon_card_add" />
+
+                    <TextView
+                        android:id="@+id/ucr_upload_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/upload_text_margin_start"
+                        android:layout_marginTop="@dimen/upload_text_margin_top"
+                        android:layout_marginEnd="@dimen/upload_text_margin_start"
+                        android:fontFamily="HwChinese-regular"
+                        android:gravity="center_horizontal"
+                        android:text="@string/gcr_upload"
+                        android:textColor="@color/text_color"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/avatar_delete"
+                    android:layout_width="@dimen/icon_card_delete_width"
+                    android:layout_height="@dimen/icon_card_delete_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/card_image_margin"
+                    android:layout_marginEnd="@dimen/card_image_margin"
+                    android:layout_marginRight="@dimen/card_image_margin"
+                    android:src="@drawable/icon_card_off"
+                    android:visibility="gone" />
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/card_result_margin_top"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/card_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioButton android:id="@+id/passCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/secondary_text_color"
+                        android:checked="true"
+                        android:text="@string/hk_pass" />
+                    <RadioButton android:id="@+id/HKIdCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/secondary_text_color"
+                        android:text="@string/hk_id_card" />
+                    <RadioButton android:id="@+id/comeHomeCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/secondary_text_color"
+                        android:text="@string/home_card" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/take_id_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/card_result_margin_start"
+                android:layout_marginTop="@dimen/card_result_margin_top"
+                android:layout_marginEnd="@dimen/card_result_margin_start"
+                android:fontFamily="HwChinese-medium"
+                android:text="@string/recognition_results"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <!-- Add by wfp -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_result_margin_start"
+                android:layout_marginTop="@dimen/card_result_margin_top"
+                android:layout_marginEnd="@dimen/card_result_margin_start">
+
+                <TextView
+                    android:id="@+id/show_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/card_result_text_size"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

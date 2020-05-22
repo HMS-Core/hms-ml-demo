@@ -1,0 +1,27 @@
+{
+	"agcgw":{
+		"backurl":"hw-ml-cloud.cn",
+		"url":"connect.hicloud.com"
+	},
+	"client":{
+		"cp_id":"260086023420031456",
+		"product_id":"9105385868808379027",
+		"client_id":"268600551012363200",
+		"client_secret":"4819981CE7939A526B71AC3092D35C5CB77DF8341C6986559AA9211",
+		"app_id":"1015883",
+		"package_name":"com.mlkit.sample.vision",
+		"api_key":"CV46Xu0Y3+YFDS832xvOY69LHiAtZ2SviYUSZyELicm2NrxUesZE1TO"
+	},
+	"service":{
+		"analytics":{
+			"collector_url":"data.dtml.hicloud.com",
+			"resource_id":"p1",
+			"channel_id":""
+		},
+		"ml":{
+			"mlservice_url":"ml-kit.cloud.com"
+		}
+	},
+	"region":"CN",
+	"configuration_version":"1.0"
+}
