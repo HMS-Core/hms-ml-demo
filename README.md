@@ -1,7 +1,5 @@
 # HUAWEI-HMS-MLKit-Sample
 
-![Android CI](https://github.com/gwwhuawei/hms-ml-demo/workflows/Android%20CI/badge.svg)
-
 ## Introduction
 
 This project contains HUAWEI ML Kit APIs and apps developed based on the HMS Core ML SDK. The project directory is as follows:
