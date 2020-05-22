@@ -13,4 +13,5 @@ cp Photo-Translate/app/sample-agconnect-services.json Photo-Translate/app/agconn
 echo "Copy agc file end."
 
 # Build
+chmod +x gradlew
 ./gradlew build
