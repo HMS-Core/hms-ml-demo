@@ -1,4 +1,4 @@
-# HUAWEI-HMS-MLKit-Sample
+# hms-ml-demo
 
 
 ## Introduction
