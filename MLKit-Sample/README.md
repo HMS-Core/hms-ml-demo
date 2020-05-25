@@ -22,17 +22,17 @@ For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://d
 
 APK running page screenshots are as follows.
 <table><tr>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/mainText.jpg" width=180 title="main page" border=2></td>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/language.jpg" width=180 border=2></td>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/text.jpg" width=180 border=2></td>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/bcr.jpg" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/mainText.jpg" width=180 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/language.jpg" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/text.jpg" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/bcr.jpg" width=180 border=2></td>
 </tr></table>
 
 <table><tr>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/mainVision.jpg" width=180 title="main page" border=2></td>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/imageSegmentVideo.gif" width=180 border=2></td>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/face.jpg" width=180 border=2></td>
-<td><img src="https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/blob/master/MLKit-Sample/resources/object.jpg" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/mainVision.jpg" width=180 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/imageSegmentVideo.gif" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/face.jpg" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample/resources/object.jpg" width=180 border=2></td>
 </tr></table>
 
 To use cloud services such as text recognition, document recognition, image classification, landmark recognition,
