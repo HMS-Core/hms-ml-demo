@@ -1,6 +1,5 @@
 # HUAWEI-HMS-MLKit-Sample
 
-![Android CI](https://github.com/HMS-MLKit/HUAWEI-HMS-MLKit-Sample/workflows/Android%20CI/badge.svg)
 
 ## Introduction
 
