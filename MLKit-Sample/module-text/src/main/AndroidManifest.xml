@@ -21,7 +21,7 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/icon"
-        android:label="ML Kit Text test"
+        android:label="ML Kit Text"
         android:theme="@style/MaterialTheme">
         <activity android:name=".activity.TtsAudioActivity"/>
 
