@@ -1,5 +1,6 @@
 # hms-ml-demo
 
+![Android CI](https://github.com/HMS-Core/hms-ml-demo/workflows/Android%20CI/badge.svg)
 
 ## Introduction
 
