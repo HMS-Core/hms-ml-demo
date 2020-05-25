@@ -13,7 +13,7 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/icon"
-        android:label="ML Kit test"
+        android:label="ML Kit Vision"
         android:theme="@style/MaterialTheme">
         <activity android:name=".activity.ImageClassificationActivity" />
         <activity android:name=".activity.ObjectDetectionActivity" />
