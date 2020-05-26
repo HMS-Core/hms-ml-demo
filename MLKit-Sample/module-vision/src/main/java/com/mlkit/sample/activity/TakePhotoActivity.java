@@ -35,6 +35,7 @@ import android.widget.ToggleButton;
 
 import androidx.core.content.FileProvider;
 
+import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationScene;
 import com.mlkit.sample.R;
 import com.mlkit.sample.callback.ImageSegmentationResultCallBack;
 import com.mlkit.sample.callback.ImageUtilCallBack;
@@ -216,7 +217,11 @@ public class TakePhotoActivity extends BaseActivity
             this.lensEngine = new LensEngine(this, this.cameraConfiguration, this.graphicOverlay);
         }
         try {
-            this.setting = new MLImageSegmentationSetting.Factory().setAnalyzerType(MLImageSegmentationSetting.BODY_SEG).setExact(false).create();
+            this.setting = new MLImageSegmentationSetting.Factory()
+                    .setAnalyzerType(MLImageSegmentationSetting.BODY_SEG)
+                    .setExact(false)
+                    .setScene(MLImageSegmentationScene.FOREGROUND_ONLY)
+                    .create();
             this.transactor = new ImageSegmentationTransactor(this.getApplicationContext(), this.setting, this.background);
             this.transactor.setImageSegmentationResultCallBack(this);
             this.lensEngine.setMachineLearningFrameTransactor(this.transactor);
@@ -274,7 +279,9 @@ public class TakePhotoActivity extends BaseActivity
                 this.facing = CameraConfiguration.CAMERA_FACING_BACK;
             }
             this.cameraConfiguration.setCameraFacing(this.facing);
-            this.setting = new MLImageSegmentationSetting.Factory().setAnalyzerType(MLImageSegmentationSetting.BODY_SEG).create();
+            this.setting = new MLImageSegmentationSetting.Factory()
+                    .setAnalyzerType(MLImageSegmentationSetting.BODY_SEG)
+                    .create();
             this.transactor = new ImageSegmentationTransactor(this.getApplicationContext(), this.setting, this.background);
             this.transactor.setImageSegmentationResultCallBack(this);
             this.lensEngine.setMachineLearningFrameTransactor(this.transactor);
