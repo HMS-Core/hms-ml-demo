@@ -19,7 +19,6 @@ package com.mlkit.sample.transactor;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
@@ -31,6 +30,7 @@ import com.huawei.hmf.tasks.Task;
 import com.mlkit.sample.callback.ImageSegmentationResultCallBack;
 import com.mlkit.sample.camera.CameraConfiguration;
 import com.mlkit.sample.camera.FrameMetadata;
+import com.mlkit.sample.util.BitmapUtils;
 import com.mlkit.sample.views.graphic.CameraImageGraphic;
 import com.mlkit.sample.views.overlay.GraphicOverlay;
 import com.huawei.hms.mlsdk.MLAnalyzerFactory;
@@ -55,7 +55,6 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
     private Context context;
     private Bitmap foregroundBitmap;
     private Bitmap backgroundBitmap;
-    //private String savePath = "";
     private ImageSegmentationResultCallBack imageSegmentationResultCallBack;
 
     /**
@@ -70,15 +69,6 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         MLAnalyzerFactory.getInstance().getImageSegmentationAnalyzer();
         this.detector = MLAnalyzerFactory.getInstance().getImageSegmentationAnalyzer(options);
         this.backgroundBitmap = backgroundBitmap;
-        this.clearPath();
-    }
-
-    public void setSavePath(String path) {
-        //this.savePath = path;
-    }
-
-    private void clearPath() {
-        //this.savePath = "";
     }
 
     // Return to processed image.
@@ -96,8 +86,6 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         }
     }
 
-    //private Long startTime = 0L;
-
     @Override
     protected Task<MLImageSegmentation> detectInImage(MLFrame frame) {
         return this.detector.asyncAnalyseFrame(frame);
@@ -114,20 +102,15 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
             @NonNull FrameMetadata frameMetadata,
             @NonNull GraphicOverlay graphicOverlay) {
         graphicOverlay.clear();
-        if (results.getMasks() == null) {
-            Log.i(TAG, "detection failed");
+        if (results.getForeground() == null) {
+            Log.i(TAG, "detection failed.");
             return;
         }
-        byte[] masks = results.getMasks();
-        if (masks == null) {
-            return;
-        }
-        // Replace background.
-        this.foregroundBitmap = results.getOriginal();
-        int facing = frameMetadata.getCameraFacing();
+        foregroundBitmap = results.foreground;
 
-        Bitmap resultBitmap = this.changeNextBackground(masks);
-        if (facing == CameraConfiguration.CAMERA_FACING_FRONT) {
+        // Replace background.
+        Bitmap resultBitmap = this.changeNextBackground(foregroundBitmap);
+        if (frameMetadata.getCameraFacing() == CameraConfiguration.CAMERA_FACING_FRONT) {
             resultBitmap = this.convert(resultBitmap);
         }
         if (this.imageSegmentationResultCallBack != null) {
@@ -146,7 +129,7 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
     /**
      * Replace the images in the assets directory as the background image in order.
      */
-    private Bitmap changeNextBackground(byte[] masks) {
+    private Bitmap changeNextBackground(Bitmap foregroundBitmap) {
         Bitmap result;
         if (this.backgroundBitmap == null) {
             Toast.makeText(this.context, "No Background Image", Toast.LENGTH_SHORT).show();
@@ -159,36 +142,8 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         int[] pixels = new int[this.backgroundBitmap.getWidth() * this.backgroundBitmap.getHeight()];
         this.backgroundBitmap.getPixels(pixels, 0, this.backgroundBitmap.getWidth(), 0, 0,
             this.backgroundBitmap.getWidth(), this.backgroundBitmap.getHeight());
-        // todo:masks
-        result = this.doMaskOnBackgroundImage(masks);
+        result = BitmapUtils.joinBitmap(backgroundBitmap, foregroundBitmap);
         return result;
-    }
-
-    /**
-     * Process the picture according to the mask value of the returned classification.
-     */
-    private Bitmap doMaskOnBackgroundImage(byte[] maskByte) {
-        if (this.backgroundBitmap == null) {
-            Toast.makeText(this.context, "No Background Image", Toast.LENGTH_SHORT).show();
-            return null;
-        }
-
-        //todo;
-        int[] masks = this.byteArrToIntArr(maskByte);
-        int[] foregroundPixels = new int[this.foregroundBitmap.getWidth() * this.foregroundBitmap.getHeight()];
-        int[] backgroundPixels = new int[this.backgroundBitmap.getWidth() * this.backgroundBitmap.getHeight()];
-        this.foregroundBitmap.getPixels(foregroundPixels, 0, this.foregroundBitmap.getWidth(), 0, 0, this.foregroundBitmap.getWidth(), this.foregroundBitmap.getHeight());
-        this.backgroundBitmap.getPixels(backgroundPixels, 0, this.backgroundBitmap.getWidth(), 0, 0, this.backgroundBitmap.getWidth(), this.backgroundBitmap.getHeight());
-
-        for (int i = 0; i < masks.length; i++) {
-            if (masks[i] == 0) {
-                foregroundPixels[i] = backgroundPixels[i];
-            }
-        }
-        Bitmap bitmap = Bitmap.createBitmap(foregroundPixels, 0, this.foregroundBitmap.getWidth(), this.foregroundBitmap.getWidth(), this.foregroundBitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-        bitmapDrawable.setAntiAlias(true);
-        return bitmap;
     }
 
     /**
@@ -212,14 +167,6 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         return this.backgroundBitmap.getHeight() == this.foregroundBitmap.getHeight() && this.backgroundBitmap.getWidth() == this.foregroundBitmap.getWidth();
     }
 
-    private int[] byteArrToIntArr(byte[] masks) {
-        int[] results = new int[masks.length];
-        for (int i = 0; i < masks.length; i++) {
-            results[i] = masks[i];
-        }
-        return results;
-    }
-
     /**
      * Front camera image position changed.
      */
@@ -228,5 +175,4 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         m.setScale(-1, 1);// horizontal flip.
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
     }
-
 }

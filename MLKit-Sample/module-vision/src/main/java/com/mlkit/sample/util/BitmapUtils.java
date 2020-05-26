@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Rect;
@@ -213,6 +214,31 @@ public class BitmapUtils {
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newBitmap = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
         return newBitmap;
+    }
+
+    /**
+     * Fusion of two images.
+     * @param background background image.
+     * @param foreground foreground image.
+     * @return
+     */
+    public static Bitmap joinBitmap(Bitmap background, Bitmap foreground) {
+        if (background == null || foreground == null) {
+            Log.e(TAG, "bitmap is null.");
+            return null;
+        }
+
+        if (background.getHeight() != foreground.getHeight() || background.getWidth() != foreground.getWidth()) {
+            Log.e(TAG, "bitmap size is not match.");
+            return null;
+        }
+        Bitmap newmap = Bitmap.createBitmap(background.getWidth(), background.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(newmap);
+        canvas.drawBitmap(background, 0, 0, null);
+        canvas.drawBitmap(foreground, 0, 0, null);
+        canvas.save();
+        canvas.restore();
+        return newmap;
     }
 }
 
