@@ -51,8 +51,6 @@ public class RecordDialog extends Dialog {
 
     private Context mContext;
 
-    private DisplayMetrics mDisplayMetrics = new DisplayMetrics();
-
     private Button btnComplete;
 
     private int mType;
@@ -92,12 +90,12 @@ public class RecordDialog extends Dialog {
                 });
             }
             window.setContentView(view);
-            window.getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-            int width = mDisplayMetrics.widthPixels - dip2px(mContext);
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             params.bottomMargin = (int) CommonUtils.dp2px(mContext, 25);
+            params.leftMargin  = (int) CommonUtils.dp2px(mContext, 20);
+            params.rightMargin = (int) CommonUtils.dp2px(mContext, 20);
             view.setLayoutParams(params);
-            window.setLayout(width, WindowManager.LayoutParams.WRAP_CONTENT);
+            window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
             setCanceledOnTouchOutside(false);
             mVolumeLevelIcon = view.findViewById(R.id.id_recorder_dialog_voice);
             this.setOnKeyListener(new OnKeyListener() {

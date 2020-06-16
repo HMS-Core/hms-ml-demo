@@ -23,27 +23,16 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.file.Files;
 
 import android.content.Context;
 
 public class FileUtils {
-
-    public static boolean isSymlink(final File file) throws IOException {
-        if (file == null) {
-            throw new NullPointerException("File must not be null");
-        }
-        return Files.isSymbolicLink(file.toPath());
-    }
-
     public static void deleteDirectory(final File directory) throws IOException {
         if (!directory.exists()) {
             return;
         }
 
-        if (!isSymlink(directory)) {
-            cleanDirectory(directory);
-        }
+        cleanDirectory(directory);
 
         if (!directory.delete()) {
             final String message = "Unable to delete directory " + directory + ".";

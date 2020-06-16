@@ -23,7 +23,6 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;

@@ -33,7 +33,6 @@ import android.util.Log;
 import com.mlkit.sample.camera.FrameMetadata;
 import com.huawei.hms.mlsdk.common.MLFrame;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;

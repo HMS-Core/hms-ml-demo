@@ -28,7 +28,6 @@ import com.bumptech.glide.Glide;
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.entity.Entity;
 
-
 import java.util.ArrayList;
 
 public class MyGridViewAdapter extends BaseAdapter {

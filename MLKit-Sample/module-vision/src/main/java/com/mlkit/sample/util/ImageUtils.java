@@ -28,7 +28,6 @@ import android.util.Log;
 
 import com.mlkit.sample.callback.ImageUtilCallBack;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

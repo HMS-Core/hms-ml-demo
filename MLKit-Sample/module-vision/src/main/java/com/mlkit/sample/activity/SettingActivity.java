@@ -23,7 +23,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-
 import com.mlkit.sample.util.Constant;
 import com.mlkit.sample.R;
 import androidx.annotation.Nullable;

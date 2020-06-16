@@ -37,7 +37,7 @@
             android:gravity="center"
             android:text="@string/face_detection"
             android:textColor="@color/secondary_text_color"
-            android:textSize="@dimen/text_size_11sp"></TextView>
+            android:textSize="@dimen/text_size_9sp"></TextView>
 
     </RelativeLayout>
 

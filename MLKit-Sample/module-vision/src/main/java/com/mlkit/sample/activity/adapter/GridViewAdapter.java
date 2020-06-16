@@ -25,7 +25,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.entity.GridViewItem;
 

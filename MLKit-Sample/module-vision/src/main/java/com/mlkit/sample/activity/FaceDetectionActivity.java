@@ -124,16 +124,7 @@ public final class FaceDetectionActivity extends BaseActivity
             }
         }
         this.preview.stop();
-        this.startLensEngine();
-
-        if (null != this.lensEngine) {
-            this.mCamera = this.lensEngine.getCamera();
-            try {
-                this.mCamera.setPreviewTexture(this.preview.getSurfaceTexture());
-            } catch (IOException e) {
-                Log.d(TAG, "initViews IOException");
-            }
-        }
+        reStartLensEngine();
     }
 
     @Override
@@ -158,6 +149,18 @@ public final class FaceDetectionActivity extends BaseActivity
         }
     }
 
+    private void reStartLensEngine(){
+        this.startLensEngine();
+        if (null != this.lensEngine) {
+            this.mCamera = this.lensEngine.getCamera();
+            try {
+                this.mCamera.setPreviewTexture(this.preview.getSurfaceTexture());
+            } catch (IOException e) {
+                Log.d(TAG, "initViews IOException");
+            }
+        }
+    }
+
     private void startLensEngine() {
         if (this.lensEngine != null) {
             try {
@@ -173,12 +176,12 @@ public final class FaceDetectionActivity extends BaseActivity
     @Override
     public void onResume() {
         super.onResume();
-        this.startLensEngine();
+        this.reStartLensEngine();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         this.preview.stop();
     }
 

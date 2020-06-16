@@ -14,6 +14,7 @@
     <dimen name="text_size_13sp">13sp</dimen>
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="text_size_11sp">11sp</dimen>
+    <dimen name="text_size_9sp">9sp</dimen>
 
     <dimen name="icon_back_width">30dp</dimen>
     <dimen name="icon_back_height">30dp</dimen>
