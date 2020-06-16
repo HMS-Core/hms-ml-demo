@@ -94,6 +94,7 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
     private void startCaptureActivity() {
         MLBcrCaptureConfig config = new MLBcrCaptureConfig.Factory()
                 .setOrientation(MLBcrCaptureConfig.ORIENTATION_AUTO)
+                .setResultType(MLBcrCaptureConfig.RESULT_ALL)
                 .create();
         MLBcrCapture bcrCapture = MLBcrCaptureFactory.getInstance().getBcrCapture(config);
 
@@ -105,6 +106,23 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
 
         resultBuilder.append("Number：");
         resultBuilder.append(result.getNumber());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Issuer：");
+        resultBuilder.append(result.getIssuer());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Expire: ");
+        resultBuilder.append(result.getExpire());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Type: ");
+        resultBuilder.append(result.getType());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Organization: ");
+        resultBuilder.append(result.getOrganization());
+        resultBuilder.append(System.lineSeparator());
 
         return resultBuilder.toString();
     }

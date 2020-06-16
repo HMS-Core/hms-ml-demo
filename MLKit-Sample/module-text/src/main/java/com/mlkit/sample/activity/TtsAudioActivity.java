@@ -16,8 +16,14 @@
 
 package com.mlkit.sample.activity;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import android.app.Dialog;
 import android.content.Context;
+import android.media.AudioFormat;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +31,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,6 +46,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.huawei.hms.mlsdk.tts.MLTtsAudioFragment;
 import com.huawei.hms.mlsdk.tts.MLTtsCallback;
 import com.huawei.hms.mlsdk.tts.MLTtsConfig;
 import com.huawei.hms.mlsdk.tts.MLTtsConstants;
@@ -46,12 +57,8 @@ import com.huawei.hms.mlsdk.tts.MLTtsEngine;
 import com.huawei.hms.mlsdk.tts.MLTtsError;
 import com.huawei.hms.mlsdk.tts.MLTtsWarn;
 import com.mlkit.sample.R;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import com.mlkit.sample.util.FileUtils;
+import com.mlkit.sample.util.PCMToWav;
 
 public class TtsAudioActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private static final String TAG = "TtsAudioActivity";
@@ -63,10 +70,16 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     private static final int MESSAGE_TYPE_INFO = 1;
     private static final int MESSAGE_TYPE_RANGE = 2;
 
+    public static String AUDIO_PATH;
+    private static String AUDIO_FILE_NAME_PCM;
+    private static String AUDIO_FILE_NAME_WAV;
+    private MediaPlayer mediaPlayer;
+
     private EditText editText;
 
     private Button addBtn;
     private Button pauseBtn;
+    private Button playBtn;
     private Button stopBtn;
 
     private SeekBar speedSeek;
@@ -74,12 +87,11 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
 
     private TextView textView_volume;
     private TextView textView_speed;
-
-    private ImageView clear;
-
     private TextView languageText;
     private TextView styleText;
     private TextView modeText;
+
+    private ImageView clear;
 
     private RelativeLayout rl_language;
     private RelativeLayout rl_style;
@@ -166,10 +178,34 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         }
 
         @Override
-        public void onEvent(String taskId, int i, Bundle bundle) {
+        public void onAudioAvailable(String s, MLTtsAudioFragment mlTtsAudioFragment, int i, Pair<Integer, Integer> pair, Bundle bundle) {
+            FileUtils.writeBufferToFile(mlTtsAudioFragment.getAudioData(), AUDIO_FILE_NAME_PCM, true);
+        }
+
+        @Override
+        public void onEvent(String taskId, int eventID, Bundle bundle) {
+            // The synthesis is complete.
+            if (eventID == MLTtsConstants.EVENT_SYNTHESIS_COMPLETE) {
+                AUDIO_FILE_NAME_WAV = PCMToWav.convertWaveFile(AUDIO_FILE_NAME_PCM, AUDIO_FILE_NAME_WAV, 16000, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
+                restartPlayer(AUDIO_FILE_NAME_WAV);
+            }
         }
     };
 
+    private void restartPlayer(String path) {
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = null;
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer.setDataSource(path);
+                mediaPlayer.prepare();
+            }
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
     private void sendRangeMsg(String str, int start, int end) {
         Message msg = new Message();
         msg.what = MESSAGE_TYPE_RANGE;
@@ -241,13 +277,24 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         mlTtsEngine = new MLTtsEngine(mlConfigs);
         // Set playback callback
         mlTtsEngine.setTtsCallback(callback);
-        // Customized configuration item, which can be configured in real time to take effect next time
+        // Create audio file.
+        AUDIO_PATH = FileUtils.initFile(this);
+        AUDIO_FILE_NAME_WAV = AUDIO_PATH + "/tts.wav";
+        AUDIO_FILE_NAME_PCM = AUDIO_PATH + "/tts.pcm";
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource("");
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }
     }
 
     private void initView() {
         editText = findViewById(R.id.edit_text);
         addBtn = findViewById(R.id.btn_add);
 
+        playBtn = findViewById(R.id.btn_play);
         pauseBtn = findViewById(R.id.btn_pause);
         stopBtn = findViewById(R.id.btn_stop);
         volumeSeek = findViewById(R.id.volumeSeek);
@@ -320,7 +367,7 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
 
     private void createLanguageDialog() {
         this.languageDialog = new Dialog(this, R.style.MyDialogStyle);
-        View view = View.inflate(this, R.layout.dialog_language, null);
+        View view = View.inflate(this, R.layout.dialog_tts_language, null);
         // Set up a custom layout
         this.languageDialog.setContentView(view);
         this.textCN = view.findViewById(R.id.simple_cn);
@@ -414,6 +461,7 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         addBtn.setOnClickListener(this);
         pauseBtn.setOnClickListener(this);
         stopBtn.setOnClickListener(this);
+        playBtn.setOnClickListener(this);
 
         speedSeek.setOnSeekBarChangeListener(this);
         volumeSeek.setOnSeekBarChangeListener(this);
@@ -433,13 +481,26 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
             mlTtsEngine.stop();
             mlTtsEngine = null;
         }
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer = null;
+        }
     }
 
+    private void playAudio(String audioFilePath) {
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+        }
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.close:
                 editText.setText("");
+                break;
+            case R.id.btn_play:
+                // Use the system player to play the cached audio.
+                this.playAudio(AUDIO_FILE_NAME_WAV);
                 break;
             case R.id.btn_add:
                 if (mlTtsEngine == null) {
@@ -454,7 +515,7 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
                 if(text.isEmpty()){
                     Toast.makeText(getApplicationContext(),R.string.please_enter_text, Toast.LENGTH_SHORT).show();
                 }
-                String id = mlTtsEngine.speak(text, isFlush ? MLTtsEngine.QUEUE_FLUSH : MLTtsEngine.QUEUE_APPEND);
+                String id = mlTtsEngine.speak(text, isFlush ? MLTtsEngine.QUEUE_FLUSH : MLTtsEngine.QUEUE_APPEND | MLTtsEngine.OPEN_STREAM);
                 temp.put(id, text);
                 break;
             case R.id.btn_pause:

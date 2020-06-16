@@ -37,26 +37,25 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:1.0.4.300'
 
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:1.0.4.300'
-
-    implementation 'com.huawei.hms:ml-computer-translate:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-language-detection:1.0.4.300'
-
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:2.0.0.300'
     implementation 'com.huawei.hms:ml-computer-card-icr-cn-model:1.0.4.300'
+    implementation  'com.huawei.hms:ml-computer-voice-aft:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:1.0.4.300'
     implementation 'com.huawei.hms:ml-computer-card-icr-cn-plugin:1.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-card-bcr-plugin:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-card-bcr-model:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-tts:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.0.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-bcr-plugin:1.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-card-bcr-model:1.0.3.300'
-
-    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:1.0.4.300'
-
-    implementation 'com.huawei.hms:ml-computer-voice-tts:1.0.4.300'
-
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:1.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-language-detection:2.0.0.303'
+    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.0.0.303'
+    implementation 'com.huawei.hms:ml-computer-translate:2.0.0.303'
+    implementation 'com.huawei.hms:ml-computer-translate-model:2.0.0.303'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

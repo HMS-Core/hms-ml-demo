@@ -20,7 +20,7 @@
             android:drawableLeft="@drawable/black_back"
             android:text="@string/back"
             android:textColor="@color/secondary_text_color"
-            android:textSize="@dimen/toolbar_back_size" />
+            android:textSize="@dimen/text_size_14sp" />
 
         <TextView
             android:id="@+id/text"
@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:text="@string/tts_s"
             android:textColor="@color/secondary_text_color"
-            android:textSize="@dimen/toolbar_title_size" />
+            android:textSize="@dimen/text_size_17sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <!-- 内容 -->
@@ -62,7 +62,7 @@
                 android:minLines="10"
                 android:padding="8dp"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size_14sp" />
 
             <RelativeLayout
                 android:id="@+id/rl_language"
@@ -79,7 +79,7 @@
                     android:fontFamily="HWtext-55ST"
                     android:text="@string/language"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:layout_centerVertical="true"/>
 
                 <ImageView
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="HWtext-55ST"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:layout_toStartOf="@id/languageimage"
                     android:layout_marginEnd="8dp"
                     android:layout_centerVertical="true"/>
@@ -126,7 +126,7 @@
                     android:fontFamily="HWtext-55ST"
                     android:text="@string/style"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:layout_centerVertical="true"/>
 
                 <ImageView
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="HWtext-55ST"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:layout_toStartOf="@id/styleimage"
                     android:layout_marginEnd="8dp"
                     android:layout_centerVertical="true"/>
@@ -172,7 +172,7 @@
                     android:fontFamily="HWtext-55ST"
                     android:text="@string/mode"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:layout_centerVertical="true"/>
 
                 <ImageView
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="HWtext-55ST"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:layout_toStartOf="@id/modeimage"
                     android:layout_marginEnd="8dp"
                     android:layout_centerVertical="true"/>
@@ -219,7 +219,7 @@
                     android:fontFamily="HWtext-65ST"
                     android:text="@string/volume"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_16sp" />
 
                 <TextView
                     android:id="@+id/textView_volume"
@@ -228,7 +228,7 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="HWtext-55ST"
                     android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    android:textSize="@dimen/text_size_14sp" />
 
                 <SeekBar
                     android:id="@+id/volumeSeek"
@@ -259,7 +259,7 @@
                     android:fontFamily="HWtext-65ST"
                     android:text="@string/speech_rate"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size_16sp" />
 
                 <TextView
                     android:id="@+id/textView_speed"
@@ -268,7 +268,7 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="HWtext-55ST"
                     android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    android:textSize="@dimen/text_size_14sp" />
 
                 <SeekBar
                     android:id="@+id/speedSeek"
@@ -302,7 +302,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="14dp"
+                    android:textSize="@dimen/text_size_14sp"
                     android:fontFamily="HWtext-55ST"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true" />
@@ -321,7 +321,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:fontFamily="HWtext-55ST"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_17sp"/>
 
             <Button
                 android:id="@+id/btn_add"
@@ -331,12 +331,27 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_below="@id/ll_speed"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="100dp"
                 android:text="@string/queue_add"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:fontFamily="HWtext-55ST"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_17sp"/>
+
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_below="@id/btn_add"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_tts_btn"
+                android:fontFamily="HWtext-55ST"
+                android:text="@string/play"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_17sp" />
 
             <Button
                 android:id="@+id/btn_pause"
@@ -345,13 +360,13 @@
                 android:background="@drawable/bg_tts_btn"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_below="@id/btn_add"
+                android:layout_below="@id/btn_play"
                 android:layout_marginTop="10dp"
                 android:text="@string/pause"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:fontFamily="HWtext-55ST"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/text_size_17sp"/>
             <ImageView
                 android:id="@+id/close"
                 android:layout_width="19dp"

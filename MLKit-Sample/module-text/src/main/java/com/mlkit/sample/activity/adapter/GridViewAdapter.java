@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.entity.GridViewItem;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 
 import java.util.ArrayList;
 

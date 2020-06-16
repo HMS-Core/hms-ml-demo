@@ -77,7 +77,7 @@
                 android:gravity="center"
                 android:text="@string/select_picture"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="11sp"></TextView>
+                android:textSize="@dimen/text_size_11sp"></TextView>
         </RelativeLayout>
 
         <View
@@ -118,7 +118,7 @@
                 android:gravity="center"
                 android:text="@string/cut"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="11sp"></TextView>
+                android:textSize="@dimen/text_size_11sp"></TextView>
 
         </RelativeLayout>
 
@@ -160,7 +160,7 @@
                 android:gravity="center"
                 android:text="@string/replace_background"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="11sp"></TextView>
+                android:textSize="@dimen/text_size_11sp"></TextView>
         </RelativeLayout>
 
         <View
@@ -202,7 +202,7 @@
                 android:gravity="center"
                 android:text="@string/save"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="11sp"></TextView>
+                android:textSize="@dimen/text_size_11sp"></TextView>
         </RelativeLayout>
     </LinearLayout>
 

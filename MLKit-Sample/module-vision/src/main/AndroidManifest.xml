@@ -15,9 +15,13 @@
         android:icon="@drawable/icon"
         android:label="ML Kit Vision"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activity.ImageClassificationActivity" />
-        <activity android:name=".activity.ObjectDetectionActivity" />
-        <activity android:name=".activity.FaceDetectionActivity" />
+        <activity android:name=".activity.ImageClassificationActivity"
+            android:resizeableActivity="false"/>
+        <activity android:name=".activity.ObjectDetectionActivity"
+            android:resizeableActivity="false"/>
+        <activity android:name=".activity.FaceDetectionActivity"
+            android:resizeableActivity="false"
+            />
         <activity
             android:name=".activity.StartActivity"
             android:exported="true">
@@ -29,6 +33,7 @@
         </activity>
         <activity
             android:name=".activity.RemoteDetectionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:exported="true" />
         <activity
             android:name=".activity.SettingActivity"
@@ -36,19 +41,26 @@
 
         <activity
             android:name=".activity.ImageSegmentationActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:exported="true" />
 
         <activity
             android:name=".activity.LoadPhotoActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:exported="true" />
 
         <activity
             android:name=".activity.TakePhotoActivity"
+            android:resizeableActivity="false"
             android:exported="true" />
 
         <activity
             android:name=".activity.StillCutPhotoActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:exported="true" />
+
+        <activity android:name=".activity.ProductVisionSearchActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

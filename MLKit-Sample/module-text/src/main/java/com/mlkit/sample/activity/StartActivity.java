@@ -50,13 +50,12 @@ public final class StartActivity extends BaseActivity
         implements OnRequestPermissionsResultCallback, View.OnClickListener {
     private static final String TAG = "StartActivity";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {R.drawable.icon_asr, R.drawable.icon_tts,
+    private static final int[] ICONS = {R.drawable.icon_translate, R.drawable.icon_asr, R.drawable.icon_tts, R.drawable.icon_aft,
             R.drawable.icon_bcr, R.drawable.icon_gcr, R.drawable.icon_text, R.drawable.icon_icr,
-            R.drawable.icon_document, R.drawable.icon_translate};
+            R.drawable.icon_document};
 
-    private static final int[] TITLES = {R.string.asr, R.string.tts,R.string.bcr,
-            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,
-            R.string.translate};
+    private static final int[] TITLES = {R.string.translate, R.string.asr, R.string.tts, R.string.aft, R.string.bcr,
+            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -83,35 +82,38 @@ public final class StartActivity extends BaseActivity
         this.mGridView.setOnItemClickListener((parent, view, position, id) -> {
             switch (position) {
                 case 0:
-                    startActivity(new Intent(StartActivity.this, AsrAudioActivity.class));
+                    startActivity(new Intent(StartActivity.this, TranslateActivity.class));
                     break;
                 case 1:
-                    startActivity(new Intent(StartActivity.this, TtsAudioActivity.class));
+                    startActivity(new Intent(StartActivity.this, AsrAudioActivity.class));
                     break;
                 case 2:
+                    startActivity(new Intent(StartActivity.this, TtsAudioActivity.class));
+                    break;
+                case 3:
+                    startActivity(new Intent(StartActivity.this, AudioFileTranscriptionActivity.class));
+                    break;
+                case 4:
                     // BCR
                     startActivity(new Intent(StartActivity.this, BankCardRecognitionActivity.class));
                     break;
-                case 3:
+                case 5:
                     // GCR
                     startActivity(new Intent(StartActivity.this, GeneralCardRecognitionActivity.class));
                     break;
-                case 4:
+                case 6:
                     // Text recognition
                     startActivity(new Intent(StartActivity.this, TextRecognitionActivity.class));
                     break;
-                case 5:
+                case 7:
                     // ICR
                     startActivity(new Intent(StartActivity.this, IDCardRecognitionActivity.class));
                     break;
-                case 6:
+                case 8:
                     // Document recognition
                     final Intent intent = new Intent(StartActivity.this, RemoteDetectionActivity.class);
                     intent.putExtra(Constant.MODEL_TYPE, Constant.CLOUD_DOCUMENT_TEXT_DETECTION);
                     startActivity(intent);
-                    break;
-                case 7:
-                    startActivity(new Intent(StartActivity.this, TranslatorActivity.class));
                     break;
                 default:
                     Toast.makeText(getApplicationContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show();

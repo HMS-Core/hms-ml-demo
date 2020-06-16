@@ -24,6 +24,6 @@
             android:layout_marginTop="10dp"
             android:text="@string/click_add_picture"
             android:textColor="#99000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/text_size_14sp" />
     </RelativeLayout>
 </RelativeLayout>

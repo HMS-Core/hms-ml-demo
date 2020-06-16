@@ -48,7 +48,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/white"
             android:layout_marginRight="10dp"
-            android:textSize="15sp" />
+            android:textSize="@dimen/text_size_15sp" />
 
         <com.mlkit.sample.views.SwitchButton
             android:id="@+id/switch_button_view"

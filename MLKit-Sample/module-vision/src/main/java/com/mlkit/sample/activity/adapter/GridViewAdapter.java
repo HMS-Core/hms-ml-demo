@@ -17,6 +17,7 @@
 package com.mlkit.sample.activity.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.entity.GridViewItem;
 
@@ -75,7 +75,7 @@ public class GridViewAdapter extends BaseAdapter {
             holder.imageView.setImageResource(item.getResourceId());
             holder.textView.setText(item.getStringId());
         } catch (Exception e) {
-            SmartLog.e("GridViewAdapter", e.getMessage());
+            Log.e("GridViewAdapter", e.getMessage());
         }
         return convertView;
     }

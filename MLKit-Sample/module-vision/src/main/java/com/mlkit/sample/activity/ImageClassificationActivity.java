@@ -130,19 +130,7 @@ public final class ImageClassificationActivity extends BaseActivity
             }
         }
         this.preview.stop();
-        this.startLensEngine();
-
-        if (null != this.lensEngine) {
-            this.mCamera = this.lensEngine.getCamera();
-            try {
-
-                this.mCamera.setPreviewDisplay(this.preview.getSurfaceHolder());
-
-            } catch (IOException e) {
-                Log.d(ImageClassificationActivity.TAG, "initViews IOException");
-            }
-        }
-
+        restartLensEngine();
     }
 
     @Override
@@ -167,6 +155,19 @@ public final class ImageClassificationActivity extends BaseActivity
         }
     }
 
+    private void restartLensEngine(){
+        this.startLensEngine();
+        if (null != this.lensEngine) {
+            this.mCamera = this.lensEngine.getCamera();
+            try {
+                this.mCamera.setPreviewDisplay(this.preview.getSurfaceHolder());
+            } catch (IOException e) {
+                Log.d(ImageClassificationActivity.TAG, "initViews IOException");
+            }
+        }
+
+    }
+
     private void startLensEngine() {
         if (this.lensEngine != null) {
             try {
@@ -182,12 +183,12 @@ public final class ImageClassificationActivity extends BaseActivity
     @Override
     public void onResume() {
         super.onResume();
-        this.startLensEngine();
+        this.restartLensEngine();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         this.preview.stop();
     }
 

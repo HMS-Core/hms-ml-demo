@@ -26,6 +26,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,7 +39,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.mlkit.sample.phototranslate.util.Constant;
 
 import java.util.ArrayList;
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     MainActivity.this.srcLanguage = MainActivity.SOURCE_LANGUAGE_CODE[position];
-                    SmartLog.i(MainActivity.TAG, "srcLanguage: " + MainActivity.this.srcLanguage);
+                    Log.i(MainActivity.TAG, "srcLanguage: " + MainActivity.this.srcLanguage);
                 }
 
                 @Override
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     MainActivity.this.dstLanguage = MainActivity.DEST_LANGUAGE_CODE[position];
-                    SmartLog.i(MainActivity.TAG, "dstLanguage: " + MainActivity.this.dstLanguage);
+                    Log.i(MainActivity.TAG, "dstLanguage: " + MainActivity.this.dstLanguage);
                 }
 
                 @Override
@@ -211,10 +212,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static boolean isPermissionGranted(Context context, String permission) {
         if (ContextCompat.checkSelfPermission(context, permission)
                 == PackageManager.PERMISSION_GRANTED) {
-            SmartLog.i(TAG, "Permission granted: " + permission);
+            Log.i(TAG, "Permission granted: " + permission);
             return true;
         }
-        SmartLog.i(TAG, "Permission NOT granted: " + permission);
+        Log.i(TAG, "Permission NOT granted: " + permission);
         return false;
     }
 

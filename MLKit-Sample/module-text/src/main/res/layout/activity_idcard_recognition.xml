@@ -19,7 +19,7 @@
             android:drawableLeft="@drawable/black_back"
             android:text="@string/back"
             android:textColor="@color/secondary_text_color"
-            android:textSize="14sp" />
+            android:textSize="@dimen/text_size_14sp" />
 
         <TextView
             android:id="@+id/text"
@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:text="@string/icr_s"
             android:textColor="@color/secondary_text_color"
-            android:textSize="17sp" />
+            android:textSize="@dimen/text_size_17sp" />
 
         <LinearLayout
             android:id="@+id/switch_button_layout"
@@ -46,7 +46,7 @@
                 android:gravity="center"
                 android:text="@string/cloud_side"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size_14sp" />
 
             <com.mlkit.sample.views.SwitchButton
                 android:id="@+id/switch_button_view"
@@ -87,7 +87,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/icr_upload_self_photo"
                 android:textColor="@color/text_color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/text_size_15sp" />
 
 
             <RelativeLayout
@@ -145,7 +145,7 @@
                         android:gravity="center_horizontal"
                         android:text="@string/icr_upload_face"
                         android:textColor="@color/text_color"
-                        android:textSize="13sp" />
+                        android:textSize="@dimen/text_size_13sp" />
                 </LinearLayout>
 
                 <TextView
@@ -160,7 +160,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/icr_hint_upload_valid_photo"
                     android:textColor="@color/color_red_card"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/text_size_12sp"
                     android:visibility="gone" />
 
                 <ImageView
@@ -188,7 +188,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/icr_hint_image_not_complete"
                 android:textColor="@color/color_red_card"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_12sp"
                 android:visibility="gone" />
 
             <RelativeLayout
@@ -246,7 +246,7 @@
                         android:gravity="center_horizontal"
                         android:text="@string/icr_upload_back"
                         android:textColor="@color/text_color"
-                        android:textSize="13sp" />
+                        android:textSize="@dimen/text_size_13sp" />
                 </LinearLayout>
 
                 <TextView
@@ -263,7 +263,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/icr_hint_upload_valid_photo"
                     android:textColor="@color/color_red_card"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/text_size_12sp"
                     android:visibility="gone" />
 
                 <ImageView
@@ -291,7 +291,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/icr_hint_ensure_user_info_security"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_size_12sp" />
 
 
             <TextView
@@ -305,7 +305,7 @@
                 android:fontFamily="HwChinese-medium"
                 android:text="@string/recognition_results"
                 android:textColor="@color/text_color"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_size_16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -320,7 +320,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/secondary_text_color"
-                    android:textSize="14sp"></TextView>
+                    android:textSize="@dimen/text_size_14sp"></TextView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -335,6 +335,6 @@
         android:layout_marginBottom="5dp"
         android:text="@string/icr_mark"
         android:textColor="@color/secondary_text_color"
-        android:textSize="12sp"></TextView>
+        android:textSize="@dimen/text_size_12sp"></TextView>
 
 </RelativeLayout>

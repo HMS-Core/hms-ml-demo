@@ -41,7 +41,7 @@ import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.MLFrame;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.huawei.hms.mlsdk.text.MLRemoteTextSetting;
 import com.huawei.hms.mlsdk.text.MLText;
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
@@ -94,7 +94,7 @@ public class RemoteTranslateActivity extends AppCompatActivity {
             this.srcLanguage = intent.getStringExtra(Constant.SOURCE_VALUE);
             this.dstLanguage = intent.getStringExtra(Constant.DEST_VALUE);
         } catch (RuntimeException e) {
-            SmartLog.e(RemoteTranslateActivity.TAG, "Get intent value failed:" + e.getMessage());
+            Log.e(RemoteTranslateActivity.TAG, "Get intent value failed:" + e.getMessage());
         }
         this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +191,7 @@ public class RemoteTranslateActivity extends AppCompatActivity {
                 try {
                     fis.close();
                 } catch (IOException error) {
-                    SmartLog.e(TAG, "Load camera image failed: " + error.getMessage());
+                    Log.e(TAG, "Load camera image failed: " + error.getMessage());
                 }
             }
         }
@@ -318,7 +318,7 @@ public class RemoteTranslateActivity extends AppCompatActivity {
         int maxHeight = targetedSize.second;
         this.originBitmap = BitmapUtils.loadFromPath(RemoteTranslateActivity.this, this.imageUri, targetWidth, maxHeight);
         // Determine how much to scale down the image.
-        SmartLog.i(RemoteTranslateActivity.TAG, "resized image size width:" + this.originBitmap.getWidth() + ",height: " + this.originBitmap.getHeight());
+        Log.i(RemoteTranslateActivity.TAG, "resized image size width:" + this.originBitmap.getWidth() + ",height: " + this.originBitmap.getHeight());
         this.preview.setImageBitmap(this.originBitmap);
     }
 
@@ -354,7 +354,7 @@ public class RemoteTranslateActivity extends AppCompatActivity {
         Integer maxHeight = this.getMaxHeightOfImage();
         targetWidth = this.isLandScape ? maxHeight : maxWidth;
         targetHeight = this.isLandScape ? maxWidth : maxHeight;
-        SmartLog.i(RemoteTranslateActivity.TAG, "height:" + targetHeight + ",width:" + targetWidth);
+        Log.i(RemoteTranslateActivity.TAG, "height:" + targetHeight + ",width:" + targetWidth);
         return new Pair<>(targetWidth, targetHeight);
     }
 
@@ -365,7 +365,7 @@ public class RemoteTranslateActivity extends AppCompatActivity {
             try {
                 this.textAnalyzer.close();
             } catch (IOException e) {
-                SmartLog.e(RemoteTranslateActivity.TAG, "Stop analyzer failed: " + e.getMessage());
+                Log.e(RemoteTranslateActivity.TAG, "Stop analyzer failed: " + e.getMessage());
             }
         }
         if (this.translator != null) {

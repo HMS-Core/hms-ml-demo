@@ -24,6 +24,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
@@ -37,7 +38,7 @@ import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.MLFrame;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentation;
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationAnalyzer;
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationSetting;
@@ -80,7 +81,7 @@ public class StillCutPhotoActivity extends AppCompatActivity {
         try {
             this.index = intent.getIntExtra(Constant.VALUE_KEY, -1);
         } catch (RuntimeException e) {
-            SmartLog.e(StillCutPhotoActivity.TAG, "Get intent value failed:" + e.getMessage());
+            Log.e(StillCutPhotoActivity.TAG, "Get intent value failed:" + e.getMessage());
         }
         this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +128,7 @@ public class StillCutPhotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (StillCutPhotoActivity.this.processedImage == null) {
-                    SmartLog.e(StillCutPhotoActivity.TAG, "null processed image");
+                    Log.e(StillCutPhotoActivity.TAG, "null processed image");
                     Toast.makeText(StillCutPhotoActivity.this.getApplicationContext(), R.string.no_pic_neededSave, Toast.LENGTH_SHORT).show();
                 } else {
                     ImageUtils imageUtils = new ImageUtils(StillCutPhotoActivity.this.getApplicationContext());
@@ -237,7 +238,7 @@ public class StillCutPhotoActivity extends AppCompatActivity {
         int maxHeight = targetedSize.second;
         this.originBitmap = BitmapUtils.loadFromPath(StillCutPhotoActivity.this, this.imageUri, targetWidth, maxHeight);
         // Determine how much to scale down the image.
-        SmartLog.i(StillCutPhotoActivity.TAG, "resized image size width:" + this.originBitmap.getWidth() + ",height: " + this.originBitmap.getHeight());
+        Log.i(StillCutPhotoActivity.TAG, "resized image size width:" + this.originBitmap.getWidth() + ",height: " + this.originBitmap.getHeight());
         this.preview.setImageBitmap(this.originBitmap);
     }
 
@@ -273,7 +274,7 @@ public class StillCutPhotoActivity extends AppCompatActivity {
         Integer maxHeight = this.getMaxHeightOfImage();
         targetWidth = this.isLandScape ? maxHeight : maxWidth;
         targetHeight = this.isLandScape ? maxWidth : maxHeight;
-        SmartLog.i(StillCutPhotoActivity.TAG, "height:" + targetHeight + ",width:" + targetWidth);
+        Log.i(StillCutPhotoActivity.TAG, "height:" + targetHeight + ",width:" + targetWidth);
         return new Pair<>(targetWidth, targetHeight);
     }
 
@@ -284,7 +285,7 @@ public class StillCutPhotoActivity extends AppCompatActivity {
             try {
                 this.analyzer.stop();
             } catch (IOException e) {
-                SmartLog.e(StillCutPhotoActivity.TAG, "Stop analyzer failed: " + e.getMessage());
+                Log.e(StillCutPhotoActivity.TAG, "Stop analyzer failed: " + e.getMessage());
             }
         }
         this.imageUri = null;

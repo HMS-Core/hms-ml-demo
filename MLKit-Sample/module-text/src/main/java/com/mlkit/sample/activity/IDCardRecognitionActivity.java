@@ -171,24 +171,23 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
     private String formatIdCardResult(MLCnIcrCaptureResult result, boolean isFront) {
         Log.i(IDCardRecognitionActivity.TAG, "formatIdCardResult");
         StringBuilder resultBuilder = new StringBuilder();
-        String newLine = getResources().getString(R.string.special);
         if (isFront) {
             resultBuilder.append("Name：");
             resultBuilder.append(result.name);
-            resultBuilder.append(newLine);
+            resultBuilder.append(System.lineSeparator());
 
             resultBuilder.append("Sex：");
             resultBuilder.append(result.sex);
-            resultBuilder.append(newLine);
+            resultBuilder.append(System.lineSeparator());
 
             resultBuilder.append("IDNum: ");
             resultBuilder.append(result.idNum);
-            resultBuilder.append(newLine);
+            resultBuilder.append(System.lineSeparator());
             Log.i(IDCardRecognitionActivity.TAG, "front result: " + resultBuilder.toString());
         } else {
-
             resultBuilder.append("ValidDate: ");
             resultBuilder.append(result.validDate);
+            resultBuilder.append(System.lineSeparator());
             Log.i(IDCardRecognitionActivity.TAG, "back result: " + resultBuilder.toString());
         }
         return resultBuilder.toString();
