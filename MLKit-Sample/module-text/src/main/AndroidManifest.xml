@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="com.huawei.mlkit.asr.permission" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -16,14 +16,17 @@
 
     <permission
         android:name="com.huawei.mlkit.asr.permission"
-        android:label="ASR"></permission>
+        android:label="ASR" />
 
     <application
         android:allowBackup="false"
         android:icon="@drawable/icon"
         android:label="ML Kit Text"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activity.TtsAudioActivity"/>
+        <activity android:name=".activity.TranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"></activity>
+        <activity android:name=".activity.TtsAudioActivity"
+        android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
 
         <activity
             android:name=".activity.StartActivity"
@@ -43,20 +46,23 @@
         <activity
             android:name=".activity.SettingActivity"
             android:exported="true" />
-
-        <activity android:name=".activity.TranslatorActivity" />
-        <activity android:name=".activity.AsrAudioActivity"/>
-
+        <activity android:name=".activity.RemoteTranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
+        <activity android:name=".activity.LocalTranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"></activity>
+        <activity android:name=".activity.AsrAudioActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
         <activity
             android:name=".activity.IDCardRecognitionActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
         <activity
             android:name=".activity.GeneralCardRecognitionActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
         <activity
             android:name=".activity.BankCardRecognitionActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+        <activity android:name=".activity.AudioFileTranscriptionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -67,6 +73,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/apk_file_provider" />
         </provider>
+
         <meta-data
             android:name="com.huawei.hms.ml.DEPENDENCY"
             android:value="object,ocr,face,label,icr,imgseg" />

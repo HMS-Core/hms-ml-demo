@@ -17,6 +17,7 @@
 package com.mlkit.sample.activity.adapter.imgseg;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.entity.Entity;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 
 import java.util.ArrayList;
 
@@ -83,7 +84,7 @@ public class MyGridViewAdapter extends BaseAdapter {
             .error(R.drawable.icon_logo)
             .into(holder.imageView);
         } catch (Exception e) {
-            SmartLog.e("MyGridViewAdapter", e.getMessage());
+            Log.e("MyGridViewAdapter", e.getMessage());
         }
         return convertView;
     }

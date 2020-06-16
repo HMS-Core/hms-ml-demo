@@ -35,7 +35,7 @@
             android:layout_centerHorizontal="true"
             android:text="@string/translate"
             android:textColor="@color/secondary_text_color"
-            android:textSize="11sp"></TextView>
+            android:textSize="@dimen/text_size_9sp"></TextView>
 
     </RelativeLayout>
 

@@ -44,7 +44,7 @@
             android:layout_centerInParent="true"
             android:text="@string/text_detection_s"
             android:textColor="@color/white"
-            android:textSize="17sp"></TextView>
+            android:textSize="@dimen/text_size_17sp"></TextView>
 
 
     </RelativeLayout>

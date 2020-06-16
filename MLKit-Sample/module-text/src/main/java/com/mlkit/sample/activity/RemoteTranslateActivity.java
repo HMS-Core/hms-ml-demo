@@ -47,8 +47,8 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class TranslatorActivity extends BaseActivity {
-    private static final String TAG = "TranslatorActivity";
+public class RemoteTranslateActivity extends BaseActivity {
+    private static final String TAG = "RemoteTranslateActivity";
     private static final String[] SOURCE_LANGUAGE_CODE = new String[]{"Auto",
             "ZH", "EN", "FR", "TH", "JA", "DE", "RU", "ES",
             "AR", "TR", "PT", "IT"};
@@ -102,7 +102,7 @@ public class TranslatorActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_translate);
+        this.setContentView(R.layout.activity_remote_translate);
         this.createComponent();
         this.createSpinner();
         this.bindEventListener();
@@ -110,11 +110,11 @@ public class TranslatorActivity extends BaseActivity {
 
     private void createSpinner() {
         if (this.isEngLanguage()) {
-            this.spSourceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, TranslatorActivity.SP_SOURCE_LIST_EN);
-            this.spDestAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, TranslatorActivity.SP_DEST_LIST_EN);
+            this.spSourceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_SOURCE_LIST_EN);
+            this.spDestAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_DEST_LIST_EN);
         } else {
-            this.spSourceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, TranslatorActivity.SP_SOURCE_LIST);
-            this.spDestAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, TranslatorActivity.SP_DEST_LIST);
+            this.spSourceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_SOURCE_LIST);
+            this.spDestAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_DEST_LIST);
         }
 
         this.spSourceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -126,8 +126,8 @@ public class TranslatorActivity extends BaseActivity {
         this.spSourceType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                TranslatorActivity.this.srcLanguage = TranslatorActivity.SOURCE_LANGUAGE_CODE[position];
-                Log.i(TranslatorActivity.TAG, "srcLanguage: " + TranslatorActivity.this.srcLanguage);
+                RemoteTranslateActivity.this.srcLanguage = RemoteTranslateActivity.SOURCE_LANGUAGE_CODE[position];
+                Log.i(RemoteTranslateActivity.TAG, "srcLanguage: " + RemoteTranslateActivity.this.srcLanguage);
             }
 
             @Override
@@ -139,8 +139,8 @@ public class TranslatorActivity extends BaseActivity {
         this.spDestType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                TranslatorActivity.this.dstLanguage = TranslatorActivity.DEST_LANGUAGE_CODE[position];
-                Log.i(TranslatorActivity.TAG, "dstLanguage: " + TranslatorActivity.this.dstLanguage);
+                RemoteTranslateActivity.this.dstLanguage = RemoteTranslateActivity.DEST_LANGUAGE_CODE[position];
+                Log.i(RemoteTranslateActivity.TAG, "dstLanguage: " + RemoteTranslateActivity.this.dstLanguage);
             }
 
             @Override
@@ -161,8 +161,8 @@ public class TranslatorActivity extends BaseActivity {
     }
 
     private void updateDestLanguage(String code) {
-        if (code.equalsIgnoreCase(TranslatorActivity.SOURCE_LANGUAGE_CODE[0]) || code.equalsIgnoreCase(TranslatorActivity.SP_SOURCE_LIST.get(0))) {
-            this.dstLanguage = TranslatorActivity.DEST_LANGUAGE_CODE[0];
+        if (code.equalsIgnoreCase(RemoteTranslateActivity.SOURCE_LANGUAGE_CODE[0]) || code.equalsIgnoreCase(RemoteTranslateActivity.SP_SOURCE_LIST.get(0))) {
+            this.dstLanguage = RemoteTranslateActivity.DEST_LANGUAGE_CODE[0];
             return;
         }
         int count = this.spDestAdapter.getCount();
@@ -197,8 +197,8 @@ public class TranslatorActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence str, int start, int before, int count) {
-                TranslatorActivity.this.updateLength(TranslatorActivity.this.tvInputLen, str.length());
-                TranslatorActivity.this.autoUpdateSourceLanguage();
+                RemoteTranslateActivity.this.updateLength(RemoteTranslateActivity.this.tvInputLen, str.length());
+                RemoteTranslateActivity.this.autoUpdateSourceLanguage();
             }
 
             @Override
@@ -217,7 +217,7 @@ public class TranslatorActivity extends BaseActivity {
         Locale locale = Locale.getDefault();
         if (locale != null) {
             String strLan = locale.getLanguage();
-            return strLan != null && TranslatorActivity.EN.equals(strLan);
+            return strLan != null && RemoteTranslateActivity.EN.equals(strLan);
         }
         return false;
     }
@@ -233,30 +233,30 @@ public class TranslatorActivity extends BaseActivity {
      */
     private void updateOutputText(final String text) {
         if (text == null || text.isEmpty()) {
-            Log.w(TranslatorActivity.TAG, "updateOutputText: text is empty");
+            Log.w(RemoteTranslateActivity.TAG, "updateOutputText: text is empty");
             return;
         }
 
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                TranslatorActivity.this.tvOutputString.setText(text);
-                TranslatorActivity.this.updateLength(TranslatorActivity.this.tvOutputLen, text.length());
+                RemoteTranslateActivity.this.tvOutputString.setText(text);
+                RemoteTranslateActivity.this.updateLength(RemoteTranslateActivity.this.tvOutputLen, text.length());
             }
         });
     }
 
     private void updateInputText(final String text) {
         if (text == null || text.isEmpty()) {
-            Log.w(TranslatorActivity.TAG, "updateInputText: text is empty");
+            Log.w(RemoteTranslateActivity.TAG, "updateInputText: text is empty");
             return;
         }
 
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                TranslatorActivity.this.etInputString.setText(text);
-                TranslatorActivity.this.updateLength(TranslatorActivity.this.tvInputLen, text.length());
+                RemoteTranslateActivity.this.etInputString.setText(text);
+                RemoteTranslateActivity.this.updateLength(RemoteTranslateActivity.this.tvInputLen, text.length());
             }
         });
     }
@@ -283,16 +283,16 @@ public class TranslatorActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.back:
-                    TranslatorActivity.this.finish();
+                    RemoteTranslateActivity.this.finish();
                     break;
                 case R.id.btn_translator:
-                    TranslatorActivity.this.doTranslate();
+                    RemoteTranslateActivity.this.doTranslate();
                     break;
                 case R.id.btn_identification:
-                    TranslatorActivity.this.doLanguageRecognition();
+                    RemoteTranslateActivity.this.doLanguageRecognition();
                     break;
                 case R.id.buttonSwitchLang:
-                    TranslatorActivity.this.doLanguageSwitch();
+                    RemoteTranslateActivity.this.doLanguageSwitch();
                     break;
                 default:
                     break;
@@ -335,13 +335,13 @@ public class TranslatorActivity extends BaseActivity {
             @Override
             public void onSuccess(String text) {
                 long endTime = System.currentTimeMillis();
-                TranslatorActivity.this.updateOutputText(text);
-                TranslatorActivity.this.updateTime(endTime - startTime);
+                RemoteTranslateActivity.this.updateOutputText(text);
+                RemoteTranslateActivity.this.updateTime(endTime - startTime);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(Exception e) {
-                TranslatorActivity.this.updateOutputText(e.getMessage());
+                RemoteTranslateActivity.this.updateOutputText(e.getMessage());
             }
         });
 
@@ -357,7 +357,7 @@ public class TranslatorActivity extends BaseActivity {
             public void onSuccess(List<MLDetectedLang> result) {
                 MLDetectedLang recognizedLang = result.get(0);
                 String langCode = recognizedLang.getLangCode();
-                TranslatorActivity.this.updateSourceLanguage(langCode);
+                RemoteTranslateActivity.this.updateSourceLanguage(langCode);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -379,16 +379,16 @@ public class TranslatorActivity extends BaseActivity {
                 for (MLDetectedLang recognizedLang : result) {
                     String langCode = recognizedLang.getLangCode();
                     float probability = recognizedLang.getProbability();
-                    sb.append("Language=" + TranslatorActivity.this.getEnLanguageName(langCode) + "(" + langCode + "), score=" + probability);
+                    sb.append("Language=" + RemoteTranslateActivity.this.getEnLanguageName(langCode) + "(" + langCode + "), score=" + probability);
                     sb.append(".");
                 }
-                TranslatorActivity.this.updateOutputText(sb.toString());
-                TranslatorActivity.this.updateTime(endTime - startTime);
+                RemoteTranslateActivity.this.updateOutputText(sb.toString());
+                RemoteTranslateActivity.this.updateTime(endTime - startTime);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(Exception e) {
-                TranslatorActivity.this.updateOutputText(e.getMessage());
+                RemoteTranslateActivity.this.updateOutputText(e.getMessage());
             }
         });
         this.mlRemoteLangDetector.stop();
@@ -396,8 +396,8 @@ public class TranslatorActivity extends BaseActivity {
 
     private String getLanguageName(String code) {
         int index = 0;
-        for (int i = 0; i < TranslatorActivity.SOURCE_LANGUAGE_CODE.length; i++) {
-            if (code.equalsIgnoreCase(TranslatorActivity.SOURCE_LANGUAGE_CODE[i])) {
+        for (int i = 0; i < RemoteTranslateActivity.SOURCE_LANGUAGE_CODE.length; i++) {
+            if (code.equalsIgnoreCase(RemoteTranslateActivity.SOURCE_LANGUAGE_CODE[i])) {
                 index = i;
                 break;
             }
@@ -407,10 +407,10 @@ public class TranslatorActivity extends BaseActivity {
 
     private String getEnLanguageName(String code) {
         int index = 0;
-        for (int i = 0; i < TranslatorActivity.CODE_LIST.size(); i++) {
-            if (code.equalsIgnoreCase(TranslatorActivity.CODE_LIST.get(i))) {
+        for (int i = 0; i < RemoteTranslateActivity.CODE_LIST.size(); i++) {
+            if (code.equalsIgnoreCase(RemoteTranslateActivity.CODE_LIST.get(i))) {
                 index = i;
-                return TranslatorActivity.LANGUAGE_LIST.get(index);
+                return RemoteTranslateActivity.LANGUAGE_LIST.get(index);
             }
         }
         return code;

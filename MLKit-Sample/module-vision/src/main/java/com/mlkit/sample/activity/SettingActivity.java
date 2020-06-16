@@ -19,10 +19,11 @@ package com.mlkit.sample.activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.mlkit.sample.util.Constant;
 import com.mlkit.sample.R;
 import androidx.annotation.Nullable;
@@ -64,7 +65,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             String mVersionName = packageInfo.versionName;
             return mVersionName;
         } catch (PackageManager.NameNotFoundException e) {
-            SmartLog.e(SettingActivity.TAG, "Failed to get package version: " + e.getMessage());
+            Log.e(SettingActivity.TAG, "Failed to get package version: " + e.getMessage());
         }
         return Constant.DEFAULT_VERSION;
     }

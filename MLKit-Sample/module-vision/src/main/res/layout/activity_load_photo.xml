@@ -63,7 +63,7 @@
                 android:layout_marginLeft="15dp"
                 android:text="@string/target_object"
                 android:textColor="@color/text_color"
-                android:textSize="@dimen/dialog_text_size" />
+                android:textSize="@dimen/text_size_13sp" />
 
             <HorizontalScrollView
                 android:id="@+id/scroll_objects"
@@ -97,7 +97,7 @@
                 android:layout_marginLeft="15dp"
                 android:text="@string/color"
                 android:textColor="@color/text_color"
-                android:textSize="@dimen/dialog_text_size" />
+                android:textSize="@dimen/text_size_13sp" />
 
             <com.mlkit.sample.views.color.ColorSelector
                 android:id="@+id/color_selector"

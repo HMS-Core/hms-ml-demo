@@ -11,7 +11,7 @@
         android:useLevel="false">
           
         <gradient
-            android:centerColor="@color/primary_text_color"
+            android:centerColor="@color/button_background"
             android:centerY="0.5"
             android:endColor="@color/white"
             android:startColor="@color/white"

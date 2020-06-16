@@ -35,7 +35,7 @@ import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.LensEngine;
 import com.huawei.hms.mlsdk.common.MLAnalyzer;
 import com.huawei.hms.mlsdk.common.MLResultTrailer;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.huawei.hms.mlsdk.face.MLFace;
 import com.huawei.hms.mlsdk.face.MLFaceAnalyzer;
 import com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting;
@@ -94,7 +94,7 @@ public class LiveFaceAnalyseActivity extends AppCompatActivity implements View.O
         try {
             this.detectMode = intent.getIntExtra(Constant.DETECT_MODE, -1);
         } catch (RuntimeException e) {
-            SmartLog.e(LiveFaceAnalyseActivity.TAG, "Get intent value failed:" + e.getMessage());
+            Log.e(LiveFaceAnalyseActivity.TAG, "Get intent value failed:" + e.getMessage());
         }
         this.createFaceAnalyzer();
         this.overlay = findViewById(R.id.face_overlay);

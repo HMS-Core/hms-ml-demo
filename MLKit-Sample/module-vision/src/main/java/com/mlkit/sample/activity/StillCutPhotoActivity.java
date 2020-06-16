@@ -41,7 +41,7 @@ import com.mlkit.sample.util.ImageUtils;
 import com.mlkit.sample.views.overlay.GraphicOverlay;
 import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.MLFrame;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentation;
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationAnalyzer;
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationSetting;

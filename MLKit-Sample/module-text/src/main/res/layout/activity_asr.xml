@@ -21,7 +21,7 @@
             android:drawableLeft="@drawable/black_back"
             android:text="@string/back"
             android:textColor="@color/secondary_text_color"
-            android:textSize="@dimen/toolbar_back_size" />
+            android:textSize="@dimen/text_size_14sp" />
 
         <TextView
             android:id="@+id/text"
@@ -30,7 +30,7 @@
             android:layout_gravity="center"
             android:text="@string/asr_s"
             android:textColor="@color/secondary_text_color"
-            android:textSize="@dimen/toolbar_title_size" />
+            android:textSize="@dimen/text_size_17sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
@@ -49,12 +49,11 @@
 
             <RelativeLayout
                 android:id="@+id/rl_language"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="14dp">
 
                 <TextView
                     android:id="@+id/language_text"
@@ -62,7 +61,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:fontFamily="HWtext-55ST"
-                    android:gravity="center_vertical"
                     android:text="@string/language"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
@@ -71,8 +69,8 @@
                     android:id="@+id/languageimage"
                     android:layout_width="15dp"
                     android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/languagetext"
                     android:src="@drawable/ic_down" />
 
                 <TextView
@@ -80,9 +78,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_toEndOf="@id/language_text"
+                    android:layout_toStartOf="@id/languageimage"
                     android:fontFamily="HWtext-55ST"
                     android:text="@string/chinese"
                     android:textColor="@color/black"
@@ -90,13 +87,70 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.25dp"
+                android:layout_below="@id/rl_language"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@color/common_line_color" />
+
+            <RelativeLayout
+                android:id="@+id/rl_type"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_below="@+id/rl_language">
+
+                <TextView
+                    android:id="@+id/type_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="HWtext-55ST"
+                    android:text="@string/asr_sound_pickup_interface_type"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:id="@+id/typeimage"
+                    android:layout_width="15dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_down" />
+
+                <TextView
+                    android:id="@+id/typetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/typeimage"
+                    android:fontFamily="HWtext-55ST"
+                    android:text="@string/asr_sound_pickup_interface_type_plugin"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.25dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_below="@id/rl_type"
+                android:background="@color/common_line_color" />
+
             <RelativeLayout
                 android:id="@+id/icon_record"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/ll_example"
-                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/round">
 
                 <ImageView
@@ -115,39 +169,16 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:gravity="center"
+                    android:text="@string/start"
                     android:textColor="@color/button_background"
-                    android:textSize="28sp" />
+                    android:textSize="@dimen/text_size_28sp" />
             </RelativeLayout>
-
-            <!--RadioGroup
-                android:id="@+id/language"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/icon_record"
-                android:layout_marginTop="15dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/chinese"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:checked="true"
-                    android:text="@string/chinese" />
-
-                <RadioButton
-                    android:id="@+id/english"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:text="@string/english" />
-            </RadioGroup-->
 
             <LinearLayout
                 android:id="@+id/ll_example"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rl_language"
+                android:layout_below="@+id/rl_type"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="40dp"
@@ -182,7 +213,7 @@
                         android:layout_toEndOf="@+id/example_one_image"
                         android:text="@string/example_one"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_size_14sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -208,7 +239,7 @@
                         android:layout_toEndOf="@+id/example_two_image"
                         android:text="@string/example_two"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_size_14sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -234,16 +265,17 @@
                         android:layout_toEndOf="@+id/example_three_image"
                         android:text="@string/example_three"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_size_14sp" />
                 </RelativeLayout>
+
             </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_result_record"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rl_language"
-                android:layout_marginTop="40dp"
+                android:layout_below="@+id/rl_type"
+                android:layout_marginTop="50dp"
                 android:visibility="invisible">
 
                 <ScrollView
@@ -255,17 +287,19 @@
                     android:background="@drawable/linear_background_result"
                     android:padding="10dp"
                     android:scrollbars="none">
+
                     <TextView
                         android:id="@+id/tv_record_result"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textIsSelectable="true"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
                         android:textColor="@color/secondary_text_color"
-                        android:textSize="16sp" />
+                        android:textIsSelectable="true"
+                        android:textSize="@dimen/text_size_16sp" />
 
                 </ScrollView>
+
                 <ImageView
                     android:id="@+id/close"
                     android:layout_width="20dp"

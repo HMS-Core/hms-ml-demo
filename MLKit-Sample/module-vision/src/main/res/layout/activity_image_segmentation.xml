@@ -21,7 +21,7 @@
             android:text="@string/back"
             android:padding="@dimen/icon_back_margin"
             android:textColor="@color/secondary_text_color"
-            android:textSize="@dimen/toolbar_back_size" />
+            android:textSize="@dimen/text_size_14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/background_substitution"
-                    android:textSize="@dimen/tab_title_text_size"
+                    android:textSize="@dimen/text_size_16sp"
                     android:textColor="@color/button_background"
                     android:layout_centerInParent="true"
                     />
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cutout"
-                    android:textSize="@dimen/tab_title_text_size"
+                    android:textSize="@dimen/text_size_16sp"
                     android:textColor="@color/secondary_text_color"
                     android:layout_centerInParent="true"
                     />
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/image_segmentation"
-                    android:textSize="@dimen/tab_title_text_size"
+                    android:textSize="@dimen/text_size_16sp"
                     android:textColor="@color/secondary_text_color"
                     android:layout_centerInParent="true"
                     />

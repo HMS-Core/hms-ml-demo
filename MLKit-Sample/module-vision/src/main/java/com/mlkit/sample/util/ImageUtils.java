@@ -24,9 +24,10 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.util.Log;
 
 import com.mlkit.sample.callback.ImageUtilCallBack;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -62,16 +63,16 @@ public class ImageUtils {
             os.flush();
 
         } catch (FileNotFoundException e) {
-            SmartLog.e(TAG, e.getMessage());
+            Log.e(TAG, e.getMessage());
         } catch (IOException e) {
-            SmartLog.e(TAG, e.getMessage());
+            Log.e(TAG, e.getMessage());
         }finally {
             try {
                 if(os != null) {
                     os.close();
                 }
             }catch (IOException e){
-                SmartLog.e(TAG, e.getMessage());
+                Log.e(TAG, e.getMessage());
             }
         }
         if(file == null){
@@ -86,7 +87,7 @@ public class ImageUtils {
             try {
                 path = file.getCanonicalPath();
             } catch (IOException e) {
-                SmartLog.e(TAG, e.getMessage());
+                Log.e(TAG, e.getMessage());
             }
             MediaScannerConnection.scanFile(this.context, new String[]{path}, null,
                     new MediaScannerConnection.OnScanCompletedListener() {

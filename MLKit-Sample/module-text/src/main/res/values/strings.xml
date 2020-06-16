@@ -22,21 +22,24 @@
     <string name="latin_choose">Latin</string>
     <string name="get_data_failed">Failed to get data.</string>
     <string name="loading_data">Loading…</string>
-    <string name="chinese">chinese</string>
+    <string name="chinese">Chinese</string>
     <string name="nonetwork">nonetwork</string>
     <string name="abnormal">service is abnormal</string>
     <string name="replay">replay</string>
 
+    <!--全称-->
     <string name="icr_s">ID Card Recognition</string>
     <string name="text_detection_s">Text Recognition</string>
     <string name="document_recognition_s">Document Recognition</string>
+    <string name="aft_s">Audio File Transcription</string>
     <string name="bcr_s">Bank Card Recognition</string>
     <string name="ucr_s">General Card Recognition</string>
     <string name="asr_s">Speech Recognition</string>
     <string name="tts_s">Text to speech</string>
-
+    <!--简写-->
     <string name="document_recognition">Document</string>
     <string name="translate">Translation</string>
+    <string name="aft">AFT</string>
     <string name="bcr">BCR</string>
     <string name="gcr">GCR</string>
     <string name="icr">ICR</string>
@@ -54,10 +57,12 @@
     <string name="translate_text_hint">Machine Learning</string>
     <string name="intro">text to speak</string>
     <string name="queue_add">speech</string>
+    <string name="play">play</string>
     <string name="release_tts">stop</string>
     <string name="pause">pause</string>
     <string name="resume">resume</string>
 
+    <!--身份证识别-->
     <string name="icr_upload_self_photo">Upload photos of your ID card</string>
     <string name="icr_upload_face">Photo side</string>
     <string name="icr_upload_back">Other side</string>
@@ -68,7 +73,7 @@
     <string name="icr_mark">*This is for Chinese mainland residents only</string>
     <string name="device_side">Device Side</string>
     <string name="cloud_side">Cloud</string>
-
+    <!--通用卡证-->
     <string name="gcr_upload_self_photo">Upload photos of your card</string>
     <string name="gcr_upload">Upload card</string>
     <string name="hk_pass">Hong Kong, Macao and Taiwan pass</string>
@@ -81,9 +86,27 @@
     <string name="bcr_upload_self_photo">"Please upload the bank card"</string>
     <string name="bcr_upload">Upload card</string>
 
-    <string name="language">Language:</string>
+    <!--ATF-->
 
+    <string name="record">Record</string>
+    <string name="str_ok">OK</string>
+    <string name="converting">Converting...</string>
+    <string name="recording">Recording...</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="convert_failed">Failed:</string>
+    <string name="language">Language:</string>
+    <string name="stop_record">stop</string>
+
+    <string name="error_aft_network">Abnormal network connection</string>
+    <string name="error_aft_internal">Internal error</string>
+    <string name="error_aft_illegal_parameters">Illegal parameter</string>
+    <string name="error_aft_authorize_failed">Authentication failed</string>
+    <string name="error_aft_audio_length_overflow">Audio length overflow</string>
+    <string name="error_aft_audio_transcript_failed">Audio transcript failed</string>
+
+    <!--先默认中文-->
     <string name="start">start</string>
+    <string name="please_speak">Please speak</string>
     <string name="example_say">You could say that.</string>
     <string name="example_one">I want to take a taxi to Wanda Plazaz</string>
     <string name="example_two">I want to see Infernal Affairs</string>
@@ -92,6 +115,14 @@
     <string name="record_text_name">text.txt</string>
     <string name="record_json_name">description.json</string>
     <string name="record_pcm_name">audio.pcm</string>
+
+    <string name="error_no_network">ERROR: Network unavailable, please try again…</string>
+    <string name="error_service_unavailable">ERROR: Service Unavailable</string>
+    <string name="error_no_sound_times_exceed">ERROR: No speech detected within 6S, automatic disconnection</string>
+    <string name="error_no_understand">ERROR: The server could not parse your voice</string>
+    <string name="asr_sound_pickup_interface_type">Sound pickup interface type</string>
+    <string name="asr_sound_pickup_interface_type_plugin">ASR Plugin</string>
+    <string name="asr_sound_pickup_interface_type_custom">Custom</string>
 
     <string name="style">Style:</string>
     <string name="mode">Play Mode:</string>
@@ -106,5 +137,9 @@
     <string name="female_en">Female-en</string>
     <string name="female_zh">Female-zh</string>
     <string name="init_progress">50%</string>
-    <string name="special">\n</string>
+
+    <string name="online_translate">online translation</string>
+    <string name="offline_translate">offline translation</string>
+    <string name="download">download</string>
+    <string name="french">French</string>
 </resources>

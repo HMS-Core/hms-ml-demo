@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="object"
-        android:textSize="12sp"
+        android:textSize="@dimen/text_size_12sp"
         android:layout_marginLeft="8dp"
         android:clickable="true"
         android:textColor="@drawable/text_selector"></TextView>

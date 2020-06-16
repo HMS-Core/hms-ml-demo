@@ -46,7 +46,7 @@ import com.mlkit.sample.transactor.ImageSegmentationTransactor;
 import com.mlkit.sample.util.Constant;
 import com.mlkit.sample.util.ImageUtils;
 import com.mlkit.sample.views.overlay.GraphicOverlay;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationSetting;
 
 import java.io.File;
@@ -165,7 +165,7 @@ public class TakePhotoActivity extends BaseActivity
             public void onClick(View v) {
                 // save Picture.
                 if (TakePhotoActivity.this.processImage == null) {
-                    SmartLog.e(TakePhotoActivity.TAG, "The image is null, unable to save.");
+                    Log.e(TakePhotoActivity.TAG, "The image is null, unable to save.");
                 } else {
                     // save current image to gallery.
                     ImageUtils imageUtils = new ImageUtils(TakePhotoActivity.this.getApplicationContext());
