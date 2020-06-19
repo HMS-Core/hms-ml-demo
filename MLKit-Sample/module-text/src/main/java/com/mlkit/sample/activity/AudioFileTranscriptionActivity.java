@@ -211,7 +211,7 @@ public class AudioFileTranscriptionActivity extends AppCompatActivity implements
 
     private void createLanguageDialog() {
         this.languageDialog = new Dialog(this, R.style.MyDialogStyle);
-        View view = View.inflate(this, R.layout.dialog_tts_language, null);
+        View view = View.inflate(this, R.layout.dialog_aft_language, null);
         // Set up a custom layout
         this.languageDialog.setContentView(view);
         this.asrTextCN = view.findViewById(R.id.simple_cn);

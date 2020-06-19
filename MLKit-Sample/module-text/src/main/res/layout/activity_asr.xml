@@ -5,13 +5,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_background">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
-        android:background="@color/white">
+        android:layout_height="@dimen/toolbar_height">
 
         <TextView
             android:id="@+id/back"
@@ -33,14 +32,19 @@
             android:textSize="@dimen/text_size_17sp" />
     </androidx.appcompat.widget.Toolbar>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_margin_top"
+        android:layout_below="@id/toolbar"
+        android:background="@color/primary_background"></View>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/tips"
+        android:layout_below="@id/toolbar"
         android:layout_marginTop="@dimen/common_margin_top"
-        android:background="@color/white"
         android:fillViewport="true"
-        android:scrollbarStyle="outsideOverlay"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -52,8 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="40dp">
 
                 <TextView
                     android:id="@+id/language_text"
@@ -99,9 +103,9 @@
                 android:id="@+id/rl_type"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:layout_below="@+id/rl_language"
                 android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
-                android:layout_below="@+id/rl_language">
+                android:layout_marginEnd="40dp">
 
                 <TextView
                     android:id="@+id/type_text"
@@ -138,9 +142,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.25dp"
+                android:layout_below="@id/rl_type"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
-                android:layout_below="@id/rl_type"
                 android:background="@color/common_line_color" />
 
             <RelativeLayout
@@ -312,4 +316,16 @@
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/asr_mark"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="@dimen/text_size_12sp"></TextView>
 </RelativeLayout>

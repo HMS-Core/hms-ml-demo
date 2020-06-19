@@ -1,7 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
-    <dimen name="start_icon_width">45dp</dimen>
+    <dimen name="start_icon_width">40dp</dimen>
     <dimen name="facing_switch_width">35dp</dimen>
     <dimen name="icon_new_width">18dp</dimen>
     <dimen name="icon_new_height">15dp</dimen>

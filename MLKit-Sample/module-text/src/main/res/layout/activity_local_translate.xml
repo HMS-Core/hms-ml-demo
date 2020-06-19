@@ -164,6 +164,7 @@
             android:minLines="5"
             android:padding="5dp"
             android:textSize="@dimen/text_size_14sp"
+            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_input" />
 

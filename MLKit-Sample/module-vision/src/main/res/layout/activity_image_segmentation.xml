@@ -7,10 +7,11 @@
     android:fitsSystemWindows="true"
     android:background="#ffffff"
     tools:context=".activity.ImageSegmentationActivity">
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        android:minHeight="?attr/actionBarSize">
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/back"
@@ -19,10 +20,10 @@
             android:layout_centerVertical="true"
             android:drawableLeft="@drawable/black_back"
             android:text="@string/back"
-            android:padding="@dimen/icon_back_margin"
             android:textColor="@color/secondary_text_color"
             android:textSize="@dimen/text_size_14sp" />
-    </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/background_substitution"
-                    android:textSize="@dimen/text_size_16sp"
+                    android:textSize="@dimen/text_size_15sp"
                     android:textColor="@color/button_background"
                     android:layout_centerInParent="true"
                     />
@@ -72,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cutout"
-                    android:textSize="@dimen/text_size_16sp"
+                    android:textSize="@dimen/text_size_15sp"
                     android:textColor="@color/secondary_text_color"
                     android:layout_centerInParent="true"
                     />
@@ -104,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/image_segmentation"
-                    android:textSize="@dimen/text_size_16sp"
+                    android:textSize="@dimen/text_size_15sp"
                     android:textColor="@color/secondary_text_color"
                     android:layout_centerInParent="true"
                     />

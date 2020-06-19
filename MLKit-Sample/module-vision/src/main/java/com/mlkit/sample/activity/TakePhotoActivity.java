@@ -60,7 +60,7 @@ import java.io.InputStream;
  * @since 2019-12-26
  */
 public class TakePhotoActivity extends BaseActivity
-    implements CompoundButton.OnCheckedChangeListener, ImageSegmentationResultCallBack, View.OnClickListener {
+        implements CompoundButton.OnCheckedChangeListener, ImageSegmentationResultCallBack, View.OnClickListener {
     private LensEngine lensEngine = null;
 
     private LensEnginePreview preview;
@@ -93,7 +93,7 @@ public class TakePhotoActivity extends BaseActivity
 
     private String imgPath;
 
-    private ImageUtilCallBack imageUtilCallBack;
+    private boolean isFirstInit = true;
 
     private Camera mCamera;
 
@@ -178,7 +178,7 @@ public class TakePhotoActivity extends BaseActivity
                     imageUtils.saveToAlbum(TakePhotoActivity.this.processImage);
                     Matrix matrix = new Matrix();
                     matrix.postScale(0.3f, 0.3f);
-                    Bitmap resizedBitmap = Bitmap.createBitmap(TakePhotoActivity.this.processImage,0, 0, TakePhotoActivity.this.processImage.getWidth(), TakePhotoActivity.this.processImage.getHeight(),matrix, true);
+                    Bitmap resizedBitmap = Bitmap.createBitmap(TakePhotoActivity.this.processImage, 0, 0, TakePhotoActivity.this.processImage.getWidth(), TakePhotoActivity.this.processImage.getHeight(), matrix, true);
                     TakePhotoActivity.this.img_pic.setImageBitmap(resizedBitmap);
                 }
             }
@@ -187,9 +187,9 @@ public class TakePhotoActivity extends BaseActivity
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.back){
+        if (view.getId() == R.id.back) {
             finish();
-        }else if(view.getId() == R.id.img_pic) {
+        } else if (view.getId() == R.id.img_pic) {
             if (imgPath == null) {
                 Toast.makeText(getApplicationContext(), "please save a picture", Toast.LENGTH_SHORT).show();
             } else {
@@ -200,7 +200,7 @@ public class TakePhotoActivity extends BaseActivity
                     intent.setType("image/*");
                 } else {
                     intent = new Intent(Intent.ACTION_VIEW);
-                    Uri imgUri = FileProvider.getUriForFile(this, this.getPackageName()+".provider", imgFile);
+                    Uri imgUri = FileProvider.getUriForFile(this, this.getPackageName() + ".provider", imgFile);
                     Log.i(TakePhotoActivity.TAG, "image uri:" + imgUri.toString());
                     intent.setDataAndType(imgUri, "image/*");
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -249,17 +249,22 @@ public class TakePhotoActivity extends BaseActivity
         }
     }
 
+    private void restartLensEngine() {
+        this.startLensEngine();
+        if (null != this.lensEngine) {
+            this.mCamera = this.lensEngine.getCamera();
+            try {
+                this.mCamera.setPreviewTexture(this.preview.getSurfaceTexture());
+            } catch (IOException e) {
+                Log.d(TAG, "initViews IOException");
+            }
+        }
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(Constant.CAMERA_FACING, this.facing);
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        this.preview.stop();
-        this.createLensEngine();
-        this.startLensEngine();
     }
 
     @Override
@@ -280,31 +285,22 @@ public class TakePhotoActivity extends BaseActivity
             this.lensEngine.setMachineLearningFrameTransactor(this.transactor);
         }
         this.preview.stop();
-        this.startLensEngine();
-        if (null != this.lensEngine) {
-            this.mCamera = this.lensEngine.getCamera();
-            try {
-                this.mCamera.setPreviewTexture(this.preview.getSurfaceTexture());
-            } catch (IOException e) {
-                Log.d(TAG, "initViews IOException");
-            }
-        }
+        restartLensEngine();
     }
 
-    public void onBackPressed(View view) {
+    @Override
+    public void onBackPressed() {
         this.finish();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TakePhotoActivity.TAG, "onResume");
-        this.startLensEngine();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
+        if (isFirstInit) {
+            isFirstInit = false;
+            return;
+        }
+        this.restartLensEngine();
     }
 
     @Override
