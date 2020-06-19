@@ -203,13 +203,20 @@ public class BitmapUtils {
      * @return new Bitmap
      */
     public static Bitmap scaleBitmap(Bitmap origin, int newWidth, int newHeight) {
+        float scaleWidth;
+        float scaleHeight;
         if (origin == null) {
             return null;
         }
         int height = origin.getHeight();
         int width = origin.getWidth();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
+        if(height>width){
+            scaleWidth = ((float) newWidth) / width;
+            scaleHeight = ((float) newHeight) / height;
+        }else{
+            scaleWidth = ((float) newWidth) / height;
+            scaleHeight = ((float) newHeight) / width;
+        }
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newBitmap = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);

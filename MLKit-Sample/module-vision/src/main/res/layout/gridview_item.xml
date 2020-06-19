@@ -6,8 +6,8 @@
 
     <RelativeLayout
         android:id="@+id/layout_translate"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
         android:layout_centerInParent="true"
         android:background="@android:color/white"
         android:orientation="vertical">
@@ -17,7 +17,7 @@
             android:layout_width="@dimen/start_icon_width"
             android:layout_height="@dimen/start_icon_width"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/icon_face"></ImageView>
 
         <ImageView
@@ -31,9 +31,8 @@
             android:id="@+id/text_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="5dp"
+            android:layout_below="@id/image_item"
             android:gravity="center"
             android:text="@string/face_detection"
             android:textColor="@color/secondary_text_color"

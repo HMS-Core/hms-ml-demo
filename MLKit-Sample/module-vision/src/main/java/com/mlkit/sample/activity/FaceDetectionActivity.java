@@ -48,6 +48,7 @@ public final class FaceDetectionActivity extends BaseActivity
     private CameraConfiguration cameraConfiguration = null;
     private int facing = CameraConfiguration.CAMERA_FACING_BACK;
     private boolean isOpenStatus = false;
+    private boolean isFirstInit = true;
     private Camera mCamera;
 
     @Override
@@ -149,7 +150,7 @@ public final class FaceDetectionActivity extends BaseActivity
         }
     }
 
-    private void reStartLensEngine(){
+    private void reStartLensEngine() {
         this.startLensEngine();
         if (null != this.lensEngine) {
             this.mCamera = this.lensEngine.getCamera();
@@ -176,6 +177,10 @@ public final class FaceDetectionActivity extends BaseActivity
     @Override
     public void onResume() {
         super.onResume();
+        if (isFirstInit) {
+            isFirstInit = false;
+            return;
+        }
         this.reStartLensEngine();
     }
 

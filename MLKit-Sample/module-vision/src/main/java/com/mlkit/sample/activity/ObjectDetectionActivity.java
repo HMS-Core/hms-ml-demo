@@ -66,7 +66,6 @@ public final class ObjectDetectionActivity extends BaseActivity
         this.cameraConfiguration = new CameraConfiguration();
         this.cameraConfiguration.setCameraFacing(this.facing);
         this.createLensEngine();
-        this.startLensEngine();
     }
 
     @Override
@@ -116,9 +115,8 @@ public final class ObjectDetectionActivity extends BaseActivity
         }
     }
 
-    private void reStartLensEngine(){
+    private void reStartLensEngine() {
         this.startLensEngine();
-
         if (null != this.lensEngine) {
             this.mCamera = this.lensEngine.getCamera();
             try {
@@ -144,7 +142,7 @@ public final class ObjectDetectionActivity extends BaseActivity
     @Override
     public void onResume() {
         super.onResume();
-        this.reStartLensEngine();
+        this.startLensEngine();
     }
 
     @Override

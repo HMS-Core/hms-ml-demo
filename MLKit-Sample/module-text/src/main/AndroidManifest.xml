@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="com.huawei.mlkit.asr.permission" />
-    <uses-permission android:name="android.permission.NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -42,6 +42,7 @@
             android:exported="true" />
         <activity
             android:name=".activity.RemoteDetectionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:exported="true" />
         <activity
             android:name=".activity.SettingActivity"
@@ -76,7 +77,7 @@
 
         <meta-data
             android:name="com.huawei.hms.ml.DEPENDENCY"
-            android:value="object,ocr,face,label,icr,imgseg" />
+            android:value="object,ocr,face,label,icr,imgseg,translate,langdetect" />
     </application>
 
 </manifest>

@@ -77,7 +77,6 @@ public final class ImageClassificationActivity extends BaseActivity
         }
         this.createDialog();
         this.createLensEngine();
-        this.startLensEngine();
         this.setStatusBar();
     }
 
@@ -155,7 +154,7 @@ public final class ImageClassificationActivity extends BaseActivity
         }
     }
 
-    private void restartLensEngine(){
+    private void restartLensEngine() {
         this.startLensEngine();
         if (null != this.lensEngine) {
             this.mCamera = this.lensEngine.getCamera();
@@ -165,7 +164,6 @@ public final class ImageClassificationActivity extends BaseActivity
                 Log.d(ImageClassificationActivity.TAG, "initViews IOException");
             }
         }
-
     }
 
     private void startLensEngine() {
@@ -183,7 +181,7 @@ public final class ImageClassificationActivity extends BaseActivity
     @Override
     public void onResume() {
         super.onResume();
-        this.restartLensEngine();
+        this.startLensEngine();
     }
 
     @Override
