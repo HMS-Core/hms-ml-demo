@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ASR Sample Kotlin</string>
+    <string name="automatic_speech_recognition">Automatic Speech Recognition</string>
+</resources>
