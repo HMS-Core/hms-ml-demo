@@ -35,6 +35,7 @@ Smile-Camera通过HUAWEI ML Kit的人脸检测功能，识别用户是否在微�
   - 通过android.graphics.bitmap创建用于分析器检测图片的“MLFrame”对象。
   - 调用“asyncanalyseframe”方法进行人脸检测。
   - 对微笑程度进行判断，超过阈值后拍照。
+
 关于此demo更详细的开发步骤，可以参考这篇文章：[用华为HMS MLKit SDK 三十分钟在安卓上开发一个微笑抓拍神器](https://developer.huawei.com/consumer/cn/forum/topicview?tid=0201198419687680377&fid=18)
 
 ## 支持的环境
