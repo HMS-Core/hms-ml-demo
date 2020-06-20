@@ -1,5 +1,5 @@
 # MLKit-Sample
-
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/README_ZH.md)
 
 ## Table of Contents
 
