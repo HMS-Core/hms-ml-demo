@@ -1,6 +1,7 @@
 # MLKit-Sample
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample)
 ## 目录
 
  * [介绍](#介绍)
@@ -53,4 +54,4 @@
 推荐使用Android 4.4及以上版本的设备。
 
 ##  许可证
-此示例代码已获得[Apache 2.0 license]（http://www.apache.org/licenses/LICENSE-2.0）。
+此示例代码已获得[Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0)。
