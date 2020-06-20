@@ -1,19 +1,19 @@
 # Smile-Camera
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Smile-Camera/README_ZH.md)
 ## Contents
 
- * [Introduction](#Introduction)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
- * [License](#License)
-
+ * [Introduction](#introduction)
+ * [More Scenarios](#more-scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported-environment)
+ * [License](#license)
 
 ## Introduction
 Smile-Camera uses the face detection function of HUAWEI ML Kit to identify whether a user is smiling and capture the smiling photos of the user.
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
 
 ## More Scenarios
 With the face detection capability provided by HUAWEI ML Kit, you can not only develop Smile-Camera applets, but also implement various functions, such as:
@@ -34,8 +34,10 @@ With the face detection capability provided by HUAWEI ML Kit, you can not only d
   - Call the asyncanalyseframe method to perform face detection.
   - Determine whether the smile degree exceeds the threshold. If so, take a photo.
 
+For more detailed development steps, please refer to [Developing smile photographing based on HUAWEI MLkit](https://developer.huawei.com/consumer/cn/forum/topicview?fid=18&tid=0201258083660750504&pid=0301258083660750120)
+
 ## Supported Environment
 Android 4.4 or later is recommended.
 
 ## License
-The sample code has obtained the [Apache 2.0 license] (http://www.apache.org/licenses/LICENSE-2.0).
+The sample code has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
