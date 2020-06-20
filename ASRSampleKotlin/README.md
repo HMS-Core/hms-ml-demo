@@ -1,21 +1,22 @@
 # ASRSample
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSampleKotlin/README_ZH.md)
 ## Contents
 
- * [Introduction](#Introduction)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
- * [License](#License)
+ * [Introduction](#introduction)
+ * [More Scenarios](#more-scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported-environment)
+ * [License](#license)
 
 
 ## Introduction
 ASRSample uses the real-time speech recognition function of HUAWEI ML Kit to convert real-time speech into text. Currently, ASRSample can recognize Mandarin Chinese, English, and French.
 
 For details about the service introduction and access guide, visit the following website:
-[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMS-References/mlpluginasr-4)
+[HUAWEI ML Kit Development Guide](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
+and [HUAWEI ML Kit API Reference](https://developer.huawei.com/consumer/en/doc/development/HMS-References/mlpluginasr-4)
 
 ## More Scenarios
 The real-time speech recognition function provided by HUAWEI ML Kit is also applicable to the following scenarios:
@@ -29,8 +30,8 @@ Audios such as meeting records, notes, and summaries can be converted into text 
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - If you have not registered as a developer, [register and create an app in AppGallery Connect] (https://developer.huawei.com/consumer/en/doc/start/10115).
- - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
@@ -38,4 +39,4 @@ Audios such as meeting records, notes, and summaries can be converted into text 
 Android 4.4 or later is recommended.
 
 ## License
-The sample code has obtained the [Apache 2.0 license] (http://www.apache.org/licenses/LICENSE-2.0).
+The sample code has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
