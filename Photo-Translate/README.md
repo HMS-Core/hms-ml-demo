@@ -19,8 +19,8 @@ This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/c
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
 
 ## More Scenarios
-- Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:
-  - General text recognition
+Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:
+- General text recognition
   - Recognition of text in bus license plates
   - Recognition of text in documents
 
@@ -28,7 +28,7 @@ This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/c
   - Roadmap and sign translation
   - Document translation
   - Web page translation. For example, recognize the language of website comments and translate the comments into the language of the corresponding country.
- - Introduction to and translation of products outside China
+  - Introduction to and translation of products outside China
   - Canteen menu translation
 
 ## Procedure
