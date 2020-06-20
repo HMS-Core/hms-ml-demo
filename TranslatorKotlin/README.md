@@ -1,21 +1,22 @@
 # Translator
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/TranslatorKotlin/README_ZH.md)
 ## Contents
 
- * [Introduction](#Introduction)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
- * [License](#License)
+ * [Introduction](#introduction)
+ * [More Scenarios](#more-scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported-environment)
+ * [License](#license)
 
 
 ## Introduction
 Translator uses HUAWEI ML Kit to translate English into Chinese in real time through the speech recognition, text translation, and text-to-speech capabilities. Through customized development, Translator facilitates communication between people in different countries.
 
 For details about the service introduction and access guide, visit the following website:
-[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMS-References/MLRemoteTranslator-4)
+[HUAWEI ML Kit Development Guide](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
+and [HUAWEI ML Kit API Reference](https://developer.huawei.com/consumer/en/doc/development/HMS-References/MLRemoteTranslator-4)
 
 ## More Scenarios
 Real-time speech recognition, text translation, and text-to-speech functions are applicable to a wider range of scenarios, such as:
@@ -31,8 +32,8 @@ Convert text into speech. It is applicable to various scenarios such as news rea
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - If you have not registered as a developer, [register and create an app in AppGallery Connect] (https://developer.huawei.com/consumer/en/doc/start/10115).
- - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
@@ -40,4 +41,4 @@ Convert text into speech. It is applicable to various scenarios such as news rea
 Android 4.4 or later is recommended.
 
 ## License
-The sample code has obtained the [Apache 2.0 license] (http://www.apache.org/licenses/LICENSE-2.0).
+The sample code has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
