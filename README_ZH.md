@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)     ![Android CI](https://github.com/HMS-Core/hms-ml-demo/workflows/Android%20CI/badge.svg)
 
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo)
 ## 简介
 
 本项目包含华为ML Kit API和基于HMS Core ML Kit SDK开发的APP。工程目录如下：
