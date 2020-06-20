@@ -31,6 +31,8 @@ News reading, audio novels, stock information broadcast, voice navigation, and v
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
+For details about the development procedure, please refer to [Machine Learning made Easy: - Text To Speech using Kotlin and Huawei ML Kit] (https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0201272341735060076&fid=0101187876626530001).
+
 ## Supported Environment
 Android 4.4 or later is recommended.
 
