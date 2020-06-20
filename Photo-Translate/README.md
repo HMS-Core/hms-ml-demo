@@ -1,19 +1,20 @@
 # Photo Translate
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/README_ZH.md)
 ## Contents
 
- * [Introduction](#Introduction)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
- * [License](#License)
+ * [Introduction](#introduction)
+ * [More Scenarios](#more-scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported-environment)
+ * [License](#license)
 
 
 ## Introduction
 Photo-Translate uses the text recognition and translation functions of HUAWEI ML Kit to translate the text in static photos into the required language. Currently, the following languages are supported: simplified Chinese, English, French, Arabic, Thai, Spanish, Turkish, Portuguese, Japanese, German, Italian, and Russian.
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image translation function in your app. The purpose is to help you experience the text recognition and translation functions and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image translation function in your app. The purpose is to help you experience the text recognition and translation functions and integrate HUAWEI ML Kit as soon as possible.
 
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
 
@@ -35,8 +36,8 @@ This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - If you have not registered as a developer, [register and create an app in AppGallery Connect] (https://developer.huawei.com/consumer/en/doc/start/10115).
- - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
@@ -46,4 +47,4 @@ For details about the development procedure, please refer to [How to use Huawei 
 Android 4.4 or later is recommended.
 
 ## License
-The sample code has obtained the [Apache 2.0 license] (http://www.apache.org/licenses/LICENSE-2.0).
+The sample code has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
