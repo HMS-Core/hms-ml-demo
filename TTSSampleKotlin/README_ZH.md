@@ -33,6 +33,8 @@ HUAWEI ML Kit提供的语音合成功能，还可适用于更加广泛的场景�
  - 替换工程中的sample-agconnect-services.json文件。
  - 编译并且在安卓设备或模拟器上运行。
 
+更详细的开发步骤，请参考 更详细的开发步骤，请参考 [Machine Learning made Easy: - Automatic Speech Recognition using Kotlin and Huawei ML Kit] (https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0201264568431750009&fid=0101187876626530001)。
+
 ## 支持的环境
 推荐使用Android 4.4及以上版本的设备。
 
