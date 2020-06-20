@@ -1,6 +1,8 @@
 # Photo Translate
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/Photo-Translate)
+
 ## 目录
 
  * [介绍](#介绍)
@@ -13,13 +15,13 @@
 ## 介绍
 Photo-Translate使用华为ML Kit的文字识别和翻译功能，将静态照片中的文字翻译成所需的语言。目前支持的语言包括：简体中文、英语、法语、阿拉伯语、泰语、西班牙语、土耳其语、葡萄牙语、日语、德语、意大利语、俄语。
 
-本demo演示了如何使用[HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发您的应用中的图片翻译功能，目的是让您体验文字识别和翻译功能，帮助您尽快集成HUAWEI ML Kit。
+本demo演示了如何使用[HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发您的应用中的图片翻译功能，目的是让您体验文字识别和翻译功能，帮助您尽快集成HUAWEI ML Kit。
 
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
 
 ## 更多场景
-- 华为的文字识别和翻译还可以帮助开发者实现更多有趣和强大的功能，例如：
-  - 通用文本识别。
+华为的文字识别和翻译还可以帮助开发者实现更多有趣和强大的功能，例如：
+- 通用文本识别。
   - 公交牌照的文字识别。
   - 文档阅读中的文本识别。
 
@@ -36,14 +38,14 @@ Photo-Translate使用华为ML Kit的文字识别和翻译功能，将静态照�
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
  - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/doc/start/10101)。
- - agconnect-services.json文件请从[华为开发者社区]（https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc）网站申请获取。
+ - agconnect-services.json文件请从[华为开发者社区](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc)网站申请获取。
  - 替换工程中的sample-agconnect-services.json文件。
  - 编译并且在安卓设备或模拟器上运行。
 
-更详细的开发步骤，请参考[How to use Huawei HMS ML Kit service to quickly develop a photo translation app](https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0201257535948780270&fid=0101187876626530001)
+更详细的开发步骤，请参考[安卓开发实战，用华为HMS MLKit 图像分割 SDK开发一个证件照DIY小程序 ](https://developer.huawei.com/consumer/cn/forum/topicview?tid=0201203408959360433&fid=18)
 
 ## 支持的环境
 推荐使用Android 4.4及以上版本的设备。
 
 ##  许可证
-此示例代码已获得[Apache 2.0 license]（http://www.apache.org/licenses/LICENSE-2.0）。
+此示例代码已获得[Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0)。
