@@ -1,6 +1,8 @@
 # TTSSample
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/TTSSampleKotlin)
+
 ## 目录
 
  * [介绍](#介绍)
@@ -27,7 +29,7 @@ HUAWEI ML Kit提供的语音合成功能，还可适用于更加广泛的场景�
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
  - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/doc/start/10101)。
- - agconnect-services.json文件请从[华为开发者社区]（https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc）网站申请获取。
+ - agconnect-services.json文件请从[华为开发者社区](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc)网站申请获取。
  - 替换工程中的sample-agconnect-services.json文件。
  - 编译并且在安卓设备或模拟器上运行。
 
@@ -35,5 +37,5 @@ HUAWEI ML Kit提供的语音合成功能，还可适用于更加广泛的场景�
 推荐使用Android 4.4及以上版本的设备。
 
 ##  许可证
-此示例代码已获得[Apache 2.0 license]（http://www.apache.org/licenses/LICENSE-2.0）。
+此示例代码已获得[Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0)。
 
