@@ -20,7 +20,6 @@
     <string name="loading_data">Loading…</string>
     <string name="load_pictures">Load pictures</string>
 
-    <!--全称-->
     <string name="image_segmentation_s">Image Segmentation</string>
     <string name="photographed_shopping_s">Product Visual Search</string>
     <string name="face_detection_s">Face Detection</string>
@@ -28,7 +27,6 @@
     <string name="image_classification_s">Image Classification</string>
     <string name="landmark_s">Landmark Recognition</string>
 
-    <!--简写-->
     <string name="image_segmentation">Segmentation</string>
     <string name="photographed_shopping">Shopping</string>
     <string name="face_detection">Face</string>
