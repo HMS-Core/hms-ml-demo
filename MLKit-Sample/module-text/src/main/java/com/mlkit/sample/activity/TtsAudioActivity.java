@@ -480,7 +480,6 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void showFailedDialog(int res) {
-        Log.e("hyh", "show");
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setMessage(res)
                 .setPositiveButton(getString(R.string.str_ok), new DialogInterface.OnClickListener() {
@@ -665,7 +664,7 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void updateConfig() {
-        Log.e("hyh", "language：" + language + "   " + "person: " + person);
+        Log.w(TAG, "language：" + language + "   " + "person: " + person);
         MLTtsConfig mlTtsConfig = new MLTtsConfig().setVolume(volumeVal)
                 .setSpeed(speedVal)
                 .setLanguage(language)
