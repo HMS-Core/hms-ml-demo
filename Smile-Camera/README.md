@@ -6,7 +6,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Smile-Cam
 
  * [Introduction](#introduction)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
  * [License](#license)
 
@@ -22,7 +22,7 @@ With the face detection capability provided by HUAWEI ML Kit, you can not only d
 1. Detect facial expressions and add different labels and stickers to photos or videos based on different expressions.
 2. Track faces in the video and develop interesting facial effects.
 
-## Procedure
+## Getting Started
 - Preparations
   - Add the Huawei Maven repository to the build.gradle file in the root directory of the project.
   - Add build dependency on the SDK to the build.gradle file in the app directory.

@@ -6,7 +6,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Tra
 
  * [Introduction](#introduction)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
  * [License](#license)
 
@@ -31,7 +31,7 @@ Huawei's text recognition and translation services can help you implement more i
   - Introduction to and translation of products outside China
   - Canteen menu translation
 
-## Procedure
+## Getting Started
  - Clone the code library to the local computer.
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git

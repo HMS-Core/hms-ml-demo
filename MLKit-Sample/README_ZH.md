@@ -5,6 +5,7 @@
 ## 目录
 
  * [介绍](#介绍)
+ * [更多场景](#更多场景)
  * [运行步骤](#运行步骤)
  * [支持的环境](#支持的环境)
  * [许可证](#许可证)
@@ -34,6 +35,10 @@
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=180 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object.jpg" width=180 border=2></td>
 </tr></table>
+
+## 更多场景
+华为机器学习服务（HMS ML Kit） 提供机器学习套件，为开发者应用机器学习能力开发各类应用提供优质体验。
+更多应用场景，可参考：[华为机器学习服务集成案例](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-case-banggood)。
 
 ## 运行步骤
  - 将本代码库克隆到本地。

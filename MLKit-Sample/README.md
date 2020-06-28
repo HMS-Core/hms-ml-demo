@@ -4,8 +4,9 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
 ## Table of Contents
 
  * [Introduction](#introduction)
- * [Installation](#installation)
- * [Supported Environments](#supported-environments)
+ * [More Scenarios](#more-scenarios)
+ * [Getting Started](#getting-started)
+ * [Supported Environment](#supported-environment)
  * [License](#license)
 
 
@@ -35,18 +36,24 @@ APK running page screenshots are as follows.
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object.jpg" width=180 border=2></td>
 </tr></table>
 
-To use cloud services such as text recognition, document recognition, image classification, landmark recognition,
-text translation, and language detection, you need to apply for the agconnect-services.json file on
-[HUAWEI Developers](https://developer.huawei.com/consumer/en/) and replace sample-agconnect-services.json
-with the file in the project. For details, please refer to [Adding the AppGallery Connect Configuration File.](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+## More Scenarios
+HUAWEI ML Kit allows your apps to easily leverage Huawei's long-term proven expertise in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries.
+For more application scenarios, see: [Huawei Machine Learning Service Integration Cases.](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-case-banggood)
+
+## Getting Started
+ - Clone the code library to the local computer.
+
+       git clone https://github.com/HMS-Core/hms-ml-demo.git
+
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - Replace the sample-agconnect-services.json file in the project.
+ - Compile and run on an Android device or simulator.
+
+Attention:
 
 You can only use a custom package name to apply for the agconnect-services.json file.
 In this way, you only need to change the value of applicationId in HUAWEI-HMS-MLKit-Sample\app\build.gradle to the package name used in agconnect-services.json. Then, you can use cloud services of HUAWEI ML Kit.
-
-
-## Installation
-Download the sample code and open it in Android Studio. Ensure that your device has been connected to the Internet and obtain the APK by building a project.
-
 
 ## Supported Environments
 Devices with Android 4.4 or later are recommended.
