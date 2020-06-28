@@ -19,6 +19,8 @@ Translator使用HUAWEI ML Kit实时语音识别，文本翻译，语音合成的
 [华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
 [华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/MLRemoteTranslator-4)。
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/TranslatorKotlin/Translator.gif" width=250 title="Translator" div align=center border=5>
+
 ## 更多场景
 实时语音识别、文本翻译以及语音合成功能，还可适用于更加广泛的场景，如：
 
