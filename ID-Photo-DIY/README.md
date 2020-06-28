@@ -6,7 +6,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ID-Photo-
 
  * [Introduction](#introduction)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
  * [License](#license)
 
@@ -24,7 +24,7 @@ Based on the image segmentation capability provided by HUAWEI ML Kit, you can no
 2. Recognize elements such as the sky, plants, food, cats, dogs, flowers, water, sand, buildings, and mountains in images, and beautify these elements. For example, make the sky bluer and water clearer.
 3. Identify portraits in video streams, edit special effects of video streams, and change the background.
 
-## Procedure
+## Getting Started
 - Preparations
   - Add the Huawei Maven repository to the build.gradle file in the root directory of the project.
   - Add build dependency on the SDK to the build.gradle file in the app directory.

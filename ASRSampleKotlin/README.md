@@ -6,7 +6,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSample
 
  * [Introduction](#introduction)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
  * [License](#license)
 
@@ -25,7 +25,7 @@ Convert speech into text in real time. It is applicable to various scenarios suc
 2. Real-time automatic speech recognition (RASR)
 Audios such as meeting records, notes, and summaries can be converted into text in real time for content recording and real-time display.
 
-## Procedure
+## Getting Started
  - Clone the code library to the local computer.
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git

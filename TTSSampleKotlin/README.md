@@ -6,7 +6,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/TTSSample
 
  * [Introduction](#introduction)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
  * [License](#license)
 
@@ -22,7 +22,7 @@ For details about the service introduction and access guide, visit the following
 The text-to-speech function provided by HUAWEI ML Kit is also applicable to the following scenarios:
 News reading, audio novels, stock information broadcast, voice navigation, and video dubbing.
 
-## Procedure
+## Getting Started
  - Clone the code library to the local computer.
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git

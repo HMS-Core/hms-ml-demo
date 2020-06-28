@@ -6,7 +6,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Translato
 
  * [Introduction](#introduction)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
  * [License](#license)
 
@@ -27,7 +27,7 @@ Translate text into various languages. It is applicable to scenarios such as mov
 3. Text to speech
 Convert text into speech. It is applicable to various scenarios such as news reading, audio novels, stock information broadcast, voice navigation, and video dubbing.
 
-## Procedure
+## Getting Started
  - Clone the code library to the local computer.
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
