@@ -18,6 +18,8 @@ For details about the service introduction and access guide, visit the following
 [HUAWEI ML Kit Development Guide](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 and [HUAWEI ML Kit API Reference](https://developer.huawei.com/consumer/en/doc/development/HMS-References/MLRemoteTranslator-4)
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/TranslatorKotlin/Translator.gif" width=250 title="Translator" div align=center border=5>
+
 ## More Scenarios
 Real-time speech recognition, text translation, and text-to-speech functions are applicable to a wider range of scenarios, such as:
 1. Automatic speech recognition
