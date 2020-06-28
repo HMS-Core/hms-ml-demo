@@ -15,6 +15,8 @@ Smile-Camera uses the face detection function of HUAWEI ML Kit to identify wheth
 
 This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Smile-Camera/face.gif" width=250 title="Face" div align=center border=5>
+
 ## More Scenarios
 With the face detection capability provided by HUAWEI ML Kit, you can not only develop Smile-Camera applets, but also implement various functions, such as:
 1. Detect facial expressions and add different labels and stickers to photos or videos based on different expressions.
