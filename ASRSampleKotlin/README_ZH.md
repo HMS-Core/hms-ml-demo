@@ -18,6 +18,8 @@ ASRSample使用HUAWEI ML Kit的实时语音识别功能将实时语音转换成�
 [华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
 [华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/mlpluginasr-4)。
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSampleKotlin/asr.gif" width=250 title="ASR" div align=center border=5>
+
 ## 更多场景
 HUAWEI ML Kit提供的实时语音识别功能，还可适用于更加广泛的场景，例如：
 
