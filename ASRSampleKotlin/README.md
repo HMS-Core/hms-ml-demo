@@ -18,6 +18,8 @@ For details about the service introduction and access guide, visit the following
 [HUAWEI ML Kit Development Guide](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 and [HUAWEI ML Kit API Reference](https://developer.huawei.com/consumer/en/doc/development/HMS-References/mlpluginasr-4)
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSampleKotlin/asr.gif" width=250 title="ASR" div align=center border=5>
+
 ## More Scenarios
 The real-time speech recognition function provided by HUAWEI ML Kit is also applicable to the following scenarios:
 1. Speech input via mobile phone apps
