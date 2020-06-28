@@ -19,6 +19,8 @@ TTSSample使用HUAWEI ML Kit的，基于语音合成的能力实现文字转语�
 [华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
 [华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/mltts-4)。
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/TTSSampleKotlin/tts.gif" width=250 title="TTS" div align=center border=5>
+
 ## 更多场景
 HUAWEI ML Kit提供的语音合成功能，还可适用于更加广泛的场景，如：
 新闻资讯阅读、有声小说、股票信息播报、语音导航、视频配音等多种场景。
