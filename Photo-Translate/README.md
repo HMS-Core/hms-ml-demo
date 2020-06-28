@@ -16,7 +16,7 @@ Photo-Translate uses the text recognition and translation functions of HUAWEI ML
 
 This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image translation function in your app. The purpose is to help you experience the text recognition and translation functions and integrate HUAWEI ML Kit as soon as possible.
 
-<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="Photo Translate" div align=center border=5>
 
 ## More Scenarios
 Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:
