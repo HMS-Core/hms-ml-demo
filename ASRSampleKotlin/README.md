@@ -35,7 +35,7 @@ Audios such as meeting records, notes, and summaries can be converted into text 
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
-For details about the development procedure, please refer to [Machine Learning made Easy: - Automatic Speech Recognition using Kotlin and Huawei ML Kit] (https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0201264568431750009&fid=0101187876626530001).
+For details about the development procedure, please refer to [Machine Learning made Easy: - Automatic Speech Recognition using Kotlin and Huawei ML Kit](https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0201264568431750009&fid=0101187876626530001).
 
 ## Supported Environment
 Android 4.4 or later is recommended.
