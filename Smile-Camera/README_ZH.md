@@ -17,6 +17,8 @@ Smile-Camera通过HUAWEI ML Kit的人脸检测功能，识别用户是否在微�
 
 本demo演示了如何使用[HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发人脸检测的应用，目的是让您体验人脸检测功能，帮助您尽快集成HUAWEI ML Kit。
 
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Smile-Camera/face.gif" width=250 title="Face" div align=center border=5>
+
 ## 更多场景
 基于HUAWEI ML Kit提供的人脸检测能力，不仅可以做微笑拍照程序，还可以实现更加丰富多彩的应用，如：
 1. 检测人脸表情，通过不同表情对照片或视频添加不同的标签、贴图等。
