@@ -53,11 +53,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="@dimen/start_margin_top"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="20dp"
         android:listSelector="@android:color/transparent"
         android:numColumns="3"
         android:verticalSpacing="40dp"></GridView>
+
+    <com.mlkit.sample.views.overlay.GraphicOverlay
+        android:id="@+id/fireFaceOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
 
 </RelativeLayout>

@@ -33,6 +33,7 @@
     <string name="object_detection">对象检测</string>
     <string name="image_classification">图像分类</string>
     <string name="landmark">地标识别</string>
+    <string name="skeletlon">人体骨骼</string>
 
     <string name="all">所有</string>
     <string name="coming_soon">敬请期待</string>
@@ -54,5 +55,8 @@
     <string name="color">颜色</string>
 
     <string name="similar_products">相似商品</string>
+    <string name="productInfo">为您找到以下相似商品</string>
     <string name="empty">无</string>
+    <string name="empty_product">"暂无相似产品，敬请期待！"</string>
+
 </resources>

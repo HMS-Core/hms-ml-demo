@@ -25,8 +25,8 @@ import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
 
 import java.io.IOException;
 
@@ -112,7 +112,7 @@ public class BitmapUtils {
                     break;
             }
         } catch (IOException e) {
-            SmartLog.e(TAG, "Failed to get rotation: " + e.getMessage());
+            Log.e(TAG, "Failed to get rotation: " + e.getMessage());
         }
         return rotation;
     }
@@ -124,7 +124,7 @@ public class BitmapUtils {
         try {
             result = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         } catch (OutOfMemoryError e) {
-            SmartLog.e(TAG, "Failed to rotate bitmap: " + e.getMessage());
+            Log.e(TAG, "Failed to rotate bitmap: " + e.getMessage());
         }
         if (result == null) {
             return bitmap;

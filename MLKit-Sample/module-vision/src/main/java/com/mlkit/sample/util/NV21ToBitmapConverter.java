@@ -115,7 +115,7 @@ public class NV21ToBitmapConverter {
                                             final boolean maintainAspectRatio) {
         final Matrix matrix = new Matrix();
 
-        if (applyRotation != 0) {
+        if (applyRotation < 360) {
             if (applyRotation % 90 != 0) {
                 throw new IllegalArgumentException(String.format(Locale.ENGLISH, "Rotation of %d", applyRotation));
             }
@@ -153,7 +153,7 @@ public class NV21ToBitmapConverter {
             }
         }
 
-        if (applyRotation != 0) {
+        if (applyRotation < 360) {
             // Translate back from origin centered reference to destination frame.
             float dx = dstWidth / 2.0f;
             float dy = dstHeight / 2.0f;
@@ -193,7 +193,11 @@ public class NV21ToBitmapConverter {
         // final Canvas canvas;
         if (rotation == 0 || rotation == 180) {
             target = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-            matrix = getTransformationMatrix(width, height, width, height, rotation, true, false, false);
+            if (metadata.getCameraFacing() == 0) {
+                matrix = getTransformationMatrix(width, height, width, height, rotation, false, false, false);
+            }else {
+                matrix = getTransformationMatrix(width, height, width, height, rotation, true, false, false);
+            }
         } else {
             target = Bitmap.createBitmap(height, width, Bitmap.Config.ARGB_8888);
             if (metadata.getCameraFacing() == 0) {

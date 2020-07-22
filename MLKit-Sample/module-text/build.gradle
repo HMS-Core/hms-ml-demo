@@ -7,8 +7,8 @@ android {
         applicationId "com.mlkit.sample.text"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 30001300
+        versionName "3.0.1.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,14 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    // Support simulator.
-    splits {
-        abi {
-            enable true
-            reset()
-            include 'x86', 'armeabi-v7a','x86_64'
-            universalApk true
+    repositories {
+        flatDir {
+            dirs 'libs'
         }
+    }
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
     }
     aaptOptions {
         noCompress "mslite"
@@ -37,26 +36,39 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:1.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.200.016'
 
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:1.0.4.300'
 
-    implementation 'com.huawei.hms:ml-computer-translate:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-language-detection:1.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:2.0.1.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn-model:1.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn-plugin:1.0.4.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-bcr-plugin:1.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-card-bcr-model:1.0.3.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:1.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:2.0.1.300'
 
-    implementation 'com.huawei.hms:ml-computer-voice-tts:1.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-card-icr-cn-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-card-icr-cn-plugin:2.0.1.300'
 
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:1.0.4.300'
+
+    implementation 'com.huawei.hms:ml-computer-card-bcr-plugin:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-card-bcr-model:2.0.1.300'
+
+
+    implementation 'com.huawei.hms:ml-computer-voice-aft:2.0.1.300'
+
+    implementation 'com.huawei.hms:ml-computer-voice-tts:2.0.1.302'
+
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.1.300'
+
+
+    implementation 'com.huawei.hms:ml-computer-language-detection:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-translate:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-translate-model:2.0.1.300'
+
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

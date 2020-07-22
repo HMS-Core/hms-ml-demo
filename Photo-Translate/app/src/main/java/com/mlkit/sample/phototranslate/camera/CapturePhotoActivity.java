@@ -25,12 +25,13 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.mlkit.sample.phototranslate.R;
 import com.mlkit.sample.phototranslate.util.Constant;
 
@@ -83,7 +84,7 @@ public class CapturePhotoActivity extends AppCompatActivity {
             try {
                 this.preview.start(this.lensEngine, false);
             } catch (IOException e) {
-                SmartLog.e(CapturePhotoActivity.TAG, "Unable to start lensEngine.", e);
+                Log.e(CapturePhotoActivity.TAG, "Unable to start lensEngine.", e);
                 this.lensEngine.release();
                 this.lensEngine = null;
             }
@@ -122,7 +123,7 @@ public class CapturePhotoActivity extends AppCompatActivity {
                 try {
                     filePath = saveBitmapToDisk(bitmap);
                 } catch (IOException e) {
-                    SmartLog.e(TAG, "Save bitmap failed: " + e.getMessage());
+                    Log.e(TAG, "Save bitmap failed: " + e.getMessage());
                 }
                 Intent intent = new Intent();
                 intent.putExtra(Constant.IMAGE_PATH_VALUE, filePath);
@@ -139,7 +140,7 @@ public class CapturePhotoActivity extends AppCompatActivity {
         if (!appDir.exists()) {
             boolean res = appDir.mkdir();
             if (!res) {
-                SmartLog.e(TAG, "saveBitmapToDisk failed");
+                Log.e(TAG, "saveBitmapToDisk failed");
                 return "";
             }
         }
@@ -157,16 +158,16 @@ public class CapturePhotoActivity extends AppCompatActivity {
             Uri uri = Uri.fromFile(file);
             this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
         } catch (FileNotFoundException e) {
-            SmartLog.e(TAG, "Save bitmap failed: " + e.getMessage());
+            Log.e(TAG, "Save bitmap failed: " + e.getMessage());
         }  catch (IOException e) {
-            SmartLog.e(TAG, "Save bitmap failed: " + e.getMessage());
+            Log.e(TAG, "Save bitmap failed: " + e.getMessage());
         } finally {
             try {
                 if(fos != null) {
                     fos.close();
                 }
             }catch (IOException e){
-                SmartLog.e(TAG, "Close stream failed: " + e.getMessage());
+                Log.e(TAG, "Close stream failed: " + e.getMessage());
             }
             fos = null;
         }

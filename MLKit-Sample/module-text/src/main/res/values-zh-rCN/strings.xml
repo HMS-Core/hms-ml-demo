@@ -26,12 +26,14 @@
     <string name="document_recognition_s">文档识别</string>
     <string name="text_detection_s">文字识别</string>
     <string name="icr_s">身份证识别</string>
+    <string name="aft_s">音频文件转写</string>
     <string name="bcr_s">银行卡识别</string>
     <string name="ucr_s">通用卡证识别</string>
     <string name="asr_s">实时语音识别</string>
     <string name="tts_s">语音合成</string>
     <!--简写-->
     <string name="translate">文本翻译</string>
+    <string name="aft">音频文件转写</string>
     <string name="bcr">银行卡识别</string>
     <string name="gcr">通用卡证识别</string>
     <string name="text_detection">文字识别</string>
@@ -48,13 +50,16 @@
     <string name="translate_text_hint">机器学习</string>
     <string name="intro">请输入文字</string>
     <string name="queue_add">合成</string>
+    <string name="play">播放</string>
     <string name="release_tts">停止播放</string>
     <string name="pause">暂停播放</string>
     <string name="resume">继续播放</string>
     <string name="chinese">中文</string>
     <string name="nonetwork">网络未连接</string>
     <string name="abnormal">服务异常</string>
+    <string name="speak_abnormal">语言和人物不匹配</string>
     <string name="replay">重试</string>
+
 
     <string name="icr_upload_self_photo">"请上传本人身份证照片"</string>
     <string name="icr_upload_face">"上传人像面"</string>
@@ -63,7 +68,7 @@
     <string name="icr_hint_image_not_complete">"智能检测识别到图片可能存在部分遮挡，如果清晰可见请忽略"</string>
     <string name="icr_hint_ensure_user_info_security">"我们将依法保护您的个人信息安全"</string>
     <string name="recognition_results">"检测结果"</string>
-    <string name="icr_mark">注：只用于中国大陆地区</string>
+    <string name="icr_mark">* 云侧服务只用于中国大陆地区</string>
     <string name="device_side">端侧</string>
     <string name="cloud_side">云侧</string>
 
@@ -80,9 +85,27 @@
     <string name="bcr_upload_self_photo">"请上传银行卡"</string>
     <string name="bcr_upload">"上传银行卡"</string>
 
-    <string name="language">语言:</string>
+    <!--ATF-->
 
+    <string name="record">录音</string>
+    <string name="converting">转写中...</string>
+    <string name="recording">正在录音...</string>
+    <string name="str_ok">确定</string>
+    <string name="str_cancel">取消</string>
+    <string name="convert_failed">转写失败:</string>
+    <string name="language">语言:</string>
+    <string name="stop_record">停止</string>
+
+    <string name="error_aft_network">网络连接异常</string>
+    <string name="error_aft_internal">内部错误</string>
+    <string name="error_aft_illegal_parameters">非法参数</string>
+    <string name="error_aft_authorize_failed">鉴权失败</string>
+    <string name="error_aft_audio_length_overflow">音频时长超限</string>
+    <string name="error_aft_audio_transcript_failed">文件转写失败</string>
+
+    <!--ASR-->
     <string name="start">开始</string>
+    <string name="please_speak">请说话</string>
     <string name="example_say">你可以这样说</string>
     <string name="example_one">我要打车到万达广场</string>
     <string name="example_two">看无间道</string>
@@ -91,6 +114,14 @@
     <string name="record_text_name">text.txt</string>
     <string name="record_json_name">description.json</string>
     <string name="record_pcm_name">audio.pcm</string>
+    <string name="error_no_network">ERROR: 网络不可用，请重试…</string>
+    <string name="error_service_unavailable">ERROR: 服务不可用</string>
+    <string name="error_no_sound_times_exceed">ERROR: 6s内没有检测到说话，自动断开</string>
+    <string name="error_no_understand">ERROR: 服务器无法解析您的语音</string>
+    <string name="asr_sound_pickup_interface_type">拾音界面类型</string>
+    <string name="asr_sound_pickup_interface_type_plugin">ASR插件</string>
+    <string name="asr_sound_pickup_interface_type_custom">自定义</string>
+    <string name="asr_mark">* 该服务仅限华为手机使用</string>
 
     <string name="style">风格：</string>
     <string name="mode">播放模式：</string>
@@ -102,9 +133,21 @@
 
     <string name="male_zh">中文男声</string>
     <string name="male_en">英文男声</string>
+    <string name="female_fr">法语女声</string>
+    <string name="female_es">西班牙语女声</string>
     <string name="female_en">英文女声</string>
     <string name="female_zh">中文女声</string>
+    <string name="female_de">德语女声</string>
+    <string name="female_it">意大利语女声</string>
+
     <string name="init_progress">50%</string>
 
-    <string name="special">\n</string>
+    <string name="online_translate">在线翻译</string>
+    <string name="offline_translate">离线翻译</string>
+    <string name="download">下载</string>
+    <string name="french">法语</string>
+    <string name="spanish">西班牙语</string>
+    <string name="German">德语</string>
+    <string name="Indian_english">印度英语</string>
+    <string name="Italian">意大利语</string>
 </resources>

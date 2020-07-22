@@ -17,6 +17,7 @@
 package com.mlkit.sample.views.color;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -34,7 +35,6 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.mlkit.sample.R;
 import com.mlkit.sample.util.Constant;
 
 public class ColorSelector extends View {
@@ -88,8 +88,6 @@ public class ColorSelector extends View {
 
     private boolean mIsNeedReDrawColorTable = true;
 
-    private boolean mIsNeedReDrawIndicator = true;
-
     private int mCurrentX;
 
     private int mCurrentY;
@@ -97,6 +95,14 @@ public class ColorSelector extends View {
     private int[] mColors = null;
 
     private int mCurrentColor;
+
+    private Context mContext;
+
+    private boolean lastLand = false;
+
+    private int lastWidth;
+
+    private boolean isInitialed = false;
 
 
     private OnColorSelectorChangeListener mColorSelectorChangeListener;
@@ -111,6 +117,8 @@ public class ColorSelector extends View {
 
     public ColorSelector(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        this.mContext = context;
 
         this.mBitmapForColor = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
         this.mBitmapForIndicator = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
@@ -175,7 +183,6 @@ public class ColorSelector extends View {
         }
         this.createBitmap();
 
-        this.mIsNeedReDrawIndicator = true;
 
     }
 
@@ -219,7 +226,7 @@ public class ColorSelector extends View {
         int left;
         int bottom;
         int right;
-        
+
         int offset = each * 3 / 2;
 
         left = this.mLeft + this.mRadius;
@@ -258,12 +265,31 @@ public class ColorSelector extends View {
         }
         canvas.drawBitmap(this.mBitmapForColor, null, this.mRect, this.mPaint);
 
-        if (this.mIsNeedReDrawIndicator) {
-            this.createIndicatorBitmap();
+        this.createIndicatorBitmap();
+        if (!isInitialed) {
+            lastWidth = getWidth();
+            isInitialed = true;
         }
         // Draw indicator points.
+        float scale;
+        if (lastLand != isLands()) {
+            if (isLands()) {
+                lastLand = true;
+            } else {
+                lastLand = false;
+            }
+            scale = getWidth() / (lastWidth * 1.0f);
+            mCurrentX = (int) (mCurrentX * scale);
+            lastWidth = getWidth();
+        }
         this.mIndicatorRect.set(this.mCurrentX - this.mRadius, this.mCurrentY - this.mRadius, this.mCurrentX + this.mRadius, this.mCurrentY + this.mRadius);
         canvas.drawBitmap(this.mBitmapForIndicator, null, this.mIndicatorRect, this.mPaint);
+    }
+
+    private boolean isLands() {
+        Configuration mConfiguration = mContext.getResources().getConfiguration();
+        int ori = mConfiguration.orientation;
+        return ori == mConfiguration.ORIENTATION_LANDSCAPE;
     }
 
     private void createIndicatorBitmap() {
@@ -273,7 +299,6 @@ public class ColorSelector extends View {
 
         Canvas canvas = new Canvas(this.mBitmapForIndicator);
         canvas.drawCircle(this.mRadius, this.mRadius, this.mRadius - radius, this.mIndicatorPaint);
-        this.mIsNeedReDrawIndicator = false;
     }
 
     private void createColorTableBitmap() {
@@ -449,7 +474,6 @@ public class ColorSelector extends View {
     }
 
     public void initData() {
-        this.mIsNeedReDrawIndicator = true;
         this.mIsNeedReDrawColorTable = true;
         this.requestLayout();
     }

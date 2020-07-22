@@ -24,6 +24,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -68,6 +70,8 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_idcard_recognition);
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         this.initComponent();
     }
 
@@ -171,24 +175,23 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
     private String formatIdCardResult(MLCnIcrCaptureResult result, boolean isFront) {
         Log.i(IDCardRecognitionActivity.TAG, "formatIdCardResult");
         StringBuilder resultBuilder = new StringBuilder();
-        String newLine = getResources().getString(R.string.special);
         if (isFront) {
             resultBuilder.append("Name：");
             resultBuilder.append(result.name);
-            resultBuilder.append(newLine);
+            resultBuilder.append(System.lineSeparator());
 
             resultBuilder.append("Sex：");
             resultBuilder.append(result.sex);
-            resultBuilder.append(newLine);
+            resultBuilder.append(System.lineSeparator());
 
             resultBuilder.append("IDNum: ");
             resultBuilder.append(result.idNum);
-            resultBuilder.append(newLine);
+            resultBuilder.append(System.lineSeparator());
             Log.i(IDCardRecognitionActivity.TAG, "front result: " + resultBuilder.toString());
         } else {
-
             resultBuilder.append("ValidDate: ");
             resultBuilder.append(result.validDate);
+            resultBuilder.append(System.lineSeparator());
             Log.i(IDCardRecognitionActivity.TAG, "back result: " + resultBuilder.toString());
         }
         return resultBuilder.toString();

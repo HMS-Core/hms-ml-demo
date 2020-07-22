@@ -20,6 +20,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +48,8 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_card_recognition);
-
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         initComponent();
     }
 
@@ -94,6 +97,7 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
     private void startCaptureActivity() {
         MLBcrCaptureConfig config = new MLBcrCaptureConfig.Factory()
                 .setOrientation(MLBcrCaptureConfig.ORIENTATION_AUTO)
+                .setResultType(MLBcrCaptureConfig.RESULT_ALL)
                 .create();
         MLBcrCapture bcrCapture = MLBcrCaptureFactory.getInstance().getBcrCapture(config);
 
@@ -105,6 +109,23 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
 
         resultBuilder.append("Number：");
         resultBuilder.append(result.getNumber());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Issuer：");
+        resultBuilder.append(result.getIssuer());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Expire: ");
+        resultBuilder.append(result.getExpire());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Type: ");
+        resultBuilder.append(result.getType());
+        resultBuilder.append(System.lineSeparator());
+
+        resultBuilder.append("Organization: ");
+        resultBuilder.append(result.getOrganization());
+        resultBuilder.append(System.lineSeparator());
 
         return resultBuilder.toString();
     }

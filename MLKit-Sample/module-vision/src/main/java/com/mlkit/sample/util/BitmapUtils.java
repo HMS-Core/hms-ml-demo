@@ -17,24 +17,34 @@
 package com.mlkit.sample.util;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.hardware.Camera.CameraInfo;
 import android.media.ExifInterface;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 
 import com.mlkit.sample.camera.FrameMetadata;
 import com.huawei.hms.mlsdk.common.MLFrame;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -173,7 +183,7 @@ public class BitmapUtils {
                     break;
             }
         } catch (IOException e) {
-            SmartLog.e(TAG, "Failed to get rotation: " + e.getMessage());
+            Log.e(TAG, "Failed to get rotation: " + e.getMessage());
         }
         return rotation;
     }
@@ -185,7 +195,7 @@ public class BitmapUtils {
         try {
             result = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         } catch (OutOfMemoryError e) {
-            SmartLog.e(TAG, "Failed to rotate bitmap: " + e.getMessage());
+            Log.e(TAG, "Failed to rotate bitmap: " + e.getMessage());
         }
         if (result == null) {
             return bitmap;
@@ -202,17 +212,120 @@ public class BitmapUtils {
      * @return new Bitmap
      */
     public static Bitmap scaleBitmap(Bitmap origin, int newWidth, int newHeight) {
+        float scaleWidth;
+        float scaleHeight;
         if (origin == null) {
             return null;
         }
         int height = origin.getHeight();
         int width = origin.getWidth();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
+        if(height>width){
+            scaleWidth = ((float) newWidth) / width;
+            scaleHeight = ((float) newHeight) / height;
+        }else{
+            scaleWidth = ((float) newWidth) / height;
+            scaleHeight = ((float) newHeight) / width;
+        }
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newBitmap = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
         return newBitmap;
     }
-}
 
+    /**
+     * Fusion of two images.
+     * @param background background image.
+     * @param foreground foreground image.
+     * @return
+     */
+    public static Bitmap joinBitmap(Bitmap background, Bitmap foreground) {
+        if (background == null || foreground == null) {
+            Log.e(TAG, "bitmap is null.");
+            return null;
+        }
+
+        if (background.getHeight() != foreground.getHeight() || background.getWidth() != foreground.getWidth()) {
+            Log.e(TAG, "bitmap size is not match.");
+            return null;
+        }
+        Bitmap newmap = Bitmap.createBitmap(background.getWidth(), background.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(newmap);
+        canvas.drawBitmap(background, 0, 0, null);
+        canvas.drawBitmap(foreground, 0, 0, null);
+        canvas.save();
+        canvas.restore();
+        return newmap;
+    }
+
+    public static void saveToAlbum(Bitmap bitmap, final Context context){
+        File file = null;
+        String fileName = System.currentTimeMillis() +".jpg";
+        File root = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(), context.getPackageName());
+        File dir = new File(root, "image");
+        if(dir.mkdirs() || dir.isDirectory()){
+            file = new File(dir, fileName);
+        }
+        FileOutputStream os = null;
+        try {
+            os = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            os.flush();
+
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, e.getMessage());
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }finally {
+            try {
+                if(os != null) {
+                    os.close();
+                }
+            }catch (IOException e){
+                Log.e(TAG, e.getMessage());
+            }
+        }
+
+        // Insert pictures into the system gallery.
+        try {
+            if (null != file) {
+                MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getCanonicalPath(), fileName, null);
+            }
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        if (file == null) {
+            return;
+        }
+        // Gallery refresh.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            String path = null;
+            try {
+                path = file.getCanonicalPath();
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+            }
+            MediaScannerConnection.scanFile(context, new String[]{path}, null,
+                    new MediaScannerConnection.OnScanCompletedListener() {
+                        @Override
+                        public void onScanCompleted(String path, Uri uri) {
+                            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                            mediaScanIntent.setData(uri);
+                            context.sendBroadcast(mediaScanIntent);
+                        }
+                    });
+        } else {
+            String relationDir = file.getParent();
+            File file1 = new File(relationDir);
+            context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.fromFile(file1.getAbsoluteFile())));
+        }
+    }
+
+    public static Bitmap loadBitmapFromView(View view, int width, int height) {
+        Bitmap bitmap = Bitmap.createBitmap(width,height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.layout(0,0,width,height);
+        view.draw(canvas);
+        return bitmap;
+    }
+}

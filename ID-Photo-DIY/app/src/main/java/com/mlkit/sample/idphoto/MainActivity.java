@@ -25,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.mlkit.sample.idphoto.util.Constant;
 
 import java.util.ArrayList;
@@ -84,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
     private static boolean isPermissionGranted(Context context, String permission) {
         if (ContextCompat.checkSelfPermission(context, permission)
                 == PackageManager.PERMISSION_GRANTED) {
-            SmartLog.i(TAG, "Permission granted: " + permission);
+            Log.i(TAG, "Permission granted: " + permission);
             return true;
         }
-        SmartLog.i(TAG, "Permission NOT granted: " + permission);
+        Log.i(TAG, "Permission NOT granted: " + permission);
         return false;
     }
 

@@ -1,51 +1,59 @@
-# Photo-Translate
+# Photo Translate
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
-## Table of Contents
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/README_ZH.md)
+## Contents
 
- * [Introduction](#introduction)
- * [Supported Environments](#supported-environments)
- * [Sample-Code](#Sample-Code)
- * [License](#license)
+ * [Introduction](#Introduction)
+ *[Project directory structure](#Project directory structure)
+ * [More Scenarios](#More Scenarios)
+ * [Procedure](#Procedure)
+ * [Supported Environment](#Supported Environment)
+ * [License](#License)
 
 
 ## Introduction
-The Photo-Translate uses the text recognition and translation functions of HUAWEI ML Kit to
-translate text in static photos into the required language. Currently, the following languages are supported:
-Simplified Chinese, English, French, Arabic, Thai, Spanish, Turkish, Portuguese, Japanese, German, Italian, and Russian.
+Photo-Translate uses the text recognition and translation functions of HUAWEI ML Kit to translate the text in static photos into the required language. Currently, the following languages are supported: simplified Chinese, English, French, Arabic, Thai, Spanish, Turkish, Portuguese, Japanese, German, Italian, and Russian.
 
-To use cloud services such as text recognition and translation, you need to apply for the
-agconnect-services.json file on [HUAWEI Developers](https://developer.huawei.com/consumer/en/)
-and replace sample-agconnect-services.json with the file in the project. For details,
-please refer to [Adding the AppGallery Connect Configuration File.](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image translation function in your app. The purpose is to help you experience the text recognition and translation functions and integrate HUAWEI ML Kit as soon as possible.
 
-You can only use a custom package name to apply for the agconnect-services.json file.
-In this way, you only need to change the value of applicationId in Photo-Translate\app\build.gradle
-to the package name used in agconnect-services.json. Then, you can use cloud services of HUAWEI ML Kit.
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
 
+## Project directory structure
+Photo-Translate
+    |-- com.mlkit.sample.phototranslate
+        |-- Activity
+            |-- MainActivity // entry
+            |-- RemoteTranslateActivity // RemoteTranslate
+            |-- CapturePhotoActivity // photo
 
-## Supported Environments
-Devices with Android 4.4 or later are recommended.
+## More Scenarios
+- Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:
+  - General text recognition
+  - Recognition of text in bus license plates
+  - Recognition of text in documents
 
+- Translation
+  - Roadmap and sign translation
+  - Document translation
+  - Web page translation. For example, recognize the language of website comments and translate the comments into the language of the corresponding country.
+  - Introduction to and translation of products outside China
+  - Canteen menu translation
 
-## Sample Code
-Sample code majors activitys as follows:
-   1. Choose MainActivity to see a demo of the following:
-      - Chooses the source language and target language.
+## Procedure
+ - Clone the code library to the local computer.
 
-   2. Choose RemoteTranslateActivity to see a demo of the following:
-	  - Selects photo from album or take photo to do the translation
+       git clone https://github.com/HMS-Core/hms-ml-demo.git
 
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - Replace the sample-agconnect-services.json file in the project.
+ - Compile and run on an Android device or simulator.
 
-   Ability called by the sample:
-   1. Text Recognition
-	  - MLAnalyzerFactory.getInstance().getRemoteTextAnalyzer()：Create a cloud text recognizer.
-	  - MLTextAnalyzer.asyncAnalyseFrame(MLFrame frame): Parse text information in pictures.
-	  - MLText.getBlocks(): Get text blocks. Generally, a text block represents one line. There is also a case where a text block corresponds to multiple lines.
-      - MLText.Block.getContents(): Get list of text lines(MLText.TextLine).
-   2. Translation
-	  - MLTranslatorFactory.getInstance().getRemoteTranslator(MLRemoteTranslateSetting settings)：Create a translator.
-	  - MLRemoteTranslator.asyncTranslate(String sourceText): Parse out text from source language to target language, sourceText indicates the language to be detected.
+For details about the development procedure, please refer to [How to use Huawei HMS ML Kit service to quickly develop a photo translation app](https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0201257535948780270&fid=0101187876626530001).
 
+## Supported Environment
+Android 4.4 or later is recommended.
 
-##  License
-The Photo-Translate have obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+## License
+The sample code has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).

@@ -16,8 +16,16 @@
 
 package com.mlkit.sample.activity;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.media.AudioFormat;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +33,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,6 +48,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.huawei.hms.mlsdk.tts.MLTtsAudioFragment;
 import com.huawei.hms.mlsdk.tts.MLTtsCallback;
 import com.huawei.hms.mlsdk.tts.MLTtsConfig;
 import com.huawei.hms.mlsdk.tts.MLTtsConstants;
@@ -46,27 +59,28 @@ import com.huawei.hms.mlsdk.tts.MLTtsEngine;
 import com.huawei.hms.mlsdk.tts.MLTtsError;
 import com.huawei.hms.mlsdk.tts.MLTtsWarn;
 import com.mlkit.sample.R;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import com.mlkit.sample.util.FileUtils;
+import com.mlkit.sample.util.PCMToWav;
 
 public class TtsAudioActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private static final String TAG = "TtsAudioActivity";
 
     private static final String NO_NETWORK = "0104";
-    private static final String ABNORMAL = "0102";
     private static final String SPEAK_ABNORMAL = "7002";
 
     private static final int MESSAGE_TYPE_INFO = 1;
     private static final int MESSAGE_TYPE_RANGE = 2;
 
+    public static String AUDIO_PATH;
+    private static String AUDIO_FILE_NAME_PCM;
+    private static String AUDIO_FILE_NAME_WAV;
+    private MediaPlayer mediaPlayer;
+
     private EditText editText;
 
     private Button addBtn;
     private Button pauseBtn;
+    private Button playBtn;
     private Button stopBtn;
 
     private SeekBar speedSeek;
@@ -74,31 +88,33 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
 
     private TextView textView_volume;
     private TextView textView_speed;
-
-    private ImageView clear;
-
     private TextView languageText;
     private TextView styleText;
     private TextView modeText;
+
+    private ImageView clear;
 
     private RelativeLayout rl_language;
     private RelativeLayout rl_style;
     private RelativeLayout rl_mode;
 
     private MLTtsEngine mlTtsEngine;
-    private RelativeLayout state;
-    private ImageView imageState;
-    private TextView textState;
+
     private TextView back;
     private String[] languageSpeak = new String[]{MLTtsConstants.TTS_ZH_HANS,
-            MLTtsConstants.TTS_EN_US};
-    private int[] languageResources = new int[]{R.string.chinese, R.string.english_choose};
+            MLTtsConstants.TTS_EN_US, MLTtsConstants.TTS_LAN_FR_FR, MLTtsConstants.TTS_LAN_ES_ES, "de-DE", "it-IT"};
+    private int[] languageResources = new int[]{R.string.chinese, R.string.english_choose, R.string.french, R.string.spanish,R.string.German,R.string.Italian};
     private String[] languageStyle = new String[]{MLTtsConstants.TTS_SPEAKER_FEMALE_ZH,
             MLTtsConstants.TTS_SPEAKER_FEMALE_EN,
             MLTtsConstants.TTS_SPEAKER_MALE_ZH,
-            MLTtsConstants.TTS_SPEAKER_MALE_EN};
+            MLTtsConstants.TTS_SPEAKER_MALE_EN,
+            MLTtsConstants.TTS_SPEAKER_FEMALE_FR,
+            MLTtsConstants.TTS_SPEAKER_FEMALE_ES,
+            "de-DE-st-1",
+            "it-IT-st-1"
+    };
     private int[] languageStyleResources = new int[]{R.string.female_zh, R.string.female_en,
-            R.string.male_zh, R.string.male_en};
+            R.string.male_zh, R.string.male_en, R.string.female_fr, R.string.female_es,R.string.female_de, R.string.female_it};
 
     private int[] playModeResources = new int[]{R.string.queuing_mode, R.string.clear_mode};
     private boolean isFlush = false;
@@ -111,25 +127,21 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
             switch (message.what) {
                 case MESSAGE_TYPE_INFO:
                     String extension = (String) message.obj;
-                    if(extension == null){
-                        state.setVisibility(View.GONE);
+                    if (extension == null) {
                         addBtn.setText(R.string.queue_add);
                         break;
                     }
                     if (NO_NETWORK.equals(extension)) {
-                        state.setVisibility(View.VISIBLE);
-                        imageState.setImageResource(R.drawable.nonetwork);
-                        textState.setText(R.string.nonetwork);
-                        addBtn.setText(R.string.replay);
+                        showFailedDialog(R.string.nonetwork);
+                    } else if (SPEAK_ABNORMAL.equals(extension)) {
+                        showFailedDialog(R.string.speak_abnormal);
                     } else {
-                        state.setVisibility(View.VISIBLE);
-                        imageState.setImageResource(R.drawable.abnormal);
-                        textState.setText(R.string.abnormal);
-                        addBtn.setText(R.string.replay);
+                        showFailedDialog(R.string.abnormal);
                     }
+                    addBtn.setText(R.string.replay);
                     break;
                 case MESSAGE_TYPE_RANGE:
-                    if(editText.getText().toString().isEmpty()){
+                    if (editText.getText().toString().isEmpty()) {
                         break;
                     }
                     Bundle bundle = message.getData();
@@ -166,9 +178,34 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         }
 
         @Override
-        public void onEvent(String taskId, int i, Bundle bundle) {
+        public void onAudioAvailable(String s, MLTtsAudioFragment mlTtsAudioFragment, int i, Pair<Integer, Integer> pair, Bundle bundle) {
+            FileUtils.writeBufferToFile(mlTtsAudioFragment.getAudioData(), AUDIO_FILE_NAME_PCM, true);
+        }
+
+        @Override
+        public void onEvent(String taskId, int eventID, Bundle bundle) {
+            // The synthesis is complete.
+            if (eventID == MLTtsConstants.EVENT_SYNTHESIS_COMPLETE) {
+                AUDIO_FILE_NAME_WAV = PCMToWav.convertWaveFile(AUDIO_FILE_NAME_PCM, AUDIO_FILE_NAME_WAV, 16000, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
+                restartPlayer(AUDIO_FILE_NAME_WAV);
+            }
         }
     };
+
+    private void restartPlayer(String path) {
+        try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = null;
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer.setDataSource(path);
+                mediaPlayer.prepare();
+            }
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
 
     private void sendRangeMsg(String str, int start, int end) {
         Message msg = new Message();
@@ -241,13 +278,24 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         mlTtsEngine = new MLTtsEngine(mlConfigs);
         // Set playback callback
         mlTtsEngine.setTtsCallback(callback);
-        // Customized configuration item, which can be configured in real time to take effect next time
+        // Create audio file.
+        AUDIO_PATH = FileUtils.initFile(this);
+        AUDIO_FILE_NAME_WAV = AUDIO_PATH + "/tts.wav";
+        AUDIO_FILE_NAME_PCM = AUDIO_PATH + "/tts.pcm";
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource("");
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }
     }
 
     private void initView() {
         editText = findViewById(R.id.edit_text);
         addBtn = findViewById(R.id.btn_add);
 
+        playBtn = findViewById(R.id.btn_play);
         pauseBtn = findViewById(R.id.btn_pause);
         stopBtn = findViewById(R.id.btn_stop);
         volumeSeek = findViewById(R.id.volumeSeek);
@@ -266,10 +314,6 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         rl_style = findViewById(R.id.rl_style);
         rl_mode = findViewById(R.id.rl_mode);
 
-        state = findViewById(R.id.state);
-        imageState = findViewById(R.id.state_image);
-        textState = findViewById(R.id.state_text);
-
         createLanguageDialog();
         createStyleDialog();
         createModeDialog();
@@ -287,6 +331,10 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     private TextView FemaleEn;
     private TextView MaleZh;
     private TextView MaleEh;
+    private TextView MaleFr;
+    private TextView MaleEs;
+    private TextView MaleDe;
+    private TextView MaleIt;
     private String styleType = MLTtsConstants.TTS_SPEAKER_FEMALE_ZH;
 
     private void createStyleDialog() {
@@ -301,6 +349,14 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         this.MaleZh.setOnClickListener(this);
         this.MaleEh = view.findViewById(R.id.male_en);
         this.MaleEh.setOnClickListener(this);
+        this.MaleFr = view.findViewById(R.id.male_fr);
+        this.MaleFr.setOnClickListener(this);
+        this.MaleEs = view.findViewById(R.id.male_es);
+        this.MaleEs.setOnClickListener(this);
+        this.MaleDe = view.findViewById(R.id.male_de);
+        this.MaleDe.setOnClickListener(this);
+        this.MaleIt = view.findViewById(R.id.male_it);
+        this.MaleIt.setOnClickListener(this);
         this.styleDialog.setCanceledOnTouchOutside(true);
         // Set the size of the dialog
         Window dialogWindow = this.styleDialog.getWindow();
@@ -316,17 +372,29 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     private Dialog languageDialog;
     private TextView textCN;
     private TextView textEN;
+    private TextView textFr;
+    private TextView textEs;
+    private TextView textDe;
+    private TextView textIt;
     private String textType = MLTtsConstants.TTS_ZH_HANS;
 
     private void createLanguageDialog() {
         this.languageDialog = new Dialog(this, R.style.MyDialogStyle);
-        View view = View.inflate(this, R.layout.dialog_language, null);
+        View view = View.inflate(this, R.layout.dialog_tts_language, null);
         // Set up a custom layout
         this.languageDialog.setContentView(view);
         this.textCN = view.findViewById(R.id.simple_cn);
         this.textCN.setOnClickListener(this);
         this.textEN = view.findViewById(R.id.english);
         this.textEN.setOnClickListener(this);
+        this.textFr = view.findViewById(R.id.french);
+        this.textFr.setOnClickListener(this);
+        this.textEs = view.findViewById(R.id.spanish);
+        this.textEs.setOnClickListener(this);
+        this.textDe = view.findViewById(R.id.German);
+        this.textDe.setOnClickListener(this);
+        this.textIt = view.findViewById(R.id.Italian);
+        this.textIt.setOnClickListener(this);
         this.languageDialog.setCanceledOnTouchOutside(true);
         // Set the size of the dialog
         Window dialogWindow = this.languageDialog.getWindow();
@@ -414,6 +482,7 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         addBtn.setOnClickListener(this);
         pauseBtn.setOnClickListener(this);
         stopBtn.setOnClickListener(this);
+        playBtn.setOnClickListener(this);
 
         speedSeek.setOnSeekBarChangeListener(this);
         volumeSeek.setOnSeekBarChangeListener(this);
@@ -425,6 +494,19 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         back.setOnClickListener(this);
     }
 
+    private void showFailedDialog(int res) {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setMessage(res)
+                .setPositiveButton(getString(R.string.str_ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.button_background));
+    }
+
     @Override
     public void onDestroy() {
         Log.e(TAG, "onDestroy");
@@ -432,6 +514,16 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         if (mlTtsEngine != null) {
             mlTtsEngine.stop();
             mlTtsEngine = null;
+        }
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer = null;
+        }
+    }
+
+    private void playAudio(String audioFilePath) {
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
         }
     }
 
@@ -441,28 +533,32 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
             case R.id.close:
                 editText.setText("");
                 break;
+            case R.id.btn_play:
+                // Use the system player to play the cached audio.
+                playAudio(AUDIO_FILE_NAME_WAV);
+                break;
             case R.id.btn_add:
                 if (mlTtsEngine == null) {
                     return;
                 }
-                if(isPause) {
+                if (isPause) {
                     isPause = false;
                     pauseBtn.setText(R.string.pause);
                 }
                 sendMsg(MESSAGE_TYPE_INFO, null);
                 String text = editText.getText().toString();
-                if(text.isEmpty()){
-                    Toast.makeText(getApplicationContext(),R.string.please_enter_text, Toast.LENGTH_SHORT).show();
+                if (text.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), R.string.please_enter_text, Toast.LENGTH_SHORT).show();
                 }
-                String id = mlTtsEngine.speak(text, isFlush ? MLTtsEngine.QUEUE_FLUSH : MLTtsEngine.QUEUE_APPEND);
+                String id = mlTtsEngine.speak(text, isFlush ? MLTtsEngine.QUEUE_FLUSH : MLTtsEngine.QUEUE_APPEND | MLTtsEngine.OPEN_STREAM);
                 temp.put(id, text);
                 break;
             case R.id.btn_pause:
                 isPause = !isPause;
-                pauseBtn.setText(isPause? R.string.resume:R.string.pause);
-                if(isPause){
+                pauseBtn.setText(isPause ? R.string.resume : R.string.pause);
+                if (isPause) {
                     mlTtsEngine.pause();
-                }else {
+                } else {
                     mlTtsEngine.resume();
                 }
                 break;
@@ -496,6 +592,34 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
                 languageText.setText(languageResources[1]);
                 this.languageDialog.dismiss();
                 break;
+            case R.id.french:
+                language = languageSpeak[2];
+                updateConfig();
+                textType = language;
+                languageText.setText(languageResources[2]);
+                this.languageDialog.dismiss();
+                break;
+            case R.id.spanish:
+                language = languageSpeak[3];
+                updateConfig();
+                textType = language;
+                languageText.setText(languageResources[3]);
+                this.languageDialog.dismiss();
+                break;
+            case R.id.German:
+                language = languageSpeak[4];
+                updateConfig();
+                textType = language;
+                languageText.setText(languageResources[4]);
+                this.languageDialog.dismiss();
+                break;
+            case R.id.Italian:
+                language = languageSpeak[5];
+                updateConfig();
+                textType = language;
+                languageText.setText(languageResources[5]);
+                this.languageDialog.dismiss();
+                break;
             case R.id.female_zh:
                 person = languageStyle[0];
                 updateConfig();
@@ -522,6 +646,34 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
                 updateConfig();
                 styleType = person;
                 styleText.setText(languageStyleResources[3]);
+                this.styleDialog.dismiss();
+                break;
+            case R.id.male_fr:
+                person = languageStyle[4];
+                updateConfig();
+                styleType = person;
+                styleText.setText(languageStyleResources[4]);
+                this.styleDialog.dismiss();
+                break;
+            case R.id.male_es:
+                person = languageStyle[5];
+                updateConfig();
+                styleType = person;
+                styleText.setText(languageStyleResources[5]);
+                this.styleDialog.dismiss();
+                break;
+            case R.id.male_de:
+                person = languageStyle[6];
+                updateConfig();
+                styleType = person;
+                styleText.setText(languageStyleResources[6]);
+                this.styleDialog.dismiss();
+                break;
+            case R.id.male_it:
+                person = languageStyle[7];
+                updateConfig();
+                styleType = person;
+                styleText.setText(languageStyleResources[7]);
                 this.styleDialog.dismiss();
                 break;
             case R.id.queueing_mode:
@@ -555,6 +707,7 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void updateConfig() {
+        Log.w(TAG, "language：" + language + "   " + "person: " + person);
         MLTtsConfig mlTtsConfig = new MLTtsConfig().setVolume(volumeVal)
                 .setSpeed(speedVal)
                 .setLanguage(language)

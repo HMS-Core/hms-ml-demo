@@ -31,7 +31,6 @@ import java.util.List;
 
 public class LocalFaceGraphic extends BaseGraphic {
 
-    private final GraphicOverlay overlay;
 
     private final Paint facePaint;
 
@@ -43,7 +42,6 @@ public class LocalFaceGraphic extends BaseGraphic {
 
         this.mContext = context;
         this.face = face;
-        this.overlay = overlay;
 
         float line_width = CommonUtils.dp2px(this.mContext, 1);
         this.facePaint = new Paint();

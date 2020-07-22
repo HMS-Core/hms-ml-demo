@@ -35,6 +35,7 @@ import android.widget.ToggleButton;
 
 import androidx.core.content.FileProvider;
 
+import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationScene;
 import com.mlkit.sample.R;
 import com.mlkit.sample.callback.ImageSegmentationResultCallBack;
 import com.mlkit.sample.callback.ImageUtilCallBack;
@@ -45,7 +46,6 @@ import com.mlkit.sample.transactor.ImageSegmentationTransactor;
 import com.mlkit.sample.util.Constant;
 import com.mlkit.sample.util.ImageUtils;
 import com.mlkit.sample.views.overlay.GraphicOverlay;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
 import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationSetting;
 
 import java.io.File;
@@ -60,7 +60,7 @@ import java.io.InputStream;
  * @since 2019-12-26
  */
 public class TakePhotoActivity extends BaseActivity
-    implements CompoundButton.OnCheckedChangeListener, ImageSegmentationResultCallBack, View.OnClickListener {
+        implements CompoundButton.OnCheckedChangeListener, ImageSegmentationResultCallBack, View.OnClickListener {
     private LensEngine lensEngine = null;
 
     private LensEnginePreview preview;
@@ -92,8 +92,6 @@ public class TakePhotoActivity extends BaseActivity
     private MLImageSegmentationSetting setting;
 
     private String imgPath;
-
-    private ImageUtilCallBack imageUtilCallBack;
 
     private Camera mCamera;
 
@@ -127,7 +125,6 @@ public class TakePhotoActivity extends BaseActivity
         this.cameraConfiguration.setPreviewWidth(CameraConfiguration.DEFAULT_WIDTH);
         this.cameraConfiguration.setPreviewHeight(CameraConfiguration.DEFAULT_HEIGHT);
         this.createLensEngine();
-        this.startLensEngine();
     }
 
     private void initView() {
@@ -164,7 +161,7 @@ public class TakePhotoActivity extends BaseActivity
             public void onClick(View v) {
                 // save Picture.
                 if (TakePhotoActivity.this.processImage == null) {
-                    SmartLog.e(TakePhotoActivity.TAG, "The image is null, unable to save.");
+                    Log.e(TakePhotoActivity.TAG, "The image is null, unable to save.");
                 } else {
                     // save current image to gallery.
                     ImageUtils imageUtils = new ImageUtils(TakePhotoActivity.this.getApplicationContext());
@@ -178,7 +175,7 @@ public class TakePhotoActivity extends BaseActivity
                     imageUtils.saveToAlbum(TakePhotoActivity.this.processImage);
                     Matrix matrix = new Matrix();
                     matrix.postScale(0.3f, 0.3f);
-                    Bitmap resizedBitmap = Bitmap.createBitmap(TakePhotoActivity.this.processImage,0, 0, TakePhotoActivity.this.processImage.getWidth(), TakePhotoActivity.this.processImage.getHeight(),matrix, true);
+                    Bitmap resizedBitmap = Bitmap.createBitmap(TakePhotoActivity.this.processImage, 0, 0, TakePhotoActivity.this.processImage.getWidth(), TakePhotoActivity.this.processImage.getHeight(), matrix, true);
                     TakePhotoActivity.this.img_pic.setImageBitmap(resizedBitmap);
                 }
             }
@@ -187,9 +184,10 @@ public class TakePhotoActivity extends BaseActivity
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.back){
+        if (view.getId() == R.id.back) {
+            releaseLensEngine();
             finish();
-        }else if(view.getId() == R.id.img_pic) {
+        } else if (view.getId() == R.id.img_pic) {
             if (imgPath == null) {
                 Toast.makeText(getApplicationContext(), "please save a picture", Toast.LENGTH_SHORT).show();
             } else {
@@ -200,7 +198,7 @@ public class TakePhotoActivity extends BaseActivity
                     intent.setType("image/*");
                 } else {
                     intent = new Intent(Intent.ACTION_VIEW);
-                    Uri imgUri = FileProvider.getUriForFile(this, this.getPackageName()+".provider", imgFile);
+                    Uri imgUri = FileProvider.getUriForFile(this, this.getPackageName() + ".provider", imgFile);
                     Log.i(TakePhotoActivity.TAG, "image uri:" + imgUri.toString());
                     intent.setDataAndType(imgUri, "image/*");
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -216,7 +214,11 @@ public class TakePhotoActivity extends BaseActivity
             this.lensEngine = new LensEngine(this, this.cameraConfiguration, this.graphicOverlay);
         }
         try {
-            this.setting = new MLImageSegmentationSetting.Factory().setAnalyzerType(MLImageSegmentationSetting.BODY_SEG).setExact(false).create();
+            this.setting = new MLImageSegmentationSetting.Factory()
+                    .setAnalyzerType(MLImageSegmentationSetting.BODY_SEG)
+                    .setExact(false)
+                    .setScene(MLImageSegmentationScene.FOREGROUND_ONLY)
+                    .create();
             this.transactor = new ImageSegmentationTransactor(this.getApplicationContext(), this.setting, this.background);
             this.transactor.setImageSegmentationResultCallBack(this);
             this.lensEngine.setMachineLearningFrameTransactor(this.transactor);
@@ -233,12 +235,6 @@ public class TakePhotoActivity extends BaseActivity
     private void startLensEngine() {
         if (this.lensEngine != null) {
             try {
-                if (this.preview == null) {
-                    Log.d(TakePhotoActivity.TAG, "resume: Preview is null");
-                }
-                if (this.graphicOverlay == null) {
-                    Log.d(TakePhotoActivity.TAG, "resume: graphOverlay is null");
-                }
                 if (null != this.preview) {
                     this.preview.start(this.lensEngine, true);
                 }
@@ -251,17 +247,22 @@ public class TakePhotoActivity extends BaseActivity
         }
     }
 
+    private void restartLensEngine() {
+        this.startLensEngine();
+        if (null != this.lensEngine) {
+            this.mCamera = this.lensEngine.getCamera();
+            try {
+                this.mCamera.setPreviewTexture(this.preview.getSurfaceTexture());
+            } catch (IOException e) {
+                Log.d(TAG, "initViews IOException");
+            }
+        }
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(Constant.CAMERA_FACING, this.facing);
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        this.preview.stop();
-        this.createLensEngine();
-        this.startLensEngine();
     }
 
     @Override
@@ -274,52 +275,46 @@ public class TakePhotoActivity extends BaseActivity
                 this.facing = CameraConfiguration.CAMERA_FACING_BACK;
             }
             this.cameraConfiguration.setCameraFacing(this.facing);
-            this.setting = new MLImageSegmentationSetting.Factory().setAnalyzerType(MLImageSegmentationSetting.BODY_SEG).create();
+            this.setting = new MLImageSegmentationSetting.Factory()
+                    .setAnalyzerType(MLImageSegmentationSetting.BODY_SEG)
+                    .create();
             this.transactor = new ImageSegmentationTransactor(this.getApplicationContext(), this.setting, this.background);
             this.transactor.setImageSegmentationResultCallBack(this);
             this.lensEngine.setMachineLearningFrameTransactor(this.transactor);
         }
         this.preview.stop();
-        this.startLensEngine();
-        if (null != this.lensEngine) {
-            this.mCamera = this.lensEngine.getCamera();
-            try {
-                this.mCamera.setPreviewTexture(this.preview.getSurfaceTexture());
-            } catch (IOException e) {
-                Log.d(TAG, "initViews IOException");
-            }
-        }
-    }
-
-    public void onBackPressed(View view) {
-        this.finish();
+        restartLensEngine();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TakePhotoActivity.TAG, "onResume");
         this.startLensEngine();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         this.preview.stop();
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed() {
+        super.onBackPressed();
+        releaseLensEngine();
+    }
+
+    private void releaseLensEngine() {
         if (this.lensEngine != null) {
             this.lensEngine.release();
+            this.lensEngine = null;
         }
-        if (this.transactor != null) {
-            this.transactor.stop();
-        }
-        this.imgPath = null;
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacing(this.facing);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseLensEngine();
     }
 
     @Override

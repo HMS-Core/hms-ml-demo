@@ -73,7 +73,7 @@ public class LensEnginePreview extends ViewGroup {
         return this.surfaceView.getHolder();
     }
 
-    public SurfaceTexture getSurfaceTexture(){
+    public SurfaceTexture getSurfaceTexture() {
         return this.surfaceTexture;
     }
 
@@ -221,7 +221,9 @@ public class LensEnginePreview extends ViewGroup {
         if (event.getPointerCount() == 1) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_UP:
-                    this.handleFocusMetering(event, this.lensEngine.getCamera());
+                    if (this.lensEngine != null) {
+                        this.handleFocusMetering(event, this.lensEngine.getCamera());
+                    }
                     break;
             }
         } else {
@@ -268,7 +270,9 @@ public class LensEnginePreview extends ViewGroup {
         int viewHeight = this.getHeight();
         Rect focusRect = LensEnginePreview.calculateTapArea(event.getX(), event.getY(), 1f, viewWidth, viewHeight);
         Rect meteringRect = LensEnginePreview.calculateTapArea(event.getX(), event.getY(), 1.5f, viewWidth, viewHeight);
-
+        if (camera == null) {
+            return;
+        }
         camera.cancelAutoFocus();
         Camera.Parameters params = camera.getParameters();
         if (params.getMaxNumFocusAreas() > 0) {

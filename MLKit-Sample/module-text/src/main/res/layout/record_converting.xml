@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingVertical="10dp"
+    android:layout_marginHorizontal="68dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_14sp"
+        android:textColor="@color/secondary_text_color"
+        android:text="@string/converting"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:indeterminateDrawable="@drawable/progress_background"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        />
+
+    <Button
+        android:id="@+id/convert_cancel"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:background="@drawable/btn_gray_back"
+        android:lines="1"
+        android:textColor="@color/white"
+        android:text="@string/str_cancel"
+        android:textSize="@dimen/text_size_12sp" />
+</LinearLayout>

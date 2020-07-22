@@ -66,12 +66,12 @@ public final class ObjectDetectionActivity extends BaseActivity
         this.cameraConfiguration = new CameraConfiguration();
         this.cameraConfiguration.setCameraFacing(this.facing);
         this.createLensEngine();
-        this.startLensEngine();
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.object_back) {
+            releaseLensEngine();
             this.finish();
         }
     }
@@ -88,16 +88,7 @@ public final class ObjectDetectionActivity extends BaseActivity
             }
         }
         this.preview.stop();
-        this.startLensEngine();
-
-        if (null != this.lensEngine) {
-            this.mCamera = this.lensEngine.getCamera();
-            try {
-                    this.mCamera.setPreviewDisplay(this.preview.getSurfaceHolder());
-            } catch (IOException e) {
-                Log.d(ObjectDetectionActivity.TAG, "initViews IOException");
-            }
-        }
+        reStartLensEngine();
     }
 
     @Override
@@ -125,6 +116,18 @@ public final class ObjectDetectionActivity extends BaseActivity
         }
     }
 
+    private void reStartLensEngine() {
+        this.startLensEngine();
+        if (null != this.lensEngine) {
+            this.mCamera = this.lensEngine.getCamera();
+            try {
+                this.mCamera.setPreviewDisplay(this.preview.getSurfaceHolder());
+            } catch (IOException e) {
+                Log.d(ObjectDetectionActivity.TAG, "initViews IOException");
+            }
+        }
+    }
+
     private void startLensEngine() {
         if (this.lensEngine != null) {
             try {
@@ -144,18 +147,27 @@ public final class ObjectDetectionActivity extends BaseActivity
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         this.preview.stop();
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed() {
+        super.onBackPressed();
+        releaseLensEngine();
+    }
+
+    private void releaseLensEngine() {
         if (this.lensEngine != null) {
             this.lensEngine.release();
+            this.lensEngine = null;
         }
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacing(this.facing);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseLensEngine();
     }
 }

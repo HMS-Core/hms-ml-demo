@@ -22,6 +22,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -30,14 +32,30 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hmf.tasks.OnSuccessListener;
+import com.huawei.hmf.tasks.Task;
+import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCapture;
+import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCaptureConfig;
+import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCaptureFactory;
+import com.huawei.hms.mlsdk.common.MLApplication;
+import com.huawei.hms.mlsdk.common.MLFrame;
+import com.huawei.hms.mlsdk.skeleton.MLSkeleton;
 import com.mlkit.sample.activity.adapter.GridViewAdapter;
+import com.mlkit.sample.activity.adapter.skeleton.GridItem;
 import com.mlkit.sample.activity.entity.GridViewItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.mlkit.sample.R;
+import com.mlkit.sample.activity.fragment.ProductFragment;
+import com.mlkit.sample.transactor.LocalSketlonTranstor;
+import com.mlkit.sample.util.BitmapUtils;
 import com.mlkit.sample.util.Constant;
+import com.mlkit.sample.views.graphic.CameraImageGraphic;
+import com.mlkit.sample.views.graphic.LocalSkeletonGraphic;
+import com.mlkit.sample.views.overlay.GraphicOverlay;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,16 +67,25 @@ import androidx.core.content.ContextCompat;
 public final class StartActivity extends BaseActivity
         implements OnRequestPermissionsResultCallback, View.OnClickListener {
     private static final String TAG = "StartActivity";
+    public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
     private static final int[] ICONS = {com.mlkit.sample.R.drawable.icon_segmentation, com.mlkit.sample.R.drawable.icon_face,
             com.mlkit.sample.R.drawable.icon_object, com.mlkit.sample.R.drawable.icon_classification,
-            com.mlkit.sample.R.drawable.icon_landmark};
+            com.mlkit.sample.R.drawable.icon_landmark, R.drawable.icon_skeleton};
 
     private static final int[] TITLES = {com.mlkit.sample.R.string.image_segmentation, com.mlkit.sample.R.string.face_detection,
             com.mlkit.sample.R.string.object_detection, com.mlkit.sample.R.string.image_classification,
-            com.mlkit.sample.R.string.landmark};
+            com.mlkit.sample.R.string.landmark, R.string.skeletlon};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
+
+
+    private LocalSketlonTranstor localSketlonTranstor;
+
+    private GraphicOverlay graphicOverlay;
+
+    // Template (including the quantity provided by the SDK and that manually generated) 
+    private static int mCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +93,31 @@ public final class StartActivity extends BaseActivity
         BaseActivity.setStatusBarColor(this, R.color.logo_background);
         this.setContentView(R.layout.activity_start);
         this.findViewById(R.id.setting_img).setOnClickListener(this);
+
+        graphicOverlay = findViewById(R.id.fireFaceOverlay);
         initData();
         this.mGridView = findViewById(R.id.gridview);
         GridViewAdapter mAdapter = new GridViewAdapter(this.mDataList, getApplicationContext());
         this.mGridView.setAdapter(mAdapter);
         initClickEvent();
+        // Set the ApiKey of the application for accessing cloud services.
+        setApiKey();
         if (!this.allPermissionsGranted()) {
             this.getRuntimePermissions();
         }
+
+        localSketlonTranstor = new LocalSketlonTranstor(this, null);
+         // Start thread to load bone template (Preloading the skeletal template in advance )
+        new Thread(mRunnable).start();
+    }
+
+    /**
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
+     * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     */
+    private void setApiKey(){
+        AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     private void initClickEvent() {
@@ -107,6 +151,10 @@ public final class StartActivity extends BaseActivity
                         intent.putExtra(Constant.MODEL_TYPE, Constant.CLOUD_LANDMARK_DETECTION);
                         startActivity(intent);
                         break;
+                    case 5:
+                        // Skeleton
+                        startActivity(new Intent(StartActivity.this, HumanSkeletonActivity.class));
+                        break;
                     default:
                         break;
                 }
@@ -117,7 +165,7 @@ public final class StartActivity extends BaseActivity
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.setting_img) {
-            this.startActivity(new Intent(StartActivity.this, SettingActivity.class));
+            startActivity(new Intent(StartActivity.this, SettingActivity.class));
         }
     }
 
@@ -229,4 +277,57 @@ public final class StartActivity extends BaseActivity
             }
         }
     }
+
+    private Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (localSketlonTranstor == null) {
+                return;
+            }
+            getTemplateData();
+        }
+    };
+
+    public static int getCount() {
+        return mCount;
+    }
+
+    public static void setCount() {
+        StartActivity.mCount = StartActivity.mCount + 1;
+    }
+
+    public  void getTemplateData() {
+        final Bitmap tmpBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.test_img);
+        MLFrame frame = new MLFrame.Creator().setBitmap(tmpBitmap).create();
+        Task<List<MLSkeleton>> task = localSketlonTranstor.detectInImage(frame);
+        task.addOnSuccessListener(new OnSuccessListener<List<MLSkeleton>>() {
+            @Override
+            public void onSuccess(List<MLSkeleton> results) {
+                Log.e(TAG,"onSuccess"+results.size());
+                // Detection success.
+                if(results != null && !results.isEmpty()) {
+                    if (graphicOverlay == null){
+                        return;
+                    }
+                    graphicOverlay.clear();
+                    CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, tmpBitmap);
+                    graphicOverlay.addGraphic(imageGraphic);
+
+                    LocalSkeletonGraphic skeletonGraphic = new LocalSkeletonGraphic(graphicOverlay, results);
+                    graphicOverlay.addGraphic(skeletonGraphic);
+                    graphicOverlay.postInvalidate();
+
+                    GridItem gridItem = new GridItem();
+
+                    gridItem.setBitmap(BitmapUtils.loadBitmapFromView(graphicOverlay,
+                            tmpBitmap.getWidth(), tmpBitmap.getHeight()));
+                    gridItem.setSkeletonList(results);
+                    TemplateActivity.getTemplateDataMap().put("key" + mCount, gridItem);
+                    mCount++;
+                }
+            }
+        });
+    }
+
+
 }

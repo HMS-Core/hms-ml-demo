@@ -128,11 +128,19 @@ public class StillImageSegmentationTransactor extends BaseTransactor<MLImageSegm
             Log.i(TAG, "detection failed, none mask return");
             return;
         }
+        // If the originBitmap is automatically recycled, the callback is complete.
+        if (this.originBitmap.isRecycled()) {
+            return;
+        }
         if (this.detectCategory == -1) {
             pixels = this.byteArrToIntArr(results.getMasks());
         } else if (this.backgroundBitmap == null) {
             pixels = this.changeColor(results.getMasks());
         } else {
+            // If the backgroundBitmap is automatically recycled, the callback is complete.
+            if (this.backgroundBitmap.isRecycled()) {
+                return;
+            }
             pixels = this.changeBackground(results.getMasks());
         }
         Bitmap processedBitmap = Bitmap.createBitmap(pixels, 0, this.originBitmap.getWidth(), this.originBitmap.getWidth(), this.originBitmap.getHeight(), Bitmap.Config.ARGB_8888);

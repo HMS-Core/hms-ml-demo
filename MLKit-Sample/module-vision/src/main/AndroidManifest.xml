@@ -13,11 +13,22 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/icon"
-        android:label="ML Kit Vision"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:label="ML Vision"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activity.ImageClassificationActivity" />
-        <activity android:name=".activity.ObjectDetectionActivity" />
-        <activity android:name=".activity.FaceDetectionActivity" />
+        <activity
+            android:name=".activity.ImageClassificationActivity"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false" />
+        <activity
+            android:name=".activity.ObjectDetectionActivity"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false" />
+        <activity
+            android:name=".activity.FaceDetectionActivity"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false" />
         <activity
             android:name=".activity.StartActivity"
             android:exported="true">
@@ -29,26 +40,36 @@
         </activity>
         <activity
             android:name=".activity.RemoteDetectionActivity"
-            android:exported="true" />
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.SettingActivity"
-            android:exported="true" />
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".activity.ImageSegmentationActivity"
-            android:exported="true" />
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".activity.LoadPhotoActivity"
-            android:exported="true" />
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
 
         <activity
             android:name=".activity.TakePhotoActivity"
-            android:exported="true" />
+            android:resizeableActivity="false" />
 
         <activity
             android:name=".activity.StillCutPhotoActivity"
-            android:exported="true" />
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+
+        <activity
+            android:name=".activity.HumanSkeletonActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+
+        <activity
+            android:name=".activity.TemplateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -28,7 +28,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +37,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 import androidx.core.content.ContextCompat;
 
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hms.mlsdk.common.MLApplication;
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.adapter.GridViewAdapter;
 import com.mlkit.sample.activity.entity.GridViewItem;
@@ -49,14 +50,14 @@ import java.util.List;
 public final class StartActivity extends BaseActivity
         implements OnRequestPermissionsResultCallback, View.OnClickListener {
     private static final String TAG = "StartActivity";
+    public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {R.drawable.icon_asr, R.drawable.icon_tts,
+    private static final int[] ICONS = {R.drawable.icon_translate, R.drawable.icon_asr, R.drawable.icon_tts, R.drawable.icon_aft,
             R.drawable.icon_bcr, R.drawable.icon_gcr, R.drawable.icon_text, R.drawable.icon_icr,
-            R.drawable.icon_document, R.drawable.icon_translate};
+            R.drawable.icon_document};
 
-    private static final int[] TITLES = {R.string.asr, R.string.tts,R.string.bcr,
-            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,
-            R.string.translate};
+    private static final int[] TITLES = {R.string.translate, R.string.asr, R.string.tts, R.string.aft, R.string.bcr,
+            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -71,9 +72,20 @@ public final class StartActivity extends BaseActivity
         GridViewAdapter mAdapter = new GridViewAdapter(this.mDataList, getApplicationContext());
         this.mGridView.setAdapter(mAdapter);
         initClickEvent();
+        // Set the ApiKey of the application for accessing cloud services.
+        setApiKey();
         if (!this.allPermissionsGranted()) {
             this.getRuntimePermissions();
         }
+    }
+
+    /**
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
+     * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     */
+    private void setApiKey(){
+        AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     private void initClickEvent() {
@@ -83,35 +95,38 @@ public final class StartActivity extends BaseActivity
         this.mGridView.setOnItemClickListener((parent, view, position, id) -> {
             switch (position) {
                 case 0:
-                    startActivity(new Intent(StartActivity.this, AsrAudioActivity.class));
+                    startActivity(new Intent(StartActivity.this, TranslateActivity.class));
                     break;
                 case 1:
-                    startActivity(new Intent(StartActivity.this, TtsAudioActivity.class));
+                    startActivity(new Intent(StartActivity.this, AsrAudioActivity.class));
                     break;
                 case 2:
+                    startActivity(new Intent(StartActivity.this, TtsAudioActivity.class));
+                    break;
+                case 3:
+                    startActivity(new Intent(StartActivity.this, AudioFileTranscriptionActivity.class));
+                    break;
+                case 4:
                     // BCR
                     startActivity(new Intent(StartActivity.this, BankCardRecognitionActivity.class));
                     break;
-                case 3:
+                case 5:
                     // GCR
                     startActivity(new Intent(StartActivity.this, GeneralCardRecognitionActivity.class));
                     break;
-                case 4:
+                case 6:
                     // Text recognition
                     startActivity(new Intent(StartActivity.this, TextRecognitionActivity.class));
                     break;
-                case 5:
+                case 7:
                     // ICR
                     startActivity(new Intent(StartActivity.this, IDCardRecognitionActivity.class));
                     break;
-                case 6:
+                case 8:
                     // Document recognition
                     final Intent intent = new Intent(StartActivity.this, RemoteDetectionActivity.class);
                     intent.putExtra(Constant.MODEL_TYPE, Constant.CLOUD_DOCUMENT_TEXT_DETECTION);
                     startActivity(intent);
-                    break;
-                case 7:
-                    startActivity(new Intent(StartActivity.this, TranslatorActivity.class));
                     break;
                 default:
                     Toast.makeText(getApplicationContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show();

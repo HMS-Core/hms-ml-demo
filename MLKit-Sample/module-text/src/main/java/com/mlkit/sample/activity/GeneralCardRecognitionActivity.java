@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.dialog.AddPictureDialog;
 import com.mlkit.sample.activity.entity.GeneralCardResult;
@@ -256,11 +256,11 @@ public class GeneralCardRecognitionActivity extends Activity implements View.OnC
         if (showResult.getText().length() != 0) {
             showResult.setText("");
         }
-        String newLine = getResources().getString(R.string.special);
         StringBuilder builder = new StringBuilder();
+
         builder.append("valid: ");
         builder.append(result.valid);
-        builder.append(newLine);
+        builder.append(System.lineSeparator());
 
         builder.append("number: ");
         builder.append(result.number);
@@ -297,7 +297,7 @@ public class GeneralCardRecognitionActivity extends Activity implements View.OnC
         try {
             mTryImageBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mImageUri);
         } catch (IOException error) {
-            SmartLog.e(TAG, "Failed to get bitmap from uri: " + error.getMessage());
+            Log.e(TAG, "Failed to get bitmap from uri: " + error.getMessage());
         }
         detectLocalImage(mTryImageBitmap, null, callback);
     }
