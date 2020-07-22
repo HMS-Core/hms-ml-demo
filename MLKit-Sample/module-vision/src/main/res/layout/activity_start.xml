@@ -60,4 +60,11 @@
         android:numColumns="3"
         android:verticalSpacing="40dp"></GridView>
 
+    <com.mlkit.sample.views.overlay.GraphicOverlay
+        android:id="@+id/fireFaceOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>

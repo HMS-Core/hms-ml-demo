@@ -30,12 +30,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
+import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.langdetect.MLLangDetectorFactory;
 import com.huawei.hms.mlsdk.langdetect.local.MLLocalLangDetector;
 import com.huawei.hms.mlsdk.langdetect.local.MLLocalLangDetectorSetting;
 import com.huawei.hms.mlsdk.model.download.MLLocalModelManager;
+import com.huawei.hms.mlsdk.model.download.MLModelDownloadListener;
 import com.huawei.hms.mlsdk.model.download.MLModelDownloadStrategy;
 import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
 import com.huawei.hms.mlsdk.translate.local.MLLocalTranslateSetting;
@@ -52,18 +55,24 @@ import java.util.concurrent.CountDownLatch;
 
 public class LocalTranslateActivity extends BaseActivity {
     private static final String TAG = "LocalTranslateActivity";
-    private static final String[] SOURCE_LANGUAGE_CODE = new String[]{"Auto", "ZH", "EN"};
-    private static final String[] DEST_LANGUAGE_CODE = new String[]{"ZH", "EN"};
-    private static final List<String> SP_SOURCE_LIST = new ArrayList<>(Arrays.asList("自动检测", "中文", "英文"));
-    private static final List<String> SP_SOURCE_LIST_EN = new ArrayList<>(Arrays.asList("Auto", "Chinese", "English"));
-    private static final List<String> SP_DEST_LIST = new ArrayList<>(Arrays.asList("中文", "英文"));
-    private static final List<String> SP_DEST_LIST_EN = new ArrayList<>(Arrays.asList("Chinese", "English"));
+    private static final String[] SOURCE_LANGUAGE_CODE = new String[]{"Auto", "ZH", "EN","ES","DE","RU","FR"};
+    private static final String[] DEST_LANGUAGE_CODE = new String[]{"ZH", "EN","ES","DE","RU","FR"};
+    private static final List<String> SP_SOURCE_LIST = new ArrayList<>(Arrays.asList("自动检测", "中文", "英文","西班牙语","德语","俄语","法语"));
+    private static final List<String> SP_SOURCE_LIST_EN = new ArrayList<>(Arrays.asList("Auto", "Chinese", "English","Spanish","German","Russian","French"));
+    private static final List<String> SP_DEST_LIST = new ArrayList<>(Arrays.asList("中文", "英文","西班牙语","德语","俄语","法语"));
+    private static final List<String> SP_DEST_LIST_EN = new ArrayList<>(Arrays.asList("Chinese", "English","Spanish","German","Russian","French"));
     private static final List<String> CODE_LIST = new ArrayList<>(Arrays.asList(
             "zh", "en", "fr", "th", "ja", "de", "ru", "es",
-            "ar", "tr", "pt", "it", "ro"));
+            "ar", "tr", "pt", "it", "ro", "no"));
     private static final List<String> LANGUAGE_LIST = new ArrayList<>(Arrays.asList(
             "Chinese", "English", "French", "Thai", "Japanese", "German", "Russian", "Spanish",
-            "Arabic", "Turkish", "Portuguese", "Italian", "Romanian"));
+            "Arabic", "Turkish", "Portuguese", "Italian", "Romanian","Norwegian"));
+
+    private final static long M = 1024 * 1024;
+
+    private final static int LEFT = 1;
+    private final static int RIGHT  = 2;
+    private final static int AUTO = 3;
 
     private Spinner spSourceType;
     private Spinner spDestType;
@@ -81,12 +90,15 @@ public class LocalTranslateActivity extends BaseActivity {
     private String srcLanguage = "Auto";
     private String dstLanguage = "EN";
     public static final String EN = "en";
+    public static final String API_KEY = "client/api_key";
 
     private View.OnClickListener listener;
 
     private ArrayAdapter<String> spSourceAdapter;
     private ArrayAdapter<String> spDestAdapter;
     private MLLocalModelManager manager;
+
+
 
     private String bestResult;
     @Override
@@ -97,7 +109,14 @@ public class LocalTranslateActivity extends BaseActivity {
         this.createSpinner();
         this.bindEventListener();
         this.manager = MLLocalModelManager.getInstance();
+        setApiKey();
     }
+
+    private void setApiKey(){
+        AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
+    }
+
 
     private void createSpinner() {
         if (this.isEngLanguage()) {
@@ -191,8 +210,6 @@ public class LocalTranslateActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence str, int start, int before, int count) {
                 LocalTranslateActivity.this.updateLength(LocalTranslateActivity.this.tvInputLen, str.length());
-                // todo
-               // LocalTranslateActivity.this.autoUpdateSourceLanguage();
             }
 
             @Override
@@ -291,10 +308,10 @@ public class LocalTranslateActivity extends BaseActivity {
                     LocalTranslateActivity.this.doLanguageSwitch();
                     break;
                 case R.id.downloadSource:
-                    downloadModel(getSourceType());
+                    downloadModel(getSourceType(),LEFT);
                     break;
                 case R.id.downloadDest:
-                    downloadModel(getDestType());
+                    downloadModel(getDestType(),RIGHT);
                     break;
                 default:
                     break;
@@ -307,22 +324,59 @@ public class LocalTranslateActivity extends BaseActivity {
     }
 
 
-    private void downloadModel(final String languageCode) {
+    private void downloadModel(final String languageCode,final int location) {
         MLLocalTranslatorModel model = new MLLocalTranslatorModel.Factory(languageCode).create();
+        MLModelDownloadListener modelDownloadListener = new MLModelDownloadListener() {
+            @Override
+            public void onProcess(long alreadyDownLength, long totalLength) {
+                showProcess(alreadyDownLength,getString(R.string.download), totalLength,location);
+            }
+        };
         MLModelDownloadStrategy request = new MLModelDownloadStrategy.Factory()
                 .needWifi()
                 .create();
 
-        manager.downloadModel(model, request).addOnSuccessListener(new OnSuccessListener<Void>() {
+        manager.downloadModel(model, request,modelDownloadListener).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 showToast("DownloadModel Success");
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(Exception e) {
                 Log.e(TAG, "downloadModel failed: " + e.getMessage());
                 showToast("DownloadModel Failed");
+            }
+        });
+    }
+
+    private void showProcess(long alreadyDownLength, String buttonText, long totalLength, int location) {
+        double downDone = alreadyDownLength * 1.0 / M;
+        double downTotal = totalLength * 1.0 / M;
+        String downD = String.format("%.2f", downDone);
+        String downT = String.format("%.2f", downTotal);
+
+        String text = downD + "M" + "/" + downT + "M";
+        Log.e(TAG, "stringformat:" + downD);
+        updateButton(text,location);
+        if (downD.equals(downT)) {
+            updateButton(buttonText,location);
+        }
+    }
+
+    private void updateButton(final String text, final int buttonSwitch) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                switch (buttonSwitch) {
+                    case LEFT:
+                        btnDownloadSrc.setText(text);
+                        break;
+                    case RIGHT:
+                        btnDownloadDest.setText(text);
+                        break;
+                }
             }
         });
     }

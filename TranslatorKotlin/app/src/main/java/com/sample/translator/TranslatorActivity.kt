@@ -134,7 +134,7 @@ class TranslatorActivity : AppCompatActivity() {
         mlTtsEngine.speak(translatedText, MLTtsEngine.QUEUE_APPEND)
     }
 
-    private var callback: MLTtsCallback = object : MLTtsCallback {
+    private var callback: MLTtsCallback = object :  MLTtsCallback {
         override fun onError(taskId: String, err: MLTtsError) {
 
         }
@@ -142,7 +142,7 @@ class TranslatorActivity : AppCompatActivity() {
         override fun onAudioAvailable(p0: String?, p1: MLTtsAudioFragment?, p2: Int, p3: Pair<Int, Int>?, p4: Bundle?) {
 
         }
-	
+
         override fun onWarn(taskId: String, warn: MLTtsWarn) {
 
         }

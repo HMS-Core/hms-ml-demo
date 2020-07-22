@@ -22,7 +22,6 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.hardware.Camera;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -131,7 +130,6 @@ public final class TextRecognitionActivity extends BaseActivity
         this.initViews();
         this.isLandScape = (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
         this.createLensEngine();
-        this.startLensEngine();
         this.setStatusBar();
     }
 
@@ -191,6 +189,7 @@ public final class TextRecognitionActivity extends BaseActivity
             this.preview.release();
             this.restartLensEngine(Constant.POSITION_LA);
         } else if (view.getId() == R.id.back) {
+            releaseLensEngine();
             this.finish();
         }
     }
@@ -221,6 +220,7 @@ public final class TextRecognitionActivity extends BaseActivity
             this.recycleBitmap();
         } else {
             super.onBackPressed();
+            releaseLensEngine();
         }
     }
 
@@ -352,20 +352,23 @@ public final class TextRecognitionActivity extends BaseActivity
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         this.preview.stop();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    private void releaseLensEngine() {
         if (this.lensEngine != null) {
             this.lensEngine.release();
+            this.lensEngine = null;
         }
-        this.recycleBitmap();
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacing(this.facing);
+        recycleBitmap();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseLensEngine();
     }
 
     private void recycleBitmap() {

@@ -5,6 +5,7 @@
 ## 目录
 
  * [介绍](#介绍)
+ * [工程目录结构](#工程目录结构)
  * [更多场景](#更多场景)
  * [运行步骤](#运行步骤)
  * [支持的环境](#支持的环境)
@@ -17,6 +18,13 @@ ID-Photo-DIY使用图像分割功能，将人像图片合成一张蓝白背景�
 本Demo演示如何通过[HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发一个身份证照片DIY小程序，目的是让您体验图像分割功能，帮助您尽快集成HUAWEI ML Kit。
 
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ID-Photo-DIY/ID%20Photo%20DIY.gif" width=250 title="ID Photo DIY" div align=center border=5>
+
+## 工程目录结构
+ID-Photo-DIY
+    |-- com.mlkit.sample.idphoto
+        |-- Activity
+            |-- MainActivity //DIY 入口
+            |-- StillCutPhotoActivity // DIY 定制页面
 
 ## 更多场景
 基于HUAWEI ML Kit提供的图像分割能力，不仅可以做身份证照片的DIY程序，还可以实现以下相关功能：

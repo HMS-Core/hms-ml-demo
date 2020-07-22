@@ -102,16 +102,19 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
 
     private TextView back;
     private String[] languageSpeak = new String[]{MLTtsConstants.TTS_ZH_HANS,
-            MLTtsConstants.TTS_EN_US, MLTtsConstants.TTS_LAN_FR_FR, MLTtsConstants.TTS_LAN_ES_ES};
-    private int[] languageResources = new int[]{R.string.chinese, R.string.english_choose, R.string.french, R.string.spanish};
+            MLTtsConstants.TTS_EN_US, MLTtsConstants.TTS_LAN_FR_FR, MLTtsConstants.TTS_LAN_ES_ES, "de-DE", "it-IT"};
+    private int[] languageResources = new int[]{R.string.chinese, R.string.english_choose, R.string.french, R.string.spanish,R.string.German,R.string.Italian};
     private String[] languageStyle = new String[]{MLTtsConstants.TTS_SPEAKER_FEMALE_ZH,
             MLTtsConstants.TTS_SPEAKER_FEMALE_EN,
             MLTtsConstants.TTS_SPEAKER_MALE_ZH,
             MLTtsConstants.TTS_SPEAKER_MALE_EN,
             MLTtsConstants.TTS_SPEAKER_FEMALE_FR,
-            MLTtsConstants.TTS_SPEAKER_FEMALE_ES};
+            MLTtsConstants.TTS_SPEAKER_FEMALE_ES,
+            "de-DE-st-1",
+            "it-IT-st-1"
+    };
     private int[] languageStyleResources = new int[]{R.string.female_zh, R.string.female_en,
-            R.string.male_zh, R.string.male_en, R.string.female_fr, R.string.female_es};
+            R.string.male_zh, R.string.male_en, R.string.female_fr, R.string.female_es,R.string.female_de, R.string.female_it};
 
     private int[] playModeResources = new int[]{R.string.queuing_mode, R.string.clear_mode};
     private boolean isFlush = false;
@@ -330,6 +333,8 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     private TextView MaleEh;
     private TextView MaleFr;
     private TextView MaleEs;
+    private TextView MaleDe;
+    private TextView MaleIt;
     private String styleType = MLTtsConstants.TTS_SPEAKER_FEMALE_ZH;
 
     private void createStyleDialog() {
@@ -348,6 +353,10 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         this.MaleFr.setOnClickListener(this);
         this.MaleEs = view.findViewById(R.id.male_es);
         this.MaleEs.setOnClickListener(this);
+        this.MaleDe = view.findViewById(R.id.male_de);
+        this.MaleDe.setOnClickListener(this);
+        this.MaleIt = view.findViewById(R.id.male_it);
+        this.MaleIt.setOnClickListener(this);
         this.styleDialog.setCanceledOnTouchOutside(true);
         // Set the size of the dialog
         Window dialogWindow = this.styleDialog.getWindow();
@@ -365,6 +374,8 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
     private TextView textEN;
     private TextView textFr;
     private TextView textEs;
+    private TextView textDe;
+    private TextView textIt;
     private String textType = MLTtsConstants.TTS_ZH_HANS;
 
     private void createLanguageDialog() {
@@ -380,6 +391,10 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         this.textFr.setOnClickListener(this);
         this.textEs = view.findViewById(R.id.spanish);
         this.textEs.setOnClickListener(this);
+        this.textDe = view.findViewById(R.id.German);
+        this.textDe.setOnClickListener(this);
+        this.textIt = view.findViewById(R.id.Italian);
+        this.textIt.setOnClickListener(this);
         this.languageDialog.setCanceledOnTouchOutside(true);
         // Set the size of the dialog
         Window dialogWindow = this.languageDialog.getWindow();
@@ -591,6 +606,20 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
                 languageText.setText(languageResources[3]);
                 this.languageDialog.dismiss();
                 break;
+            case R.id.German:
+                language = languageSpeak[4];
+                updateConfig();
+                textType = language;
+                languageText.setText(languageResources[4]);
+                this.languageDialog.dismiss();
+                break;
+            case R.id.Italian:
+                language = languageSpeak[5];
+                updateConfig();
+                textType = language;
+                languageText.setText(languageResources[5]);
+                this.languageDialog.dismiss();
+                break;
             case R.id.female_zh:
                 person = languageStyle[0];
                 updateConfig();
@@ -631,6 +660,20 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
                 updateConfig();
                 styleType = person;
                 styleText.setText(languageStyleResources[5]);
+                this.styleDialog.dismiss();
+                break;
+            case R.id.male_de:
+                person = languageStyle[6];
+                updateConfig();
+                styleType = person;
+                styleText.setText(languageStyleResources[6]);
+                this.styleDialog.dismiss();
+                break;
+            case R.id.male_it:
+                person = languageStyle[7];
+                updateConfig();
+                styleType = person;
+                styleText.setText(languageStyleResources[7]);
                 this.styleDialog.dismiss();
                 break;
             case R.id.queueing_mode:

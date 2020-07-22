@@ -66,11 +66,6 @@ public class AudioManager {
             switch (msg.what) {
                 case MSG_VOLUME_CHANGED:
                     mRecordDialog.updateVolumeLevel(getVolumeLevel(12));
-                    // if the time is expired, just stop.
-                   /* if (mRecordingTime >= MAX_TIME) {
-                        mRecordDialog.dismiss();
-                        recordingComplete();
-                    }*/
                     break;
                 default:
                     break;

@@ -88,8 +88,6 @@ public class ColorSelector extends View {
 
     private boolean mIsNeedReDrawColorTable = true;
 
-    private boolean mIsNeedReDrawIndicator = true;
-
     private int mCurrentX;
 
     private int mCurrentY;
@@ -185,7 +183,6 @@ public class ColorSelector extends View {
         }
         this.createBitmap();
 
-        this.mIsNeedReDrawIndicator = true;
 
     }
 
@@ -477,7 +474,6 @@ public class ColorSelector extends View {
     }
 
     public void initData() {
-        this.mIsNeedReDrawIndicator = true;
         this.mIsNeedReDrawColorTable = true;
         this.requestLayout();
     }

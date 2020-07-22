@@ -5,6 +5,7 @@
 ## 目录
 
  * [介绍](#介绍)
+ * [工程目录结构](#工程目录结构)
  * [更多场景](#更多场景)
  * [运行步骤](#运行步骤)
  * [支持的环境](#支持的环境)
@@ -18,14 +19,18 @@ ASRSample使用HUAWEI ML Kit的实时语音识别功能将实时语音转换成�
 [华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
 [华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/mlpluginasr-4)。
 
-<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSampleKotlin/asr.gif" width=250 title="ASR" div align=center border=5>
+## 工程目录结构
+AsrSampleKotlin
+    |-- com.sample.asrsamplekotlin
+        |-- Activity
+            |-- AsrAudioActivity //实时语音识别服务
 
 ## 更多场景
-HUAWEI ML Kit提供的实时语音识别功能，还可适用于更加广泛的场景，例如：
-
-1.手机应用语音输入：将语音实时识别为文字，适用于语音聊天、语音输入、语音搜索、语音下单、语音指令等多种场景。
-
-2.实时语音转写：可将会议记录、笔记、总结、等音频实时转写为文字，进行内容记录、实时展示。
+HUAWEI ML Kit提供的实时语音识别功能，还可适用于更加广泛的场景，如：
+1.手机应用语音输入：
+将语音实时识别为文字，适用于语音聊天、语音输入、语音搜索、语音下单、语音指令等多种场景。
+2.实时语音转写：
+可将会议记录、笔记、总结、等音频实时转写为文字，进行内容记录、实时展示。
 
 ## 运行步骤
  - 将本代码库克隆到本地。

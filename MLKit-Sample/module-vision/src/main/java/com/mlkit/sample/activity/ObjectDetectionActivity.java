@@ -71,6 +71,7 @@ public final class ObjectDetectionActivity extends BaseActivity
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.object_back) {
+            releaseLensEngine();
             this.finish();
         }
     }
@@ -152,12 +153,21 @@ public final class ObjectDetectionActivity extends BaseActivity
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed() {
+        super.onBackPressed();
+        releaseLensEngine();
+    }
+
+    private void releaseLensEngine() {
         if (this.lensEngine != null) {
             this.lensEngine.release();
+            this.lensEngine = null;
         }
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacing(this.facing);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseLensEngine();
     }
 }

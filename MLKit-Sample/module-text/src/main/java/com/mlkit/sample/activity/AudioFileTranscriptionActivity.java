@@ -141,8 +141,12 @@ public class AudioFileTranscriptionActivity extends AppCompatActivity implements
         String taskId;
         long timeDuration = UriFileInfoUtils.getDuration(getApplicationContext(), uri);
         Log.i(TAG, "timeDuration " + timeDuration);
-        MLRemoteAftSetting setting =
-                new MLRemoteAftSetting.Factory().enablePunctuation(true).enableTimeOffset(true).setLanguageCode(mLanguage).create();
+        MLRemoteAftSetting setting = new MLRemoteAftSetting.Factory()
+                .enablePunctuation(true)
+                .enableWordTimeOffset(true)
+                .enableSentenceTimeOffset(true)
+                .setLanguageCode(mLanguage)
+                .create();
         taskId = mAnalyzer.shortRecognize(uri, setting);
         return taskId;
 
@@ -332,11 +336,24 @@ public class AudioFileTranscriptionActivity extends AppCompatActivity implements
                 }
 
                 List<MLRemoteAftResult.Segment> segmentList = result.getSegments();
-                if (segmentList == null) {
-                    return;
+                if (segmentList != null && segmentList.size() != 0) {
+                    for (MLRemoteAftResult.Segment segment : segmentList) {
+                        Log.e(TAG, "MLAsrCallBack segment  text is : " + segment.getText() + ", startTime is : " + segment.getStartTime() + ". endTime is : " + segment.getEndTime());
+                    }
                 }
-                for (MLRemoteAftResult.Segment segment : segmentList) {
-                    Log.i(TAG, segment.getText());
+
+                List<MLRemoteAftResult.Segment> words = result.getWords();
+                if (words != null && words.size() != 0) {
+                    for (MLRemoteAftResult.Segment word : words) {
+                        Log.e(TAG, "MLAsrCallBack word  text is : " + word.getText() + ", startTime is : " + word.getStartTime() + ". endTime is : " + word.getEndTime());
+                    }
+                }
+
+                List<MLRemoteAftResult.Segment> sentences = result.getSentences();
+                if (sentences != null && sentences.size() != 0) {
+                    for (MLRemoteAftResult.Segment sentence : sentences) {
+                        Log.e(TAG, "MLAsrCallBack sentence  text is : " + sentence.getText() + ", startTime is : " + sentence.getStartTime() + ". endTime is : " + sentence.getEndTime());
+                    }
                 }
             }
 

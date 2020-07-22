@@ -82,6 +82,7 @@ public class LiveFaceAnalyseActivity extends AppCompatActivity implements View.O
 
     private int detectMode;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -315,6 +316,7 @@ public class LiveFaceAnalyseActivity extends AppCompatActivity implements View.O
     }
 
     private String saveBitmapToDisk(Bitmap bitmap) {
+        String filePath = "";
         File appDir = new File(storePath);
         if (!appDir.exists()) {
             boolean res = appDir.mkdir();
@@ -326,17 +328,31 @@ public class LiveFaceAnalyseActivity extends AppCompatActivity implements View.O
 
         String fileName = "SmileDemo" + System.currentTimeMillis() + ".jpg";
         File file = new File(appDir, fileName);
+        FileOutputStream fos = null;
         try {
-            FileOutputStream fos = new FileOutputStream(file);
+            fos = new FileOutputStream(file);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
-            fos.close();
 
             Uri uri = Uri.fromFile(file);
             this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            if (fos != null){
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
-        return file.getAbsolutePath();
+        try {
+            filePath=file.getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
     }
 }

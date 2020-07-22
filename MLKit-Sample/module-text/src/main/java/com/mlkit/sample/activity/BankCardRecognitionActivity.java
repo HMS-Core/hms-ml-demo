@@ -20,6 +20,8 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +48,8 @@ public class BankCardRecognitionActivity extends AppCompatActivity implements Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_card_recognition);
-
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         initComponent();
     }
 

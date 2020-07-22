@@ -14,7 +14,6 @@
  *    limitations under the License.
  */
 
-
 package com.mlkit.sample.views.graphic;
 
 import java.text.DecimalFormat;
@@ -32,6 +31,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.util.Log;
 
 import com.mlkit.sample.util.CommonUtils;
 import com.mlkit.sample.views.overlay.GraphicOverlay;
@@ -41,7 +41,7 @@ import com.huawei.hms.mlsdk.face.MLFaceKeyPoint;
 import com.huawei.hms.mlsdk.face.MLFaceShape;
 
 public class LocalFaceGraphic extends BaseGraphic {
-
+    private static final String TAG = LocalFaceGraphic.class.getSimpleName();
     private final GraphicOverlay overlay;
 
     private final Paint landmarkPaint;
@@ -145,14 +145,17 @@ public class LocalFaceGraphic extends BaseGraphic {
         if (this.faces == null) {
             return;
         }
-        float start = CommonUtils.dp2px(this.mContext, 60);
+        float start = this.overlay.getWidth() / 3.0f;
         float x = start;
-        float width = this.overlay.getWidth() / 2.0f - start;
+        float width = this.overlay.getWidth() / 3.0f;
         float y;
         if (this.isLandScape()) {
-            y = this.overlay.getHeight() - CommonUtils.dp2px(this.mContext, 130);
+            y = (CommonUtils.dp2px(this.mContext, this.overlay.getHeight() / 8.0f)) < 130 ? 130 : (CommonUtils.dp2px(this.mContext, this.overlay.getHeight() / 8.0f));
         } else {
-            y = this.overlay.getHeight() - CommonUtils.dp2px(this.mContext, 60);
+            y = (CommonUtils.dp2px(this.mContext, this.overlay.getHeight() / 16.0f)) < 340.0 ? 340 :(CommonUtils.dp2px(this.mContext, this.overlay.getHeight() / 16.0f));
+            if (this.overlay.getHeight() > 2500) {
+                y = CommonUtils.dp2px(this.mContext, this.overlay.getHeight() / 10.0f);
+            }
         }
         // Show all features mode.
         if (this.isOpenFeatures) {

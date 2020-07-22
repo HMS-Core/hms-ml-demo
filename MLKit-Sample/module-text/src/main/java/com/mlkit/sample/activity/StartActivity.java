@@ -28,7 +28,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +37,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 import androidx.core.content.ContextCompat;
 
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hms.mlsdk.common.MLApplication;
 import com.mlkit.sample.R;
 import com.mlkit.sample.activity.adapter.GridViewAdapter;
 import com.mlkit.sample.activity.entity.GridViewItem;
@@ -49,6 +50,7 @@ import java.util.List;
 public final class StartActivity extends BaseActivity
         implements OnRequestPermissionsResultCallback, View.OnClickListener {
     private static final String TAG = "StartActivity";
+    public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
     private static final int[] ICONS = {R.drawable.icon_translate, R.drawable.icon_asr, R.drawable.icon_tts, R.drawable.icon_aft,
             R.drawable.icon_bcr, R.drawable.icon_gcr, R.drawable.icon_text, R.drawable.icon_icr,
@@ -70,9 +72,20 @@ public final class StartActivity extends BaseActivity
         GridViewAdapter mAdapter = new GridViewAdapter(this.mDataList, getApplicationContext());
         this.mGridView.setAdapter(mAdapter);
         initClickEvent();
+        // Set the ApiKey of the application for accessing cloud services.
+        setApiKey();
         if (!this.allPermissionsGranted()) {
             this.getRuntimePermissions();
         }
+    }
+
+    /**
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
+     * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     */
+    private void setApiKey(){
+        AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     private void initClickEvent() {

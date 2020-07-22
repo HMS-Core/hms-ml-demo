@@ -50,10 +50,6 @@ public class SpeechRecognizerManager {
         mSpeechRecognizer = MLAsrRecognizer.createAsrRecognizer(context);
         mSpeechRecognizer.setAsrListener(new SpeechRecognitionListener());
         mSpeechRecognizerIntent = new Intent(MLAsrConstants.ACTION_HMS_ASR_SPEECH);
-/*        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
-                context.getPackageName());*/
 
         mSpeechRecognizerIntent.putExtra(MLAsrConstants.LANGUAGE, language).putExtra(MLAsrConstants.FEATURE, MLAsrConstants.FEATURE_WORDFLUX);
     }

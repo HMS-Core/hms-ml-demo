@@ -4,11 +4,12 @@
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ID-Photo-DIY/README_ZH.md)
 ## Contents
 
- * [Introduction](#introduction)
- * [More Scenarios](#more-scenarios)
- * [Getting Started](#getting-started)
- * [Supported Environment](#supported-environment)
- * [License](#license)
+ * [Introduction](#Introduction)
+ * [Project directory structure](#Project directory structure)
+ * [More Scenarios](#More Scenarios)
+ * [Procedure](#Procedure)
+ * [Supported Environment](#Supported Environment)
+ * [License](#License)
 
 
 ## Introduction
@@ -17,6 +18,13 @@ ID-Photo-DIY uses the image segmentation function to synthesize a static face im
 This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop an ID-Photo-DIY applet. The purpose is to enable you to experience the image segmentation function and integrate HUAWEI ML Kit as soon as possible.
 
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ID-Photo-DIY/ID%20Photo%20DIY.gif" width=250 title="ID Photo DIY" div align=center border=5>
+
+## Project directory structure
+ID-Photo-DIY
+    |-- com.mlkit.sample.idphoto
+        |-- Activity
+            |-- MainActivity //DIY Entry
+            |-- StillCutPhotoActivity // DIY customization page
 
 ## More Scenarios
 Based on the image segmentation capability provided by HUAWEI ML Kit, you can not only develop an ID-Photo-DIY applet, but also implement the following functions:

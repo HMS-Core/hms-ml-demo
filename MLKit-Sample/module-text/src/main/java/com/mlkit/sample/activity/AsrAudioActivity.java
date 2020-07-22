@@ -49,9 +49,12 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
     private static final int ML_ASR_CAPTURE_CODE = 2;
     private static final int MSG_VOLUME_CHANGED = 1001;
 
-    private static final String LANGUAGE_EN = "en-US";
-    private static final String LANGUAGE_ZH = "zh";
-    private static final String LANGUAGE_FR = "fr-FR";
+    private static final String LANGUAGE_EN = MLAsrConstants.LAN_EN_US;
+    private static final String LANGUAGE_ZH = MLAsrConstants.LAN_ZH_CN;
+    private static final String LANGUAGE_FR = MLAsrConstants.LAN_FR_FR;
+    private static final String LANGUAGE_DE = MLAsrConstants.LAN_DE_DE;
+    private static final String LANGUAGE_ES = MLAsrConstants.LAN_ES_ES;
+
 
     private static final int TYPE_ASR_PLUGIN = 1;
     private static final int TYPE_CUSTOM = 2;
@@ -146,7 +149,15 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
             tvLanguage.setText(R.string.french);
             mLanguage = LANGUAGE_FR;
             this.languageDialog.dismiss();
-        } else if (view.getId() == R.id.type_asr_plugin) {
+        }else if (view.getId() == R.id.spanish) {
+            tvLanguage.setText(R.string.spanish);
+            mLanguage = LANGUAGE_ES;
+            this.languageDialog.dismiss();
+        } else if (view.getId() == R.id.German) {
+            tvLanguage.setText(R.string.German);
+            mLanguage = LANGUAGE_DE;
+            this.languageDialog.dismiss();
+        }else if (view.getId() == R.id.type_asr_plugin) {
             tvType.setText(R.string.asr_sound_pickup_interface_type_plugin);
             mType = TYPE_ASR_PLUGIN;
             this.typeDialog.dismiss();
@@ -246,6 +257,9 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
     private TextView asrTextCN;
     private TextView asrTextEN;
     private TextView asrTextFR;
+    private TextView asrTextES;
+    private TextView asrTextDE;
+    private TextView asrTextIN;
 
     private void showLanguageDialog() {
         initLanguageDialogViews();
@@ -256,6 +270,8 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         this.asrTextCN.setSelected(false);
         this.asrTextEN.setSelected(false);
         this.asrTextFR.setSelected(false);
+        this.asrTextES.setSelected(false);
+        this.asrTextDE.setSelected(false);
         switch (mLanguage) {
             case LANGUAGE_ZH:
                 this.asrTextCN.setSelected(true);
@@ -265,6 +281,12 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case LANGUAGE_FR:
                 this.asrTextFR.setSelected(true);
+                break;
+            case LANGUAGE_ES:
+                this.asrTextES.setSelected(true);
+                break;
+            case LANGUAGE_DE:
+                this.asrTextDE.setSelected(true);
                 break;
             default:
                 break;
@@ -282,6 +304,10 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         this.asrTextEN.setOnClickListener(this);
         this.asrTextFR = view.findViewById(R.id.french);
         this.asrTextFR.setOnClickListener(this);
+        this.asrTextES = view.findViewById(R.id.spanish);
+        this.asrTextES.setOnClickListener(this);
+        this.asrTextDE = view.findViewById(R.id.German);
+        this.asrTextDE.setOnClickListener(this);
         this.languageDialog.setCanceledOnTouchOutside(true);
         // Set the size of the dialog
         Window dialogWindow = this.languageDialog.getWindow();

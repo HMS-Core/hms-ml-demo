@@ -78,7 +78,11 @@ public class ImageUtils {
             return;
         }
         if(imageUtilCallBack != null) {
-            imageUtilCallBack.callSavePath(file.getAbsolutePath());
+            try {
+                imageUtilCallBack.callSavePath(file.getCanonicalPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         // Gallery refresh.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

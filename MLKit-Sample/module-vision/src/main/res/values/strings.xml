@@ -33,7 +33,7 @@
     <string name="object_detection">Object</string>
     <string name="image_classification">Classification</string>
     <string name="landmark">Landmark</string>
-
+    <string name="skeletlon">Skeletlon</string>
     <string name="all">all</string>
     <string name="coming_soon">coming soon</string>
     <string name="back">back</string>
@@ -55,6 +55,8 @@
     <string name="color">Color</string>
 
     <string name="similar_products">Similar Products</string>
+    <string name="productInfo">Found the following similar products</string>
     <string name="empty">Empty</string>
+    <string name="empty_product">"No similar products, please stay tuned!"</string>
 
 </resources>

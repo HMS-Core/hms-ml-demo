@@ -48,7 +48,6 @@ public final class FaceDetectionActivity extends BaseActivity
     private CameraConfiguration cameraConfiguration = null;
     private int facing = CameraConfiguration.CAMERA_FACING_BACK;
     private boolean isOpenStatus = false;
-    private boolean isFirstInit = true;
     private Camera mCamera;
 
     @Override
@@ -74,7 +73,6 @@ public final class FaceDetectionActivity extends BaseActivity
         this.cameraConfiguration = new CameraConfiguration();
         this.cameraConfiguration.setCameraFacing(this.facing);
         this.createLensEngine();
-        this.startLensEngine();
         this.setStatusBar();
     }
 
@@ -103,6 +101,7 @@ public final class FaceDetectionActivity extends BaseActivity
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.face_back) {
+            releaseLensEngine();
             this.finish();
         }
     }
@@ -125,7 +124,7 @@ public final class FaceDetectionActivity extends BaseActivity
             }
         }
         this.preview.stop();
-        reStartLensEngine();
+        this.reStartLensEngine();
     }
 
     @Override
@@ -177,11 +176,7 @@ public final class FaceDetectionActivity extends BaseActivity
     @Override
     public void onResume() {
         super.onResume();
-        if (isFirstInit) {
-            isFirstInit = false;
-            return;
-        }
-        this.reStartLensEngine();
+        this.startLensEngine();
     }
 
     @Override
@@ -191,13 +186,22 @@ public final class FaceDetectionActivity extends BaseActivity
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed() {
+        super.onBackPressed();
+        releaseLensEngine();
+    }
+
+    private void releaseLensEngine() {
         if (this.lensEngine != null) {
             this.lensEngine.release();
+            this.lensEngine = null;
         }
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacing(this.facing);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseLensEngine();
     }
 }
 

@@ -93,8 +93,6 @@ public class TakePhotoActivity extends BaseActivity
 
     private String imgPath;
 
-    private boolean isFirstInit = true;
-
     private Camera mCamera;
 
     @Override
@@ -127,7 +125,6 @@ public class TakePhotoActivity extends BaseActivity
         this.cameraConfiguration.setPreviewWidth(CameraConfiguration.DEFAULT_WIDTH);
         this.cameraConfiguration.setPreviewHeight(CameraConfiguration.DEFAULT_HEIGHT);
         this.createLensEngine();
-        this.startLensEngine();
     }
 
     private void initView() {
@@ -188,6 +185,7 @@ public class TakePhotoActivity extends BaseActivity
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.back) {
+            releaseLensEngine();
             finish();
         } else if (view.getId() == R.id.img_pic) {
             if (imgPath == null) {
@@ -289,18 +287,9 @@ public class TakePhotoActivity extends BaseActivity
     }
 
     @Override
-    public void onBackPressed() {
-        this.finish();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-        if (isFirstInit) {
-            isFirstInit = false;
-            return;
-        }
-        this.restartLensEngine();
+        this.startLensEngine();
     }
 
     @Override
@@ -310,17 +299,22 @@ public class TakePhotoActivity extends BaseActivity
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed() {
+        super.onBackPressed();
+        releaseLensEngine();
+    }
+
+    private void releaseLensEngine() {
         if (this.lensEngine != null) {
             this.lensEngine.release();
+            this.lensEngine = null;
         }
-        if (this.transactor != null) {
-            this.transactor.stop();
-        }
-        this.imgPath = null;
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacing(this.facing);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releaseLensEngine();
     }
 
     @Override

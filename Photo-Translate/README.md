@@ -4,23 +4,32 @@
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/README_ZH.md)
 ## Contents
 
- * [Introduction](#introduction)
- * [More Scenarios](#more-scenarios)
- * [Getting Started](#getting-started)
- * [Supported Environment](#supported-environment)
- * [License](#license)
+ * [Introduction](#Introduction)
+ * [Project directory structure](#Project directory structure)
+ * [More Scenarios](#More Scenarios)
+ * [Procedure](#Procedure)
+ * [Supported Environment](#Supported Environment)
+ * [License](#License)
 
 
 ## Introduction
 Photo-Translate uses the text recognition and translation functions of HUAWEI ML Kit to translate the text in static photos into the required language. Currently, the following languages are supported: simplified Chinese, English, French, Arabic, Thai, Spanish, Turkish, Portuguese, Japanese, German, Italian, and Russian.
 
-This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image translation function in your app. The purpose is to help you experience the text recognition and translation functions and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image translation function in your app. The purpose is to help you experience the text recognition and translation functions and integrate HUAWEI ML Kit as soon as possible.
 
-<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="Photo Translate" div align=center border=5>
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
+
+## Project directory structure
+Photo-Translate
+    |-- com.mlkit.sample.phototranslate
+        |-- Activity
+            |-- MainActivity // entry
+            |-- RemoteTranslateActivity // RemoteTranslate
+            |-- CapturePhotoActivity // photo
 
 ## More Scenarios
-Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:
-- General text recognition
+- Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:
+  - General text recognition
   - Recognition of text in bus license plates
   - Recognition of text in documents
 
@@ -31,7 +40,7 @@ Huawei's text recognition and translation services can help you implement more i
   - Introduction to and translation of products outside China
   - Canteen menu translation
 
-## Getting Started
+## Procedure
  - Clone the code library to the local computer.
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git

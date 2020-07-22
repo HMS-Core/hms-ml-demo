@@ -46,33 +46,32 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-
 public class RemoteTranslateActivity extends BaseActivity {
     private static final String TAG = "RemoteTranslateActivity";
     private static final String[] SOURCE_LANGUAGE_CODE = new String[]{"Auto",
             "ZH", "EN", "FR", "TH", "JA", "DE", "RU", "ES",
-            "AR", "TR", "PT", "IT"};
+            "AR", "TR", "PT", "IT","PL","MS","SV","FI","NO","DA","KO"};
     private static final String[] DEST_LANGUAGE_CODE = new String[]{
             "ZH", "EN", "FR", "TH", "JA", "DE", "RU", "ES",
-            "AR", "TR", "PT", "IT"};
+            "AR", "TR", "PT", "IT","PL","MS","SV","FI","NO","DA","KO"};
     private static final List<String> SP_SOURCE_LIST = new ArrayList<>(Arrays.asList("自动检测",
             "中文", "英文", "法语", "泰语", "日语", "德语", "俄语", "西班牙语",
-            "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语"));
+            "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语","波兰语","马来西亚语","瑞典语","芬兰语","挪威语","丹麦语","韩语"));
     private static final List<String> SP_SOURCE_LIST_EN = new ArrayList<>(Arrays.asList("Auto",
             "Chinese", "English", "French", "Thai", "Japanese", "German", "Russian", "Spanish",
-            "Arabic", "Turkish", "Portuguese", "Italian"));
+            "Arabic", "Turkish", "Portuguese", "Italian","Polish","Malaysian","Swedish","Finnish","Norwegian","Danish","Korean"));
     private static final List<String> SP_DEST_LIST = new ArrayList<>(Arrays.asList(
             "中文", "英文", "法语", "泰语", "日语", "德语", "俄语", "西班牙语",
-            "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语"));
+            "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语","波兰语","马来西亚语","瑞典语","芬兰语","挪威语","丹麦语","韩语"));
     private static final List<String> SP_DEST_LIST_EN = new ArrayList<>(Arrays.asList(
             "Chinese", "English", "French", "Thai", "Japanese", "German", "Russian", "Spanish",
-            "Arabic", "Turkish", "Portuguese", "Italian"));
+            "Arabic", "Turkish", "Portuguese", "Italian","Polish","Malaysian","Swedish","Finnish","Norwegian","Danish","Korean"));
     private static final List<String> CODE_LIST = new ArrayList<>(Arrays.asList(
             "zh", "en", "fr", "th", "ja", "de", "ru", "es",
-            "ar", "tr", "pt", "it", "ro"));
+            "ar", "tr", "pt", "it", "ro", "no", "ms"));
     private static final List<String> LANGUAGE_LIST = new ArrayList<>(Arrays.asList(
             "Chinese", "English", "French", "Thai", "Japanese", "German", "Russian", "Spanish",
-            "Arabic", "Turkish", "Portuguese", "Italian", "Romanian"));
+            "Arabic", "Turkish", "Portuguese", "Italian", "Romanian","Norwegian","Malaysian"));
 
     private Spinner spSourceType;
     private Spinner spDestType;
@@ -303,7 +302,6 @@ public class RemoteTranslateActivity extends BaseActivity {
     private void updateTime(long time) {
         this.tvTime.setText(time + " ms");
     }
-
 
     private void doLanguageSwitch() {
         String str = this.srcLanguage;

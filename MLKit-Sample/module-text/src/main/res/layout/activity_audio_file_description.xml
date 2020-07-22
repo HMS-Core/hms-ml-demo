@@ -207,15 +207,23 @@
                     android:padding="10dp"
                     android:scrollbars="none">
 
-                    <TextView
-                        android:id="@+id/tv_record_result"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:gravity="center"
-                        android:textColor="@color/secondary_text_color"
-                        android:textIsSelectable="true"
-                        android:textSize="@dimen/text_size_16sp" />
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_record_result"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:textColor="@color/secondary_text_color"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/text_size_16sp" />
+
+                    </LinearLayout>
 
                 </ScrollView>
 
