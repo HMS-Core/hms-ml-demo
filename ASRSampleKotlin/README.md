@@ -17,7 +17,7 @@ ASRSample uses the real-time speech recognition function of HUAWEI ML Kit to con
 
 For details about the service introduction and access guide, visit the following website:
 [HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/commonoverview-0000001050169365-V5)
+[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/asrsdkoverview-0000001050747393-V5)
 
 ## Project directory structure
 AsrSampleKotlin
