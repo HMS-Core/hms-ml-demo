@@ -17,7 +17,7 @@ TTSSample uses the text-to-speech capability of HUAWEI ML Kit to convert text in
 
 For details about the service introduction and access guide, visit the following website:
 [HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/commonoverview-0000001050169365-V5)
+[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/mlsdktts-overview-0000001050167594-V5)
 
 ## Project directory structure
 
