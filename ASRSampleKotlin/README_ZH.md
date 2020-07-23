@@ -17,7 +17,7 @@ ASRSample使用HUAWEI ML Kit的实时语音识别功能将实时语音转换成�
 
 服务介绍和接入指导，请参考以下链接：
 [华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)。
-[华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/commonoverview-0000001050169365-V5)。
+[华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/asrsdkoverview-0000001050747393-V5)。
 
 ## 工程目录结构
 AsrSampleKotlin
