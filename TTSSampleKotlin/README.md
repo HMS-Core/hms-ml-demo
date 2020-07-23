@@ -36,7 +36,7 @@ News reading, audio novels, stock information broadcast, voice navigation, and v
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
  - If you have not registered as a developer, [register and create an app in AppGallery Connect] (https://developer.huawei.com/consumer/en/service/josp/agc/index.html).
- - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/mlsdktts-overview-0000001050167594-V5).
+ - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
