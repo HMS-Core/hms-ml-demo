@@ -16,8 +16,8 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/TTSSample
 TTSSample uses the text-to-speech capability of HUAWEI ML Kit to convert text into speech. It realizes the function of speaking out immediately and generates speech that mimics human voices naturally, providing emotional and personalized text-to-speech services.
 
 For details about the service introduction and access guide, visit the following website:
-[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/commonoverview-0000001050169365-V5)
+[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
+[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/commonoverview-0000001050169365-V5)
 
 ## Project directory structure
 
@@ -35,8 +35,8 @@ News reading, audio novels, stock information broadcast, voice navigation, and v
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - If you have not registered as a developer, [register and create an app in AppGallery Connect] (https://developer.huawei.com/consumer/cn/service/josp/agc/index.html).
- - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353).
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect] (https://developer.huawei.com/consumer/en/service/josp/agc/index.html).
+ - Obtain the agconnect-services.json file from [Huawei Developers] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050990353).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
