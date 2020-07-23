@@ -45,8 +45,8 @@ Photo-Translate
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
- - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
