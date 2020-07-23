@@ -5,10 +5,10 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Translato
 ## Contents
 
  * [Introduction](#Introduction)
- * [Project directory structure](# Project directory structure)
- * [More Scenarios](#More Scenarios)
+ * [Project directory structure](#Project-directory-structure)
+ * [More Scenarios](#More-Scenarios)
  * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
+ * [Supported Environment](#Supported-Environment)
  * [License](#License)
 
 
