@@ -5,10 +5,10 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSample
 ## Contents
 
  * [Introduction](#Introduction)
- * [Project directory structure](#Project directory structure)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
+ * [Project directory structure](#project directory structure)
+ * [More Scenarios](#more scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported environment)
  * [License](#License)
 
 
