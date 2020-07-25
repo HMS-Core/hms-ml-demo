@@ -51,15 +51,15 @@ moduletext
         |-- Activity
             |-- AsrAudioActivity //Automatic Speech Recognition
             |-- TtsAudioActivity //Text to speech
-			|-- AudioFileTranscriptionActivity //Audio File Transcription
-			|-- IDCardRecognitionActivity // ID card recognition
-		    |-- BankCardRecognitionActivity // Bank card recognition
-		    |-- GeneralCardRecognitionActivity // General card recognition
-		    |-- TextRecognitionActivity  // Text recognition
-		    |-- RemoteDetectionActivity  // Document recognition
-		    |-- StartActivity  // Service entry
-		    |-- BaseActivity  // Activity base class
-		    |-- SettingActivity  // moduletext Basic Information
+	    |-- AudioFileTranscriptionActivity //Audio File Transcription
+	    |-- IDCardRecognitionActivity // ID card recognition
+	    |-- BankCardRecognitionActivity // Bank card recognition
+	    |-- GeneralCardRecognitionActivity // General card recognition
+	    |-- TextRecognitionActivity  // Text recognition
+	    |-- RemoteDetectionActivity  // Document recognition
+	    |-- StartActivity  // Service entry
+	    |-- BaseActivity  // Activity base class
+	    |-- SettingActivity  // moduletext Basic Information
             |-- TranslateActivity
             |-- LocalTranslateActivity // LocalTranslation
             |-- RemoteTranslateActivity // RemoteTranslation
@@ -74,14 +74,14 @@ modulevision
             |-- TakePhotoActivity //Background Change Related
             |-- StillCutPhotoActivity //Capture Image Related
             |-- FaceDetectionActivity //Face detection
-			|-- ObjectDetectionActivity //Object detection and tracking
-			|-- ImageClassificationActivity //Image classification
-		    |-- RemoteDetectionActivity //Landmark recognition
-		    |-- HumanSkeletonActivity //HumanSkeleton
-		    |-- TemplateActivity //HumanSkeleton Template selection
-		    |-- StartActivity  // Service entry
-		    |-- BaseActivity  // Activity base class
-		    |-- SettingActivity  // modulevision Basic Information
+            |-- ObjectDetectionActivity //Object detection and tracking
+            |-- ImageClassificationActivity //Image classification
+            |-- RemoteDetectionActivity //Landmark recognition
+            |-- HumanSkeletonActivity //HumanSkeleton
+	    |-- TemplateActivity //HumanSkeleton Template selection
+            |-- StartActivity  // Service entry
+            |-- BaseActivity  // Activity base class
+	    |-- SettingActivity  // modulevision Basic Information
 
 ## More Scenarios
 HUAWEI ML Kit allows your apps to easily leverage Huawei's long-term proven expertise in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries.
