@@ -46,6 +46,7 @@ For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://d
 ## Project directory structure
 
 moduletext
+
     |-- com.mlkit.sample
         |-- Activity
             |-- AsrAudioActivity //Automatic Speech Recognition
@@ -65,6 +66,7 @@ moduletext
 
 
 modulevision
+
     |-- com.mlkit.sample
         |-- Activity
             |-- ImageSegmentationActivity //Image Segmentation
