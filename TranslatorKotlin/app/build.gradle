@@ -42,10 +42,10 @@ dependencies {
     //Lifecycle extensions
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     // Import the ASR plug-in.
-    implementation "com.huawei.hms:ml-computer-voice-asr-plugin:2.0.0.300"
+    implementation "com.huawei.hms:ml-computer-voice-asr-plugin:2.0.1.300"
     // Import the TTS SDK.
-    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.0.401"
+    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.1.302"
     // Import the text translation SDK.
-    implementation "com.huawei.hms:ml-computer-translate:2.0.0.303"
+    implementation "com.huawei.hms:ml-computer-translate:2.0.1.300"
 
 }
