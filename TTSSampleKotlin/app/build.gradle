@@ -41,5 +41,5 @@ dependencies {
     //Lifecycle extensions
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     // Import the TTS SDK.
-    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.0.401"
+    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.1.302"
 }
