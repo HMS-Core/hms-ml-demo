@@ -37,7 +37,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.200.016'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.300'
 
 
     implementation 'com.huawei.hms:ml-computer-vision-ocr:2.0.1.300'
