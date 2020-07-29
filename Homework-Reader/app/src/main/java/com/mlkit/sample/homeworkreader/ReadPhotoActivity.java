@@ -214,6 +214,11 @@ public class ReadPhotoActivity extends AppCompatActivity {
             @Override
             public void onRangeStart(String taskId, int start, int end) {
             }
+            
+            @Override
+            public void onAudioAvailable(String s, MLTtsAudioFragment mlTtsAudioFragment, int i, Pair<Integer, Integer> pair, Bundle bundle) {
+                
+            }
 
             @Override
             public void onEvent(String taskId, int eventName, Bundle bundle) {
