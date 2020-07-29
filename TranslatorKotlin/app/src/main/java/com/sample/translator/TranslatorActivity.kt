@@ -29,9 +29,11 @@ import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.huawei.agconnect.config.AGConnectServicesConfig
 import com.huawei.hmf.tasks.Task
 import com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity
 import com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants
+import com.huawei.hms.mlsdk.common.MLApplication
 import com.huawei.hms.mlsdk.translate.MLTranslatorFactory
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator
@@ -44,8 +46,10 @@ class TranslatorActivity : AppCompatActivity() {
     private lateinit var translatorBinding: ActivityTranslatorBinding
     private lateinit var translatorViewModel: TranslatorViewModel
     private val TAG: String = TranslatorActivity::class.java.simpleName
+    private var  API_KEY : String  = "client/api_key";
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setApiKey()
         super.onCreate(savedInstanceState)
         translatorBinding = DataBindingUtil.setContentView(this, R.layout.activity_translator)
         translatorBinding.lifecycleOwner = this
@@ -61,6 +65,11 @@ class TranslatorActivity : AppCompatActivity() {
             Manifest.permission.INTERNET,
             Manifest.permission.RECORD_AUDIO)
         ActivityCompat.requestPermissions(this, permission,1)
+    }
+
+    private fun setApiKey(){
+        val  config  = AGConnectServicesConfig.fromContext(getApplication())
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     private fun startASR() {
