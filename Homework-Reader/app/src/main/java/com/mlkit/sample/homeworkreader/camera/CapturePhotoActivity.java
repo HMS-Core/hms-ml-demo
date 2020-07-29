@@ -30,7 +30,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+import com.huawei.hms.ml.common.utils.SmartLog;
 import com.mlkit.sample.homeworkreader.R;
 import com.mlkit.sample.homeworkreader.util.Constant;
 

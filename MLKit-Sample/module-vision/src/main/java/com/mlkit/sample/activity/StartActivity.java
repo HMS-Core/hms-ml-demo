@@ -35,9 +35,6 @@ import android.widget.GridView;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
-import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCapture;
-import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCaptureConfig;
-import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCaptureFactory;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.common.MLFrame;
 import com.huawei.hms.mlsdk.skeleton.MLSkeleton;
@@ -49,7 +46,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mlkit.sample.R;
-import com.mlkit.sample.activity.fragment.ProductFragment;
 import com.mlkit.sample.transactor.LocalSketlonTranstor;
 import com.mlkit.sample.util.BitmapUtils;
 import com.mlkit.sample.util.Constant;

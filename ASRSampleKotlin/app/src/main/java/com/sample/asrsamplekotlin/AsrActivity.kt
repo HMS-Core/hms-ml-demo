@@ -26,8 +26,10 @@ import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.huawei.agconnect.config.AGConnectServicesConfig
 import com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity
 import com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants
+import com.huawei.hms.mlsdk.common.MLApplication
 import com.sample.asrsamplekotlin.databinding.ActivityAsrBinding
 
 class AsrActivity : AppCompatActivity() {
@@ -35,9 +37,11 @@ class AsrActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAsrBinding
     private lateinit var asrViewModel: AsrViewModel
     private var isPermissionGranted: Boolean = false
+    private var  API_KEY : String  = "client/api_key"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setApiKey()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_asr)
         binding.lifecycleOwner = this
         asrViewModel = ViewModelProvider(this).get(AsrViewModel::class.java)
@@ -50,6 +54,11 @@ class AsrActivity : AppCompatActivity() {
 
         val permission = arrayOf(Manifest.permission.INTERNET, Manifest.permission.RECORD_AUDIO)
         ActivityCompat.requestPermissions(this, permission,1)
+    }
+
+    private fun setApiKey(){
+        val  config  = AGConnectServicesConfig.fromContext(getApplication())
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY))
     }
 
     private fun startASR() {

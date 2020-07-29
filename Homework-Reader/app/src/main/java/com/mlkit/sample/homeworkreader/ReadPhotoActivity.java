@@ -41,13 +41,14 @@ import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.mlsdk.MLAnalyzerFactory;
 import com.huawei.hms.mlsdk.common.MLFrame;
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+import com.huawei.hms.ml.common.utils.SmartLog;
 import com.huawei.hms.mlsdk.text.MLLocalTextSetting;
 import com.huawei.hms.mlsdk.text.MLText;
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
 import com.huawei.hms.mlsdk.tts.MLTtsCallback;
 import com.huawei.hms.mlsdk.tts.MLTtsConfig;
 import com.huawei.hms.mlsdk.tts.MLTtsConstants;
+import com.huawei.hms.mlsdk.tts.MLTtsAudioFragment;
 import com.huawei.hms.mlsdk.tts.MLTtsEngine;
 import com.huawei.hms.mlsdk.tts.MLTtsError;
 import com.huawei.hms.mlsdk.tts.MLTtsWarn;
@@ -213,6 +214,11 @@ public class ReadPhotoActivity extends AppCompatActivity {
 
             @Override
             public void onRangeStart(String taskId, int start, int end) {
+            }
+            
+            @Override
+            public void onAudioAvailable(String s, MLTtsAudioFragment mlTtsAudioFragment, int i, Pair<Integer, Integer> pair, Bundle bundle) {
+                
             }
 
             @Override

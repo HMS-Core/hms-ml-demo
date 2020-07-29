@@ -23,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.huawei.agconnect.config.AGConnectServicesConfig
+import com.huawei.hms.mlsdk.common.MLApplication
 import com.huawei.hms.mlsdk.tts.*
 import com.sample.ttssamplekotlin.databinding.ActivityTtsBinding
 import kotlinx.android.synthetic.main.activity_tts.*
@@ -33,6 +35,7 @@ class TtsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTtsBinding
     private lateinit var ttsViewModel: TtsViewModel
     private var sourceText: String = ""
+    private var  API_KEY : String  = "client/api_key";
     private lateinit var mlTtsEngine: MLTtsEngine
     private lateinit var mlConfigs: MLTtsConfig
     private val TAG: String = TtsActivity::class.java.simpleName
@@ -65,6 +68,7 @@ class TtsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setApiKey()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tts)
         binding.lifecycleOwner = this
         ttsViewModel = ViewModelProvider(this).get(TtsViewModel::class.java)
@@ -99,6 +103,11 @@ class TtsActivity : AppCompatActivity() {
         //ID to use for Audio Visualizer.
         val id = mlTtsEngine.speak(sourceText, MLTtsEngine.QUEUE_APPEND)
         Log.i(TAG, id)
+    }
+
+    private fun setApiKey(){
+        val  config  = AGConnectServicesConfig.fromContext(getApplication())
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     override fun onDestroy() {

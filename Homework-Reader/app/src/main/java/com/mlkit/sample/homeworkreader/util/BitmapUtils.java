@@ -26,7 +26,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+import com.huawei.hms.ml.common.utils.SmartLog;
 
 import java.io.IOException;
 
