@@ -34,7 +34,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 
+import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hms.ml.common.utils.SmartLog;
+import com.huawei.hms.mlsdk.common.MLApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,13 +46,25 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUESTS = 1;
 
+    public static final String API_KEY = "client/api_key";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setApiKey();
         if (!allPermissionsGranted()) {
             getRuntimePermissions();
         }
+    }
+
+    /**
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
+     * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     */
+    private void setApiKey(){
+        AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     private void getRuntimePermissions() {
