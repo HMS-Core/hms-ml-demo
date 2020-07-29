@@ -34,8 +34,8 @@ Homework-Reader使用华为ML Kit的文字识别和语音合成功能，将照�
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/doc/start/10101)。
- - agconnect-services.json文件请从[华为开发者社区](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc)网站申请获取。
+ - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)。
+ - agconnect-services.json文件请从[华为开发者社区](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353)网站申请获取。
  - 替换工程中的sample-agconnect-services.json文件。
  - 编译并且在安卓设备或模拟器上运行。
 

@@ -17,8 +17,8 @@
 Translator使用HUAWEI ML Kit实时语音识别，文本翻译，语音合成的能力，实现将英文语音翻译为中文语音的能力，通过定制化的开发，可以方便不同国家人与人之间的沟通交流。
 
 服务介绍和接入指导，请参考以下链接：
-[华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
-[华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMS-References/MLRemoteTranslator-4)。
+[华为机器学习服务开发指南](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)。
+[华为机器学习服务API参考](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/commonoverview-0000001050169365-V5)。
 
 ## 工程目录结构
 TranslatorKotlin
@@ -40,8 +40,8 @@ TranslatorKotlin
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/doc/start/10101)。
- - agconnect-services.json文件请从[华为开发者社区]（https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc）网站申请获取。
+ - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)。
+ - agconnect-services.json文件请从[华为开发者社区]（https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353）网站申请获取。
  - 替换工程中的sample-agconnect-services.json文件。
  - 编译并且在安卓设备或模拟器上运行。
 

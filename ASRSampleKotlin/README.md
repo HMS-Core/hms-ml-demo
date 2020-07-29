@@ -5,10 +5,10 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSample
 ## Contents
 
  * [Introduction](#Introduction)
- * [Project directory structure](#Project directory structure)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
+ * [Project directory structure](#project-directory-structure)
+ * [More Scenarios](#more-scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported-environment)
  * [License](#License)
 
 
@@ -16,8 +16,8 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSample
 ASRSample uses the real-time speech recognition function of HUAWEI ML Kit to convert real-time speech into text. Currently, ASRSample can recognize Mandarin Chinese, English, and French.
 
 For details about the service introduction and access guide, visit the following website:
-[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMS-References/mlpluginasr-4)
+[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
+[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/asrsdkoverview-0000001050747393-V5)
 
 ## Project directory structure
 AsrSampleKotlin
@@ -37,8 +37,8 @@ Audios such as meeting records, notes, and summaries can be converted into text 
 
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
- - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/start/10115).
- - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-add-agc).
+ - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html).
+ - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050990353).
  - Replace the sample-agconnect-services.json file in the project.
  - Compile and run on an Android device or simulator.
 
