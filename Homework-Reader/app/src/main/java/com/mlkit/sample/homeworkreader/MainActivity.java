@@ -34,7 +34,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 
-import com.huawei.hms.mlsdk.common.internal.client.SmartLog;
+import com.huawei.hms.ml.common.utils.SmartLog;
 
 import java.util.ArrayList;
 import java.util.List;
