@@ -40,6 +40,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 
+import com.huawei.agconnect.config.AGConnectServicesConfig;
+import com.huawei.hms.mlsdk.common.MLApplication;
 import com.mlkit.sample.phototranslate.util.Constant;
 
 import java.util.ArrayList;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             "Japanese", "Portuguese", "Russian", "Thai", "Turkish", "Chinese", "Romanian"));
 
     private static final int PERMISSION_REQUESTS = 1;
+
+    public static final String API_KEY = "client/api_key";
 
     private Spinner spSourceType;
     private Spinner spDestType;
@@ -182,9 +186,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.createSpinner();
         this.findViewById(R.id.select_photo).setOnClickListener(this);
         this.btrSwitchLang.setOnClickListener(this);
+        setApiKey();
         if (!allPermissionsGranted()) {
             getRuntimePermissions();
         }
+    }
+
+    private void setApiKey(){
+        AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
+        MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
 
     private void getRuntimePermissions() {
