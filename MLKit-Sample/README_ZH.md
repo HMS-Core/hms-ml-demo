@@ -1,5 +1,5 @@
 # MLKit-Sample
-[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
 
 中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample)
 ## 目录
@@ -43,7 +43,7 @@ Module-vision。其中包括：人脸检测、图像分割、拍照购物、图�
 </tr></table>
 
 
-详细介绍请参考[华为机器学习SDK](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
+详细介绍请参考[华为机器学习SDK](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)。
 
 ## 工程目录结构
 moduletext
