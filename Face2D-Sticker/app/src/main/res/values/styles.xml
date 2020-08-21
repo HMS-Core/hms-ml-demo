@@ -1,0 +1,57 @@
+<resources>
+
+    <style name="MaterialTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:popupMenuStyle">@style/menuStyle</item>
+        <item name="android:dropDownListViewStyle">@style/menuStyle</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/menuStyle</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/menuStyle</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+    </style>
+    <!--text and image -->
+    <style name="text_content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="common_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.25dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:background">@color/common_line_color</item>
+    </style>
+
+    <style name="progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="menuStyle">
+        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/MyDialogAnim</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="MyDialogAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+    </style>
+</resources>

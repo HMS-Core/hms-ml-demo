@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Face Demo</string>
+
+    <string name="more_face_data">Show Shapespoint</string>
+    <string name="versions">Version：</string>
+
+    <string name="empty">Empty</string>
+
+</resources>

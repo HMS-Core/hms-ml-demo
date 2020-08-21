@@ -1,0 +1,35 @@
+{
+    "stickerList": [{
+        "type": "sticker",
+        "centerIndexList": [84],
+        "offsetX": 0.0,
+        "offsetY": 0.0,
+        "baseScale": 0.9824,
+        "startIndex": 11,
+        "endIndex": 28,
+        "width": 696,
+        "height": 220,
+        "frames": 2,
+        "action": 0,
+        "stickerName": "nose",
+        "duration": 100,
+        "stickerLooping": 1,
+        "maxcount": 5
+    }, {
+        "type": "sticker",
+        "centerIndexList": [83],
+        "offsetX": 0.0,
+        "offsetY": -1.5834,
+        "baseScale": 0.9453,
+        "startIndex": 11,
+        "endIndex": 28,
+        "width": 729,
+        "height": 276,
+        "frames": 2,
+        "action": 0,
+        "stickerName": "ear",
+        "duration": 100,
+        "stickerLooping": 1,
+        "maxcount": 5
+    }]
+}
