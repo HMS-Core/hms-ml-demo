@@ -33,7 +33,8 @@ ID card recognition, bank card recognition, general card recognition, text trans
 </tr></table>
 
 ### Vision module
-Module-vision. This module is used for image segmentation,product visual search, image classification, object detection and tracking, and landmark recognition
+Module-vision. This module is used for face detection, image segmentation,
+product visual search, image classification, object detection and tracking, and landmark recognition，skeleton.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/mainVision.jpg" width=220 title="main page" border=2></td>
@@ -42,21 +43,13 @@ Module-vision. This module is used for image segmentation,product visual search,
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
 </tr></table>
 
-
-### Vision body
-Module-body. This module is used for Face detection, human bone detection, live body detection, and key points of hands.
-
-<table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
-</tr></table>
-
-For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
+For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
 
 
 ## Project directory structure
 
 moduletext
+
     |-- com.mlkit.sample
         |-- Activity
             |-- AsrAudioActivity //Automatic Speech Recognition
@@ -73,37 +66,25 @@ moduletext
             |-- TranslateActivity
             |-- LocalTranslateActivity // LocalTranslation
             |-- RemoteTranslateActivity // RemoteTranslation
-            |-- DocumentSkewCorretionActivity // Document correction
 
 
 modulevision
+
     |-- com.mlkit.sample
         |-- Activity
             |-- ImageSegmentationActivity //Image Segmentation
             |-- LoadPhotoActivity //Image Segmentation Related
             |-- TakePhotoActivity //Background Change Related
             |-- StillCutPhotoActivity //Capture Image Related
+            |-- FaceDetectionActivity //Face detection
             |-- ObjectDetectionActivity //Object detection and tracking
             |-- ImageClassificationActivity //Image classification
             |-- RemoteDetectionActivity //Landmark recognition
-            |-- ImageSuperResolutionActivity // image super resolution
+            |-- HumanSkeletonActivity //HumanSkeleton
+            |-- TemplateActivity //HumanSkeleton Template selection
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulevision Basic Information
-
-
-modulebody
-    |-- com.mlkit.sample
-        |-- Activity
-            |-- FaceDetectionActivity //Face detection
-            |-- HumanSkeletonActivity // Human skeleton
-            |-- TemplateActivity // Bone Template Selection Class
-            |-- HumanLivenessDetectionActivity // Liveness detection
-            |-- HandKeypointActivity // Key points of the hand
-            |-- HandKeypointImageActivity // Hand static detection
-            |-- StartActivity  // Service entry
-            |-- BaseActivity  // Activity base class
-            |-- SettingActivity  // modulebody Basic Information
 
 ## More Scenarios
 HUAWEI ML Kit allows your apps to easily leverage Huawei's long-term proven expertise in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries.
