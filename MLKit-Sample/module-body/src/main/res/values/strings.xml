@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ML Body</string>
+    <string name="face_detection">Face</string>
+    <string name="skeletlon">Skeletlon</string>
+    <string name="liveness_detection">Liveness Detection</string>
+    <string name="handKeypoint">HandKeyPoint</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+
+
+    <string name="all">all</string>
+    <string name="coming_soon">coming soon</string>
+    <string name="back">back</string>
+    <string name="take_photo">Take photo</string>
+    <string name="select_from_album">Select image from album</string>
+    <string name="cloud_handkeypoint">HandKeyPoint</string>
+
+    <string name="camera_permission_rationale">This sample app requires camera and storage access in order to
+        demo the API.</string>
+
+    <string name="more_face_data">Show more facial data</string>
+
+    <string name="versions">Version：</string>
+
+</resources>

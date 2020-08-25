@@ -54,10 +54,10 @@ public final class StartActivity extends BaseActivity
     private static final int PERMISSION_REQUESTS = 1;
     private static final int[] ICONS = {R.drawable.icon_translate, R.drawable.icon_asr, R.drawable.icon_tts, R.drawable.icon_aft,
             R.drawable.icon_bcr, R.drawable.icon_gcr, R.drawable.icon_text, R.drawable.icon_icr,
-            R.drawable.icon_document};
+            R.drawable.icon_document,R.drawable.icon_documentskew};
 
     private static final int[] TITLES = {R.string.translate, R.string.asr, R.string.tts, R.string.aft, R.string.bcr,
-            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition};
+            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,R.string.document_skew};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -127,6 +127,10 @@ public final class StartActivity extends BaseActivity
                     final Intent intent = new Intent(StartActivity.this, RemoteDetectionActivity.class);
                     intent.putExtra(Constant.MODEL_TYPE, Constant.CLOUD_DOCUMENT_TEXT_DETECTION);
                     startActivity(intent);
+                    break;
+                case 9:
+                    // Document Skew Corretion
+                    startActivity(new Intent(StartActivity.this, DocumentSkewStartActivity.class));
                     break;
                 default:
                     Toast.makeText(getApplicationContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show();

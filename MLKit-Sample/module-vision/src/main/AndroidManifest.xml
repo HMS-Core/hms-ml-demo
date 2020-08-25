@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -14,7 +15,6 @@
         android:allowBackup="false"
         android:icon="@drawable/icon"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
         android:label="ML Vision"
         android:theme="@style/MaterialTheme">
         <activity
@@ -23,10 +23,6 @@
             android:resizeableActivity="false" />
         <activity
             android:name=".activity.ObjectDetectionActivity"
-            android:launchMode="singleTask"
-            android:resizeableActivity="false" />
-        <activity
-            android:name=".activity.FaceDetectionActivity"
             android:launchMode="singleTask"
             android:resizeableActivity="false" />
         <activity
@@ -64,12 +60,16 @@
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
 
         <activity
-            android:name=".activity.HumanSkeletonActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+            android:name=".activity.ImageSuperResolutionStartActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
 
         <activity
-            android:name=".activity.TemplateActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+            android:name=".activity.ImageSuperResolutionActivity"
+            android:resizeableActivity="false"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask"></activity>
+
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -82,7 +82,8 @@
         </provider>
         <meta-data
             android:name="com.huawei.hms.ml.DEPENDENCY"
-            android:value="object,ocr,face,label,icr,imgseg" />
+            android:value="object,ocr,face,label,icr,imgseg,imageSuperResolution" />
+
     </application>
 
 </manifest>

@@ -29,6 +29,7 @@
     <!--简写-->
     <string name="image_segmentation">图像分割</string>
     <string name="photographed_shopping">拍照购物</string>
+    <string name="photographed_shopping_s_plugin">拍照购物插件</string>
     <string name="face_detection">人脸检测</string>
     <string name="object_detection">对象检测</string>
     <string name="image_classification">图像分类</string>
@@ -58,5 +59,25 @@
     <string name="productInfo">为您找到以下相似商品</string>
     <string name="empty">无</string>
     <string name="empty_product">"暂无相似产品，敬请期待！"</string>
+
+    <!-- image super resolution-->
+    <string name="image_super_resolution">图像超分辨率</string>
+    <string name="image_super_resolution_s">图像超分辨率</string>
+    <string name="isr_upload_picture_tint">请上传图片</string>
+    <string name="isr_upload_picture">请选择您需要进行超分辨率的图片.</string>
+    <string name="tips">温馨提示</string>
+    <string name="tips_content">使用图像超分辨率服务前需要将图片转化为ARGB格式的bitmap，经过该服务处理后输出ARGB格式bitmap。1x超分场景下，为满足横屏和竖屏的需求，输入图片最大尺寸为1024px*768px，也支持768px*1024px，最小尺寸不小于64px*64px。当输入图像质量清晰度较好的图片时，效果不明显。</string>
+    <string name="isr_image_width">宽:&#160;</string>
+    <string name="isr_image_height">高:&#160;</string>
+    <string name="isr_image_1x">1x超分</string>
+    <string name="isr_image_3x">3x超分</string>
+    <string name="isr_image_original">原图</string>
+
+    <string name="cust_model">自定义模型</string>
+    <string name="cust_model_title">模型推理</string>
+    <string name="cust_model_notice1">点击选择图片</string>
+    <string name="cust_model_notice2">请选择一张用于推理的图片。</string>
+    <string name="cust_model_notice3">模型已经准备好,请选择一张图片。</string>
+    <string name="cust_model_download">下载模型</string>
 
 </resources>

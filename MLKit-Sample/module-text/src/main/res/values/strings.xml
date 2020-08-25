@@ -37,6 +37,8 @@
     <string name="ucr_s">General Card Recognition</string>
     <string name="asr_s">Speech Recognition</string>
     <string name="tts_s">Text to speech</string>
+    <string name="document_skew">Document Skew Corretion</string>
+
     <!--简写-->
     <string name="document_recognition">Document</string>
     <string name="translate">Translation</string>
@@ -153,4 +155,7 @@
     <string name="German">German</string>
     <string name="Indian_english">Indian English</string>
     <string name="Italian">Italian</string>
+
+    <string name="isr_upload_picture_tint">Please upload the picture</string>
+    <string name="isr_upload_picture">Please select the image you want to correct.</string>
 </resources>

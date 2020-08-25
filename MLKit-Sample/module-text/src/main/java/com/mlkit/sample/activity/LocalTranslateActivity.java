@@ -55,18 +55,31 @@ import java.util.concurrent.CountDownLatch;
 
 public class LocalTranslateActivity extends BaseActivity {
     private static final String TAG = "LocalTranslateActivity";
-    private static final String[] SOURCE_LANGUAGE_CODE = new String[]{"Auto", "ZH", "EN","ES","DE","RU","FR"};
-    private static final String[] DEST_LANGUAGE_CODE = new String[]{"ZH", "EN","ES","DE","RU","FR"};
-    private static final List<String> SP_SOURCE_LIST = new ArrayList<>(Arrays.asList("自动检测", "中文", "英文","西班牙语","德语","俄语","法语"));
-    private static final List<String> SP_SOURCE_LIST_EN = new ArrayList<>(Arrays.asList("Auto", "Chinese", "English","Spanish","German","Russian","French"));
-    private static final List<String> SP_DEST_LIST = new ArrayList<>(Arrays.asList("中文", "英文","西班牙语","德语","俄语","法语"));
-    private static final List<String> SP_DEST_LIST_EN = new ArrayList<>(Arrays.asList("Chinese", "English","Spanish","German","Russian","French"));
-    private static final List<String> CODE_LIST = new ArrayList<>(Arrays.asList(
-            "zh", "en", "fr", "th", "ja", "de", "ru", "es",
-            "ar", "tr", "pt", "it", "ro", "no"));
-    private static final List<String> LANGUAGE_LIST = new ArrayList<>(Arrays.asList(
-            "Chinese", "English", "French", "Thai", "Japanese", "German", "Russian", "Spanish",
-            "Arabic", "Turkish", "Portuguese", "Italian", "Romanian","Norwegian"));
+
+    private static final String[] SOURCE_LANGUAGE_CODE =
+        new String[] {"Auto", "ZH", "EN", "ES", "DE", "RU", "FR", "IT", "PT", "TH", "AR", "TR", "JA"};
+
+    private static final String[] DEST_LANGUAGE_CODE =
+        new String[] {"ZH", "EN", "ES", "DE", "RU", "FR", "IT", "PT", "TH", "AR", "TR", "JA"};
+
+    private static final List<String> SP_SOURCE_LIST = new ArrayList<>(
+        Arrays.asList("自动检测", "中文", "英文", "西班牙语", "德语", "俄语", "法语", "意大利", "葡萄牙", "泰语", "阿拉伯", "土耳其", "日语"));
+
+    private static final List<String> SP_SOURCE_LIST_EN = new ArrayList<>(Arrays.asList("Auto", "Chinese", "English",
+        "Spanish", "German", "Russian", "French", "Italian", "Portuguese", "Thai", "Arabic", "Turkish", "Japanese"));
+
+    private static final List<String> SP_DEST_LIST =
+        new ArrayList<>(Arrays.asList("中文", "英文", "西班牙语", "德语", "俄语", "法语", "意大利", "葡萄牙", "泰语", "阿拉伯", "土耳其", "日语"));
+
+    private static final List<String> SP_DEST_LIST_EN = new ArrayList<>(Arrays.asList("Chinese", "English", "Spanish",
+        "German", "Russian", "French", "IT", "PT", "TH", "AR", "TR", "JA"));
+
+    private static final List<String> CODE_LIST = new ArrayList<>(
+        Arrays.asList("zh", "en", "fr", "th", "ja", "de", "ru", "es", "ar", "tr", "pt", "it", "ro", "no"));
+
+    private static final List<String> LANGUAGE_LIST =
+        new ArrayList<>(Arrays.asList("Chinese", "English", "French", "Thai", "Japanese", "German", "Russian",
+            "Spanish", "Arabic", "Turkish", "Portuguese", "Italian", "Romanian", "Norwegian"));
 
     private final static long M = 1024 * 1024;
 
@@ -413,7 +426,7 @@ public class LocalTranslateActivity extends BaseActivity {
                 try {
                     latch.await();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e(TAG, e.getMessage());
                 }
                 String sourceLang = sourceLanguage;
                 if (bestResult != null) {

@@ -114,6 +114,21 @@ public class BitmapUtils {
         return cursor.getString(columnIndex);
     }
 
+
+    public static Bitmap loadFromPathWithoutZoom(Activity activity, Uri uri, int width, int height) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+
+        String path = getImagePath(activity, uri);
+        BitmapFactory.decodeFile(path, options);
+        int sampleSize = calculateInSampleSize(options, width, height);
+        options.inSampleSize = sampleSize;
+        options.inJustDecodeBounds = false;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+        return rotateBitmap(bitmap, getRotationAngle(path));
+    }
+
     public static Bitmap loadFromPath(Activity activity, Uri uri, int width, int height) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;

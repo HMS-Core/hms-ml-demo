@@ -18,7 +18,6 @@ package com.mlkit.sample.activity;
 
 import android.content.Intent;
 import android.hardware.Camera;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
