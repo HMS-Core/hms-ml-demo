@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Body</string>
+
+    <string name="camera_permission_rationale">示例应用需要相机和存储权限</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">设置</string>
+    <string name="cancel">取消</string>
+    <string name="take_photo">拍照</string>
+    <string name="select_from_album">从相册选择图片</string>
+    <string name="cloud_handkeypoint">手部关键点</string>
+
+
+
+    <!--简写-->
+
+    <string name="face_detection">人脸检测</string>
+    <string name="skeletlon">人体骨骼</string>
+    <string name="liveness_detection">活体检测</string>
+    <string name="handKeypoint">手部关键点</string>
+
+    <string name="all">所有</string>
+    <string name="coming_soon">敬请期待</string>
+    <string name="back">返回</string>
+
+    <string name="more_face_data">采集更多人脸数据</string>
+    <string name="versions">版本号：</string>
+
+
+
+
+
+
+
+</resources>

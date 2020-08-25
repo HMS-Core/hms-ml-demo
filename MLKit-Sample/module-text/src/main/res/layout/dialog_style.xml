@@ -1,92 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/dialog_background"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/female_zh"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/female_zh"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/female_en"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/female_en"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/male_zh"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/male_zh"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/male_en"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/male_en"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/male_fr"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/female_fr"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/male_es"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/female_es"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/male_de"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/female_de"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
-    <View style="@style/common_line" />
-
-    <TextView
-        android:id="@+id/male_it"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/start_icon_width"
-        android:gravity="center"
-        android:text="@string/female_it"
-        android:textColor="@drawable/text_selector"
-        android:textSize="@dimen/text_size_13sp"></TextView>
+        android:layout_height="match_parent"
+        android:id="@+id/tts_style_rv"
+        />
 
 </LinearLayout>

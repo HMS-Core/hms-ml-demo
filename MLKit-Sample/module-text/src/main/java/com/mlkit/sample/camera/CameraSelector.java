@@ -33,8 +33,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.Nullable;
-
 public class CameraSelector {
 
     private static final String TAG = "CameraSelector";

@@ -22,6 +22,7 @@
 
     <string name="image_segmentation_s">Image Segmentation</string>
     <string name="photographed_shopping_s">Product Visual Search</string>
+    <string name="photographed_shopping_s_plugin">Product Visual Search Plugin</string>
     <string name="face_detection_s">Face Detection</string>
     <string name="object_detection_s">Object Detection and Tracking</string>
     <string name="image_classification_s">Image Classification</string>
@@ -34,6 +35,7 @@
     <string name="image_classification">Classification</string>
     <string name="landmark">Landmark</string>
     <string name="skeletlon">Skeletlon</string>
+S
     <string name="all">all</string>
     <string name="coming_soon">coming soon</string>
     <string name="back">back</string>
@@ -58,5 +60,28 @@
     <string name="productInfo">Found the following similar products</string>
     <string name="empty">Empty</string>
     <string name="empty_product">"No similar products, please stay tuned!"</string>
+
+    <string name="image_super_resolution">Image Super Resolution</string>
+    <string name="image_super_resolution_s">ISR</string>
+
+
+    <!-- image super resolution-->
+    <string name="isr_upload_picture">Please upload the picture and adjust the resolution you need.</string>
+    <string name="isr_image_width">width:&#160;</string>
+    <string name="isr_upload_picture_tint">Please upload the picture</string>
+    <string name="isr_image_height">height:&#160;</string>
+    <string name="isr_image_1x">1PX</string>
+    <string name="isr_image_3x">3PX</string>
+    <string name="isr_image_original">Original</string>
+    <string name="tips">Tips</string>
+    <string name="tips_content">Before using the image super-resolution service, you need to convert the image into a bitmap in ARGB format. After being processed by the service, the bitmap in ARGB format is output.In the 1x super-distribution scenario, the maximum size of an input image is 1024 px x 768 px or 768 px x 1024 px. The minimum size is 64 px x 64 px or larger. The effect is not obvious when the input picture is of good quality and definition. </string>
+
+
+    <string name="cust_model">CustModel</string>
+    <string name="cust_model_title">Model Executor</string>
+    <string name="cust_model_notice1">Click to select Picture.</string>
+    <string name="cust_model_notice2">Please select a picture for reasoning.</string>
+    <string name="cust_model_notice3">The model is ready, please select a picture.</string>
+    <string name="cust_model_download">Download model</string>
 
 </resources>

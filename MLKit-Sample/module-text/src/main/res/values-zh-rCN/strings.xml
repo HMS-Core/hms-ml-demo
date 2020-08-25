@@ -12,6 +12,8 @@
     <string name="video_frame">视频流</string>
     <string name="take_photo">拍照</string>
     <string name="icr">身份证识别</string>
+    <string name="document_skew">文档校正</string>
+
 
     <string name="versions">版本号：</string>
     <string name="simplified_chinese">简体中文</string>
@@ -150,4 +152,7 @@
     <string name="German">德语</string>
     <string name="Indian_english">印度英语</string>
     <string name="Italian">意大利语</string>
+    <string name="isr_upload_picture_tint">请上传图片</string>
+    <string name="isr_upload_picture">请选择您需要进行校正的图片.</string>
+
 </resources>

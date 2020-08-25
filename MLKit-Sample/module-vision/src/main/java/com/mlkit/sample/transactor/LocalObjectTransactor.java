@@ -17,13 +17,11 @@
 package com.mlkit.sample.transactor;
 
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.mlkit.sample.views.graphic.CameraImageGraphic;
 import com.mlkit.sample.views.graphic.LocalObjectGraphic;
 import com.mlkit.sample.camera.FrameMetadata;
 import com.mlkit.sample.views.overlay.GraphicOverlay;

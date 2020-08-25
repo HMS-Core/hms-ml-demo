@@ -27,6 +27,8 @@ import java.io.RandomAccessFile;
 import android.content.Context;
 
 public class FileUtils {
+    private static final String TAG = "FileUtils";
+
     public static void deleteDirectory(final File directory) throws IOException {
         if (!directory.exists()) {
             return;
@@ -155,7 +157,7 @@ public class FileUtils {
                 fileOutputStream.flush();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
         } finally {
             try {
                 if (randomAccessFile != null) {
