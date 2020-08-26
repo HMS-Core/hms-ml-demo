@@ -33,7 +33,7 @@ Module-text。其中包括：文本识别、文档识别、身份证识别、银
 </tr></table>
 
 ### 视觉模块
-Module-vision。其中包括：图像分割、图片分类、对象检测与跟踪、地标识别、图像超分。
+Module-vision。其中包括：图像分割、图像分类、对象检测与跟踪、地标识别、图像超分。
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/mainVision.jpg" width=220 title="main page" border=2></td>
@@ -56,15 +56,15 @@ moduletext
         |-- Activity
             |-- AsrAudioActivity //实时语音识别服务
             |-- TtsAudioActivity //语音合成服务
-			|-- AudioFileTranscriptionActivity //音频文件转写服务
-			|-- IDCardRecognitionActivity // 身份证识别服务
-		    |-- BankCardRecognitionActivity // 银行卡识别服务
-		    |-- GeneralCardRecognitionActivity // 通用卡证识别服务
-		    |-- TextRecognitionActivity  // 文字识别服务
-		    |-- RemoteDetectionActivity  // 文档识别服务
-		    |-- StartActivity  // 服务入口
-		    |-- BaseActivity  // Activity基类
-		    |-- SettingActivity  // moduletext基本信息
+	    |-- AudioFileTranscriptionActivity //音频文件转写服务
+	    |-- IDCardRecognitionActivity // 身份证识别服务
+	    |-- BankCardRecognitionActivity // 银行卡识别服务
+	    |-- GeneralCardRecognitionActivity // 通用卡证识别服务
+            |-- TextRecognitionActivity  // 文字识别服务
+            |-- RemoteDetectionActivity  // 文档识别服务
+	    |-- StartActivity  // 服务入口
+            |-- BaseActivity  // Activity基类
+	    |-- SettingActivity  // moduletext基本信息
             |-- TranslateActivity
             |-- LocalTranslateActivity // 端侧文本翻译
             |-- RemoteTranslateActivity // 云测文本翻译
@@ -78,13 +78,13 @@ modulevision
             |-- LoadPhotoActivity //图像分割相关
             |-- TakePhotoActivity //背景替换相关
             |-- StillCutPhotoActivity //人像抠图相关
-			|-- ObjectDetectionActivity //对象检测与跟踪
-			|-- ImageClassificationActivity //图像分类
-		    |-- RemoteDetectionActivity //地标识别
-		    |-- ImageSuperResolutionActivity //图像超分
-		    |-- BaseActivity  // Activity基类
-		    |-- StartActivity  // 服务入口
-		    |-- SettingActivity  // modulevision基本信息
+	    |-- ObjectDetectionActivity //对象检测与跟踪
+	    |-- ImageClassificationActivity //图像分类
+	    |-- RemoteDetectionActivity //地标识别
+	    |-- ImageSuperResolutionActivity //图像超分
+	    |-- BaseActivity  // Activity基类
+	    |-- StartActivity  // 服务入口
+	    |-- SettingActivity  // modulevision基本信息
 
 
 modulebody
