@@ -41,7 +41,7 @@ Module-vision. This module is used for image segmentation,product visual search,
 </tr></table>
 
 
-### Vision body
+### Body module
 Module-body. This module is used for Face detection, human bone detection, live body detection, and key points of hands.
 
 <table><tr>
