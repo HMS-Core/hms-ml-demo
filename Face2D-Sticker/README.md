@@ -3,18 +3,18 @@
 
 ## Contents
 
- * [Introduction](#Introduction)
- * [Project directory structure](#Project directory structure)
- * [More Scenarios](#More Scenarios)
- * [Procedure](#Procedure)
- * [Supported Environment](#Supported Environment)
- * [License](#License)
+ * [Introduction](#introduction)
+ * [Project directory structure](#project-directory-structure)
+ * [More Scenarios](#more-scenarios)
+ * [Procedure](#procedure)
+ * [Supported Environment](#supported-environment)
+ * [License](#license)
 
 
 ## Introduction
 Face2D-Sticker uses the face detection function of HUAWEI ML Kit to Identify the contour points of the face, and then stick animated stickers on the face..
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
 
 ## Project directory structure
 
