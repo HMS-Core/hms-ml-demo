@@ -18,17 +18,23 @@
 
 |-- ID-Photo-DIY // 使用ML Kit的图片分割功能，将人物静态图片合成蓝色或白色背景的证件照。
 
-|-- Photo-Translate // 使用ML Kit的文字识别和翻译功能，将静态照片中的文字翻译成用户所需的语言。
-
 |-- Smile-Camera // 使用ML Kit的人脸检测功能，识别用户是否在微笑，并抓拍用户的微笑照片。
 
-|-- Homework-Reader // 使用HUAWEI ML Kit的文字识别和TTS功能，获取照片中的文字，并转换为音频输出。
-    
+|-- Photo-Translate // 使用ML Kit的文字识别和翻译功能，将静态照片中的文字翻译成用户所需的语言。
+
 |-- ASRSampleKotlin // 使用ML Kit的语音自动识别功能，实时将语音转换成文字。
 
 |-- TTSSampleKotlin // 使用ML Kit的文本语音转换功能，将文本转换成语音，用户可以选择音量、语速以及音色。
 
 |-- TranslatorKotlin // 使用ML Kit的自动语音识别、文本翻译、文本转语音等服务，将英文语音翻译成中文语音。
+
+|-- PhotoReader // 使用HUAWEI ML Kit的文字识别，文本翻译和TTS功能，获取照片中的文字，并进行翻译后转换为音频输出。
+
+|-- Face2D-Sticker // 使用ML Kit的人脸检测功能，为用户演示2D贴纸。
+
+|-- Receipt-Text-Recognition // // 使用ML Kit的文字识别，通用文本识别。
+    
+
 
 ## 注意事项
 

@@ -1,0 +1,2 @@
+rootProject.name='PhotoReader'
+include ':app'
