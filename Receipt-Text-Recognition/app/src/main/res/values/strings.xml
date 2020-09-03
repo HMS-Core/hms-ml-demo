@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Receipt text recognition</string>
+
+    <string name="cardnumberruler">Card recognition rule: a string of&#160;</string>
+    <string name="digits">&#160;digits</string>
+    <string name="cardnumber">Please enter:</string>
+    <string name="cardheadruler">The card number begins with (including symbols such as decimal points):</string>
+    <string name="cardhead">Please enter:</string>
+    <string name="nocard">no card</string>
+    <string name="video">Video frame</string>
+    <string name="chinese">Chinese</string>
+    <string name="english">English</string>
+    <string name="start">start</string>
+</resources>

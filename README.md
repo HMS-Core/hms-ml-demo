@@ -10,18 +10,23 @@ This project contains HUAWEI ML Kit APIs and apps developed based on the HMS Cor
 |-- MLKit-Sample // Provides examples of using basic functions of HUAWEI ML Kit.
 
 |-- ID-Photo-DIY // Uses the image segmentation function of HUAWEI ML Kit to synthesize static images of people into a certificate photo with a blue or white background.
-    
-|-- Photo-Translate // Uses the text recognition and translation functions of HUAWEI ML Kit to translate text in static photos into the required language.
-    
+
 |-- Smile-Camera // Uses the face detection function of HUAWEI ML Kit to identify whether a user is smiling and capture the smiling photos of the user.
 
-|-- Homework-Reader // Uses the text recognition and TTS functions of HUAWEI ML Kit to get the text in photos and convert it into audio output.
+|-- Photo-Translate // Uses the text recognition and translation functions of HUAWEI ML Kit to translate text in static photos into the required language.
 
 |-- ASRSampleKotlin // Uses the automatic speech recognition function of HUAWEI ML Kit to convert speech into text in real time.
 
 |-- TTSSampleKotlin // Uses the text to speech function of HUAWEI ML Kit to convert text into speech and allow users to choose the volume and speed.
 
 |-- TranslatorKotlin // Use the automatic speech recognition, text translation, and  text to speech services of HUAWEI ML Kit to translate English speech into Chinese speech.
+
+|-- PhotoReader // Use the text recognition, text translation, and TTS functions of the HUAWEI ML Kit to obtain text in photos and convert the text into audio output.
+
+|-- Face2D-Sticker // Use the face detection function of the ML Kit to demonstrate 2D stickers.
+
+|-- Receipt-Text-Recognition // ML Kit is used for text recognition and general text recognition.
+
 
 ## Precautions
 
