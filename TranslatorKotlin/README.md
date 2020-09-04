@@ -49,4 +49,4 @@ Convert text into speech. It is applicable to various scenarios such as news rea
 Android 4.4 or later is recommended.
 
 ## License
-The sample code has obtained the [Apache 2.0 license] (http://www.apache.org/licenses/LICENSE-2.0).
+The sample code has obtained the [Apache 2.0 license] (https://www.apache.org/licenses/LICENSE-2.0).

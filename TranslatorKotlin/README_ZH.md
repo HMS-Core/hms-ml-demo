@@ -49,4 +49,4 @@ TranslatorKotlin
 推荐使用Android 4.4及以上版本的设备。
 
 ##  许可证
-此示例代码已获得[Apache 2.0 license]（http://www.apache.org/licenses/LICENSE-2.0）。
+此示例代码已获得[Apache 2.0 license]（https://www.apache.org/licenses/LICENSE-2.0）。

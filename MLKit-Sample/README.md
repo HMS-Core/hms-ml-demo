@@ -129,4 +129,4 @@ Devices with Android 4.4 or later are recommended.
 
 
 ##  License
-The MLKit-Sample have obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+The MLKit-Sample have obtained the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
