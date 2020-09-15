@@ -1,4 +1,4 @@
-# Smile-Camera
+# Face2D Sticker
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
 ## Contents
