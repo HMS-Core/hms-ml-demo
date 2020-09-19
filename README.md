@@ -7,7 +7,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_ZH
 ## Introduction
 This project contains apps developed based on HUAWEI ML Kit. The project directory is as follows:
 
-|-- MLKit-Sample // ML Kit scenario-based demo, which can be obtained from the HUAWEI Developers website by scanning the QR code.
+|-- MLKit-Sample // ML Kit scenario-based demo, which can be obtained from the HUAWEI Developers website by scanning the QR code: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5.
 
 |-- ID-Photo-DIY // Uses the image segmentation function of HUAWEI ML Kit to synthesize static images of people into a certificate photo with a blue or white background.
 
