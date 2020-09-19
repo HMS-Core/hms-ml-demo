@@ -10,9 +10,9 @@
 
 ## 简介
 
-本项目包含华为ML Kit API和基于HMS Core ML Kit SDK开发的APP。工程目录如下：
+本项目包含基于华为机器学习服务开发的APP。工程目录如下：
 
-|-- MLKit-Sample // ML Kit基本功能使用示例。
+|-- MLKit-Sample // ML Kit场景化Demo，此Demo可以通过扫描二维码的方式在开发者联盟网站获取：https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5。
 
 |-- ID-Photo-DIY // 使用ML Kit的图片分割功能，将人物静态图片合成蓝色或白色背景的证件照。
 
@@ -30,7 +30,7 @@
 
 |-- Face2D-Sticker // 使用ML Kit的人脸检测功能，为用户演示2D贴纸。
 
-|-- Receipt-Text-Recognition // // 使用ML Kit的文字识别，通用文本识别。
+|-- Receipt-Text-Recognition // 使用ML Kit的文字识别，通用文本识别。
     
 
 
