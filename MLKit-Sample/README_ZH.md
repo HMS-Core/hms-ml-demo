@@ -74,6 +74,7 @@ Module-costom。其中包括：Label自定义模型演示、对象检测自定�
 
 详细介绍请参考[华为机器学习SDK](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
 
+
 ## 工程目录结构
 moduletext
     |-- com.huawei.mlkit.sample

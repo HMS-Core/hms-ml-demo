@@ -52,7 +52,6 @@ Module-vision. It includes image segmentation, image classification, object dete
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/scene.jpg" width=220 border=2></td>
 </tr></table>
 
-
 ### Body module
 Module-body. This module is used for Face detection, human bone detection, live body detection, and key points of hands.
 
@@ -73,7 +72,6 @@ Module-costom. including the demonstration of the customized model of the label 
 </tr></table>
 
 For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
-
 
 ## Project directory structure
 
