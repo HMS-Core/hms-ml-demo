@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WoodenMan</string>
+    <string name="picture">Picture</string>
+    <string name="info">Info</string>
+    <string name="camera_permission_rationale">This sample app requires camera access in order to
+        demo the API.</string>
+    <string name="camera_no_good">No back-facing sufficiently capable camera available!</string>
+    <string name="camera_disabled">Camera is disabled by device policy</string>
+    <string name="camera_disconnected">Camera was disconnected before it was opened</string>
+    <string name="camera_error">Camera service reported an error</string>
+    <string name="camera_unknown">Unknown camera error: %s</string>
+    <string name="camera_permission_denied_explanation">You\'ve denied a permission that the app
+        needs for core functionality. If you selected &quot;don\'t ask again&quot; in the past then
+        you need to use Settings to re-enable the permission.</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="toggle_turn_on">Front</string>
+    <string name="toggle_turn_off">Back</string>
+    <string name="desc_camera_source_activity">Vision detectors demo with live camera preview</string>
+    <string name="desc_still_image_activity">Vision detectors demo with a still image</string>
+    <string name="load_pictures">Click here!</string>
+
+    <string name="background_substitution">Substitution</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="cutout">Cutout</string>
+    <string name="cut">Cut</string>
+    <string name="cut_success">Cut success</string>
+    <string name="save_success">Save success</string>
+
+    <string name="replace_background">Background</string>
+    <string name="save">Save</string>
+    <string name="please_select_picture">Please select a picture to process~</string>
+    <string name="click_add_picture">Click to add picture~</string>
+    <string name="no_pic_neededSave">Null Image needed to save</string>
+
+    <string name="back">back</string>
+    <string name="more_face_data">Show Shapespoint</string>
+    <string name="versions">Version：</string>
+
+    <string name="empty">Empty</string>
+
+    <string name="face_match">HiVision</string>
+
+    <string name="game_one">First Level</string>
+    <string name="game_two">Second level</string>
+    <string name="game_three">Three level</string>
+    <string name="game_four">Fourth level</string>
+    <string name="game_five">Level 5</string>
+    <string name="game_six">Level 6</string>
+    <string name="game_seven">Level 7</string>
+
+    <string name="game_zero_des">Challenge through 0 and beat 0%% of players! Keep trying! </string>
+    <string name="game_one_des">Challenge Passing 1 Pass, Beat 25.16%% of players! Keep trying! </string>
+    <string name="game_two_des">Challenge through 2 levels, beating 40.6% of players! Keep trying! </string>
+    <string name="game_tree_des">Challenge through 3 levels, beating 62.55% of players! Keep trying! </string>
+    <string name="game_four_des">Challenge through 4 levels, beating 78.66% of players! Keep trying! </string>
+    <string name="game_five_des">Challenge through 5 levels and beat 85.88% of players! Keep trying! </string>
+    <string name="game_six_des">Challenge through 6 levels, beating 97.19% of players! Keep trying! </string>
+    <string name="game_seven_des">Challenge Passing 7 Passes and Beats 100% Players! Keep trying! </string>
+    <string name="Saved">Saved</string>
+
+</resources>
