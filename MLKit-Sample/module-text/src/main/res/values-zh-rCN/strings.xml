@@ -33,6 +33,8 @@
     <string name="ucr_s">通用卡证识别</string>
     <string name="asr_s">实时语音识别</string>
     <string name="tts_s">语音合成</string>
+    <string name="text_embedding">文本嵌入</string>
+
     <!--简写-->
     <string name="translate">文本翻译</string>
     <string name="aft">音频文件转写</string>
@@ -40,6 +42,8 @@
     <string name="gcr">通用卡证识别</string>
     <string name="text_detection">文字识别</string>
     <string name="document_recognition">文档识别</string>
+    <string name="textembedding">文本嵌入</string>
+    <string name="speechRtt">ASR长语音</string>
     <string name="asr">实时语音识别</string>
     <string name="tts">语音合成</string>
     <string name="all">所有</string>
@@ -51,6 +55,7 @@
     <string name="zero_character"> 0 字符</string>
     <string name="translate_text_hint">机器学习</string>
     <string name="intro">请输入文字</string>
+    <string name="tts_hint">请输入需要合成的文字</string>
     <string name="queue_add">合成</string>
     <string name="play">播放</string>
     <string name="release_tts">停止播放</string>
@@ -146,13 +151,96 @@
 
     <string name="online_translate">在线翻译</string>
     <string name="offline_translate">离线翻译</string>
+    <string name="speech_synthesis">语音合成</string>
+    <string name="online_tts">在线合成</string>
+    <string name="offline_tts">离线合成</string>
     <string name="download">下载</string>
+    <string name="downloaded">已下载</string>
+    <string name="can_not_get_download_mode">无法获取已下载的模型</string>
+    <string name="offline_model_management">离线模型管理</string>
     <string name="french">法语</string>
     <string name="spanish">西班牙语</string>
     <string name="German">德语</string>
     <string name="Indian_english">印度英语</string>
     <string name="Italian">意大利语</string>
+    <string name="download_prompt">请在离线模型管理中下载</string>
+    <string name="waitting">等待中</string>
+    <string name="no_wifi_prompt">当前连接移动网络，下载离线模型可能产生流量费用（资费请咨询运营商），确认继续下载吗？</string>
+    <string name="no_network_prompt">没有检查到可用的网络，无法下载模型</string>
+
     <string name="isr_upload_picture_tint">请上传图片</string>
     <string name="isr_upload_picture">请选择您需要进行校正的图片.</string>
+
+    <string name="prompt">提示</string>
+
+    <string name="sound_dect_title">声音识别</string>
+    <string name="sound_dect_tips">提示:</string>
+    <string name="sound_dect_tips_value">该DEMO展示声音识别业务能力，点击声音检测按钮，开启麦克风，持续识别周围的声音，如果出现指定类型的声音，则显示识别结果。点击停止按钮，则停止声音识别。声音识别业务目前支持声音类型有13种，包括：婴儿或小孩哭声、叫喊声、猫叫声、狗叫声、流水声、敲门声、门铃声、汽车喇叭声、火灾报警声、警报声、笑声、喷嚏声、打鼾声。</string>
+    <string name="sound_dect_voice_type">声音类型</string>
+    <string name="sound_dect_start">声音识别开始</string>
+    <string name="sound_dect_stop">声音识别停止</string>
+    <string name="sound_dect_error">声音识别错误码:</string>
+
+    <string-array name="sound_dect_voice_type">
+        <item>笑声</item>
+        <item>婴儿或小孩哭声</item>
+        <item>打鼾声</item>
+        <item>喷嚏声</item>
+        <item>叫喊声</item>
+        <item>猫叫声</item>
+        <item>狗叫声</item>
+        <item>流水声</item>
+        <item>汽车喇叭声</item>
+        <item>门铃声</item>
+        <item>敲门声</item>
+        <item>火灾报警声</item>
+        <item>警报声</item>
+    </string-array>
+
+    <string name="vision">版本号：</string>
+    <string name="dimension">词典维度：</string>
+    <string name="size">词典大小：</string>
+
+    <string name="asr_long_title">ASR 长语音</string>
+
+    <string name="asr_recognition">语音识别</string>
+
+    <string-array name="spingarr">
+        <item>中文</item>
+        <item>英文</item>
+    </string-array>
+
+    <string-array name="asr_long">
+        <item>中文</item>
+        <item>英文</item>
+        <item>法语</item>
+    </string-array>
+
+    <string name="you_may_speak">你可以开始讲话了...</string>
+    <string name="destroied">语音识别器已关闭！</string>
+
+    <string name="errorcode">错误码：</string>
+    <string name="Others">其他异常错误</string>
+    <string name="no_intnet">网络不可用，……请重试</string>
+    <string name="no_service">服务不可用</string>
+
+    <string name="Word_vector">词向量：</string>
+    <string name="Sentence_vector">句向量：</string>
+    <string name="Word_similarity">词相似度：</string>
+    <string name="sentence_similarity">句相似度：</string>
+    <string name="similar_word">相似词：</string>
+    <string name="getVisionValue">获取词典版本信息</string>
+    <string name="word_vector_analysis">词向量解析</string>
+    <string name="sentence_vector_analysis">句向量解析</string>
+    <string name="word_similarity_analysis">词相似度解析</string>
+    <string name="sentence_similarity_analysis">句相似度解析</string>
+    <string name="similar_word_analysis">相似词解析</string>
+    <string name="getvision">获取版本号：</string>
+    <string name="Parsing_Result">解析结果：</string>
+    <string name="vision_nlp">版本：</string>
+
+
+
+    <string name="download_model">(已下载)</string>
 
 </resources>

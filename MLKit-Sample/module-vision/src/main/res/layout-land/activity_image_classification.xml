@@ -7,21 +7,21 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-    <com.mlkit.sample.camera.LensEnginePreview
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
         android:id="@+id/classification_preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
-        <com.mlkit.sample.views.overlay.GraphicOverlay
+        <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
             android:id="@+id/classification_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true" />
-    </com.mlkit.sample.camera.LensEnginePreview>
+    </com.huawei.mlkit.sample.camera.LensEnginePreview>
 
     <ImageButton
         android:id="@+id/classification_back"

@@ -46,7 +46,7 @@
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"></ImageView>
 
-    <com.mlkit.sample.views.overlay.GraphicOverlay
+    <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
         android:id="@+id/still_overlay"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

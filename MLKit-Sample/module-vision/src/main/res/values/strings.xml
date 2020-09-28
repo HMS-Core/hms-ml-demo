@@ -61,11 +61,10 @@ S
     <string name="empty">Empty</string>
     <string name="empty_product">"No similar products, please stay tuned!"</string>
 
-    <string name="image_super_resolution">Image Super Resolution</string>
-    <string name="image_super_resolution_s">ISR</string>
-
 
     <!-- image super resolution-->
+    <string name="image_super_resolution">Image Super Resolution</string>
+    <string name="image_super_resolution_s">ISR</string>
     <string name="isr_upload_picture">Please upload the picture and adjust the resolution you need.</string>
     <string name="isr_image_width">width:&#160;</string>
     <string name="isr_upload_picture_tint">Please upload the picture</string>
@@ -74,8 +73,11 @@ S
     <string name="isr_image_3x">3PX</string>
     <string name="isr_image_original">Original</string>
     <string name="tips">Tips</string>
-    <string name="tips_content">Before using the image super-resolution service, you need to convert the image into a bitmap in ARGB format. After being processed by the service, the bitmap in ARGB format is output.In the 1x super-distribution scenario, the maximum size of an input image is 1024 px x 768 px or 768 px x 1024 px. The minimum size is 64 px x 64 px or larger. The effect is not obvious when the input picture is of good quality and definition. </string>
+    <string name="isr_tips_content">Before using the image super-resolution service, you need to convert the image into a bitmap in ARGB format, and the output bitmap format is also ARGB. In the 3x super resolution scenario, the maximum size of the input image is 800 x 800 pixels, and the minimum size is not less than 64 x 64 pixels. In the 1x super resolution scenario, the maximum size of an input image is 1024px x 768px or 768px x 1024px, the minimum size is 64px x 64px. The effect is not obvious when the input picture is of good quality and definition. </string>
 
+    <string name="text_super_resolution">Text Image Super Resolution</string>
+    <string name="text_super_resolution_s">TISR</string>
+    <string name="tsr_tips_content">Before using the text image super-resolution service, you need to convert the image into a bitmap in ARGB format, and the output bitmap format is also ARGB. Only 3x super resolution is supported. The maximum size of an input image is 800px x 800px, and the minimum size is 64px x 64px. The effect is not obvious when the input picture is of good quality and definition. </string>
 
     <string name="cust_model">CustModel</string>
     <string name="cust_model_title">Model Executor</string>
@@ -83,5 +85,10 @@ S
     <string name="cust_model_notice2">Please select a picture for reasoning.</string>
     <string name="cust_model_notice3">The model is ready, please select a picture.</string>
     <string name="cust_model_download">Download model</string>
+
+    <string name="cust_model_type1">label</string>
+    <string name="cust_model_type2">object</string>
+
+    <string name="scene_detection">Scene detection</string>
 
 </resources>

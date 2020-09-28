@@ -28,7 +28,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:text="@string/tips_content"
             android:gravity="center"
             android:textSize="14sp" />
 
@@ -45,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null"
-                android:text="取消"
+                android:text="@string/cancel"
                 android:textSize="14sp" />
 
         </LinearLayout>

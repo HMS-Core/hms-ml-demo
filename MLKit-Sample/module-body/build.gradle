@@ -6,8 +6,8 @@ android {
         applicationId "com.mlkit.sample.body"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 30002300
-        versionName "3.0.2.300"
+        versionCode 30003300
+        versionName "3.0.3.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -40,23 +40,24 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
 
-
+    // Face
     implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.1.300'
 
 
-    implementation 'com.huawei.hms:ml-computer-vision-skeleton-model:2.0.2.300'
-    implementation 'com.huawei.hms:ml-computer-vision-skeleton:2.0.2.300'
+    // skeleton
+    implementation 'com.huawei.hms:ml-computer-vision-skeleton:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-skeleton-model:2.0.3.300'
 
     // Liveness Detection sdk and FULL SDK
     implementation 'com.huawei.hms:ml-computer-vision-livenessdetection:2.0.2.300'
 
     // handkeypoint
-    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint-model:2.0.2.300'
-    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint:2.0.2.300'
+    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint-model:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint:2.0.3.300'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

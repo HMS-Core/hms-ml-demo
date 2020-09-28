@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">模型推理</string>
+    <string name="settings">设置</string>
+    <string name="versions">版本号：</string>
+
+    <string name="back">返回</string>
+    <string name="cust_model">自定义模型</string>
+    <string name="cust_model_title">模型推理</string>
+    <string name="cust_model_notice1">点击选择图片</string>
+    <string name="cust_model_notice2">请选择一张用于推理的图片。</string>
+    <string name="cust_model_notice3">模型已经准备好,请选择一张图片。</string>
+    <string name="cust_model_download">下载模型</string>
+
+    <string name="cust_model_type1">label</string>
+    <string name="cust_model_type2">object</string>
+
+
+    <string name="results">上拉查看结果</string>
+    <string name="switchover">右上角可切换模型</string>
+
+</resources>

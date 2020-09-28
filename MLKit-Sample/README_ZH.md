@@ -60,7 +60,7 @@ Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部
 
 ## 工程目录结构
 moduletext
-    |-- com.mlkit.sample
+    |-- com.huawei.mlkit.sample
         |-- Activity
             |-- AsrAudioActivity //实时语音识别服务
             |-- TtsAudioActivity //语音合成服务
@@ -80,7 +80,7 @@ moduletext
 
 
 modulevision
-    |-- com.mlkit.sample
+    |-- com.huawei.mlkit.sample
         |-- Activity
             |-- ImageSegmentationActivity //图像分割
             |-- LoadPhotoActivity //图像分割相关

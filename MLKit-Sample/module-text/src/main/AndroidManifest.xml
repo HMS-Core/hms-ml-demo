@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mlkit.sample">
+    package="com.huawei.mlkit.sample">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="com.mlkit.asr.permission" />
+    <uses-permission android:name="com.huawei.mlkit.asr.permission" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -15,7 +15,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <permission
-        android:name="com.mlkit.asr.permission"
+        android:name="com.huawei.mlkit.asr.permission"
         android:label="ASR" />
 
     <application
@@ -23,13 +23,14 @@
         android:icon="@drawable/icon"
         android:label="ML Kit Text"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activity.DocDetectionResultActivity"></activity>
+        <activity android:name=".activity.TextEmbeddingActivity" />
+        <activity android:name=".activity.DocDetectionResultActivity" />
         <activity
             android:name=".activity.TranslateActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.TtsAudioActivity"
+            android:name=".activity.TtsAnalyseActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
@@ -89,6 +90,14 @@
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SoundDectActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RealTimeTranscriptionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

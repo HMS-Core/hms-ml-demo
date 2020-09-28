@@ -12,7 +12,7 @@
 
     <!-- 相机预览和结果图层-->
 
-    <com.mlkit.sample.camera.LensEnginePreview
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <com.mlkit.sample.views.overlay.GraphicOverlay
+        <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
             android:id="@+id/overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,7 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </com.mlkit.sample.camera.LensEnginePreview>
+    </com.huawei.mlkit.sample.camera.LensEnginePreview>
 
     <ImageView
         android:id="@+id/back"

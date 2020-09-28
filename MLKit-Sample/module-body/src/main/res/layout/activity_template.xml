@@ -27,7 +27,7 @@
             android:textColor="#000000"
             android:textSize="19dp" />
     </androidx.appcompat.widget.Toolbar>
-    <com.mlkit.sample.views.overlay.GraphicOverlay
+    <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
         android:id="@+id/previewOverlay"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

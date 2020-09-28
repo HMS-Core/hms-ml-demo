@@ -7,7 +7,7 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-    <com.mlkit.sample.camera.LensEnginePreview
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
         android:id="@+id/live_preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,14 +15,14 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="0dp">
 
-        <com.mlkit.sample.views.overlay.GraphicOverlay
+        <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
             android:id="@+id/live_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true" />
-    </com.mlkit.sample.camera.LensEnginePreview>
+    </com.huawei.mlkit.sample.camera.LensEnginePreview>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
         android:visibility="gone">
 
 
-        <com.mlkit.sample.views.overlay.ZoomImageView
+        <com.huawei.mlkit.sample.views.overlay.ZoomImageView
             android:id="@+id/take_picture_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
