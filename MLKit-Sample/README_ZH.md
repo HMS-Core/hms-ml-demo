@@ -63,7 +63,9 @@ Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/handkey.jpg" width=220 border=2></td>
 </tr></table>
 
+
 详细介绍请参考[华为机器学习SDK](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
+
 
 ## 工程目录结构
 moduletext
@@ -71,15 +73,15 @@ moduletext
         |-- Activity
             |-- AsrAudioActivity //实时语音识别服务
             |-- TtsAudioActivity //语音合成服务
-	    |-- AudioFileTranscriptionActivity //音频文件转写服务
-	    |-- IDCardRecognitionActivity // 身份证识别服务
-	    |-- BankCardRecognitionActivity // 银行卡识别服务
-	    |-- GeneralCardRecognitionActivity // 通用卡证识别服务
+	        |-- AudioFileTranscriptionActivity //音频文件转写服务
+	        |-- IDCardRecognitionActivity // 身份证识别服务
+	        |-- BankCardRecognitionActivity // 银行卡识别服务
+	        |-- GeneralCardRecognitionActivity // 通用卡证识别服务
             |-- TextRecognitionActivity  // 文字识别服务
             |-- RemoteDetectionActivity  // 文档识别服务
-	    |-- StartActivity  // 服务入口
+	        |-- StartActivity  // 服务入口
             |-- BaseActivity  // Activity基类
-	    |-- SettingActivity  // moduletext基本信息
+	        |-- SettingActivity  // moduletext基本信息
             |-- TranslateActivity
             |-- LocalTranslateActivity // 端侧文本翻译
             |-- RemoteTranslateActivity // 云测文本翻译
@@ -93,27 +95,37 @@ modulevision
             |-- LoadPhotoActivity //图像分割相关
             |-- TakePhotoActivity //背景替换相关
             |-- StillCutPhotoActivity //人像抠图相关
-	    |-- ObjectDetectionActivity //对象检测与跟踪
-	    |-- ImageClassificationActivity //图像分类
-	    |-- RemoteDetectionActivity //地标识别
-	    |-- ImageSuperResolutionActivity //图像超分
-	    |-- BaseActivity  // Activity基类
-	    |-- StartActivity  // 服务入口
-	    |-- SettingActivity  // modulevision基本信息
+	        |-- ObjectDetectionActivity //对象检测与跟踪
+	        |-- ImageClassificationActivity //图像分类
+	        |-- RemoteDetectionActivity //地标识别
+	        |-- ImageSuperResolutionActivity //图像超分
+	        |-- BaseActivity  // Activity基类
+	        |-- StartActivity  // 服务入口
+	        |-- SettingActivity  // modulevision基本信息
 
 
 modulebody
     |-- com.mlkit.sample
         |-- Activity
-        |-- FaceDetectionActivity //人脸检测
-        |-- HumanSkeletonActivity //人体骨骼
-        |-- TemplateActivity //骨骼模板选择类
-        |-- HumanLivenessDetectionActivity // 活体检测
-        |-- HandKeypointActivity // 手部关键点
-        |-- HandKeypointImageActivity // 手部关键点静态检测
-        |-- BaseActivity  // Activity基类
-        |-- StartActivity  // 服务入口
-        |-- SettingActivity  // modulebody基本信息
+            |-- FaceDetectionActivity //人脸检测
+            |-- HumanSkeletonActivity //人体骨骼
+            |-- TemplateActivity //骨骼模板选择类
+            |-- HumanLivenessDetectionActivity // 活体检测
+            |-- HandKeypointActivity // 手部关键点
+            |-- HandKeypointImageActivity // 手部关键点静态检测
+            |-- BaseActivity  // Activity基类
+            |-- StartActivity  // 服务入口
+            |-- SettingActivity  // modulebody基本信息
+
+
+modulecostom
+    |-- com.huawei.mlkit.sample
+        |-- Activity
+            |-- CustModelActivity //自定义模型服务入口
+            |-- CustModelLabelActivity //自定义模型Lable演示入口
+            |-- CustModelObjectActivity //自定义模型对象检测演示入口
+            |-- BaseActivity  // Activity基类
+            |-- SettingActivity  // modulecostom基本信息
 
 ## 更多场景
 华为机器学习服务（HMS ML Kit） 提供机器学习套件，为开发者应用机器学习能力开发各类应用提供优质体验。
