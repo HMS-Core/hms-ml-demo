@@ -6,6 +6,8 @@
     <dimen name="icon_new_width">18dp</dimen>
     <dimen name="icon_new_height">15dp</dimen>
     <dimen name="toolbar_height">45dp</dimen>
+    <dimen name="large_toolbar_height">270dp</dimen>
+    <dimen name="btn_height">36dp</dimen>
 
     <dimen name="text_size_28sp">28sp</dimen>
 
@@ -16,6 +18,7 @@
     <dimen name="text_size_13sp">13sp</dimen>
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="text_size_11sp">11sp</dimen>
+    <dimen name="text_size_10sp">10sp</dimen>
 
     <dimen name="text_size_9sp">9sp</dimen>
 
@@ -59,4 +62,8 @@
     <dimen name="start_logo_height">250dp</dimen>
     <dimen name="start_logo_margin">230dp</dimen>
     <dimen name="start_margin_top">70dp</dimen>
+
+    <dimen name="dialog_width">210dp</dimen>
+    <dimen name="dialog_height">300dp</dimen>
+    <dimen name="speaker_dialog_height">72dp</dimen>
 </resources>

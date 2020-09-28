@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
     android:fitsSystemWindows="true"
     android:keepScreenOn="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
 
-    <com.mlkit.sample.camera.LensEnginePreview
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
         android:id="@+id/face_preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,14 +17,14 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="0dp">
 
-        <com.mlkit.sample.views.overlay.GraphicOverlay
+        <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
             android:id="@+id/face_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true" />
-    </com.mlkit.sample.camera.LensEnginePreview>
+    </com.huawei.mlkit.sample.camera.LensEnginePreview>
 
     <ImageButton
         android:id="@+id/face_back"
@@ -51,7 +53,7 @@
             android:layout_marginRight="10dp"
             android:textSize="@dimen/text_size_15sp" />
 
-        <com.mlkit.sample.views.SwitchButton
+        <com.huawei.mlkit.sample.views.SwitchButton
             android:id="@+id/switch_button_view"
             android:layout_width="40dp"
             android:layout_height="40dp"

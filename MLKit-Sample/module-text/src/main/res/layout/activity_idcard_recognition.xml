@@ -29,31 +29,6 @@
             android:text="@string/icr_s"
             android:textColor="@color/secondary_text_color"
             android:textSize="@dimen/text_size_17sp" />
-
-        <LinearLayout
-            android:id="@+id/switch_button_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                android:gravity="center"
-                android:text="@string/cloud_side"
-                android:textColor="@color/secondary_text_color"
-                android:textSize="@dimen/text_size_14sp" />
-
-            <com.mlkit.sample.views.SwitchButton
-                android:id="@+id/switch_button_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" />
-        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <View

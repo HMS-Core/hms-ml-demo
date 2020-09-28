@@ -38,6 +38,7 @@
     <string name="asr_s">Speech Recognition</string>
     <string name="tts_s">Text to speech</string>
     <string name="document_skew">Document Skew Corretion</string>
+    <string name="text_embedding">Text Embedding</string>
 
     <!--简写-->
     <string name="document_recognition">Document</string>
@@ -49,6 +50,8 @@
     <string name="text_detection">Text</string>
     <string name="asr">ASR</string>
     <string name="tts">TTS</string>
+    <string name="textembedding">TEXTEMBEDDING</string>
+    <string name="speechRtt">SpeechRtt</string>
 
     <string name="all">all</string>
     <string name="coming_soon">coming soon</string>
@@ -59,6 +62,7 @@
     <string name="zero_character"> 0 character</string>
     <string name="translate_text_hint">Machine Learning</string>
     <string name="intro">text to speak</string>
+    <string name="tts_hint">enter the text to be synthesized.</string>
     <string name="queue_add">speech</string>
     <string name="play">play</string>
     <string name="release_tts">stop</string>
@@ -149,13 +153,95 @@
 
     <string name="online_translate">online translation</string>
     <string name="offline_translate">offline translation</string>
+    <string name="speech_synthesis">Speech Synthesis</string>
+    <string name="online_tts">online tts</string>
+    <string name="offline_tts">offline tts</string>
     <string name="download">download</string>
+    <string name="downloaded">downloaded</string>
+    <string name="can_not_get_download_mode">Unable to get downloaded model</string>
+    <string name="offline_model_management">Offline Model Management</string>
     <string name="french">French</string>
     <string name="spanish">Spanish</string>
     <string name="German">German</string>
     <string name="Indian_english">Indian English</string>
     <string name="Italian">Italian</string>
+    <string name="download_prompt">Download it from the Offline Model Management page.</string>
+    <string name="waitting">waitting</string>
+    <string name="no_wifi_prompt">You are connected to a mobile network. Downloading offline models may incur traffic fees (Contact your carrier for tariffs). Are you sure you want to continue?</string>
+    <string name="no_network_prompt">Failed to download the model because no available network is found.</string>
 
     <string name="isr_upload_picture_tint">Please upload the picture</string>
     <string name="isr_upload_picture">Please select the image you want to correct.</string>
+
+    <string name="prompt">Prompt</string>
+
+    <string name="destroied">Speech recognizer turned off</string>
+    <string name="you_may_speak">You may speak now</string>
+
+    <string name="sound_dect_title">Voice Recognition</string>
+    <string name="sound_dect_tips">tips:</string>
+    <string name="sound_dect_tips_value">This demo displays the voice recognition service capability. You can tap the voice detection button to enable the microphone to continuously recognize surrounding sounds. If a specified type of sound is displayed, the recognition result is displayed. Tap Stop to stop voice recognition. Currently, the voice recognition service supports 13 voice types, include infant or child cry, shout, cat bark, dog bark, water, knock, door bell, car horn, fire alarm, alarm, laughter, sneeze, and snoring.</string>
+    <string name="sound_dect_voice_type">voice type</string>
+    <string name="sound_dect_start">Voice Recognition start</string>
+    <string name="sound_dect_stop">Voice Recognition stop</string>
+    <string name="sound_dect_error">Voice Recognition error:</string>
+    <string-array name="sound_dect_voice_type">
+        <item>laughter</item>
+        <item>baby cry</item>
+        <item>snoring</item>
+        <item>sneeze</item>
+        <item>screaming</item>
+        <item>meow</item>
+        <item>bark</item>
+        <item>water</item>
+        <item>Car horn sound</item>
+        <item>doorbell</item>
+        <item>knock</item>
+        <item>Fire alarm sound</item>
+        <item>Alarm sound</item>
+    </string-array>
+
+
+    <string-array name="spingarr">
+        <item>Chinese</item>
+        <item>English</item>
+    </string-array>
+
+
+    <string name="vision">Vision:</string>
+    <string name="dimension">Dictionary Dimension:</string>
+    <string name="size">Dictionary size:</string>
+
+    <string name="asr_long_title">ASR long voice</string>
+
+    <string name="asr_recognition">speech recognition</string>
+
+    <string-array name="asr_long">
+        <item>Chinese</item>
+        <item>English</item>
+        <item>French</item>
+    </string-array>
+
+    <string name="errorcode">errorCode：</string>
+    <string name="Others">Other errors</string>
+    <string name="no_intnet">The network is unavailable. Please try again.</string>
+    <string name="no_service">The service is unavailable.</string>
+
+    <string name="Word_vector">Word vector：</string>
+    <string name="Sentence_vector">Sentence vector：</string>
+    <string name="Word_similarity">Word similarity：</string>
+    <string name="sentence_similarity">Sentence similarity：</string>
+    <string name="similar_word">Similar word：</string>
+    <string name="getVisionValue">Obtaining the Dictionary Version Information</string>
+    <string name="word_vector_analysis">word vector analysis</string>
+    <string name="sentence_vector_analysis">sentence vector analysis</string>
+    <string name="word_similarity_analysis">word similarity analysis</string>
+    <string name="sentence_similarity_analysis">sentence similarity analysis</string>
+    <string name="similar_word_analysis">similar word analysis</string>
+    <string name="getvision">get Vision：</string>
+    <string name="Parsing_Result">Parsing Result：</string>
+    <string name="vision_nlp">Vision：</string>
+
+    <string name="download_model">(Downloaded)</string>
+
 </resources>

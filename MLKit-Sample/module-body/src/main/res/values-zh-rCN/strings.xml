@@ -24,9 +24,12 @@
     <string name="coming_soon">敬请期待</string>
     <string name="back">返回</string>
 
-    <string name="more_face_data">采集更多人脸数据</string>
+    <string name="more_face_data">人脸数据</string>
     <string name="versions">版本号：</string>
+    <string name="start">启动</string>
 
+    <string name="face_point">点</string>
+    <string name="face_feature">特征</string>
 
 
 

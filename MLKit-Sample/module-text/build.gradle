@@ -7,25 +7,12 @@ android {
         applicationId "com.mlkit.sample.text"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 30002300
-        versionName "3.0.2.300"
+        versionCode 30003300
+        versionName "3.0.3.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
 
-    android {
-        packagingOptions {
-            pickFirst  'lib/arm64-v8a/libc++_shared.so'
-        }
-    }
-
-    android {
-        packagingOptions {
-            pickFirst  'lib/armeabi-v7a/libc++_shared.so'
-        }
-    }
-
-    
 
     buildTypes {
         release {
@@ -45,7 +32,7 @@ android {
         abortOnError false
     }
     aaptOptions {
-        noCompress "mslite"
+        noCompress "mslite", "ms"
     }
 
     compileOptions {
@@ -56,35 +43,54 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.300'
 
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
+
+    // Text recognition.
     implementation 'com.huawei.hms:ml-computer-vision-ocr:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:2.0.1.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:2.0.1.300'
+    // Text Embedding
+    implementation 'com.huawei.hms:ml-nlp-textembedding:2.0.3.300'
 
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn-model:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn-plugin:2.0.1.300'
+    // General card recognition .
+    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:2.0.1.301'
 
-    implementation 'com.huawei.hms:ml-computer-card-bcr-plugin:2.0.2.300'
-    implementation 'com.huawei.hms:ml-computer-card-bcr-model:2.0.2.300'
+    // ID card recognition .
+    implementation 'com.huawei.hms:ml-computer-card-icr-cn:2.0.3.300'
 
+    // Bank card recognition .
+    implementation 'com.huawei.hms:ml-computer-card-bcr:2.0.3.300'
+
+    // Audio file transcription.
     implementation 'com.huawei.hms:ml-computer-voice-aft:2.0.1.300'
 
     implementation 'com.huawei.hms:ml-computer-voice-tts:2.0.2.300'
 
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.1.300'
+    // Automatic speech recognition Long voice.
+    implementation 'com.huawei.hms:ml-computer-voice-realtimetranscription:2.0.3.300'
 
-    implementation 'com.huawei.hms:ml-computer-language-detection:2.0.2.300'
-    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.0.2.300'
-    implementation 'com.huawei.hms:ml-computer-translate:2.0.2.300'
-    implementation 'com.huawei.hms:ml-computer-translate-model:2.0.2.300'
+    // Automatic speech recognition
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.3.300'
 
+    // Language detection.
+    implementation 'com.huawei.hms:ml-computer-language-detection:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.0.3.300'
+
+    // Text translation.
+    implementation 'com.huawei.hms:ml-computer-translate:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-translate-model:2.0.3.300'
+
+    // Document skew correction.
     implementation 'com.huawei.hms:ml-computer-vision-documentskew:2.0.2.300'
     implementation 'com.huawei.hms:ml-computer-vision-documentskew-model:2.0.2.300'
+
+    // Sound Dect.
+    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-model:2.0.3.300'
+    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-sdk:2.0.3.300'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

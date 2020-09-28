@@ -22,7 +22,7 @@
     </RelativeLayout>
 
 
-    <com.mlkit.sample.views.overlay.GraphicOverlay
+    <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
         android:id="@+id/previewOverlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_size_13sp" />
 
-            <com.mlkit.sample.views.color.ColorSelector
+            <com.huawei.mlkit.sample.views.color.ColorSelector
                 android:id="@+id/color_selector"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"

@@ -32,6 +32,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-translate:2.0.2.300'
+
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-translate:2.0.3.300'
 }
