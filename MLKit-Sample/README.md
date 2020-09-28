@@ -14,41 +14,74 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
 ## Introduction
 The sample code is used to describe how to use the HMS Core ML SDK. The code consists of the following modules:
 
-### Text module
-Module-text. This module is used for text recognition, document recognition,
-ID card recognition, bank card recognition, general card recognition, text translation, language detection, text to speech and automatic speech recognition.
+###Text module
+
+Module-text。 It includes: text recognition, document recognition, ID card recognition, bank card recognition, general card recognition, text translation, language detection, real-time speech recognition, speech synthesis, audio file transcription, document correction, voice recognition, text embedding, real-time voice transcription.
+
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/mainText.jpg" width=220 title="main page" border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/language.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/localLanguage.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr.jpg" width=220 border=2></td>
-</tr></table>
-
-<table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/tts.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/aft.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg" width=220 border=2></td>
-</tr></table>
-
-### Vision module
-Module-vision. This module is used for image segmentation,product visual search, image classification, object detection and tracking, and landmark recognition
-
-<table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/mainVision.jpg" width=220 title="main page" border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/imageSegmentVideo.gif" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_ text.jpg " width=220 title="main page" border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/language.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/localLanguage.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr.jpg " width=220 border=2></td>
 </tr></table>
 
 
-### Vision body
-Module-body. This module is used for Face detection, human bone detection, live body detection, and key points of hands.
+<table><tr>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/tts.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/aft.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg " width=220 border=2></td>
+</tr></table>
+
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=220 border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/doc_ skew.gif " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/sound.jpg " width=220 border=2>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text_ emd.gif " width=220 border=2>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr_ long.jpg " width=220 border=2>
+</tr></table>
+
+
+###Visual module
+
+Module-vision。 It includes: image segmentation, image classification, object detection and tracking, landmark recognition, image over segmentation, text image over segmentation, scene recognition.
+
+<table><tr>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_ vision.jpg " width=220 title="main page" border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/imageSegmentVideo.gif " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object.jpg " width=220 title="main page" border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_ super.jpg " width=220 title="main page" border=2></td>
+</tr></table>
+
+
+<table><tr>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/scene.jpg " width=220 title="main page" border=2></td>
+</tr></table>
+
+
+###Body module
+
+Module-body。 Including: face detection, human bones, living detection, hand key points.
+
+
+<table><tr>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_ module.jpg " width=220 title="main page" border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/handkey.jpg " width=220 border=2></td>
+</tr></table>
+
+
+###Custom model module
+
+Module-costom。 Including: label custom model demonstration, object detection custom model demonstration.
+
+
+<table><tr>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_ custom.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/label_ custom.jpg " width=220 border=2></td>
+<td><img src=" https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object_ custom.jpg " width=220 border=2></td>
 </tr></table>
 
 For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
@@ -104,6 +137,16 @@ modulebody
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulebody Basic Information
+
+
+modulecostom
+    |-- com.huawei.mlkit.sample
+        |-- Activity
+            |-- CustModelActivity //Cust model service entry
+            |-- CustModelLabelActivity // Demonstration entry for custom model labels
+            |-- CustModelObjectActivity // Demonstration entry for custom model object detection
+            |-- BaseActivity // Base class of an activity.
+            |-- SettingActivity // Basic module costom information
 
 ## More Scenarios
 HUAWEI ML Kit allows your apps to easily leverage Huawei's long-term proven expertise in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries.

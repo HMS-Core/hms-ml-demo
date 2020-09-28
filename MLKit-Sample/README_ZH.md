@@ -16,10 +16,10 @@
 本示例代码目的是为了介绍ML Kit SDK的使用，其中包含以下两个模块：
 
 ### 文本模块
-Module-text。其中包括：文本识别、文档识别、身份证识别、银行卡识别、通用卡证识别、文本翻译、语种检测、实时语音识别、语音合成、音频文件转写、文档校正。
+Module-text。其中包括：文本识别、文档识别、身份证识别、银行卡识别、通用卡证识别、文本翻译、语种检测、实时语音识别、语音合成、音频文件转写、文档校正、声音识别、文本嵌入、实时语音转写。
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/mainText.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_text.jpg" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/language.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/localLanguage.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr.jpg" width=220 border=2></td>
@@ -32,20 +32,44 @@ Module-text。其中包括：文本识别、文档识别、身份证识别、银
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg" width=220 border=2></td>
 </tr></table>
 
+<table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/doc_skew.gif" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/sound.jpg" width=220 border=2>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text_emd.gif" width=220 border=2>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr_long.jpg" width=220 border=2>
+</tr></table>
+
 ### 视觉模块
-Module-vision。其中包括：图像分割、图片分类、对象检测与跟踪、地标识别、图像超分。
+Module-vision。其中包括：图像分割、图片分类、对象检测与跟踪、地标识别、图像超分、文字图像超分、场景识别。
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/mainVision.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.jpg" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/imageSegmentVideo.gif" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_super.jpg" width=220 title="main page" border=2></td>
+</tr></table>
+
+<table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/scene.jpg" width=220 title="main page" border=2></td>
 </tr></table>
 
 ### 人体模块
 Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部关键点。
 
 <table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_module.jpg" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/handkey.jpg" width=220 border=2></td>
+</tr></table>
+
+### 自定义模型模块
+Module-costom。其中包括：Label自定义模型演示、对象检测自定义模型演示。
+
+<table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_custom.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/label_custom.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object_custom.jpg" width=220 border=2></td>
 </tr></table>
 
 详细介绍请参考[华为机器学习SDK](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)。
@@ -88,17 +112,27 @@ modulevision
 
 
 modulebody
-    |-- com.mlkit.sample
+    |-- com.huawei.mlkit.sample
         |-- Activity
-        |-- FaceDetectionActivity //人脸检测
-        |-- HumanSkeletonActivity //人体骨骼
-        |-- TemplateActivity //骨骼模板选择类
-        |-- HumanLivenessDetectionActivity // 活体检测
-        |-- HandKeypointActivity // 手部关键点
-        |-- HandKeypointImageActivity // 手部关键点静态检测
-        |-- BaseActivity  // Activity基类
-        |-- StartActivity  // 服务入口
-        |-- SettingActivity  // modulebody基本信息
+            |-- FaceDetectionActivity //人脸检测
+            |-- HumanSkeletonActivity //人体骨骼
+            |-- TemplateActivity //骨骼模板选择类
+            |-- HumanLivenessDetectionActivity // 活体检测
+            |-- HandKeypointActivity // 手部关键点
+            |-- HandKeypointImageActivity // 手部关键点静态检测
+            |-- BaseActivity  // Activity基类
+            |-- StartActivity  // 服务入口
+            |-- SettingActivity  // modulebody基本信息
+
+
+modulecostom
+     |-- com.huawei.mlkit.sample
+         |-- Activity
+            |-- CustModelActivity //自定义模型服务入口
+            |-- CustModelLabelActivity //自定义模型Lable演示入口
+            |-- CustModelObjectActivity //自定义模型对象检测演示入口
+            |-- BaseActivity  // Activity基类
+            |-- SettingActivity  // modulecostom基本信息
 
 ## 更多场景
 华为机器学习服务（HMS ML Kit） 提供机器学习套件，为开发者应用机器学习能力开发各类应用提供优质体验。
