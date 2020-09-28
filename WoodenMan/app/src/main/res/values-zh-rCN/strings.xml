@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">木头人</string>
+    <string name="picture">图片</string>
+
+    <string name="info">信息</string>
+
+    <string name="camera_permission_rationale">此示例应用程序需要摄像头才能
+演示API。</string>
+    <string name="camera_no_good">没有足够背靠背摄像头!</string>
+    <string name="camera_disabled">摄像机被设备策略禁用</string>
+    <string name="camera_disconnected">摄像机在打开前已断开连接</string>
+    <string name="camera_error">摄像头服务报错</string>
+    <string name="camera_unknown">摄像机未知错误：%s</string>
+    <string name="camera_permission_denied_explanation">您已拒绝该应用的权限
+核心功能需求。如果您在过去选择了“不问”则
+需要使用Settings重新开启权限。</string>
+
+    <string name="ok">确定</string>
+    <string name="settings">设置</string>
+    <string name="permission_camera_rationale">检测需要接入摄像机</string>
+    <string name="no_camera_permission">该应用没有摄像头权限，无法运行。应用程序将立即退出。</string>
+    <string name="low_storage_error">设备存储不足导致无法下载人脸检测依赖</string>
+    <string name="toggle_turn_on">前端</string>
+    <string name="toggle_turn_off">返回</string>
+    <string name="desc_camera_source_activity">视觉检测器演示，实况预览</string>
+    <string name="desc_still_image_activity">视觉检测器演示静态图像</string>
+    <string name="load_pictures">点击这里!</string>
+
+    <string name="background_substitution">替换</string>
+    <string name="select_picture">选择图片</string>
+    <string name="cutout">裁剪</string>
+    <string name="cut">剪切</string>
+    <string name="cut_success">剪切成功</string>
+    <string name="save_success">保存成功</string>
+
+    <string name="replace_background">背景</string>
+    <string name="save">保存</string>
+    <string name="please_select_picture">请选择图片处理~</string>
+    <string name="click_add_picture">点击添加图片~</string>
+    <string name="no_pic_neededSave">需要保存的空图片</string>
+
+    <string name="back">back</string>
+    <string name="more_face_data">显示形状点</string>
+    <string name="versions">版本：</string>
+
+    <string name="empty">空</string>
+
+    <string name="face_match">智慧视觉</string>
+    <string name="image_title">仅用2秒！太棒了！</string>
+
+    <string name="game_one">第一关</string>
+    <string name="game_two">第二关</string>
+    <string name="game_three">第三关</string>
+    <string name="game_four">第四关</string>
+    <string name="game_five">第五关</string>
+    <string name="game_six">第六关</string>
+    <string name="game_seven">第七关</string>
+
+    <string name="game_zero_des">挑战通过0关，击败了0%%的玩家！再接再厉哟！</string>
+    <string name="game_one_des">挑战通过1关，击败了25.16%%的玩家！再接再厉哟！</string>
+    <string name="game_two_des">挑战通过2关，击败了40.6%的玩家！再接再厉哟！</string>
+    <string name="game_tree_des">挑战通过3关，击败了62.55%的玩家！再接再厉哟！</string>
+    <string name="game_four_des">挑战通过4关，击败了78.66%的玩家！再接再厉哟！</string>
+    <string name="game_five_des">挑战通过5关，击败了85.88%的玩家！再接再厉哟！</string>
+    <string name="game_six_des">挑战通过6关，击败了97.19%的玩家！再接再厉哟！</string>
+    <string name="game_seven_des">挑战通过7关，击败了100%的玩家！再接再厉哟！</string>
+    <string name="Saved">已保存</string>
+</resources>
