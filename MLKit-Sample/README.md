@@ -63,6 +63,15 @@ Module-body. This module is used for Face detection, human bone detection, live 
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/handkey.jpg" width=220 border=2></td>
 </tr></table>
 
+### Custom Model Module
+Module-costom. including the demonstration of the customized model of the label and the customized model of object detection.
+
+<table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_custom.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/label_custom.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object_custom.jpg" width=220 border=2></td>
+</tr></table>
+
 For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
 
@@ -116,6 +125,15 @@ modulebody
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulebody Basic Information
+
+modulecostom
+    |-- com.huawei.mlkit.sample
+        |-- Activity
+            |-- CustModelActivity //Cust model service entry
+            |-- CustModelLabelActivity // Demonstration entry for custom model labels
+            |-- CustModelObjectActivity // Demonstration entry for custom model object detection
+            |-- BaseActivity // Base class of an activity.
+            |-- SettingActivity // Basic module costom information
 
 ## More Scenarios
 HUAWEI ML Kit allows your apps to easily leverage Huawei's long-term proven expertise in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries.
