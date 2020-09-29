@@ -21,6 +21,7 @@ This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/
 
 ## Project directory structure
 Photo-Translate
+
     |-- com.mlkit.sample.phototranslate
         |-- Activity
             |-- MainActivity // entry
