@@ -16,7 +16,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/WoodenMan
 ## Introduction
 WoodenMan uses the skeleton detection, face detection and image segmentation of the HUAWEI ML Kit. The function of taking a photo of a tourist in Songshan Lake and crossing the border according to the posture of the bone point is realized.
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop an application for skeleton detection, face detection and image segmentation, helping you integrate the application with HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop an application for skeleton detection, face detection and image segmentation, helping you integrate the application with HUAWEI ML Kit as soon as possible.
 
 ## Project Directory Structure
 Wooden-Man
