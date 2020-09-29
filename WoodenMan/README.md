@@ -12,12 +12,13 @@
 
 
 ## Introduction
-WoodenMan uses the human body bone detection image segmentation and face detection capability of the HUAWEI ML Kit to segment faces and replace the background.
+WoodenMan uses the skeleton detection, face detection and image segmentation of the HUAWEI ML Kit. The function of taking a photo of a tourist in Songshan Lake and crossing the border according to the posture of the bone point is realized.
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop an application for human bone detection Image segmentation Face detection, helping you integrate the application with HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop an application for skeleton detection, face detection and image segmentation, helping you integrate the application with HUAWEI ML Kit as soon as possible.
 
 ## Project Directory Structure
-Smile-Camera
+Wooden-Man
+
 |-- com.huawei.hms.mlkit.sample
 |-- activity
 |-- ChooserActivity // Entry
@@ -25,7 +26,7 @@ Smile-Camera
 |-- ModelGameStartOneActivity // Set the POSE to make a big breakthrough.
 
 ## More Scenarios
-Based on the human body bone detection image segmentation and face detection capability provided by the HUAWEI ML Kit, you can replace the background with a face image and implement various applications, such as:
+Based on the skeleton detection, face detection and image segmentation capability provided by the HUAWEI ML Kit, you can replace the background with a face image and implement various applications, such as:
 1. Detects human bones and compares different shapes to implement game-breaking.
 2. Track the face and body skeleton in the video to develop fun facial and bone special effects.
 
