@@ -19,7 +19,7 @@ WoodenMan通过HUAWEI ML Kit的人体骨骼检测、图像分割、人脸检测�
 本demo演示了如何使用[HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发人体骨骼检测 图像分割 人脸检测的应用，目的是让您体验人体骨骼检测 图像分割 人脸检测功能，帮助您尽快集成HUAWEI ML Kit。
 
 ## 工程目录结构
-Smile-Camera
+Wooden Man
 
     |-- com.huawei.hms.mlkit.sample
         |-- activity
