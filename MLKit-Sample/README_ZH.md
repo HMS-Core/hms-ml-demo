@@ -76,6 +76,7 @@ Module-costom。其中包括：Label自定义模型演示、对象检测自定�
 
 ## 工程目录结构
 moduletext
+
     |-- com.huawei.mlkit.sample
         |-- Activity
             |-- AsrAudioActivity //实时语音识别服务
@@ -96,6 +97,7 @@ moduletext
 
 
 modulevision
+
     |-- com.huawei.mlkit.sample
         |-- Activity
             |-- ImageSegmentationActivity //图像分割
@@ -112,6 +114,7 @@ modulevision
 
 
 modulebody
+
     |-- com.mlkit.sample
         |-- Activity
             |-- FaceDetectionActivity //人脸检测
@@ -126,6 +129,7 @@ modulebody
 
 
 modulecostom
+
     |-- com.huawei.mlkit.sample
         |-- Activity
             |-- CustModelActivity //自定义模型服务入口
