@@ -19,6 +19,15 @@ Photo-Translate使用华为ML Kit的文字识别和翻译功能，将静态照�
 
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/Photo%20Translate.gif" width=250 title="ID Photo DIY" div align=center border=5>
 
+## 工程目录
+Photo-Translate
+
+    |-- com.mlkit.sample.phototranslate
+      |-- Activity
+        |-- MainActivity // 入口
+        |-- RemoteTranslateActivity // 翻译功能
+        |-- CapturePhotoActivity // 照片选择功能
+        
 ## 更多场景
 华为的文字识别和翻译还可以帮助开发者实现更多有趣和强大的功能，例如：
 - 通用文本识别。
