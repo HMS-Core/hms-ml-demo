@@ -6,10 +6,10 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/WoodenMan
 ## Directory
 
 * [Introduction](#Introduction)
-* [Project directory structure](#Project directory structure)
-* [More Scenarios](#More Scenarios)
-* [Run Step](#Run Step)
-* [Supported Environment] (#Supported Environment)
+* [Project directory structure](#Project-directory-structure)
+* [More Scenarios](#More-Scenarios)
+* [Run Step](#Run-Step)
+* [Supported Environment] (#Supported-Environment)
 * [Licence] (#Licence)
 
 
