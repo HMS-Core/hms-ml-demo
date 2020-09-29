@@ -19,11 +19,11 @@ This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/
 ## Project Directory Structure
 Wooden-Man
 
-|-- com.huawei.hms.mlkit.sample
-|-- activity
-|-- ChooserActivity // Entry
-|-- WoodenManActivity // Take a commemorative photo.
-|-- ModelGameStartOneActivity // Set the POSE to make a big breakthrough.
+    |-- com.huawei.mlkit.sample
+        |-- activity
+            |-- ChooserActivity // Entry
+            |-- WoodenManActivity // Take a commemorative photo.
+            |-- ModelGameStartOneActivity // Set the POSE to make a big breakthrough.
 
 ## More Scenarios
 Based on the skeleton detection, face detection and image segmentation capability provided by the HUAWEI ML Kit, you can replace the background with a face image and implement various applications, such as:
