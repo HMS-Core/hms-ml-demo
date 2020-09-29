@@ -12,12 +12,13 @@
 
 
 ## Introduction
-    BeautyCamera uses the face detection function of HUAWEI ML Kit to identify a face and beauty it.
+BeautyCamera uses the face detection function of HUAWEI ML Kit to identify a face and beauty it.
     
-    This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
 
 ## Project directory structure
 BeautyCamera
+
     |-- com.huawei.mlkit.sample
         |-- Activity
             |-- MainActivity // entry
@@ -27,7 +28,7 @@ BeautyCamera
             |-- ImageHelper // image processing tool class
 
 ## More Scenarios
-With the text recognition capability provided by HUAWEI ML Kit, you can not only develop Receipt-Text-Recognition applets, but also implement various functions, such as:
+With the face recognition capability provided by HUAWEI ML Kit, you can not only develop BeautyCamera applets, but also implement various functions, such as:
 1. Face recognition access control.
 2. Expression capture
 
