@@ -19,6 +19,7 @@ This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/c
 
 ## Project directory structure
 Smile-Camera
+
     |-- com.mlkit.sample
         |-- Activity
             |-- MainActivity // entry
