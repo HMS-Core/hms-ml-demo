@@ -17,7 +17,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Receipt-T
 The sample code describes how to use the text recognition service provided by the HMS Core ML SDK to recognize text.
 More information please refer: [How to Implement the Automatic Bill Number Input Function Using HUAWEI ML Kit’s Text Recognition](https://forums.developer.huawei.com/forumPortal/en/topicview?tid=0202344967934290124&fid=0101187876626530001)
     
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a text recognition app. The purpose is to help you experience the text detection function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a text recognition app. The purpose is to help you experience the text detection function and integrate HUAWEI ML Kit as soon as possible.
 
 ## Project directory structure
 Receipt-Text-Recognition
