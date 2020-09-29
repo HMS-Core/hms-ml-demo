@@ -20,6 +20,7 @@ Smile-Camera通过HUAWEI ML Kit的人脸检测功能，识别用户是否在微�
 
 ## 工程目录结构
 Smile-Camera
+
     |-- com.mlkit.sample
         |-- Activity
             |-- MainActivity // 入口
