@@ -32,17 +32,17 @@ Based on the skeleton detection, face detection and image segmentation capabilit
 
 ## Running Procedure
 - Prep.
-- Add the Huawei Maven repository to the build.gradle file at the project level.
-- Add SDK dependency to the build.gradle file at the application layer.
-- Apply for the camera permission in the manifest.xml file of the Android system.
+    - Add the Huawei Maven repository to the build.gradle file at the project level.
+    - Add SDK dependency to the build.gradle file at the application layer.
+    - Apply for the camera permission in the manifest.xml file of the Android system.
 
 - Key steps of code development
-- Dynamic permission application.
-- Create a human skeleton detector.
-- Create the MLFrame object used by the analyzer to detect images through android.graphics.bitmap.
-- Invoke the createImageTransactor method to segment images.
-- Invoke the createLensEngine method to initialize the human body skeleton detection and face detector.
-- Invoke the compareSimilarity method to implement bone similarity comparison.
+    - Dynamic permission application.
+    - Create a human skeleton detector.
+    - Create the MLFrame object used by the analyzer to detect images through android.graphics.bitmap.
+    - Invoke the createImageTransactor method to segment images.
+    - Invoke the createLensEngine method to initialize the human body skeleton detection and face detector.
+    - Invoke the compareSimilarity method to implement bone similarity comparison.
 
 ## Supported Environments
 Android 4.4 or later is recommended.
