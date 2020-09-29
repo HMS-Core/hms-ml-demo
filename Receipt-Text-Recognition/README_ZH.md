@@ -1,5 +1,8 @@
 # Receipt-Text-Recognition
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
+Receipt-Text-Recognition
+
+[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/Photo-Translate/README.md) | 中文
 
 ## 目录
 
@@ -13,7 +16,8 @@
 
 ## 介绍
 此工程描述了如何使用HMS Core mlsdk提供的文本识别服务来识别单据信息。
-更多信息科参考：[超简单集成华为HMS ML Kit文本识别SDK，一键实现账单号自动录入](https://developer.huawei.com/consumer/cn/forum/topicview?tid=0203343372058830370&fid=18)
+
+更多信息可参考：[超简单集成华为HMS ML Kit文本识别SDK，一键实现账单号自动录入](https://developer.huawei.com/consumer/cn/forum/topicview?tid=0203343372058830370&fid=18)
 
 本演示演示如何使用[HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit)快速开发一个文本识别应用程序。目的是帮助您体验文本检测功能，尽快集成华为ML套件。
 
