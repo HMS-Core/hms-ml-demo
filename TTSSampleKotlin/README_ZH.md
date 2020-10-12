@@ -23,6 +23,7 @@ TTSSample使用HUAWEI ML Kit的，基于语音合成的能力实现文字转语�
 ## 工程目录结构
 
 TTSSampleKotlin
+
     |-- com.sample.ttssamplekotlin
         |-- Activity
             |-- TtsActivity // 语音合成服务

@@ -21,6 +21,7 @@ ID-Photo-DIY使用图像分割功能，将人像图片合成一张蓝白背景�
 
 ## 工程目录结构
 ID-Photo-DIY
+
     |-- com.mlkit.sample.idphoto
         |-- Activity
             |-- MainActivity //DIY 入口

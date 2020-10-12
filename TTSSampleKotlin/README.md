@@ -22,6 +22,7 @@ For details about the service introduction and access guide, visit the following
 ## Project directory structure
 
 TTSSampleKotlin
+
     |-- com.sample.ttssamplekotlin
         |-- Activity
             |-- TtsActivity // Text to speech

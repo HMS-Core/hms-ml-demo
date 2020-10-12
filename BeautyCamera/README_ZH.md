@@ -1,6 +1,8 @@
 # BeautyCamera
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
+[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/BeautyCamera/README.md) | 中文
+
 ## 目录
 
  * [介绍](#介绍)
@@ -18,6 +20,7 @@ BeautyCamera使用华为ML Kit的人脸检测功能来识别一张脸并对其�
 
 ## 工程目录结构
 BeautyCamera
+
     |-- com.huawei.mlkit.sample
         |-- Activity
             |-- MainActivity // 入口
@@ -27,7 +30,7 @@ BeautyCamera
             |-- ImageHelper // 图片处理工具类
 
 ## 更多场景
-基于HUAWEI ML Kit提供的文本识别能力，不仅可以开发文本识别程序，还可以实现更加丰富多彩的应用，如：
+基于HUAWEI ML Kit提供的人脸检测能力，不仅可以开发美颜功能，还可以实现更加丰富多彩的应用，如：
 1、人脸识别门禁。
 2、表情抓拍。
 
