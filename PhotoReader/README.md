@@ -12,10 +12,16 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Homework-
 
 
 ## Introduction
-Homework-Reader uses the text recognition and TTS functions of HUAWEI ML Kit to get the text in photos and convert it into audio output. Currently, the following languages are supported: simplified Chinese and English for TTS.
+PhotoReader uses the text recognition and TTS functions of HUAWEI ML Kit to get the text in photos and convert it into audio output. Currently, the following languages are supported: simplified Chinese and English for TTS.
 
 This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image reading function in your app. The purpose is to help you experience the text recognition and TTS functions and integrate HUAWEI ML Kit as soon as possible.
 
+## Project Directory Structure
+PhotoReader
+    |-- com.huawei.mlkit.sample.photoreader
+        |-- Activity
+            |-- MainActivity //Entry
+            |-- ReadPhotoActivity // Function interface
 
 ## More Scenarios
 Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:

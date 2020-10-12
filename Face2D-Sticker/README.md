@@ -19,12 +19,9 @@ This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/c
 ## Project directory structure
 
 Face2D-Sticker
-
     |-- com.huawei.mlkit.sample
-    |-- Activity
-    |-- MainActivity // entry
-    |-- Camera
-    |-- EGLCamera.java // Identify the contour points
+        |-- Activity
+        |-- MainActivity // entry
 
 ## More Scenarios
 With the face detection capability provided by HUAWEI ML Kit, you can not only develop Smile-Camera applets, but also implement various functions, such as:
