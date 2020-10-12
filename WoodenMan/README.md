@@ -19,8 +19,10 @@ WoodenMan uses the skeleton detection, face detection and image segmentation of 
 This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop an application for skeleton detection, face detection and image segmentation, helping you integrate the application with HUAWEI ML Kit as soon as possible.
 
 ## Project Directory Structure
-Wooden-Man
 
+Smile-Camera
+    |-- com.huawei.hms.mlkit.sample
+Wooden-Man
     |-- com.huawei.mlkit.sample
         |-- activity
             |-- ChooserActivity // Entry
@@ -34,6 +36,18 @@ Based on the skeleton detection, face detection and image segmentation capabilit
 
 ## Running Procedure
 - Prep.
+  - Add the Huawei Maven repository to the build.gradle file at the project level.
+  - Add SDK dependency to the build.gradle file at the application layer.
+  - Apply for the camera permission in the manifest.xml file of the Android system.
+
+- Key steps of code development
+  - Dynamic permission application.
+  - Create a human skeleton detector.
+  - Create the MLFrame object used by the analyzer to detect images through android.graphics.bitmap.
+  - Invoke the createImageTransactor method to segment images.
+  - Invoke the createLensEngine method to initialize the human body skeleton detection and face detector.
+  - Invoke the compareSimilarity method to implement bone similarity comparison.
+=======
     - Add the Huawei Maven repository to the build.gradle file at the project level.
     - Add SDK dependency to the build.gradle file at the application layer.
     - Apply for the camera permission in the manifest.xml file of the Android system.

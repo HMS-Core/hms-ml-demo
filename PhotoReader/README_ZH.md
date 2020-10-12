@@ -14,10 +14,19 @@
 
 
 ## 介绍
+
+PhotoReader使用华为ML Kit的文字识别和语音合成功能，将照片中的文字读取出来再利用语音合成把文字变成语音输出。目前语音合成支持的语言包括：简体中文和英语。
+
 Photo Reader使用华为ML Kit的文字识别，翻译和语音合成功能，将照片中的文字读取出来，翻译后再利用语音合成把文字变成语音输出。
 
 本demo演示了如何使用[HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发您的应用中的图片朗读功能，目的是让您体验文字识别，翻译和语音合成功能，帮助您尽快集成HUAWEI ML Kit。
 
+## 工程目录结构
+PhotoReader
+    |-- com.huawei.mlkit.sample.photoreader
+        |-- Activity
+            |-- MainActivity //入口
+            |-- ReadPhotoActivity // 功能界面
 
 ## 更多场景
 华为的文字识别和语音合成还可以帮助开发者实现更多有趣和强大的功能，例如：

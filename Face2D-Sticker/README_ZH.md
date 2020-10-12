@@ -20,12 +20,10 @@ Face2D-Sticker通过HUAWEI ML Kit的人脸检测功能，识别人脸轮廓点,�
 
 ## 工程目录结构
 Face2D-Sticker
-
     |-- com.huawei.mlkit.sample
-    |-- Activity
-    |-- FaceDetectionActivity // 入口
-    |-- Camera
-    |-- EGLCamera.java // 轮廓点检测
+        |-- Activity
+            |-- FaceDetectionActivity // 入口
+
 
 ## 更多场景
 基于HUAWEI ML Kit提供的人脸检测能力，不仅可以做微笑拍照程序，还可以实现更加丰富多彩的应用，如：
