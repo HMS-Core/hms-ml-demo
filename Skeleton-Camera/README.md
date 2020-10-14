@@ -1,6 +1,7 @@
 ## Skeleton-Camera
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/edit/master/Skeleton-Camera/README.md)
 ## Table of Contents
 
   * [Introduction](#Introduction)
