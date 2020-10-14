@@ -27,6 +27,11 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 |-- Receipt-Text-Recognition // ML Kit is used for text recognition and general text recognition.
 
+|-- Skeleton-Camera // Use the bone detection function of the Huawei ML Kit to recognize human body movements and take snapshots.
+
+|-- WoodenMan // The HUAWEI ML Kit supports human body bone detection, image segmentation, and face detection to segment faces and replace background images.
+
+|-- Skeleton-Camera // uses the skeleton detection function of HUAWEI ML Kit to recognize the human movement and match the corresponding action to capture.
 
 ## Precautions
 

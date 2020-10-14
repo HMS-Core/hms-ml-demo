@@ -31,7 +31,13 @@
 |-- Face2D-Sticker // 使用ML Kit的人脸检测功能，为用户演示2D贴纸。
 
 |-- Receipt-Text-Recognition // 使用ML Kit的文字识别，通用文本识别。
+
+|-- Skeleton-Camera // 使用华为ML Kit的骨骼检测功能来识别人体动作并抓拍。
     
+|-- WoodenMan // 通过HUAWEI ML Kit的人体骨骼检测 图像分割 人脸检测能力，给人像分割和照片背景替换。
+
+|-- Skeleton-Camera // 使用华为ML Kit的骨骼检测功能来识别人体动作并匹配对应动作进行抓拍。
+
 
 
 ## 注意事项
