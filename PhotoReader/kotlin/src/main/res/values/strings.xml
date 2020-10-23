@@ -17,8 +17,12 @@
     <string name="cancel">cancel</string>
     <string name="translate_success">Translate success</string>
 
+    <string name="recognised_text">Recognised Text (%1$s)</string>
+    <string name="translated_text">Translated Text (%1$s)</string>
+
     <string name="translate_start">Translate starts</string>
-    <string name="no_text">No translation</string>
+    <string name="no_text">No text to translate</string>
+    <string name="no_text_to_speak">No text to speech</string>
     <string name="select_text">Select the text you want to recognize</string>
 
     <string name="english">English</string>

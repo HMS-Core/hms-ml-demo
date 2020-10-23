@@ -18,6 +18,9 @@
 package com.huawei.mlkit.sample.photoreader.util;
 
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.CursorLoader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -32,22 +35,23 @@ import java.io.IOException;
 public class BitmapUtils {
     private static final String TAG = "BitmapUtils";
 
-    private static String getImagePath(Activity activity, Uri uri) {
+    private static String getImagePath(ContentResolver contentResolver, Uri uri) {
         String[] projection = {MediaStore.Images.Media.DATA};
-        Cursor cursor = activity.managedQuery(uri, projection, null, null, null);
+        Cursor cursor = contentResolver.query(uri, projection, null, null, null);
         int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
-        return cursor.getString(columnIndex);
+        final String path = cursor.getString(columnIndex);
+        cursor.close();
+        return path;
     }
 
-    public static Bitmap loadFromPath(Activity activity, Uri uri, int width, int height) {
+    public static Bitmap loadFromPath(ContentResolver contentResolver, Uri uri, int width, int height) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
 
-        String path = getImagePath(activity, uri);
+        String path = getImagePath(contentResolver, uri);
         BitmapFactory.decodeFile(path, options);
-        int sampleSize = calculateInSampleSize(options, width, height);
-        options.inSampleSize = sampleSize;
+        options.inSampleSize = calculateInSampleSize(options, width, height);
         options.inJustDecodeBounds = false;
 
         Bitmap bitmap = zoomImage(BitmapFactory.decodeFile(path, options), width, height);
@@ -65,7 +69,7 @@ public class BitmapUtils {
             // Calculate width and required width scale.
             final int widthRatio = Math.round((float) width / (float) reqWidth);
             // Take the larger of the values.
-            inSampleSize = heightRatio > widthRatio ? heightRatio : widthRatio;
+            inSampleSize = Math.max(heightRatio, widthRatio);
         }
         return inSampleSize;
     }
@@ -76,14 +80,12 @@ public class BitmapUtils {
                 Math.max(
                         (float) imageBitmap.getWidth() / (float) targetWidth,
                         (float) imageBitmap.getHeight() / (float) maxHeight);
-        Bitmap resizedBitmap =
-                Bitmap.createScaledBitmap(
-                        imageBitmap,
-                        (int) (imageBitmap.getWidth() / scaleFactor),
-                        (int) (imageBitmap.getHeight() / scaleFactor),
-                        true);
 
-        return resizedBitmap;
+        return Bitmap.createScaledBitmap(
+                imageBitmap,
+                (int) (imageBitmap.getWidth() / scaleFactor),
+                (int) (imageBitmap.getHeight() / scaleFactor),
+                true);
     }
 
     /**

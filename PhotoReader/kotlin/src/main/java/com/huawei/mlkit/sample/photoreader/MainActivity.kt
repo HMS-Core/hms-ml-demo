@@ -26,7 +26,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.huawei.mlkit.sample.photoreader.util.Constant
 import com.huawei.mlkit.sample.photoreader.util.getEnumExtra
 import com.huawei.mlkit.sample.photoreader.util.putEnum
 import kotlinx.android.synthetic.main.activity_main.*
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         btnActMainStartTranslate.isEnabled = allPermissionsGranted()
         btnActMainStartTranslate.setOnClickListener {
-            translatePhoto()
+            startActivity(ReadPhotoActivity.createIntent(this, translationMode))
         }
 
         updateSrcDestLanguage()
@@ -120,7 +119,6 @@ class MainActivity : AppCompatActivity() {
                     .setPositiveButton(getString(R.string.settings)) { _: DialogInterface, _: Int ->
                         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                         intent.data = Uri.parse("package:$packageName")
-                        startActivityForResult(intent, 200)
                         startActivity(intent)
                     }
                     .setNegativeButton(getString(R.string.cancel)) { _: DialogInterface, _: Int -> finish() }.create()
@@ -128,33 +126,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun translatePhoto() {
-        val intent = Intent(this@MainActivity, ReadPhotoActivity::class.java)
-
-        when (translationMode) {
-            TranslationMode.EN_ZH -> {
-                intent.putExtra(Constant.SOURCE_VALUE, ENGLISH)
-                intent.putExtra(Constant.DEST_VALUE, CHINESE)
-            }
-            TranslationMode.ZH_EN -> {
-                intent.putExtra(Constant.SOURCE_VALUE, CHINESE)
-                intent.putExtra(Constant.DEST_VALUE, ENGLISH)
-            }
-        }
-
-        startActivity(intent)
-    }
-
-    private enum class TranslationMode {
+    enum class TranslationMode {
         EN_ZH,
         ZH_EN
     }
 
     companion object {
         private const val EXTRA_TRANSLATION_MODE = "EXTRA_TRANSLATION_MODE"
-        private const val ENGLISH = "EN"
-        private const val CHINESE = "ZH"
-
         private const val PERMISSION_REQUESTS = 1
     }
 }
