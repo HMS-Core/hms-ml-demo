@@ -42,7 +42,7 @@ import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting
 import com.huawei.hms.mlsdk.tts.*
 import com.huawei.mlkit.lensengine.BitmapUtils
 import com.huawei.mlkit.sample.photoreader.camera.CapturePhotoActivity
-import com.huawei.mlkit.sample.photoreader.camera.CapturePhotoActivity.IMAGE_PATH_VALUE
+import com.huawei.mlkit.sample.photoreader.camera.CapturePhotoActivity.Companion.IMAGE_PATH_VALUE
 import com.huawei.mlkit.sample.photoreader.util.*
 import kotlinx.android.synthetic.main.activity_read_photo.*
 import kotlinx.coroutines.launch
@@ -277,6 +277,6 @@ class ReadPhotoActivity : AppCompatActivity() {
 
         private const val TAG = "ReadPhotoActivity"
         private const val EXTRA_SOURCE_LANGUAGE = "EXTRA_SOURCE_LANGUAGE"
-        private const val EXTRA_DESTINATION_LANGUAGE = "EXTRA_SOURCE_LANGUAGE"
+        private const val EXTRA_DESTINATION_LANGUAGE = "EXTRA_DESTINATION_LANGUAGE"
     }
 }

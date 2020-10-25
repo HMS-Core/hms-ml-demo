@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:fitsSystemWindows="true"
-    android:keepScreenOn="true"
-    android:orientation="vertical">
+    tools:background="#000">
 
     <com.huawei.mlkit.lensengine.LensEnginePreview
-        android:id="@+id/capture_preview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/lepActCapturePhoto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="0dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/capture_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/button_circle_background"
-        android:src="@drawable/black_back" />
-
-    <ImageButton
-        android:id="@+id/img_takePhoto"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <ImageView
+        android:id="@+id/ivActCapturePhotoTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:background="@null"
-        android:src="@mipmap/take_photo" />
-</RelativeLayout>
+        android:padding="16dp"
+        android:src="@mipmap/take_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
