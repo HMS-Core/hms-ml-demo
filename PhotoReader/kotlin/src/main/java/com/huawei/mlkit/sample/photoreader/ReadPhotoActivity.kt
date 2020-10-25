@@ -226,8 +226,8 @@ class ReadPhotoActivity : AppCompatActivity() {
     }
 
     private fun loadBitMap(imageUri: Uri) : Bitmap {
-        val targetWidth = llActReadPhotoPaneContainer.width
-        val targetHeight = llActReadPhotoPaneContainer.height
+        val targetWidth = svActReadPhotoPaneContainer.width
+        val targetHeight = svActReadPhotoPaneContainer.height
         return BitmapUtils.loadFromPath(contentResolver, imageUri, targetWidth, targetHeight)
     }
 
