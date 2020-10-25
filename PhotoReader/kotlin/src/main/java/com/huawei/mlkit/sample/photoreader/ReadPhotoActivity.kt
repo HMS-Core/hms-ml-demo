@@ -49,10 +49,10 @@ import java.io.FileInputStream
 class ReadPhotoActivity : AppCompatActivity() {
 
     private val srcLanguage: String by lazy {
-        intent.getStringExtra(Constant.SOURCE_VALUE) ?: ML_CHINESE
+        intent.getStringExtra(EXTRA_SOURCE_LANGUAGE) ?: ML_CHINESE
     }
     private val dstLanguage: String by lazy {
-        intent.getStringExtra(Constant.DEST_VALUE) ?: ML_ENGLISH
+        intent.getStringExtra(EXTRA_DESTINATION_LANGUAGE) ?: ML_ENGLISH
     }
 
     private val textAnalyzer: MLTextAnalyzer by lazy {
@@ -84,7 +84,7 @@ class ReadPhotoActivity : AppCompatActivity() {
         val mlTtsEngine = MLTtsEngine(mlConfigs)
         val callback: MLTtsCallback = object : MLTtsCallback {
             override fun onError(taskId: String, err: MLTtsError) {
-                Log.e("MLTtsError", err.errorMsg)
+                Log.e(TAG, err.errorMsg)
             }
 
             override fun onWarn(taskId: String, warn: MLTtsWarn) {}
@@ -151,7 +151,7 @@ class ReadPhotoActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         etActReadPhotoInput.hint = getString(R.string.recognised_text, srcLanguage)
-        etActReadPhotoTranslated.hint = getString(R.string.recognised_text, dstLanguage)
+        etActReadPhotoTranslated.hint = getString(R.string.translated_text, dstLanguage)
         initActions()
     }
 
@@ -165,11 +165,12 @@ class ReadPhotoActivity : AppCompatActivity() {
         }
 
         tvActReadPhotoTranslate.setOnClickListener {
-            if(etActReadPhotoTranslated.text.isNotBlank()) {
+            val inputText = etActReadPhotoInput.text.toString().trim()
+            if(inputText.isNotBlank()) {
                 lifecycleScope.launch {
                     try {
                         setActionButtonEnabled(false)
-                        val translated = remoteTranslator.asyncTranslate(etActReadPhotoTranslated.text.toString().trim()).await()
+                        val translated = remoteTranslator.asyncTranslate(inputText).await()
                         etActReadPhotoTranslated.setText(translated)
                         setActionButtonEnabled(true)
                     } catch (e: Exception) {
@@ -184,13 +185,13 @@ class ReadPhotoActivity : AppCompatActivity() {
         }
 
         tvActReadPhotoRead.setOnClickListener {
-            if(etActReadPhotoTranslated.text.isNotBlank()) {
+            val translatedText = etActReadPhotoTranslated.text.toString().trim()
+            if(translatedText.isNotBlank()) {
                 Toast.makeText(this, R.string.read_start, Toast.LENGTH_SHORT).show()
-                val text = etActReadPhotoTranslated.text.toString().trim()
-                val ttsText = if(text.length > ML_TTS_MAX_ALLOWED_CHAR_LENGTH) {
-                    text.substring(0, ML_TTS_MAX_ALLOWED_CHAR_LENGTH)
+                val ttsText = if(translatedText.length > ML_TTS_MAX_ALLOWED_CHAR_LENGTH) {
+                    translatedText.substring(0, ML_TTS_MAX_ALLOWED_CHAR_LENGTH)
                 } else {
-                    text
+                    translatedText
                 }
                 ttsEngine.speak(ttsText, MLTtsEngine.QUEUE_APPEND)
             } else {
@@ -261,17 +262,19 @@ class ReadPhotoActivity : AppCompatActivity() {
             val intent = Intent(context, ReadPhotoActivity::class.java)
             when (translationMode) {
                 MainActivity.TranslationMode.EN_ZH -> {
-                    intent.putExtra(Constant.SOURCE_VALUE, ML_ENGLISH)
-                    intent.putExtra(Constant.DEST_VALUE, ML_CHINESE)
+                    intent.putExtra(EXTRA_SOURCE_LANGUAGE, ML_ENGLISH)
+                    intent.putExtra(EXTRA_DESTINATION_LANGUAGE, ML_CHINESE)
                 }
                 MainActivity.TranslationMode.ZH_EN -> {
-                    intent.putExtra(Constant.SOURCE_VALUE, ML_CHINESE)
-                    intent.putExtra(Constant.DEST_VALUE, ML_ENGLISH)
+                    intent.putExtra(EXTRA_SOURCE_LANGUAGE, ML_CHINESE)
+                    intent.putExtra(EXTRA_DESTINATION_LANGUAGE, ML_ENGLISH)
                 }
             }
             return intent
         }
 
         private const val TAG = "ReadPhotoActivity"
+        private const val EXTRA_SOURCE_LANGUAGE = "EXTRA_SOURCE_LANGUAGE"
+        private const val EXTRA_DESTINATION_LANGUAGE = "EXTRA_SOURCE_LANGUAGE"
     }
 }
