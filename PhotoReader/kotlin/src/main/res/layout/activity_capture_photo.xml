@@ -27,7 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:padding="16dp"
-        android:src="@mipmap/take_photo"
+        android:src="@drawable/take_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
