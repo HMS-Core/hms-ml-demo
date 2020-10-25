@@ -13,14 +13,9 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+package com.huawei.mlkit.lensengine;
 
-
-package com.huawei.mlkit.sample.photoreader.util;
-
-import android.app.Activity;
 import android.content.ContentResolver;
-import android.content.Context;
-import android.content.CursorLoader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

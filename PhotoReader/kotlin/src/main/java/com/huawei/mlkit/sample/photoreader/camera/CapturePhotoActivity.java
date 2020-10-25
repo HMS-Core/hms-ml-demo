@@ -31,8 +31,11 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.huawei.mlkit.lensengine.CameraConfiguration;
+
+import com.huawei.mlkit.lensengine.LensEngine;
+import com.huawei.mlkit.lensengine.LensEnginePreview;
 import com.huawei.mlkit.sample.photoreader.R;
-import com.huawei.mlkit.sample.photoreader.util.Constant;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,6 +43,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class CapturePhotoActivity extends AppCompatActivity {
+    public static final String IMAGE_PATH_VALUE = "imagePath";
+
     private static final String TAG = "CapturePhotoActivity";
     private LensEngine lensEngine = null;
     private LensEnginePreview preview;
@@ -123,7 +128,7 @@ public class CapturePhotoActivity extends AppCompatActivity {
                     Log.e(TAG, "Save bitmap failed: " + e.getMessage());
                 }
                 Intent intent = new Intent();
-                intent.putExtra(Constant.IMAGE_PATH_VALUE, filePath);
+                intent.putExtra(IMAGE_PATH_VALUE, filePath);
                 setResult(Activity.RESULT_OK, intent);
                 CapturePhotoActivity.this.finish();
             }
