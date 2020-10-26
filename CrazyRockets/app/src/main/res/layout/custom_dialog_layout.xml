@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/choice_background"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/hight"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:checked="true"
+            android:drawableLeft="@drawable/radiobutton"
+            android:drawablePadding="9dp"
+            android:gravity="center"
+            android:text="@string/hight"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="270dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#FF000000" />
+
+        <RadioButton
+            android:id="@+id/middle"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:drawableLeft="@drawable/radiobutton"
+            android:drawablePadding="9dp"
+            android:gravity="center"
+            android:text="@string/middle"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="270dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#FF000000" />
+
+        <RadioButton
+            android:id="@+id/low"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:drawableLeft="@drawable/radiobutton"
+            android:drawablePadding="9dp"
+            android:gravity="center"
+            android:text="@string/low"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="#FF000000" />
+
+    <TextView
+        android:id="@+id/cancle"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/cancle"
+        android:textColor="#FF000000"
+        android:textSize="16sp" />
+</LinearLayout>

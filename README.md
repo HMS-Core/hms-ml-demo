@@ -33,6 +33,8 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 |-- Skeleton-Camera // uses the skeleton detection function of HUAWEI ML Kit to recognize the human movement and match the corresponding action to capture.
 
+|-- CrazyRockets // Use the facial recognition and gesture recognition functions of Huawei ML Kit to move the rocket to avoid obstacles.
+
 ## Precautions
 
 The project contains multiple independent projects. After downloading code,
