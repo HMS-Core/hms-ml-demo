@@ -19,8 +19,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyRock
     This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop CrazyRockets app. The purpose is to help you experience the face recognition function andgesture recognition function and integrate HUAWEI ML Kit as soon as possible.
 
     <table><tr>
-    <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Skeleton-Camera/start.gif" width=180 title="start" border=2></td>
-    <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Skeleton-Camera/hand.gif" width=180 border=2></td>
+    <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyRockets/hand.gif" width=180 title="start" border=2></td>
     </tr></table>
 
 ## Project directory structure
