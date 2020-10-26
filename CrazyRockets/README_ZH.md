@@ -21,8 +21,7 @@ CrazyRockets使用华为ML Kit的人脸识别功能和手势识别功能来移�
 更详细的开发步骤，请参考 [Crazy Rockets-教你如何集成华为HMS ML Kit人脸检测和手势识别打造爆款小游戏](https://developer.huawei.com/consumer/cn/forum/topic/0201388581574050067?fid=18).
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Skeleton-Camera/start.gif" width=180 title="start" border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Skeleton-Camera/hand.gif" width=180 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyRockets/hand.gif" width=180 title="start" border=2></td>
 </tr></table>
 
 ## 工程目录结构
