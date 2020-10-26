@@ -19,6 +19,12 @@ PhotoReader uses the text recognition, translate and TTS functions of HUAWEI ML 
 
 This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly implement the image reading function in your app. The purpose is to help you experience the text recognition, translate and TTS functions and integrate HUAWEI ML Kit as soon as possible.
 
+##### Following Modules are available
+
+- App Module, which is written in Java fully
+- Kotlin Module, which is written in Kotlin fully
+- Lensengine Module, which is encapsulating the camera implementation based on old android camera API, written in Java
+
 ## Project Directory Structure
 PhotoReader
     |-- com.huawei.mlkit.sample.photoreader

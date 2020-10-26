@@ -21,6 +21,12 @@ Photo Reader使用华为ML Kit的文字识别，翻译和语音合成功能，�
 
 本demo演示了如何使用[HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发您的应用中的图片朗读功能，目的是让您体验文字识别，翻译和语音合成功能，帮助您尽快集成HUAWEI ML Kit。
 
+##### 代码模块目录结构
+
+- App, 全部用Java实现的
+- Kotlin, 全部用Kotlin实现的
+- Lensengine, 封装基于用Java编写的相机实现，用旧android相机API
+
 ## 工程目录结构
 PhotoReader
     |-- com.huawei.mlkit.sample.photoreader
