@@ -3,24 +3,26 @@
 
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyRockets/README_ZH.md)
 
-## Table of Contents
+## Directory
 
-  * [Introduction](#Introduction)
-  * [Project directory structure](#Project directory structure)
-  * [More Scenarios](#More Scenarios)
-  * [Procedure](#Procedure)
-  * [Supported Environment](#Supported Environment)
-  * [License](#License)
+* [Introduction](#Introduction)
+* [Project directory structure](#Project directory structure)
+* [More Scenarios](#More Scenarios)
+* [Procedure](#Procedure)
+* [Supported Environment] (#Supported Environment)
+* [Licence] (#Licence)
 
 
 ## Introduction
-    CrazyRockets uses the face recognition function and gesture recognition function of HUAWEI ML Kit to move the rocket to avoid obstacles.
-    
-    This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop CrazyRockets app. The purpose is to help you experience the face recognition function andgesture recognition function and integrate HUAWEI ML Kit as soon as possible.
+CrazyRockets uses the facial recognition and gesture recognition functions of Huawei ML Kit to move small rockets to avoid obstacles.
 
-    <table><tr>
-    <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyRockets/hand.gif" width=180 title="start" border=2></td>
-    </tr></table>
+This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop Crazy Rocket applications. The purpose is to experience facial recognition and gesture recognition, helping you integrate HUAWEI ML Kit as soon as possible.
+
+For details about the development procedure, see [Crazy Rockets - How to Integrate Face Detection and Gesture Recognition with Huawei HMS ML Kit to Create a Hilarious Game] (https://developer.huawei.com/consumer/cn/forum/topic/0201388581574050067?fid=18).
+
+<table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyRockets/hand.gif" width=180 title="start" border=2></td>
+</tr></table>
 
 ## Project directory structure
 BeautyCamera
