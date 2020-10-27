@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription,LabelFor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/svActReadPhotoPaneContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_above="@+id/linear_views"
+        app:layout_constraintBottom_toTopOf="@+id/linear_views"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivActReadPhotoPreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etActReadPhotoInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_edit_text"
+                android:minLines="5"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:id="@+id/etActReadPhotoTranslated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_edit_text"
+                android:minLines="5"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:background="?colorBackgroundFloating"
+        android:id="@+id/linear_views"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvActReadPhotoSelectPicture"
+            android:background="?selectableItemBackgroundBorderless"
+            android:drawablePadding="2dp"
+            android:paddingVertical="16dp"
+            android:gravity="center"
+            android:text="@string/select_picture"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:drawableTopCompat="@drawable/ic_baseline_insert_photo_24"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
+            android:background="@color/primary_text_color"/>
+
+        <TextView
+            android:id="@+id/tvActReadPhotoTakePicture"
+            android:background="?selectableItemBackgroundBorderless"
+            android:drawablePadding="2dp"
+            android:paddingVertical="16dp"
+            android:gravity="center"
+            android:text="@string/take_picture"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:drawableTopCompat="@drawable/ic_baseline_photo_camera_24"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
+            android:background="@color/primary_text_color"/>
+
+        <TextView
+            android:id="@+id/tvActReadPhotoTranslate"
+            android:background="?selectableItemBackgroundBorderless"
+            android:drawablePadding="2dp"
+            android:paddingVertical="16dp"
+            android:gravity="center"
+            android:text="@string/translate"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:drawableTopCompat="@drawable/ic_baseline_translate_24"/>
+
+        <View
+            android:layout_width="0.1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
+            android:background="@color/primary_text_color"/>
+
+        <TextView
+            android:id="@+id/tvActReadPhotoRead"
+            android:background="?selectableItemBackgroundBorderless"
+            android:drawablePadding="2dp"
+            android:paddingVertical="16dp"
+            android:gravity="center"
+            android:text="@string/play"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:drawableTopCompat="@drawable/ic_baseline_play_arrow_24"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

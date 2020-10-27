@@ -39,8 +39,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
 import com.huawei.hms.mlsdk.tts.MLTtsEngine;
+import com.huawei.mlkit.lensengine.BitmapUtils;
 import com.huawei.mlkit.sample.photoreader.camera.CapturePhotoActivity;
-import com.huawei.mlkit.sample.photoreader.util.BitmapUtils;
 import com.huawei.mlkit.sample.photoreader.util.Constant;
 
 import java.io.FileInputStream;
@@ -273,7 +273,7 @@ public class ReadPhotoActivity extends AppCompatActivity {
         Pair<Integer, Integer> targetedSize = this.getTargetSize();
         int targetWidth = targetedSize.first;
         int maxHeight = targetedSize.second;
-        this.originBitmap = BitmapUtils.loadFromPath(ReadPhotoActivity.this, this.imageUri, targetWidth, maxHeight);
+        this.originBitmap = BitmapUtils.loadFromPath(ReadPhotoActivity.this.getContentResolver(), this.imageUri, targetWidth, maxHeight);
 
         graphicOverlayLayout.width = originBitmap.getWidth();
         graphicOverlayLayout.height = originBitmap.getHeight();

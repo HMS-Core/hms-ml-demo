@@ -31,6 +31,9 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.huawei.mlkit.lensengine.CameraConfiguration;
+import com.huawei.mlkit.lensengine.LensEngine;
+import com.huawei.mlkit.lensengine.LensEnginePreview;
 import com.huawei.mlkit.sample.photoreader.R;
 import com.huawei.mlkit.sample.photoreader.util.Constant;
 

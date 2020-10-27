@@ -18,7 +18,7 @@
  *                 Huawei Technologies Co., Ltd.
  */
 
-package com.huawei.mlkit.sample.photoreader.camera;
+package com.huawei.mlkit.lensengine;
 
 import android.app.Activity;
 import android.content.Context;
