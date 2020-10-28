@@ -1,17 +1,17 @@
 /**
  * Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
  */
 
 package com.huawei.mlkit.sample.activity;
@@ -32,6 +32,9 @@ import android.widget.GridView;
 
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 
+import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCapture;
+import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCaptureConfig;
+import com.huawei.hms.mlplugin.productvisionsearch.MLProductVisionSearchCaptureFactory;
 import com.huawei.hms.mlsdk.common.MLApplication;
 
 
@@ -39,8 +42,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.huawei.mlkit.sample.R;
+import com.huawei.mlkit.sample.activity.Imagesupersesolution.ImageSuperResolutionStartActivity;
 import com.huawei.mlkit.sample.activity.adapter.GridViewAdapter;
 import com.huawei.mlkit.sample.activity.entity.GridViewItem;
+import com.huawei.mlkit.sample.activity.fragment.ProductFragment;
+import com.huawei.mlkit.sample.activity.imageclassfication.ImageClassificationActivity;
+import com.huawei.mlkit.sample.activity.imageseg.ImageSegmentationActivity;
+import com.huawei.mlkit.sample.activity.object.ObjectDetectionActivity;
+import com.huawei.mlkit.sample.activity.scenedection.SceneStartActivity;
+import com.huawei.mlkit.sample.activity.table.TableRecognitionStartActivity;
 import com.huawei.mlkit.sample.util.Constant;
 import com.huawei.mlkit.sample.views.overlay.GraphicOverlay;
 
@@ -57,15 +67,15 @@ public final class StartActivity extends BaseActivity
     private static final String TAG = "StartActivity";
     public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {R.drawable.icon_segmentation,
+    private static final int[] ICONS = {R.drawable.icon_table,R.drawable.icon_segmentation,
             R.drawable.icon_object, R.drawable.icon_classification,
             R.drawable.icon_landmark, R.drawable.icon_image_super_resolution,
-            R.drawable.icon_text_super_resolution, R.drawable.icon_scene_detection};
+            R.drawable.icon_text_super_resolution, R.drawable.icon_scene_detection,R.drawable.icon_shopping,};
 
-    private static final int[] TITLES = {R.string.image_segmentation,
+    private static final int[] TITLES = {R.string.table,R.string.image_segmentation,
             R.string.object_detection, R.string.image_classification,
             R.string.landmark, R.string.image_super_resolution_s,
-            R.string.text_super_resolution_s, R.string.scene_detection};
+            R.string.text_super_resolution_s, R.string.scene_detection,R.string.photographed_shopping,};
 
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
@@ -94,8 +104,8 @@ public final class StartActivity extends BaseActivity
     }
 
     /**
-     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
-     * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     * Read the ApiKey field in the sample-agconnect-services.json to obtain the API key of the application and set it.
+     * For details about how to apply for the sample-agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
      */
     private void setApiKey() {
         AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
@@ -111,39 +121,53 @@ public final class StartActivity extends BaseActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        //Table Recognition
+                        startActivity(new Intent(StartActivity.this, TableRecognitionStartActivity.class));
+                        break;
+                    case 1:
                         // Image Segmentation
                         startActivity(new Intent(StartActivity.this, ImageSegmentationActivity.class));
                         break;
-                    case 1:
+                    case 2:
                         // Object detection and tracking
                         startActivity(
                                 new Intent(StartActivity.this, ObjectDetectionActivity.class));
                         break;
-                    case 2:
+                    case 3:
                         // Image classification
                         startActivity(new Intent(StartActivity.this, ImageClassificationActivity.class));
                         break;
-                    case 3:
+                    case 4:
                         // Landmark recognition
                         Intent intent = new Intent(StartActivity.this, RemoteDetectionActivity.class);
                         intent.putExtra(Constant.MODEL_TYPE, Constant.CLOUD_LANDMARK_DETECTION);
                         startActivity(intent);
                         break;
-                    case 4:
+                    case 5:
                         // Image super resolution
                         Intent intentIsr = new Intent(StartActivity.this, ImageSuperResolutionStartActivity.class);
                         intentIsr.putExtra(Constant.SUPER_RESOLUTION_TYPE, Constant.TYPE_IMAGE_SUPER_RESOLUTION);
                         startActivity(intentIsr);
                         break;
-                    case 5:
+                    case 6:
                         // Text image super resolution
                         Intent intentTsr = new Intent(StartActivity.this, ImageSuperResolutionStartActivity.class);
                         intentTsr.putExtra(Constant.SUPER_RESOLUTION_TYPE, Constant.TYPE_TEXT_SUPER_RESOLUTION);
                         startActivity(intentTsr);
                         break;
-                    case 6:
+                    case 7:
                         //Custmodel
                         startActivity(new Intent(StartActivity.this, SceneStartActivity.class));
+                        break;
+                    case 8:
+                        // Product Visual Search
+                        MLProductVisionSearchCaptureConfig config = new MLProductVisionSearchCaptureConfig.Factory()
+                                .setLargestNumOfReturns(16)
+                                .setProductFragment(new ProductFragment())
+                                .setRegion(MLProductVisionSearchCaptureConfig.REGION_DR_CHINA)
+                                .create();
+                        MLProductVisionSearchCapture capture = MLProductVisionSearchCaptureFactory.getInstance().create(config);
+                        capture.startCapture(StartActivity.this);
                         break;
                     default:
                         break;

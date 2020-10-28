@@ -17,7 +17,7 @@
         >
 
         <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
-            android:id="@+id/fireFaceOverlay"
+            android:id="@+id/fireOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
@@ -25,8 +25,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        >
+        android:layout_height="48dp">
 
         <ImageButton
             android:id="@+id/back"
@@ -70,6 +69,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/switch_similarity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -88,7 +88,34 @@
                 android:textSize="13dp" />
 
             <com.huawei.mlkit.sample.views.SwitchButton
-                android:id="@+id/switch_button_view"
+                android:id="@+id/switch_button_similarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/switch_similarity">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="isYogaMode"
+                android:textColor="#ffffff"
+                android:textSize="13dp" />
+
+            <com.huawei.mlkit.sample.views.SwitchButton
+                android:id="@+id/switch_button_yoga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -112,13 +139,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true" />
-
-
-
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/similarity_imageview"
+        android:id="@+id/similarity_layout"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -135,8 +159,7 @@
             android:layout_marginBottom="-19dp"
             android:text="similarity:0%  "
             android:textColor="#ffffff"
-            android:textSize="13dp"
-            android:visibility="gone" />
+            android:textSize="13dp"/>
 
         <ImageView
             android:id="@+id/template_image_view"

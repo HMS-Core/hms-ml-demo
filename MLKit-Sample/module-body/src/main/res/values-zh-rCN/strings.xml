@@ -10,7 +10,12 @@
     <string name="take_photo">拍照</string>
     <string name="select_from_album">从相册选择图片</string>
     <string name="cloud_handkeypoint">手部关键点</string>
+    <string name="faceVerification">人脸对比</string>
 
+    <string name="click_add_template_picture">点击选择模板图片</string>
+    <string name="click_add_compare_picture">点击选择对比图片</string>
+    <string name="click_compare">对比</string>
+    <string name="please_select_picture">请选择一张图片</string>
 
 
     <!--简写-->

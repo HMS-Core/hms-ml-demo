@@ -63,7 +63,7 @@ public class TranslateSpinnerAdapter extends ArrayAdapter<String> {
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = super.getDropDownView(position, convertView, parent);
         TextView tv = (TextView) view.findViewById(android.R.id.text1);
-        // 设置初始文字颜色，防止视图复用导致的颜色错误
+        // Set the initial text color to prevent color errors caused by view reuse.
         tv.setTextColor(Color.argb(0xff, 0xbf, 0xbf, 0xbf));
         if(languageCodeList != null && languageCodeList.size() > position) {
             String langCode = languageCodeList.get(position);
@@ -71,7 +71,8 @@ public class TranslateSpinnerAdapter extends ArrayAdapter<String> {
             if("AUTO".equalsIgnoreCase(langCode) || "En".equalsIgnoreCase(langCode)) {
                 tv.setTextColor(Color.argb(0xff, 0x33, 0x33, 0x33));
             } else {
-                if(downloadModelList.contains(langCode.toLowerCase())) {
+                if(downloadModelList.contains(langCode.toLowerCase())
+                        || downloadModelList.contains(langCode)) {
                     tv.setTextColor(Color.argb(0xff, 0x33, 0x33, 0x33));
                 } else {
                     tv.setTextColor(Color.argb(0xff, 0xbf, 0xbf, 0xbf));

@@ -19,6 +19,10 @@ package com.huawei.mlkit.sample.transactor;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
@@ -56,7 +60,8 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
     private Bitmap foregroundBitmap;
     private Bitmap backgroundBitmap;
     private ImageSegmentationResultCallBack imageSegmentationResultCallBack;
-
+    private Boolean isBlur = false;
+    private RenderScript renderScript;
     /**
      * Constructor for real-time replacement background.
      *
@@ -142,8 +147,26 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         int[] pixels = new int[this.backgroundBitmap.getWidth() * this.backgroundBitmap.getHeight()];
         this.backgroundBitmap.getPixels(pixels, 0, this.backgroundBitmap.getWidth(), 0, 0,
             this.backgroundBitmap.getWidth(), this.backgroundBitmap.getHeight());
-        result = BitmapUtils.joinBitmap(backgroundBitmap, foregroundBitmap);
+        result = BitmapUtils.joinBitmap(isBlur ? blur(backgroundBitmap,20) :  backgroundBitmap, foregroundBitmap);
         return result;
+    }
+
+    /**
+     * Blur Bitmap
+     * @param bitmap Original Bitmap
+     * @param radius Blur Radius (1-25)
+     * @return Bitmap
+     */
+    private Bitmap blur(Bitmap bitmap , int radius){
+        Bitmap outBitmap = Bitmap.createBitmap(bitmap);
+        Allocation in = Allocation.createFromBitmap(renderScript,bitmap);
+        Allocation out = Allocation.createTyped(renderScript,in.getType());
+        ScriptIntrinsicBlur scriptintrinsicblur = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript));
+        scriptintrinsicblur.setRadius(radius);
+        scriptintrinsicblur.setInput(in);
+        scriptintrinsicblur.forEach(out);
+        out.copyTo(outBitmap);
+        return  outBitmap;
     }
 
     /**
@@ -174,5 +197,13 @@ public class ImageSegmentationTransactor extends BaseTransactor<MLImageSegmentat
         Matrix m = new Matrix();
         m.setScale(-1, 1);// horizontal flip.
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
+    }
+
+    public void setBlur(Boolean blur) {
+        isBlur = blur;
+    }
+
+    public void setRenderScript(RenderScript renderScript) {
+        this.renderScript = renderScript;
     }
 }

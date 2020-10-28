@@ -30,27 +30,26 @@
         <activity android:name=".activity.SettingActivity" />
         <!-- face -->
         <activity
-            android:name=".activity.FaceDetectionActivity"
+            android:name=".activity.face.FaceDetectionActivity"
             android:launchMode="singleTask" />
         <!-- HumanSkeleton -->
         <activity
-            android:name=".activity.HumanSkeletonActivity"
+            android:name=".activity.skeleton.HumanSkeletonActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.TemplateActivity"
+            android:name=".activity.skeleton.TemplateActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
 
         <!--LivenessDetection-->
-        <activity android:name=".activity.HumanLivenessDetectionActivity"></activity>
+        <activity android:name=".activity.livenessdetection.HumanLivenessDetectionActivity"></activity>
         <!--HandKeypoint-->
         <activity
-            android:name=".activity.HandKeypointActivity"
+            android:name=".activity.handkeypoint.HandKeypointActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.HandKeypointImageActivity"
+            android:name=".activity.handkeypoint.HandKeypointImageActivity"
             android:screenOrientation="portrait" />
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

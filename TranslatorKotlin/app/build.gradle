@@ -45,8 +45,8 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.3.300'
     implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.3.300'
     // Import the TTS SDK.
-    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.2.300"
+    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.4.300"
     // Import the text translation SDK.
-    implementation "com.huawei.hms:ml-computer-translate:2.0.3.300"
+    implementation "com.huawei.hms:ml-computer-translate:2.0.4.300"
 
 }

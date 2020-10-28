@@ -30,7 +30,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huawei.mlkit.sample.R;
-import com.huawei.mlkit.sample.activity.LocalTranslateActivity;
+import com.huawei.mlkit.sample.activity.translate.LocalTranslateActivity;
 
 
 /**

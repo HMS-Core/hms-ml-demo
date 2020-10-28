@@ -26,7 +26,7 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 
 import com.huawei.mlkit.sample.R;
-import com.huawei.mlkit.sample.activity.StillCutPhotoActivity;
+import com.huawei.mlkit.sample.activity.imageseg.StillCutPhotoActivity;
 
 public class CaptureImageFragment extends Fragment {
     private ImageView mLoadPhoto;

@@ -19,18 +19,23 @@
         android:label="ASR" />
 
     <application
+        android:name=".common.MyApp"
         android:allowBackup="false"
         android:icon="@drawable/icon"
         android:label="ML Kit Text"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activity.TextEmbeddingActivity" />
-        <activity android:name=".activity.DocDetectionResultActivity" />
+        <activity android:name=".activity.textemdding.TextEmbeddingActivity" />
+        <activity android:name=".activity.docdetection.DocDetectionResultActivity" />
         <activity
-            android:name=".activity.TranslateActivity"
+            android:name=".activity.translate.TranslateActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.TtsAnalyseActivity"
+            android:name=".activity.tts.TtsAudioActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.tts.TtsAnalyseActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
@@ -43,59 +48,65 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.TextRecognitionActivity"
+            android:name=".activity.text.TextRecognitionActivity"
             android:launchMode="singleTask"
             android:resizeableActivity="false" />
         <activity
-            android:name=".activity.RemoteDetectionActivity"
+            android:name=".activity.docdetection.RemoteDetectionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.SettingActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.RemoteTranslateActivity"
+            android:name=".activity.translate.RemoteTranslateActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.LocalTranslateActivity"
+            android:name=".activity.translate.LocalTranslateActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activity.asr.AsrActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activity.asr.AsrAudioActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.AsrAudioActivity"
+            android:name=".activity.icr.IDCardRecognitionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.IDCardRecognitionActivity"
+            android:name=".activity.gcr.GeneralCardRecognitionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.GeneralCardRecognitionActivity"
+            android:name=".activity.bcr.BankCardRecognitionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.BankCardRecognitionActivity"
+            android:name=".activity.aft.AudioFileTranscriptionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.AudioFileTranscriptionActivity"
+            android:name=".activity.documentskew.DocumentSkewCorretionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.DocumentSkewCorretionActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".activity.DocumentSkewStartActivity"
+            android:name=".activity.documentskew.DocumentSkewStartActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SoundDectActivity"
+            android:name=".activity.sounddect.SoundDectActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RealTimeTranscriptionActivity"
+            android:name=".activity.asrlong.RealTimeTranscriptionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
 

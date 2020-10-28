@@ -67,6 +67,7 @@ public class GridViewAdapter extends BaseAdapter {
                 holder = new ViewHolder();
                 holder.imageView = convertView.findViewById(R.id.image_item);
                 holder.textView = convertView.findViewById(R.id.text_item);
+                holder.imageNew = convertView.findViewById(R.id.icon_new);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -82,7 +83,7 @@ public class GridViewAdapter extends BaseAdapter {
 
     static class ViewHolder {
         ImageView imageView;
-
+        ImageView imageNew;
         TextView textView;
     }
 }

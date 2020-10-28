@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="50dp"
-            android:text="Scenen_Recognition"
+            android:text="@string/scene_detection"
             android:textColor="@color/upsdk_white"
             android:textSize="16sp" />
     </RelativeLayout>
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:textSize="16sp"
             android:layout_height="wrap_content"
-            android:text="Set up:" />
+            android:text="@string/set_up" />
 
         <EditText
             android:id="@+id/editText"
@@ -43,7 +43,7 @@
             android:layout_marginStart="10dp"
             android:textSize="14sp"
             android:background="@null"
-            android:hint="Please enter an integer from 0 to 100"
+            android:hint="@string/set_hiht"
             android:inputType="number" />
 
     </LinearLayout>

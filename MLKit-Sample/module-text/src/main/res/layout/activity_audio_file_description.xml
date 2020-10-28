@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_background"
-    tools:context=".activity.AudioFileTranscriptionActivity">
+    tools:context=".activity.aft.AudioFileTranscriptionActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -50,13 +50,12 @@
             android:layout_marginTop="@dimen/common_margin_top"
             android:background="@color/white">
 
-
             <RelativeLayout
                 android:id="@+id/rl_language"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="14dp"
                 android:layout_marginEnd="40dp">
 
                 <TextView
@@ -65,7 +64,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:fontFamily="HWtext-55ST"
-                    android:gravity="center_vertical"
                     android:text="@string/language"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
@@ -74,8 +72,8 @@
                     android:id="@+id/languageimage"
                     android:layout_width="15dp"
                     android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/languagetext"
                     android:src="@drawable/ic_down" />
 
                 <TextView
@@ -83,14 +81,60 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_toEndOf="@id/language_text"
+                    android:layout_toStartOf="@id/languageimage"
                     android:fontFamily="HWtext-55ST"
                     android:text="@string/chinese"
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.25dp"
+                android:layout_below="@id/rl_language"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@color/common_line_color" />
+
+            <RelativeLayout
+                android:id="@+id/rl_type"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/rl_language"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp">
+
+                <TextView
+                    android:id="@+id/type_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="HWtext-55ST"
+                    android:text="转写类型"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:id="@+id/typeimage"
+                    android:layout_width="15dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_down" />
+
+                <TextView
+                    android:id="@+id/typetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/typeimage"
+                    android:fontFamily="HWtext-55ST"
+                    android:text="@string/aft_short"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
             </RelativeLayout>
 
             <LinearLayout
@@ -99,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rl_type"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="40dp"
                 android:orientation="vertical">
 

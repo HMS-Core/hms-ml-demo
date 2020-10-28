@@ -30,7 +30,7 @@ import androidx.fragment.app.Fragment;
 import com.huawei.mlkit.sample.R;
 
 import com.huawei.mlkit.sample.activity.adapter.imgseg.MyGridViewAdapter;
-import com.huawei.mlkit.sample.activity.TakePhotoActivity;
+import com.huawei.mlkit.sample.activity.imageseg.TakePhotoActivity;
 import com.huawei.mlkit.sample.activity.entity.Entity;
 import com.huawei.mlkit.sample.util.Constant;
 import com.huawei.mlkit.sample.util.SharedPreferencesUtil;

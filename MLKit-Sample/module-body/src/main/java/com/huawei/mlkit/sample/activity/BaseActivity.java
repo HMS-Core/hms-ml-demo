@@ -65,7 +65,7 @@ public class BaseActivity extends AppCompatActivity {
      * @param activity Activity of page.
      * @param colorId Color ID.
      */
-    protected static void setStatusBarColor(Activity activity, int colorId) {
+    public static void setStatusBarColor(Activity activity, int colorId) {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 Window window = activity.getWindow();

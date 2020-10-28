@@ -50,6 +50,16 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center" />
             <TextView
+                android:id="@+id/tv_words2v"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/words_vector_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+
+            <TextView
                 android:id="@+id/tv_sentence2v"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -227,6 +237,80 @@
             </LinearLayout>
         </ScrollView>>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/show_words1_vector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/language_selection"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/linear_react"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/input_words1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="5dp"
+                android:hint="请输入需要解析的词组（以英文逗号隔开）"
+                android:text="你好,我好,他好"
+                android:textColor="#878787"
+                android:textSize="17sp"
+                android:background="@null"
+                android:gravity="left"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom|right"
+                android:padding="5dp">
+                <ImageButton
+                    android:id="@+id/delete_words1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/delete" />
+                <ImageButton
+                    android:id="@+id/search_words1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/search" />
+            </LinearLayout>
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="解析结果"
+                    android:textColor="#878787"
+                    android:textSize="17sp"
+                    android:gravity="left" />
+                <TextView
+                    android:id="@+id/result_words1_vector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="词组向量："
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </ScrollView>>
+    </LinearLayout>
+
     <LinearLayout
     android:id="@+id/show_sentence_vector"
     android:layout_width="match_parent"

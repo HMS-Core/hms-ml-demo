@@ -18,7 +18,9 @@ package com.huawei.mlkit.sample.transactor;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -30,8 +32,8 @@ import com.huawei.hms.mlsdk.skeleton.MLSkeleton;
 import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzer;
 import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzerFactory;
 import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzerSetting;
-import com.huawei.mlkit.sample.activity.HumanSkeletonActivity;
-import com.huawei.mlkit.sample.activity.TemplateActivity;
+import com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity;
+import com.huawei.mlkit.sample.activity.skeleton.TemplateActivity;
 import com.huawei.mlkit.sample.activity.adapter.skeleton.GridItem;
 import com.huawei.mlkit.sample.camera.FrameMetadata;
 import com.huawei.mlkit.sample.views.graphic.CameraImageGraphic;
@@ -41,30 +43,32 @@ import com.huawei.mlkit.sample.views.overlay.GraphicOverlay;
 import java.io.IOException;
 import java.util.List;
 
+import static com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity.isOpenStatus;
+import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.*;
+import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.getSelectedIndex;
+
 public class LocalSketlonTranstor extends BaseTransactor<List<MLSkeleton>> {
     private static final String TAG = "LocalSketlonTransactor";
 
-    private  final MLSkeletonAnalyzer detector;
-    private int zeroCount = 0;
+    private static MLSkeletonAnalyzer analyzer;
+
     private Handler mHandler;
 
-    public LocalSketlonTranstor(MLSkeletonAnalyzerSetting setting, Context context) {
+    public LocalSketlonTranstor(MLSkeletonAnalyzerSetting setting, Context context, Handler handler) {
         super(context);
-        this.detector = MLSkeletonAnalyzerFactory.getInstance().getSkeletonAnalyzer(setting);
-    }
-
-    public LocalSketlonTranstor(Context context, Handler handler) {
-        super(context);
+        Log.i(TAG, "analyzer init");
         this.mHandler = handler;
-        MLSkeletonAnalyzerSetting setting = new MLSkeletonAnalyzerSetting.Factory()
-                .create();
-        detector = MLSkeletonAnalyzerFactory.getInstance().getSkeletonAnalyzer(setting);
+        if (analyzer != null) {
+            stop();
+        }
+        analyzer = MLSkeletonAnalyzerFactory.getInstance().getSkeletonAnalyzer(setting);
     }
 
     @Override
     public void stop() {
         try {
-            this.detector.stop();
+            Log.i(TAG,   "analyzer stop.");
+            this.analyzer.stop();
         } catch (IOException e) {
             Log.e(TAG, "Exception thrown while trying to close sketlon transactor: " + e.getMessage());
         }
@@ -72,7 +76,7 @@ public class LocalSketlonTranstor extends BaseTransactor<List<MLSkeleton>> {
 
     @Override
     public Task<List<MLSkeleton>> detectInImage(MLFrame image) {
-        return this.detector.asyncAnalyseFrame(image);
+        return this.analyzer.asyncAnalyseFrame(image);
     }
 
     @Override
@@ -82,7 +86,7 @@ public class LocalSketlonTranstor extends BaseTransactor<List<MLSkeleton>> {
             @NonNull FrameMetadata frameMetadata,
             @NonNull GraphicOverlay graphicOverlay) {
         graphicOverlay.clear();
-        Log.d("toby", "Total MLSkeletons graphicOverlay start");
+        Log.d(TAG, "Total MLSkeletons graphicOverlay start");
         if (originalCameraImage != null) {
             CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, originalCameraImage);
             graphicOverlay.addGraphic(imageGraphic);
@@ -91,13 +95,13 @@ public class LocalSketlonTranstor extends BaseTransactor<List<MLSkeleton>> {
         if (MLSkeletons == null || MLSkeletons.isEmpty()) {
             return;
         }
-        Log.d("toby", "Total MLSkeletons hmsMLLocalFaceGraphic start");
+        Log.d(TAG, "Total MLSkeletons hmsMLLocalFaceGraphic start");
         LocalSkeletonGraphic hmsMLLocalSkeletonGraphic = new LocalSkeletonGraphic(graphicOverlay, MLSkeletons);
         graphicOverlay.addGraphic(hmsMLLocalSkeletonGraphic);
         graphicOverlay.postInvalidate();
-        Log.d("toby", "Total MLSkeletons graphicOverlay end");
+        Log.d(TAG, "Total MLSkeletons graphicOverlay end");
 
-        if (!HumanSkeletonActivity.isOpenStatus()) {
+        if (!isOpenStatus()) {
             return;
         }
         if (mHandler == null) {
@@ -107,45 +111,38 @@ public class LocalSketlonTranstor extends BaseTransactor<List<MLSkeleton>> {
     }
 
     private void compareSimilarity(List<MLSkeleton> skeletons) {
-        float similarity = 0f;
+        // Select template from templates.
         int index = 0;
-        if (TemplateActivity.getSelectedIndex() == -1) {
+        if (getSelectedIndex() == -1) {
             index = 0;
         } else {
-            index = TemplateActivity.getSelectedIndex();
+            index = getSelectedIndex();
         }
-        GridItem gridItem = TemplateActivity.getTemplateDataMap().get("key" + index);
+        GridItem gridItem = getTemplateDataMap().get(TemplateActivity.getKey() + index);
 
+        // Calculate similarity of two skeletons.
         List<MLSkeleton> templateList = gridItem.getSkeletonList();
-
         if (templateList == null) {
             return;
         }
-
-        float result = detector.caluteSimilarity(skeletons, templateList);
-        if (result > similarity) {
-            similarity = result;
+        float result = analyzer.caluteSimilarity(skeletons, templateList);
+        if (result < 0f || result > 1f) {
+            return;
         }
-        Log.d(TAG, "similarity : " + similarity);
+        Log.i(TAG, "similarity : " + result);
 
-        // Filters out the second similarity record if the similarity between two consecutive 0s is not displayed.
-        if (similarity == 0) {
-            zeroCount++;
-            if (zeroCount == 1) {
-                return;
-            } else {
-                zeroCount = 0;
-            }
-        } else {
-            zeroCount = 0;
-        }
-
+        // Send msg to handle for display.
+        Message msg = Message.obtain();
+        Bundle bundle = new Bundle();
+        bundle.putFloat(HumanSkeletonActivity.SIMILARITY, result);
+        msg.setData(bundle);
+        msg.what = HumanSkeletonActivity.UPDATE_VIEW;
+        mHandler.sendMessage(msg);
     }
 
     @Override
     protected void onFailure(@NonNull Exception e) {
-        Log.d("toby", "Total HMSFaceProc graphicOverlay onFailure");
-        Log.e(TAG, "Face detection failed: " + e.getMessage());
+        Log.e(TAG, "Skeleton detection failed: " + e.getMessage());
     }
 
     @Override

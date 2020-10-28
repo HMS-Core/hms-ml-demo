@@ -9,6 +9,7 @@
     <color name="primary_background">#f2f2f2</color>
     <color name="button_background">#5CACEE</color>
     <color name="white">#ffffff</color>
+    <color name="head_blue">#ff005fce</color>
 
     <color name="color_red_card">#FFFA2A2D</color>
     <color name="color_red_cancel">#EE6A50</color>
