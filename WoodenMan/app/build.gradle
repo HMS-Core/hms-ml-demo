@@ -38,12 +38,12 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
 
     // segmentation
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.0.4.300'
 
     // skeleton
-    implementation 'com.huawei.hms:ml-computer-vision-skeleton:2.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-vision-skeleton-model:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-skeleton:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-skeleton-model:2.0.4.300'
 
     implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.1.300'

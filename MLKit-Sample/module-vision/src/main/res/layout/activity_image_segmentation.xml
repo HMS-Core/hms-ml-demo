@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     android:background="#ffffff"
-    tools:context=".activity.ImageSegmentationActivity">
+    tools:context=".activity.imageseg.ImageSegmentationActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

@@ -89,6 +89,17 @@ S
     <string name="cust_model_type1">label</string>
     <string name="cust_model_type2">object</string>
 
-    <string name="scene_detection">Scene detection</string>
+    <string name="scene_detection">Scene Detection</string>
+    <string name="set_up">Sets the maximum number of returned results.:</string>
+    <string name="set_hiht">Please enter an integer from 0 to 100</string>
+
+    <string name="select">Select</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="table">Table Recognition</string>
+    <string name="form_recognition">Form Recognition</string>
+    <string name="from_pic">Please upload the picture</string>
+    <string name="recognition">Recognition</string>
+    <string name="teble_error">Failed to check the table. Change the table image.</string>
 
 </resources>

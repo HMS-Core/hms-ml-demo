@@ -18,11 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
         <activity
-            android:name=".activity.ImageClassificationActivity"
+            android:name=".activity.imageclassfication.ImageClassificationActivity"
             android:launchMode="singleTask"
             android:resizeableActivity="false" />
         <activity
-            android:name=".activity.ObjectDetectionActivity"
+            android:name=".activity.object.ObjectDetectionActivity"
             android:launchMode="singleTask"
             android:resizeableActivity="false" />
         <activity
@@ -43,46 +43,55 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activity.ImageSegmentationActivity"
+            android:name=".activity.imageseg.ImageSegmentationActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activity.LoadPhotoActivity"
+            android:name=".activity.imageseg.LoadPhotoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
 
         <activity
-            android:name=".activity.TakePhotoActivity"
+            android:name=".activity.imageseg.TakePhotoActivity"
             android:resizeableActivity="false" />
 
         <activity
-            android:name=".activity.StillCutPhotoActivity"
+            android:name=".activity.imageseg.StillCutPhotoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
 
         <activity
-            android:name=".activity.ImageSuperResolutionStartActivity"
+            android:name=".activity.Imagesupersesolution.ImageSuperResolutionStartActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activity.ImageSuperResolutionActivity"
+            android:name=".activity.Imagesupersesolution.ImageSuperResolutionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask"></activity>
 
         <activity
-            android:name=".activity.TextImageSuperResolutionActivity"
+            android:name=".activity.textsuperresolution.TextImageSuperResolutionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask"></activity>
 
 
         <activity
-            android:name=".activity.SceneStartActivity"
+            android:name=".activity.scenedection.SceneStartActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activity.SceneDectionActivity"
+            android:name=".activity.scenedection.SceneDectionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
+
+        <activity android:name=".activity.table.TableRecognitionStartActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            />
+        <activity android:name=".activity.table.TableRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            />
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -84,4 +84,14 @@
             android:textOff=""
             android:textOn="" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_blur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="#0A000000"
+        android:text="Blur"
+        android:textColor="@color/white"
+        />
 </RelativeLayout>

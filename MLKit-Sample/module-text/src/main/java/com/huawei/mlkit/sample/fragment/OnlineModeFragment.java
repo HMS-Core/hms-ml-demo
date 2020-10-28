@@ -29,14 +29,15 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -76,10 +77,11 @@ import com.huawei.mlkit.sample.util.PCMToWav;
  *
  * @since 2020-09-07
  */
-public class OnlineModeFragment extends Fragment implements View.OnClickListener,SeekBar.OnSeekBarChangeListener, TTSLanguageAdapter.OnItemClickListener, TtsStyleAdapter.OnItemClickListener{
+public class OnlineModeFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, TtsStyleAdapter.OnItemClickListener, TextWatcher {
 
     private static final String NO_NETWORK = "0104";
     private static final String SPEAK_ABNORMAL = "7002";
+    private static final String SPEAK_LANGUAGE = "0102";
 
     private static final int MESSAGE_TYPE_INFO = 1;
     private static final int MESSAGE_TYPE_RANGE = 2;
@@ -108,7 +110,6 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
 
     private ImageView clear;
 
-    private RelativeLayout rl_language;
     private RelativeLayout rl_speaker;
     private RelativeLayout rl_mode;
 
@@ -123,9 +124,15 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
 
     private float speedVal = 1.0f;
     private float volumeVal = 1.0f;
+    private CharSequence temps;
+    private int nowNum = 0;
+    private int maxNum = 500;
 
     private Map<String, String> temp = new HashMap<>();
     private ImageView close;
+    private TextView getChars;
+    private List<MLTtsSpeaker> mlTtsSpeakerCodeList;
+    private String language;
 
     public static OnlineModeFragment newInstance() {
         OnlineModeFragment fragment = new OnlineModeFragment();
@@ -198,26 +205,29 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
         textView_volume = view.findViewById(R.id.textView_volume);
         textView_speed = view.findViewById(R.id.textView_speed);
         back = view.findViewById(R.id.back);
+        getChars = view.findViewById(R.id.getChars);
 
         languageText = view.findViewById(R.id.languagetext);
         speakerText = view.findViewById(R.id.styletext);
         modeText = view.findViewById(R.id.modetext);
-        rl_language = view.findViewById(R.id.rl_language);
         rl_speaker = view.findViewById(R.id.rl_style);
         rl_mode = view.findViewById(R.id.rl_mode);
 
-        createLanguageDialog();
         createStyleDialog();
         createModeDialog();
+
+        defaultSpeakerCode = speakerCodeList.get(0);
+        speakerText.setText(speakerMap.get(defaultSpeakerCode));
+        List<String> languages = mlTtsEngine.getLanguages();
+        defaultLanguageCode = languages.get(0);
 
         textView_volume.setText(R.string.init_progress);
         textView_speed.setText(R.string.init_progress);
         modeText.setText(playModeResources[0]);
     }
+
     private Dialog speakerDialog;
-    private TTSLanguageAdapter tTSLanguageAdapter;
     private TtsStyleAdapter ttsStyleAdapter;
-    private List<String> languageCodeList = new ArrayList<>();
     private List<String> speakerCodeList = new ArrayList<>();
     private String defaultLanguageCode = "";
     private String defaultSpeakerCode = "";
@@ -231,15 +241,15 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         styleRv.setLayoutManager(linearLayoutManager);
         styleRv.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        List<MLTtsSpeaker> mlTtsSpeakerCodeList = mlTtsEngine.getSpeaker(defaultLanguageCode);
+        mlTtsSpeakerCodeList = mlTtsEngine.getSpeakers();
         List<String> speakerList = new ArrayList<>();
         speakerCodeList.clear();
-        if (mlTtsSpeakerCodeList != null) {
+        if (mlTtsSpeakerCodeList != null && mlTtsSpeakerCodeList.size() > 0) {
             if (defaultSpeakerCode.equals("")) {
                 defaultSpeakerCode = mlTtsSpeakerCodeList.get(0).getName();
             }
             for (MLTtsSpeaker str : mlTtsSpeakerCodeList) {
-                if (!speakerList.contains(speakerMap.get(str.getName()))) {
+                if (!speakerList.contains(speakerMap.get(str.getName())) && speakerMap.get(str.getName()) != null) {
                     speakerCodeList.add(str.getName());
                     speakerList.add(speakerMap.get(str.getName()));
                 }
@@ -268,55 +278,6 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
         }
     }
 
-    private Dialog languageDialog;
-
-    private void createLanguageDialog() {
-        this.languageDialog = new Dialog(getContext(), R.style.MyDialogStyle);
-        View view = View.inflate(getContext(), R.layout.dialog_tts_language, null);
-        // Set up a custom layout
-        this.languageDialog.setContentView(view);
-
-        RecyclerView languageRv = view.findViewById(R.id.language_rv);
-        languageCodeList = mlTtsEngine.getLanguages();
-        List<String> languageList = new ArrayList<>();
-        if (languageCodeList != null) {
-            if (defaultLanguageCode.equals("")) {
-                defaultLanguageCode = languageCodeList.get(0);
-            }
-            for (String str : languageCodeList) {
-                if (!languageList.contains(languageMap.get(str))) {
-                    languageList.add(languageMap.get(str));
-                }
-            }
-            languageText.setText(languageMap.get(defaultLanguageCode));
-        }
-
-        Log.d("languageCodeList", languageCodeList.toString());
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        languageRv.setLayoutManager(linearLayoutManager);
-        languageRv.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-
-        // Initialize the adapter.
-        tTSLanguageAdapter = new TTSLanguageAdapter(getActivity(), languageList);
-
-        // Set adapter.
-        languageRv.setAdapter(tTSLanguageAdapter);
-        //Set Entry Click Event
-        tTSLanguageAdapter.setOnItemClickListener(this);
-
-        this.languageDialog.setCanceledOnTouchOutside(true);
-        // Set the size of the dialog
-        Window dialogWindow = this.languageDialog.getWindow();
-        if (dialogWindow != null) {
-            WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            layoutParams.gravity = Gravity.BOTTOM;
-            dialogWindow.setAttributes(layoutParams);
-        }
-    }
-
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(@NonNull Message message) {
@@ -331,6 +292,8 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
                         showFailedDialog(R.string.nonetwork);
                     } else if (SPEAK_ABNORMAL.equals(extension)) {
                         showFailedDialog(R.string.speak_abnormal);
+                    } else if (SPEAK_LANGUAGE.equals(extension)) {
+                        showFailedDialog(R.string.speak_abnormal);
                     } else {
                         showFailedDialog(R.string.abnormal);
                     }
@@ -338,6 +301,7 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
                     break;
                 case MESSAGE_TYPE_RANGE:
                     if (editText.getText().toString().isEmpty()) {
+                        showFailedDialog(R.string.abnormal);
                         break;
                     }
                     Bundle bundle = message.getData();
@@ -368,9 +332,10 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
         speedSeek.setOnSeekBarChangeListener(this);
         volumeSeek.setOnSeekBarChangeListener(this);
 
-        rl_language.setOnClickListener(this);
         rl_speaker.setOnClickListener(this);
         rl_mode.setOnClickListener(this);
+
+        editText.addTextChangedListener(this);
     }
 
     private void showFailedDialog(int res) {
@@ -473,7 +438,7 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
                 if (text.isEmpty()) {
                     Toast.makeText(getActivity(), R.string.please_enter_text, Toast.LENGTH_SHORT).show();
                 }
-                String id = mlTtsEngine.speak(text, isFlush ? MLTtsEngine.QUEUE_FLUSH : MLTtsEngine.QUEUE_APPEND | MLTtsEngine.OPEN_STREAM);
+                String id = mlTtsEngine.speak(text, isFlush ? MLTtsEngine.QUEUE_FLUSH | MLTtsEngine.OPEN_STREAM : MLTtsEngine.QUEUE_APPEND | MLTtsEngine.OPEN_STREAM);
                 temp.put(id, text);
                 break;
             case R.id.btn_pause:
@@ -491,10 +456,6 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.back:
                 getActivity().onBackPressed();
-                break;
-            case R.id.rl_language:
-                createLanguageDialog();
-                showLanguageDialog();
                 break;
             case R.id.rl_style:
                 createStyleDialog();
@@ -520,10 +481,6 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
 
     private void showStyleDialog() {
         speakerDialog.show();
-    }
-
-    private void showLanguageDialog() {
-        languageDialog.show();
     }
 
     private void showModeDialog() {
@@ -579,7 +536,6 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
             this.textQueue.setSelected(true);
         }
     }
-
 
 
     private void showToast(final String text) {
@@ -649,20 +605,45 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void setOnLanguageItemClick(View view, int position) {
-        defaultLanguageCode = languageCodeList.get(position);
-        languageText.setText(languageMap.get(defaultLanguageCode));
-        updateConfig();
-        tTSLanguageAdapter.notifyDataSetChanged();
-        languageDialog.dismiss();
-    }
-
-    @Override
     public void setOnStyleItemClick(View view, int position) {
         defaultSpeakerCode = speakerCodeList.get(position);
         speakerText.setText(speakerMap.get(defaultSpeakerCode));
+        for (int i = 0; i < mlTtsSpeakerCodeList.size(); i++) {
+            language = mlTtsSpeakerCodeList.get(i).getLanguage();
+            if (defaultSpeakerCode.contains(language)) {
+                defaultLanguageCode = language;
+            }
+        }
         updateConfig();
         ttsStyleAdapter.notifyDataSetChanged();
         speakerDialog.dismiss();
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        temps = s;
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        nowNum = editText.length();
+        if (nowNum == 500) {
+            showToast(getString(R.string.tts_max_tip));
+        }
+        getChars.setText(getString(R.string.wording) + nowNum + " / " + maxNum);
+        int selectionStart = editText.getSelectionStart();
+        int selectionEnd = editText.getSelectionEnd();
+        if (temps.length() > maxNum) {
+            showToast(getString(R.string.tts_max_tip));
+            editable.delete(selectionStart - 1, selectionEnd);
+            editText.setText(editable.toString());
+            int selection = editable.length();
+            editText.setSelection(selection);
+        }
     }
 }

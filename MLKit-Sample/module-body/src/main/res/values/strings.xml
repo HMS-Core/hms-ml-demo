@@ -4,10 +4,16 @@
     <string name="skeletlon">Skeletlon</string>
     <string name="liveness_detection">Liveness Detection</string>
     <string name="handKeypoint">HandKeyPoint</string>
+    <string name="faceVerification">Face Verification</string>
 
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
     <string name="cancel">cancel</string>
+
+    <string name="click_add_template_picture">Upload the template picture</string>
+    <string name="click_add_compare_picture">Upload the compare picture</string>
+    <string name="click_compare">Compare</string>
+    <string name="please_select_picture">Please select a picture to process~</string>
 
 
     <string name="all">all</string>
@@ -28,7 +34,6 @@
 
     <string name="face_point">Point</string>
     <string name="face_feature">Feature</string>
-
 
 
 </resources>

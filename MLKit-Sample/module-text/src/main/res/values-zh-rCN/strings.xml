@@ -45,6 +45,8 @@
     <string name="textembedding">文本嵌入</string>
     <string name="speechRtt">ASR长语音</string>
     <string name="asr">实时语音识别</string>
+    <string name="asr_local_short">离线实时语音识别</string>
+    <string name="asr_local_long">离线实时语音识别</string>
     <string name="tts">语音合成</string>
     <string name="all">所有</string>
     <string name="coming_soon">敬请期待</string>
@@ -56,16 +58,18 @@
     <string name="translate_text_hint">机器学习</string>
     <string name="intro">请输入文字</string>
     <string name="tts_hint">请输入需要合成的文字</string>
-    <string name="queue_add">合成</string>
-    <string name="play">播放</string>
+    <string name="queue_add">开始合成</string>
+    <string name="play">播放结果</string>
     <string name="release_tts">停止播放</string>
     <string name="pause">暂停播放</string>
     <string name="resume">继续播放</string>
     <string name="chinese">中文</string>
     <string name="nonetwork">网络未连接</string>
     <string name="abnormal">服务异常</string>
-    <string name="speak_abnormal">语言和人物不匹配</string>
+    <string name="speak_abnormal">语言和发音人不匹配</string>
+    <string name="speak_num">超过最大合成数，最大合成500</string>
     <string name="replay">重试</string>
+
 
 
     <string name="icr_upload_self_photo">"请上传本人身份证照片"</string>
@@ -102,6 +106,7 @@
     <string name="convert_failed">转写失败:</string>
     <string name="language">语言:</string>
     <string name="stop_record">停止</string>
+    <string name="select_file">选择文件</string>
 
     <string name="error_aft_network">网络连接异常</string>
     <string name="error_aft_internal">内部错误</string>
@@ -225,12 +230,15 @@
     <string name="no_service">服务不可用</string>
 
     <string name="Word_vector">词向量：</string>
+    <string name="Words_vector">词组向量：</string>
+
     <string name="Sentence_vector">句向量：</string>
     <string name="Word_similarity">词相似度：</string>
     <string name="sentence_similarity">句相似度：</string>
     <string name="similar_word">相似词：</string>
     <string name="getVisionValue">获取词典版本信息</string>
     <string name="word_vector_analysis">词向量解析</string>
+    <string name="words_vector_analysis">词组向量解析</string>
     <string name="sentence_vector_analysis">句向量解析</string>
     <string name="word_similarity_analysis">词相似度解析</string>
     <string name="sentence_similarity_analysis">句相似度解析</string>
@@ -242,5 +250,29 @@
 
 
     <string name="download_model">(已下载)</string>
+
+    <string name="short_nodown">离线模型未下载，请先下载</string>
+    <string name="dect_destroy">检测到5秒未说话，识别结束</string>
+    <string name="start_video">录音开始</string>
+    <string name="dect_user">检测到用户开始说话</string>
+
+    <string name="offline_asr">离线实时语音识别</string>
+    <string name="online_asr">在线实时语音识别</string>
+
+    <string name="short_start">开始录制</string>
+    <string name="short_stop">停止录制</string>
+    <string name="offline_voice">离线语音管理</string>
+    <string name="return_text">此处显示返回的文字</string>
+    <string name="down_success">模型下载成功</string>
+    <string name="delete_model">删除模型成功</string>
+    <string name="model_complete">模型下载完成</string>
+    <string name="delete_failed">删除模型失败</string>
+
+    <string name="aft_short">AFT短语音</string>
+    <string name="aft_long">AFT长语音</string>
+    <string name="text_word">已输入: 0 / 500</string>
+
+    <string name="wording">已输入: </string>
+    <string name="tts_max_tip">最大输入500个字符。</string>
 
 </resources>

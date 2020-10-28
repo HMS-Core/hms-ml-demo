@@ -7,10 +7,11 @@ android {
         applicationId "com.mlkit.sample.vision"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 30003300
-        versionName "3.0.3.300"
+        versionCode 30004300
+        versionName "3.0.4.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
 
 
     buildTypes {
@@ -19,6 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     repositories {
         flatDir {
             dirs 'libs'
@@ -26,8 +28,6 @@ android {
     }
     lintOptions {
         disable 'GoogleAppIndexingWarning'
-        checkReleaseBuilds false
-        abortOnError false
     }
     aaptOptions {
         noCompress "mslite", "ms"
@@ -35,33 +35,40 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar','*.jar'])
 
     implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
 
     // image segmentation
-    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.0.4.300'
 
     // classification
     implementation 'com.huawei.hms:ml-computer-vision-classification:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-image-classification-model:2.0.1.300'
 
     // object detection
-    implementation 'com.huawei.hms:ml-computer-vision-object-detection-model:2.0.1.302'
+    implementation 'com.huawei.hms:ml-computer-vision-object-detection-model:2.0.3.300'
 
     // image super resolution
-    implementation'com.huawei.hms:ml-computer-vision-imagesuperresolution:2.0.3.300'
-    implementation'com.huawei.hms:ml-computer-vision-imagesuperresolution-model:2.0.3.300'
+    implementation'com.huawei.hms:ml-computer-vision-imagesuperresolution:2.0.4.300'
+    implementation'com.huawei.hms:ml-computer-vision-imagesuperresolution-model:2.0.4.300'
 
     // text image super resolution
-    implementation'com.huawei.hms:ml-computer-vision-textimagesuperresolution:2.0.3.300'
-    implementation'com.huawei.hms:ml-computer-vision-textimagesuperresolution-model:2.0.3.300'
+    implementation'com.huawei.hms:ml-computer-vision-textimagesuperresolution:2.0.4.300'
+    implementation'com.huawei.hms:ml-computer-vision-textimagesuperresolution-model:2.0.4.300'
+
+    //product-visual-search-plugin
+    implementation 'com.huawei.hms:ml-product-visual-search-plugin:2.0.3.300'
 
     // scene detection
     implementation 'com.huawei.hms:ml-computer-vision-scenedetection:2.0.3.300'
     implementation 'com.huawei.hms:ml-computer-vision-scenedetection-model:2.0.3.300'
+
+    // form recognition
+    implementation 'com.huawei.hms:ml-computer-vision-formrecognition-model:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-formrecognition:2.0.4.300'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
     implementation 'it.sephiroth.android.library.imagezoom:imagezoom:2.3.0'

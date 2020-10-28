@@ -46,7 +46,7 @@
             android:id="@+id/spSourceType"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="42dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -69,13 +69,13 @@
             />
         <ImageButton
             android:id="@+id/buttonSwitchLang"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="32dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:background="@drawable/translate_switch"
-            app:layout_constraintEnd_toStartOf="@+id/spDestType"
-            app:layout_constraintStart_toEndOf="@+id/spSourceType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/spSourceType" />
 
         <Spinner
@@ -84,7 +84,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:textAlignment="center"
             android:overlapAnchor="false"

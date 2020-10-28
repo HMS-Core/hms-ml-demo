@@ -25,7 +25,7 @@
     <string name="chinese">Chinese</string>
     <string name="nonetwork">nonetwork</string>
     <string name="abnormal">service is abnormal</string>
-    <string name="speak_abnormal">Language and speaker do not match</string>
+    <string name="speak_abnormal">Language and pronunciation mismatch</string>
     <string name="replay">replay</string>
 
     <!--全称-->
@@ -49,6 +49,8 @@
     <string name="icr">ICR</string>
     <string name="text_detection">Text</string>
     <string name="asr">ASR</string>
+    <string name="asr_local_short">Offline Short ASR</string>
+    <string name="asr_local_long">Offline Long ASR</string>
     <string name="tts">TTS</string>
     <string name="textembedding">TEXTEMBEDDING</string>
     <string name="speechRtt">SpeechRtt</string>
@@ -63,11 +65,12 @@
     <string name="translate_text_hint">Machine Learning</string>
     <string name="intro">text to speak</string>
     <string name="tts_hint">enter the text to be synthesized.</string>
-    <string name="queue_add">speech</string>
-    <string name="play">play</string>
+    <string name="queue_add">Start Speech</string>
+    <string name="play">Play Result</string>
     <string name="release_tts">stop</string>
     <string name="pause">pause</string>
     <string name="resume">resume</string>
+    <string name="speak_num">Exceeded the maximum synthesis number.maximum 500</string>
 
     <!--身份证识别-->
     <string name="icr_upload_self_photo">Upload photos of your ID card</string>
@@ -228,12 +231,14 @@
     <string name="no_service">The service is unavailable.</string>
 
     <string name="Word_vector">Word vector：</string>
+    <string name="Words_vector">Words vector：</string>
     <string name="Sentence_vector">Sentence vector：</string>
     <string name="Word_similarity">Word similarity：</string>
     <string name="sentence_similarity">Sentence similarity：</string>
     <string name="similar_word">Similar word：</string>
     <string name="getVisionValue">Obtaining the Dictionary Version Information</string>
     <string name="word_vector_analysis">word vector analysis</string>
+    <string name="words_vector_analysis">words vector analysis</string>
     <string name="sentence_vector_analysis">sentence vector analysis</string>
     <string name="word_similarity_analysis">word similarity analysis</string>
     <string name="sentence_similarity_analysis">sentence similarity analysis</string>
@@ -243,5 +248,29 @@
     <string name="vision_nlp">Vision：</string>
 
     <string name="download_model">(Downloaded)</string>
+
+    <string name="short_nodown">The offline model has not been downloaded. Download it first.</string>
+    <string name="dect_destroy">No speech is detected for 5 seconds. Recognition ends.</string>
+    <string name="start_video">Recording started.</string>
+    <string name="dect_user">Detects that the user starts to speak.</string>
+SR
+    <string name="offline_asr">Offline ASR</string>
+    <string name="online_asr">Online ASR</string>
+
+    <string name="short_start">Start recording</string>
+    <string name="short_stop">Stop recording</string>
+    <string name="offline_voice">Offline voice management</string>
+    <string name="return_text">Text returned here</string>
+
+    <string name="down_success">DownloadModel Success</string>
+    <string name="delete_model">DeleteModel Success</string>
+    <string name="model_complete">Model download is complete</string>
+    <string name="delete_failed">DeleteModel Failed</string>
+    <string name="aft_short">AFT Short Voice</string>
+    <string name="aft_long">AFT Long Voice</string>
+    <string name="select_file">Select file</string>
+    <string name="text_word">Entered : 0 / 500</string>
+    <string name="wording">Entered : </string>
+    <string name="tts_max_tip">The value can contain a maximum of 500 characters.</string>
 
 </resources>

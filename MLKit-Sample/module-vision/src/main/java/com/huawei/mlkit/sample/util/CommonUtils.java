@@ -16,6 +16,7 @@
 
 package com.huawei.mlkit.sample.util;
 
+import android.Manifest;
 import android.content.Context;
 import android.util.Log;
 
@@ -23,6 +24,14 @@ import java.nio.ByteBuffer;
 
 public class CommonUtils {
     private static final String TAG = "CommonUtils";
+
+    public static final int PERMISSION_CODE_STORAGE = 1;
+    public static final int PERMISSION_CODE_CAMERA = 2;
+    public static final int REQUEST_PIC = 3;
+    public static final int REQUEST_TAKE_PHOTO_CODE = 4;
+    public static final String STORAGE_PERMISSION = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+    public static final String CAMERA_PERMISSION = Manifest.permission.CAMERA;
+
     /**
      * Handle ByteBuffer
      *

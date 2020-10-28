@@ -88,5 +88,17 @@
     <string name="cust_model_type2">object</string>
 
     <string name="scene_detection">场景识别</string>
+    <string name="set_up">设置返回结果最大数量:</string>
+    <string name="set_hiht">请输入0-100之间的整数</string>
+
+    <string name="table">表格识别</string>
+
+    <string name="select">选择</string>
+    <string name="gallery">图库</string>
+    <string name="camera">摄像机</string>
+    <string name="form_recognition">表格识别</string>
+    <string name="from_pic">请上传图片</string>
+    <string name="recognition">识别</string>
+    <string name="teble_error">表格检测失败，请更换表格图片.</string>
 
 </resources>

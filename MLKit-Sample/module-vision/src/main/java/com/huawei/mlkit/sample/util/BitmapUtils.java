@@ -33,6 +33,7 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,7 @@ import com.huawei.hms.mlsdk.common.MLFrame;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -409,5 +411,61 @@ public class BitmapUtils {
         }
 
         return matrix;
+    }
+
+    public static Bitmap tableGetBitmap(Context context,Uri uri) {
+        BitmapFactory.Options newOpts = new BitmapFactory.Options();
+        newOpts.inJustDecodeBounds = true;
+        getBitmapFromUri(context, uri, newOpts);
+        dealBitmapFactoryOption(newOpts);
+        Bitmap bitmap = getBitmapFromUri(context,uri,newOpts);
+        return bitmap;
+    }
+
+    public static Bitmap getBitmapFromUri(Context context, Uri uri, BitmapFactory.Options opt) {
+        if (uri == null) {
+            return null;
+        }
+        try {
+            ParcelFileDescriptor parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
+            FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+            Bitmap bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor, null, opt);
+            parcelFileDescriptor.close();
+            return bitmap;
+        } catch (FileNotFoundException e) {
+            Log.e("exception", "FileNotFoundException");
+        } catch (IOException e) {
+            Log.e("exception", "IOException");
+        } catch (Exception e) {
+            Log.e("exception", "Exception");
+        }
+        return null;
+    }
+
+    public static void dealBitmapFactoryOption(BitmapFactory.Options newOpts) {
+        int w = newOpts.outWidth;
+        int h = newOpts.outHeight;
+        int minHOrW = w;
+        if (w > h) {
+            minHOrW = h;
+        }
+
+        boolean resizeFlag = true;
+        int targetSize;
+
+        int be = 1;
+        if (resizeFlag) {
+            targetSize = 500;
+        } else {
+            targetSize = 3000;
+        }
+        if (minHOrW > targetSize) {
+            be = Math.round((float) minHOrW / (float) targetSize);
+        }
+        newOpts.inSampleSize = be;
+        newOpts.inJustDecodeBounds = false;
+        newOpts.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        newOpts.inPurgeable = true;
+        newOpts.inInputShareable = true;
     }
 }

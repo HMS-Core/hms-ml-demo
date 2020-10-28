@@ -38,6 +38,7 @@ import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.common.MLFrame;
 import com.huawei.hms.mlsdk.skeleton.MLSkeleton;
+import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzerSetting;
 import com.huawei.mlkit.sample.activity.adapter.GridViewAdapter;
 import com.huawei.mlkit.sample.activity.adapter.skeleton.GridItem;
 import com.huawei.mlkit.sample.activity.entity.GridViewItem;
@@ -46,6 +47,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.huawei.mlkit.sample.R;
+import com.huawei.mlkit.sample.activity.face.FaceDetectionActivity;
+import com.huawei.mlkit.sample.activity.handkeypoint.HandKeypointActivity;
+import com.huawei.mlkit.sample.activity.livenessdetection.HumanLivenessDetectionActivity;
+import com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity;
+import com.huawei.mlkit.sample.activity.skeleton.TemplateActivity;
 import com.huawei.mlkit.sample.transactor.LocalSketlonTranstor;
 import com.huawei.mlkit.sample.util.BitmapUtils;
 import com.huawei.mlkit.sample.views.graphic.CameraImageGraphic;
@@ -64,10 +70,10 @@ public final class StartActivity extends BaseActivity
     private static final String TAG = "StartActivity";
     public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton , R.drawable.icon_liveness,R.drawable.icon_handkeypoint};
+    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton , R.drawable.icon_liveness,R.drawable.icon_handkeypoint,};
 
     private static final int[] TITLES = { com.huawei.mlkit.sample.R.string.face_detection,
-            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint};
+            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint,};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -97,8 +103,8 @@ public final class StartActivity extends BaseActivity
         if (!this.allPermissionsGranted()) {
             this.getRuntimePermissions();
         }
-
-        localSketlonTranstor = new LocalSketlonTranstor(this, null);
+        MLSkeletonAnalyzerSetting setting = new MLSkeletonAnalyzerSetting.Factory().create();
+        localSketlonTranstor = new LocalSketlonTranstor(setting, this, null);
         // Start thread to load bone template (Preloading the skeletal template in advance )
         new Thread(mRunnable).start();
     }
@@ -203,10 +209,10 @@ public final class StartActivity extends BaseActivity
     private static boolean isPermissionGranted(Context context, String permission) {
         if (ContextCompat.checkSelfPermission(context, permission)
                 == PackageManager.PERMISSION_GRANTED) {
-            Log.i(StartActivity.TAG, "Permission granted: " + permission);
+            Log.i(TAG, "Permission granted: " + permission);
             return true;
         }
-        Log.i(StartActivity.TAG, "Permission NOT granted: " + permission);
+        Log.i(TAG, "Permission NOT granted: " + permission);
         return false;
     }
 
@@ -284,7 +290,7 @@ public final class StartActivity extends BaseActivity
         task.addOnSuccessListener(new OnSuccessListener<List<MLSkeleton>>() {
             @Override
             public void onSuccess(List<MLSkeleton> results) {
-                Log.e(TAG,"onSuccess"+results.size());
+                Log.i(TAG,"onSuccess"+results.size());
                 // Detection success.
                 if(results != null && !results.isEmpty()) {
                     if (graphicOverlay == null){
@@ -303,12 +309,10 @@ public final class StartActivity extends BaseActivity
                     gridItem.setBitmap(BitmapUtils.loadBitmapFromView(graphicOverlay,
                             tmpBitmap.getWidth(), tmpBitmap.getHeight()));
                     gridItem.setSkeletonList(results);
-                    TemplateActivity.getTemplateDataMap().put("key" + mCount, gridItem);
+                    TemplateActivity.getTemplateDataMap().put(TemplateActivity.getKey() + mCount, gridItem);
                     mCount++;
                 }
             }
         });
     }
-
-
 }
