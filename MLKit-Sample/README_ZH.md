@@ -26,7 +26,7 @@ Module-text。其中包括：文本识别、文档识别、身份证识别、银
 </tr></table>
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/tts.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/tts.png" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/aft.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg" width=220 border=2></td>
@@ -40,16 +40,17 @@ Module-text。其中包括：文本识别、文档识别、身份证识别、银
 </tr></table>
 
 ### 视觉模块
-Module-vision。其中包括：图像分割、图像分类、对象检测与跟踪、地标识别、图像超分、文字图像超分、场景识别。
+Module-vision。其中包括：图像分割、图像分类、对象检测与跟踪、地标识别、图像超分、文字图像超分、场景识别、表格识别。
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.png" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/table.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/imageSegmentVideo.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object.jpg" width=220 title="main page" border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_super.jpg" width=220 title="main page" border=2></td>
 </tr></table>
 
 <table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_super.jpg" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/scene.jpg" width=220 border=2></td>
 </tr></table>
 
@@ -79,8 +80,9 @@ moduletext
 
     |-- com.huawei.mlkit.sample
         |-- Activity
+            |-- AsrActivity //实时语音识别服务入口
             |-- AsrAudioActivity //实时语音识别服务
-            |-- TtsAudioActivity //语音合成服务
+            |-- TtsAnalyseActivity //语音合成服务
 	        |-- AudioFileTranscriptionActivity //音频文件转写服务
 	        |-- IDCardRecognitionActivity // 身份证识别服务
 	        |-- BankCardRecognitionActivity // 银行卡识别服务
@@ -90,10 +92,13 @@ moduletext
 	        |-- StartActivity  // 服务入口
             |-- BaseActivity  // Activity基类
 	        |-- SettingActivity  // moduletext基本信息
-            |-- TranslateActivity
+            |-- TranslateActivity //文本翻译入口
             |-- LocalTranslateActivity // 端侧文本翻译
             |-- RemoteTranslateActivity // 云测文本翻译
+            |-- DocumentSkewStartActivity // 文档校正入口
             |-- DocumentSkewCorretionActivity // 文档校正
+            |-- SoundDectActivity // 声音识别
+            |-- TextEmbeddingActivity // 文本嵌入
 
 
 modulevision
@@ -107,7 +112,13 @@ modulevision
 	        |-- ObjectDetectionActivity //对象检测与跟踪
 	        |-- ImageClassificationActivity //图像分类
 	        |-- RemoteDetectionActivity //地标识别
+	        |-- ImageSuperResolutionStartActivity //图像超分入口
 	        |-- ImageSuperResolutionActivity //图像超分
+	        |-- TextImageSuperResolutionActivity // 文字图像超分
+	        |-- SceneStartActivity // 场景识别入口
+            |-- SceneDectionActivity // 场景识别
+            |-- TableRecognitionStartActivity // 表格识别入口
+            |-- TableRecognitionActivity // 场景识别
 	        |-- BaseActivity  // Activity基类
 	        |-- StartActivity  // 服务入口
 	        |-- SettingActivity  // modulevision基本信息
