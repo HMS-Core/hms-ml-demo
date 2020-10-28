@@ -25,7 +25,7 @@ Module-text. including text recognition, document recognition, ID card recogniti
 </tr></table>
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/tts.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/tts.png" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/aft.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg" width=220 border=2></td>
@@ -39,16 +39,17 @@ Module-text. including text recognition, document recognition, ID card recogniti
 </tr></table>
 
 ### Vision module
-Module-vision. It includes image segmentation, image classification, object detection and tracking, location identification, image super-resolution, text image super-resolution, and scene recognition.
+Module-vision. It includes image segmentation, image classification, object detection and tracking, location identification, image overcommitment, text image overcommitment, scene recognition, and table recognition.
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.png" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/table.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/imageSegmentVideo.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object.jpg" width=220 title="main page" border=2></td>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_super.jpg" width=220 title="main page" border=2></td>
 </tr></table>
 
 <table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_super.jpg" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/scene.jpg" width=220 border=2></td>
 </tr></table>
 
@@ -79,8 +80,9 @@ moduletext
 
     |-- com.huawei.mlkit.sample
         |-- Activity
+            |-- AsrActivity //Real-time speech recognition entry
             |-- AsrAudioActivity //Automatic Speech Recognition
-            |-- TtsAudioActivity //Text to speech
+            |-- TtsAnalyseActivity //Text to speech entry
             |-- AudioFileTranscriptionActivity //Audio File Transcription
             |-- IDCardRecognitionActivity // ID card recognition
             |-- BankCardRecognitionActivity // Bank card recognition
@@ -90,10 +92,14 @@ moduletext
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // moduletext Basic Information
-            |-- TranslateActivity
+            |-- TranslateActivity // Translation entry
             |-- LocalTranslateActivity // LocalTranslation
             |-- RemoteTranslateActivity // RemoteTranslation
+            |-- DocumentSkewStartActivity // Document correction entry
             |-- DocumentSkewCorretionActivity // Document correction
+            |-- SoundDectActivity // Voice recognition
+            |-- TextEmbeddingActivity // Text Embedding
+
 
 
 modulevision
@@ -107,7 +113,13 @@ modulevision
             |-- ObjectDetectionActivity //Object detection and tracking
             |-- ImageClassificationActivity //Image classification
             |-- RemoteDetectionActivity //Landmark recognition
+            |-- ImageSuperResolutionStartActivity // image super resolution entry
             |-- ImageSuperResolutionActivity // image super resolution
+            |-- TextImageSuperResolutionActivity // text image super resolution
+            |-- SceneStartActivity // Scene Dection entry
+            |-- SceneDectionActivity // Scene Dection
+            |-- TableRecognitionStartActivity // Table recognition entry
+            |-- TableRecognitionActivity // Table recognition
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulevision Basic Information
