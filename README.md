@@ -37,9 +37,14 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 ## Precautions
 
-The project contains multiple independent projects. After downloading code,
-you can open a project in Android Studio to build your app or add multiple apps to a project.
-You do not have to create a separate project for each app. You can open setting.gradle to select the project to build.
+The project contains multiple independent projects. After downloading code, open the root project and it
+will load all sub projects into IDE, you can execute each project individually.
+
+#### Add a new project
+
+The root folder already contains a generic `build.gradle` file which load latest Android Gradle plugin, AGConntect and Kotlin into classpath. So if a new project is added, you can remove the project build.gradle file unless you need to add an individual Gradle plugin for this project. Same applies for `gradle.properties`.
+
+All projects and nested modules are defined in the root `settings.gradle` file, by adding a new project, add all module entries into the outer settings file and remove the settings file in you projects.
 
 ## Question or issues
 If you want to evaluate more about HMS Core, [r/HMSCore on Reddit](https://www.reddit.com/r/HuaweiDevelopers/) is for you to keep up with latest news about HMS Core, and to exchange insights with other developers.
