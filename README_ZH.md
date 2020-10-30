@@ -42,8 +42,13 @@
 
 ## 注意事项
 
-工程包含多个独立的工程。下载代码后，您可以在Android Studio中打开其中一个工程，
-也可以将多个应用添加到同一个工程中，这种情况下，您不必为每个应用程序创建单独的项目，可以通过打开setting.gradle来选择要构建的工程。
+工程包含多个独立的工程。下载代码后，您可以在Android Studio中打开根工程，将所有的嵌套工程加载到IDE，您可以单独运行每个工程。
+
+#### 添加新的工程
+
+根文件夹已经包含一个通用的build.gradle，该将最新的Android Gradle插件,AGConntect和Kotlin加载到类classpath。因此，如果添加新工程，删除工程的build.gradle文件，除非需要为此工程添加独特的Gradle插件。同样适用于`gradle.properties`。
+
+所有工程和嵌套模块都在根`settings.gradle`设置文件中定义，添加新的工程，将所有模块条目添加到外部设置文件中，然后删除工程的设置文件。
 
 ## 技术支持
 如果您对HMS Core还处于评估阶段，可在[Reddit社区](https://www.reddit.com/r/HuaweiDevelopers/)获取关于HMS Core的最新讯息，并与其他开发者交流见解。
