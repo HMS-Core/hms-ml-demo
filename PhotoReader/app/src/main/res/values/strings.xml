@@ -20,4 +20,7 @@
     <string name="translate_start">Translate starts</string>
     <string name="no_text">No translation</string>
     <string name="select_text">Select the text you want to recognize</string>
+
+    <string name="english">English</string>
+    <string name="chinese">Chinese</string>
 </resources>

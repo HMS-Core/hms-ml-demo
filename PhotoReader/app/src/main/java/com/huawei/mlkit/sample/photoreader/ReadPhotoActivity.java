@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.huawei.mlkit.sample.photoreader;
 
 import android.app.Activity;
@@ -83,6 +81,9 @@ public class ReadPhotoActivity extends AppCompatActivity {
     private MLTextAnalyzer textAnalyzer;
     private LinearLayout.LayoutParams graphicOverlayLayout;
 
+    public static final String EXTRA_SOURCE_LANGUAGE = "EXTRA_SOURCE_LANGUAGE";
+    public static final String EXTRA_DESTINATION_LANGUAGE = "EXTRA_DESTINATION_LANGUAGE";
+
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -90,8 +91,8 @@ public class ReadPhotoActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         try {
-            this.srcLanguage = intent.getStringExtra(Constant.SOURCE_VALUE);
-            this.dstLanguage = intent.getStringExtra(Constant.DEST_VALUE);
+            //this.srcLanguage = intent.getStringExtra(Constant.SOURCE_VALUE);
+            //this.dstLanguage = intent.getStringExtra(Constant.DEST_VALUE);
         } catch (RuntimeException e) {
             Log.e(ReadPhotoActivity.TAG, "Get intent value failed:" + e.getMessage());
         }

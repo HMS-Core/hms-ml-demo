@@ -22,14 +22,9 @@ public class Constant {
      */
     public static final String IMAGE_PATH_VALUE = "imagePath";
 
-    /**
-     * source_language.
-     */
-    public static final String SOURCE_VALUE = "source_language";
+    public static final String ML_CHINESE = "zh";
+    public static final String ML_ENGLISH = "en";
 
-    /**
-     * dest_language.
-     */
-    public static final String DEST_VALUE = "dest_language";
+    public static final int ML_TTS_MAX_ALLOWED_CHAR_LENGTH = 500;
 
 }
