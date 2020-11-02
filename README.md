@@ -35,6 +35,8 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 |-- CrazyRockets // Use the facial recognition and gesture recognition functions of Huawei ML Kit to move the rocket to avoid obstacles.
 
+|-- CrazyShoppingCart // uses the key point recognition function of Huawei ML Kit to control the movement of the shopping cart to catch dropped items.
+
 ## Precautions
 
 The project contains multiple independent projects. After downloading code, open the root project and it
