@@ -34,6 +34,7 @@ dependencies {
     implementation project(':PhotoReader:lensengine')
     
     implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "androidx.activity:activity:1.2.0-beta01"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.3'
 
     implementation 'com.huawei.hms:ml-computer-voice-tts:2.0.4.300'

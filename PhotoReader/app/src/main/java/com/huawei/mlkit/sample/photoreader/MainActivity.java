@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private static final String EXTRA_TRANSLATION_MODE = "EXTRA_TRANSLATION_MODE";
-    private static final int PERMISSION_REQUESTS = 1;
+    private static final int PERMISSION_REQUESTS = 10001;
 
     private TranslationMode translationMode;
     private ActivityMainBinding binding;

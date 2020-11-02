@@ -17,7 +17,6 @@ package com.huawei.mlkit.sample.photoreader;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -26,19 +25,25 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ComponentActivity;
 
+import com.huawei.hms.mlsdk.MLAnalyzerFactory;
+import com.huawei.hms.mlsdk.text.MLLocalTextSetting;
 import com.huawei.hms.mlsdk.text.MLTextAnalyzer;
+import com.huawei.hms.mlsdk.translate.MLTranslatorFactory;
+import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting;
+import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator;
 import com.huawei.hms.mlsdk.tts.MLTtsEngine;
 import com.huawei.mlkit.lensengine.BitmapUtils;
 import com.huawei.mlkit.sample.photoreader.camera.CapturePhotoActivity;
+import com.huawei.mlkit.sample.photoreader.databinding.ActivityReadPhotoBinding;
 import com.huawei.mlkit.sample.photoreader.util.Constant;
 
 import java.io.FileInputStream;
@@ -46,13 +51,8 @@ import java.io.IOException;
 
 
 public class ReadPhotoActivity extends AppCompatActivity {
+
     private static String TAG = "ReadPhotoActivity";
-    private RelativeLayout relativeLayoutLoadPhoto;
-    private RelativeLayout relativeLayoutTakePhoto;
-    private RelativeLayout relativeLayoutRead;
-    private ImageView preview;
-    private TextView textView;
-    private Uri imageUri;
     private String path;
     private Bitmap originBitmap;
     private Integer maxWidthOfImage;
@@ -70,67 +70,74 @@ public class ReadPhotoActivity extends AppCompatActivity {
     private String sourceText = "";
     private String SpeakText;
 
-    private String srcLanguage = "Chinese";
-    private String dstLanguage = "EN";
-    private EditText mEd_text;
-    private RelativeLayout relativateTranslate;
     private TextRecognition textRecognition;
     private TextTranslation textTranslation;
     private TextTTS textTTS;
-    private MLTtsEngine mlTtsEngine;
-    private MLTextAnalyzer textAnalyzer;
     private LinearLayout.LayoutParams graphicOverlayLayout;
 
     public static final String EXTRA_SOURCE_LANGUAGE = "EXTRA_SOURCE_LANGUAGE";
     public static final String EXTRA_DESTINATION_LANGUAGE = "EXTRA_DESTINATION_LANGUAGE";
 
+    private String srcLanguage = Constant.ML_CHINESE;
+    private String dstLanguage = Constant.ML_ENGLISH;
+
+    private MLTextAnalyzer textAnalyzer;
+    private MLTtsEngine mlTtsEngine;
+    private MLRemoteTranslator mlRemoteTranslator;
+
+    private ActivityReadPhotoBinding binding;
+
+    final ActivityResultLauncher<Void> chooseLocalImage = registerForActivityResult(
+            new ReadPhotoActivityContracts.ChoosePictureContract(), result -> {
+                if(result != null) {
+                    final Bitmap bitmap = loadBitmap(result);
+
+                }
+            });
+
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        this.setContentView(R.layout.activity_read_photo);
+        binding = ActivityReadPhotoBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Intent intent = this.getIntent();
-        try {
-            //this.srcLanguage = intent.getStringExtra(Constant.SOURCE_VALUE);
-            //this.dstLanguage = intent.getStringExtra(Constant.DEST_VALUE);
-        } catch (RuntimeException e) {
-            Log.e(ReadPhotoActivity.TAG, "Get intent value failed:" + e.getMessage());
+        final Intent intent = getIntent();
+        if(intent.hasExtra(EXTRA_SOURCE_LANGUAGE)) {
+            srcLanguage = intent.getStringExtra(EXTRA_SOURCE_LANGUAGE);
         }
 
-        this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ReadPhotoActivity.this.finish();
-            }
-        });
+        if(intent.hasExtra(EXTRA_DESTINATION_LANGUAGE)) {
+            dstLanguage = intent.getStringExtra(EXTRA_DESTINATION_LANGUAGE);
+        }
 
-        this.isLandScape =
-                (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
-        textTTS = new TextTTS(this,dstLanguage);
-        this.initView();
-        this.initAction();
-        textTTS.createTtsEngine();
-        mlTtsEngine = textTTS.getMlTtsEngine();
+        initTextAnalyser();
+        initRemoteTranslator();
+        initActions();
     }
 
-    private void initView() {
-        this.relativeLayoutLoadPhoto = this.findViewById(R.id.relativate_chooseImg);
-        this.relativeLayoutTakePhoto = this.findViewById(R.id.relativate_camera);
-        this.relativeLayoutRead = this.findViewById(R.id.relativate_read);
-        relativateTranslate = findViewById(R.id.relativate_translate);
-        this.preview = this.findViewById(R.id.previewPane);
-        this.textView = this.findViewById(R.id.translate_result);
-        mEd_text = findViewById(R.id.et_input);
-
-        graphicOverlayLayout = (LinearLayout.LayoutParams) preview.getLayoutParams();
+    private void initTextAnalyser() {
+        final MLLocalTextSetting setting = new MLLocalTextSetting.Factory()
+                .setOCRMode(MLLocalTextSetting.OCR_DETECT_MODE)
+                .setLanguage(srcLanguage)
+                .create();
+        textAnalyzer = MLAnalyzerFactory.getInstance().getLocalTextAnalyzer(setting);
     }
 
-    private void initAction() {
-        this.relativeLayoutLoadPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ReadPhotoActivity.this.selectLocalImage(ReadPhotoActivity.this.REQUEST_CHOOSE_ORIGINPIC);
-            }
+    private void initRemoteTranslator() {
+        final MLRemoteTranslateSetting setting = new MLRemoteTranslateSetting.Factory()
+                .setSourceLangCode(srcLanguage)
+                .setTargetLangCode(dstLanguage)
+                .create();
+        mlRemoteTranslator = MLTranslatorFactory.getInstance().getRemoteTranslator(setting);
+    }
+
+    private void initActions() {
+        binding.tvActReadPhotoSelectPicture.setOnClickListener(v ->
+            chooseLocalImage.launch(null)
+        );
+
+        binding.tvActReadPhotoTakePicture.setOnClickListener(v -> {
+            takePhoto(ReadPhotoActivity.this.REQUEST_TAKE_PHOTO);
         });
 
         this.relativeLayoutTakePhoto.setOnClickListener(new View.OnClickListener() {
@@ -182,6 +189,36 @@ public class ReadPhotoActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK, null);
         intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
         this.startActivityForResult(intent, requestCode);
+    }
+
+    private @NonNull Bitmap loadBitmap(final Uri imageUri) {
+        final int targetWidth = binding.svActReadPhotoPaneContainer.getWidth();
+        final int targetHeight = binding.svActReadPhotoPaneContainer.getHeight();
+        return BitmapUtils.loadFromPath(getContentResolver(), imageUri, targetWidth, targetHeight);
+    }
+
+    private void processBitmap(final Bitmap bitmap) {
+        binding.ivActReadPhotoPreview.setImageBitmap(bitmap);
+        
+        lifecycleScope.launch {
+            try {
+                setActionButtonEnabled(false)
+                val mlText = textAnalyzer.asyncAnalyseFrame(MLFrame.fromBitmap(bitmap)).await()
+                val sourceText = mlText.stringValue
+                etActReadPhotoInput.setText(sourceText)
+
+                if(sourceText.isNotBlank()) {
+                    val translated = remoteTranslator.asyncTranslate(sourceText.trim()).await()
+                    etActReadPhotoTranslated.setText(translated)
+                }
+
+                setActionButtonEnabled(true)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to process bitmap", e)
+                setActionButtonEnabled(true)
+                Toast.makeText(this@ReadPhotoActivity, "Fail", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     @Override

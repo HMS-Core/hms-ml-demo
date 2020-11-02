@@ -13,14 +13,9 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-
 package com.huawei.mlkit.sample.photoreader.util;
 
 public class Constant {
-    /**
-     * image.
-     */
-    public static final String IMAGE_PATH_VALUE = "imagePath";
 
     public static final String ML_CHINESE = "zh";
     public static final String ML_ENGLISH = "en";

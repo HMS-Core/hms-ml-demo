@@ -122,30 +122,8 @@ class ReadPhotoActivity : AppCompatActivity() {
         }
     }
 
-    private class ChoosePictureContract : ActivityResultContract<Unit, Uri?>() {
-        override fun createIntent(context: Context, input: Unit?): Intent {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
-            return intent
-        }
 
-        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-            return intent?.data
-        }
-    }
 
-    private class TakePictureContract : ActivityResultContract<Unit, Bitmap?>() {
-        override fun createIntent(context: Context, input: Unit?): Intent {
-            return Intent(context, CapturePhotoActivity::class.java)
-        }
-
-        override fun parseResult(resultCode: Int, intent: Intent?): Bitmap? {
-            return intent?.getStringExtra(IMAGE_PATH_VALUE)?.let {
-                val fis = FileInputStream(it)
-                BitmapFactory.decodeStream(fis)
-            }
-        }
-    }
 
     public override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
