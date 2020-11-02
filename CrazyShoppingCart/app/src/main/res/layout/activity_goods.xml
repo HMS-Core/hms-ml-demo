@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context="com.huawei.mlkit.sample.activity.GoodsActivity">
+
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundwall" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/ground" />
+
+    <TextView
+        android:id="@+id/topscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/scorebox"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="28dp"
+        android:text="@string/score"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/scorebox"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/time"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#ffffff"/>
+
+
+    <LinearLayout
+        android:id="@+id/startgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="220dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="271dp"
+            android:layout_height="158dp"
+            android:orientation="vertical"
+            android:background="@drawable/startbackground"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/hand"
+                android:layout_marginTop="19dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#AE4924"
+                android:textSize="16sp"
+                android:text="@string/hand"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="30dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="140dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/button"
+            android:text="@string/startgame"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gameover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="207dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/endbackground"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:text="@string/gameover"
+                android:textSize="18sp"
+                android:layout_marginTop="9dp"/>
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textColor="#AE4924"
+                android:textSize="40sp"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AE4924"
+                android:textSize="16sp"
+                android:text="@string/scorestring" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="26dp">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back"
+                android:layout_marginLeft="47dp"/>
+            <Button
+                android:id="@+id/restart"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/button"
+                android:text="@string/restart"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="19dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.huawei.mlkit.sample.views.GameGraphic
+        android:id="@+id/graphic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
