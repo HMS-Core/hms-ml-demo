@@ -21,6 +21,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.annotation.NonNull;
@@ -32,6 +33,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class ReadPhotoActivityContracts {
+
+    public static final String TAG = ReadPhotoActivityContracts.class.getCanonicalName();
 
     public static final String IMAGE_PATH_VALUE = "imagePath";
 
@@ -67,12 +70,12 @@ public class ReadPhotoActivityContracts {
             }
 
             final String path = intent.getStringExtra(IMAGE_PATH_VALUE);
-            final FileInputStream fis;
             try {
-                fis = new FileInputStream(path);
+                final FileInputStream fis = new FileInputStream(path);
                 return BitmapFactory.decodeStream(fis);
             } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
+                Log.e(TAG, "Camera image could not be found: " + e.getMessage());
+                return null;
             }
         }
     }

@@ -122,9 +122,6 @@ class ReadPhotoActivity : AppCompatActivity() {
         }
     }
 
-
-
-
     public override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
         setContentView(R.layout.activity_read_photo)

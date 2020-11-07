@@ -13,123 +13,109 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-
-
 package com.huawei.mlkit.sample.photoreader.camera;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.huawei.mlkit.lensengine.CameraConfiguration;
 import com.huawei.mlkit.lensengine.LensEngine;
-import com.huawei.mlkit.lensengine.LensEnginePreview;
-import com.huawei.mlkit.sample.photoreader.R;
-import com.huawei.mlkit.sample.photoreader.util.Constant;
+import com.huawei.mlkit.sample.photoreader.databinding.ActivityCapturePhotoBinding;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class CapturePhotoActivity extends AppCompatActivity {
+
     private static final String TAG = "CapturePhotoActivity";
-    private LensEngine lensEngine = null;
-    private LensEnginePreview preview;
-    private CameraConfiguration cameraConfiguration = null;
-    private int facing = CameraConfiguration.CAMERA_FACING_BACK;
+    public static final String IMAGE_PATH_VALUE = "imagePath";
+
+    private LensEngine lensEngine;
+
+    private ActivityCapturePhotoBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_capture_photo);
-        ImageButton takePhotoButton = findViewById(R.id.img_takePhoto);
-        takePhotoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CapturePhotoActivity.this.toTakePhoto();
-            }
-        });
-        ImageButton backButton = findViewById(R.id.capture_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CapturePhotoActivity.this.finish();
-            }
-        });
-        this.preview = this.findViewById(R.id.capture_preview);
-        this.cameraConfiguration = new CameraConfiguration();
-        this.cameraConfiguration.setCameraFacingBack(this.facing);
-        this.createLensEngine();
-        this.startLensEngine();
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        binding = ActivityCapturePhotoBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.ivActCapturePhotoTakePhoto.setOnClickListener(v -> toTakePhoto());
+        createLensEngine();
     }
 
     private void createLensEngine() {
-        if (this.lensEngine == null) {
-            this.lensEngine = new LensEngine(this, this.cameraConfiguration);
-        }
+        final CameraConfiguration configuration = new CameraConfiguration();
+        configuration.setCameraFacingBack(CameraConfiguration.CAMERA_FACING_BACK);
+        lensEngine = new LensEngine(this, configuration);
     }
 
     private void startLensEngine() {
-        if (this.lensEngine != null) {
-            try {
-                this.preview.start(this.lensEngine, false);
-            } catch (IOException e) {
-                Log.e(CapturePhotoActivity.TAG, "Unable to start lensEngine.", e);
-                this.lensEngine.release();
-                this.lensEngine = null;
-            }
+        try {
+            binding.lepActCapturePhoto.start(this.lensEngine, false);
+        } catch (IOException e) {
+            Log.e(CapturePhotoActivity.TAG, "Unable to start lensEngine.", e);
+            this.lensEngine.release();
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        this.startLensEngine();
+        startLensEngine();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        this.preview.stop();
+        binding.lepActCapturePhoto.stop();;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            super.onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (this.lensEngine != null) {
-            this.lensEngine.release();
-        }
-        this.facing = CameraConfiguration.CAMERA_FACING_BACK;
-        this.cameraConfiguration.setCameraFacingBack(this.facing);
+        lensEngine.release();
     }
 
     private void toTakePhoto() {
-        lensEngine.takePicture(new Camera.PictureCallback() {
-            @Override
-            public void onPictureTaken(byte[] data, Camera camera) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-                String filePath = null;
-                try {
-                    filePath = saveBitmapToDisk(bitmap);
-                } catch (IOException e) {
-                    Log.e(TAG, "Save bitmap failed: " + e.getMessage());
-                }
-                Intent intent = new Intent();
-                intent.putExtra(Constant.IMAGE_PATH_VALUE, filePath);
-                setResult(Activity.RESULT_OK, intent);
-                CapturePhotoActivity.this.finish();
+        lensEngine.takePicture((data, camera) -> {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            String filePath = null;
+            try {
+                filePath = saveBitmapToDisk(bitmap);
+            } catch (IOException e) {
+                Log.e(TAG, "Save bitmap failed: " + e.getMessage());
             }
+            Intent intent = new Intent();
+            intent.putExtra(IMAGE_PATH_VALUE, filePath);
+            setResult(Activity.RESULT_OK, intent);
+            CapturePhotoActivity.this.finish();
         });
     }
 
@@ -144,8 +130,8 @@ public class CapturePhotoActivity extends AppCompatActivity {
             }
         }
 
-        String fileName = System.currentTimeMillis() + ".jpg";
-        File file = new File(appDir, fileName);
+        final String fileName = System.currentTimeMillis() + ".jpg";
+        final File file = new File(appDir, fileName);
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(file);
@@ -156,9 +142,7 @@ public class CapturePhotoActivity extends AppCompatActivity {
 
             Uri uri = Uri.fromFile(file);
             this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
-        } catch (FileNotFoundException e) {
-            Log.e(TAG, "Save bitmap failed: " + e.getMessage());
-        }  catch (IOException e) {
+        } catch (IOException e) {
             Log.e(TAG, "Save bitmap failed: " + e.getMessage());
         } finally {
             try {
@@ -168,7 +152,6 @@ public class CapturePhotoActivity extends AppCompatActivity {
             } catch (IOException e) {
                 Log.e(TAG, "Close stream failed: " + e.getMessage());
             }
-            fos = null;
         }
 
         return file.getCanonicalPath();
