@@ -111,7 +111,7 @@ class ReadPhotoActivity : AppCompatActivity() {
         onPictureResult(it)
     }
 
-    private var bitmapFactory : BitmapFactory? = null
+    private var bitmapFactoryToPersist : BitmapFactory? = null
 
     public override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
@@ -193,7 +193,7 @@ class ReadPhotoActivity : AppCompatActivity() {
 
     private fun onPictureResult(bitmapFactory: BitmapFactory?) {
         bitmapFactory?.let {
-            this.bitmapFactory = it
+            this.bitmapFactoryToPersist = it
             val bitmap = loadBitMap(it)
             processBitmap(bitmap)
         }
@@ -225,7 +225,7 @@ class ReadPhotoActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         savedInstanceState.getParcelable<BitmapFactory>(EXTRA_BITMAP_FACTORY)?.let {
-            bitmapFactory = it
+            bitmapFactoryToPersist = it
             ivActReadPhotoPreview.post { //good old post to wait until view hierarchy is measured ;-)
                 val bitmap = loadBitMap(it)
                 ivActReadPhotoPreview.setImageBitmap(bitmap)
@@ -240,7 +240,9 @@ class ReadPhotoActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelable(EXTRA_BITMAP_FACTORY, bitmapFactory)
+        bitmapFactoryToPersist?.let {
+            outState.putParcelable(EXTRA_BITMAP_FACTORY, it)
+        }
     }
 
     public override fun onDestroy() {

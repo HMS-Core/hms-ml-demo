@@ -17,7 +17,6 @@ package com.huawei.mlkit.sample.photoreader.java;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -43,7 +42,6 @@ import com.huawei.hms.mlsdk.tts.MLTtsConstants;
 import com.huawei.hms.mlsdk.tts.MLTtsEngine;
 import com.huawei.hms.mlsdk.tts.MLTtsError;
 import com.huawei.hms.mlsdk.tts.MLTtsWarn;
-import com.huawei.mlkit.lensengine.BitmapUtils;
 import com.huawei.mlkit.sample.photoreader.Constant;
 import com.huawei.mlkit.sample.photoreader.R;
 import com.huawei.mlkit.sample.photoreader.databinding.ActivityReadPhotoBinding;
@@ -51,13 +49,13 @@ import com.huawei.mlkit.sample.photoreader.databinding.ActivityReadPhotoBinding;
 import static com.huawei.mlkit.sample.photoreader.Constant.ML_CHINESE;
 import static com.huawei.mlkit.sample.photoreader.Constant.ML_TTS_MAX_ALLOWED_CHAR_LENGTH;
 
-
 public class ReadPhotoActivity extends AppCompatActivity {
 
     private static final String TAG = "ReadPhotoActivity";
 
     public static final String EXTRA_SOURCE_LANGUAGE = "EXTRA_SOURCE_LANGUAGE";
     public static final String EXTRA_DESTINATION_LANGUAGE = "EXTRA_DESTINATION_LANGUAGE";
+    private static final String EXTRA_BITMAP_FACTORY = "EXTRA_BITMAP_FACTORY";
 
     private String srcLanguage = ML_CHINESE;
     private String dstLanguage = Constant.ML_ENGLISH;
@@ -69,16 +67,12 @@ public class ReadPhotoActivity extends AppCompatActivity {
     private ActivityReadPhotoBinding binding;
 
     private final ActivityResultLauncher<Void> chooseLocalImage = registerForActivityResult(
-            new ReadPhotoActivityContracts.ChoosePictureContract(), result -> {
-                if (result != null) {
-                    final Bitmap bitmap = loadBitmap(result);
-                    processBitmap(bitmap);
-                }
-            });
+            new ReadPhotoActivityContracts.ChoosePictureContract(), this::onPictureResult);
 
     private final ActivityResultLauncher<Void> takePictureContract = registerForActivityResult(
-            new ReadPhotoActivityContracts.TakePictureContract(), this::processBitmap
-    );
+            new ReadPhotoActivityContracts.TakePictureContract(), this::onPictureResult);
+
+    private ReadPhotoActivityContracts.BitmapFactory bitmapFactoryToPersist = null;
 
     @Override
     public void onCreate(Bundle savedInstance) {
@@ -212,10 +206,18 @@ public class ReadPhotoActivity extends AppCompatActivity {
         });
     }
 
-    private @NonNull Bitmap loadBitmap(final Uri imageUri) {
+    private void onPictureResult(final ReadPhotoActivityContracts.BitmapFactory bitmapFactory) {
+        if(bitmapFactory == null)
+            return;
+
+        this.bitmapFactoryToPersist = bitmapFactory;
+        processBitmap(loadBitMap(bitmapFactory));
+    }
+
+    private Bitmap loadBitMap(final ReadPhotoActivityContracts.BitmapFactory bitmapFactory) {
         final int targetWidth = binding.svActReadPhotoPaneContainer.getWidth();
         final int targetHeight = binding.svActReadPhotoPaneContainer.getHeight();
-        return BitmapUtils.loadFromMediaUri(getContentResolver(), imageUri, targetWidth, targetHeight);
+        return bitmapFactory.buildBitmap(getContentResolver(), targetWidth, targetHeight);
     }
 
     private void processBitmap(final Bitmap bitmap) {
@@ -267,9 +269,32 @@ public class ReadPhotoActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        final ReadPhotoActivityContracts.BitmapFactory bitmapFactory =
+                (ReadPhotoActivityContracts.BitmapFactory) savedInstanceState.getSerializable(EXTRA_BITMAP_FACTORY);
+
+        if(bitmapFactory != null) {
+            bitmapFactoryToPersist = bitmapFactory;
+            binding.ivActReadPhotoPreview.post(() -> { //good old post to wait until view hierarchy is measured ;-)
+                binding.ivActReadPhotoPreview.setImageBitmap(loadBitMap(bitmapFactory));
+            });
+        }
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         mlTtsEngine.stop();
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if(bitmapFactoryToPersist != null) {
+            outState.putSerializable(EXTRA_BITMAP_FACTORY, bitmapFactoryToPersist);
+        }
     }
 
     @Override

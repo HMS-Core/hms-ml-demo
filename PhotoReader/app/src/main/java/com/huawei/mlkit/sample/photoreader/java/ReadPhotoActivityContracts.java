@@ -15,28 +15,26 @@
  */
 package com.huawei.mlkit.sample.photoreader.java;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
 
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.huawei.mlkit.lensengine.BitmapUtils;
+
+import java.io.Serializable;
+
+import static com.huawei.mlkit.sample.photoreader.Constant.EXTRA_IMAGE_PATH;
 
 public class ReadPhotoActivityContracts {
 
-    public static final String TAG = ReadPhotoActivityContracts.class.getCanonicalName();
-
-    public static final String IMAGE_PATH_VALUE = "imagePath";
-
-    static class ChoosePictureContract extends ActivityResultContract<Void, Uri> {
+    static class ChoosePictureContract extends ActivityResultContract<Void, BitmapFactory> {
 
         @NonNull
         @Override
@@ -48,12 +46,12 @@ public class ReadPhotoActivityContracts {
 
         @Nullable
         @Override
-        public Uri parseResult(int resultCode, @Nullable Intent intent) {
-            return intent != null ? intent.getData() : null;
+        public BitmapFactory parseResult(int resultCode, @Nullable Intent intent) {
+            return intent != null ? new MediaDataBitmapFactory(intent.getData()) : null;
         }
     }
 
-    static class TakePictureContract extends ActivityResultContract<Void, Bitmap> {
+    static class TakePictureContract extends ActivityResultContract<Void, BitmapFactory> {
 
         @NonNull
         @Override
@@ -62,19 +60,48 @@ public class ReadPhotoActivityContracts {
         }
 
         @Override
-        public Bitmap parseResult(int resultCode, @Nullable Intent intent) {
-            if(intent == null) {
+        public BitmapFactory parseResult(int resultCode, @Nullable Intent intent) {
+            if(intent == null || intent.getStringExtra(EXTRA_IMAGE_PATH) == null) {
                 return null;
             }
 
-            final String path = intent.getStringExtra(IMAGE_PATH_VALUE);
-            try {
-                final FileInputStream fis = new FileInputStream(path);
-                return BitmapFactory.decodeStream(fis);
-            } catch (FileNotFoundException e) {
-                Log.e(TAG, "Camera image could not be found: " + e.getMessage());
-                return null;
-            }
+            final String path = intent.getStringExtra(EXTRA_IMAGE_PATH);
+            return new CameraPictureBitmapFactory(path);
+        }
+    }
+
+    interface BitmapFactory extends Serializable {
+        @NonNull
+        Bitmap buildBitmap(final ContentResolver contentResolver, final int width, final int height);
+    }
+
+    private static class CameraPictureBitmapFactory implements BitmapFactory {
+
+        private final String picturePath;
+
+        private CameraPictureBitmapFactory(String picturePath) {
+            this.picturePath = picturePath;
+        }
+
+        @NonNull
+        @Override
+        public Bitmap buildBitmap(ContentResolver contentResolver, int width, int height) {
+            return BitmapUtils.loadFromFilePath(picturePath, width, height);
+        }
+    }
+
+    private static class MediaDataBitmapFactory implements BitmapFactory {
+
+        private final Uri fileUri;
+
+        private MediaDataBitmapFactory(Uri fileUri) {
+            this.fileUri = fileUri;
+        }
+
+        @NonNull
+        @Override
+        public Bitmap buildBitmap(ContentResolver contentResolver, int width, int height) {
+            return BitmapUtils.loadFromMediaUri(contentResolver, fileUri, width, height);
         }
     }
 }
