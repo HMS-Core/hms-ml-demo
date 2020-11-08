@@ -21,7 +21,6 @@ package com.huawei.mlkit.sample.photoreader.kotlin
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.util.Pair
@@ -37,7 +36,6 @@ import com.huawei.hms.mlsdk.text.MLTextAnalyzer
 import com.huawei.hms.mlsdk.translate.MLTranslatorFactory
 import com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslateSetting
 import com.huawei.hms.mlsdk.tts.*
-import com.huawei.mlkit.lensengine.BitmapUtils
 import com.huawei.mlkit.sample.photoreader.Constant.*
 import kotlinx.android.synthetic.main.activity_read_photo.*
 import kotlinx.coroutines.launch
@@ -105,18 +103,15 @@ class ReadPhotoActivity : AppCompatActivity() {
         mlTtsEngine
     }
 
-    private val pictureChooserRequest = (this as ComponentActivity).registerForActivityResult(ChoosePictureContract()) { uri: Uri? ->
-        uri?.let {
-            val bitmap = loadBitMap(it)
-            processBitmap(bitmap)
-        }
+    private val pictureChooserRequest = (this as ComponentActivity).registerForActivityResult(ChoosePictureContract()) {
+        onPictureResult(it)
     }
 
-    private val takePictureRequest = (this as ComponentActivity).registerForActivityResult(TakePictureContract()) { bitmap: Bitmap? ->
-        bitmap?.let {
-            processBitmap(it)
-        }
+    private val takePictureRequest = (this as ComponentActivity).registerForActivityResult(TakePictureContract()) {
+        onPictureResult(it)
     }
+
+    private var bitmapFactory : BitmapFactory? = null
 
     public override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
@@ -196,10 +191,18 @@ class ReadPhotoActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadBitMap(imageUri: Uri) : Bitmap {
+    private fun onPictureResult(bitmapFactory: BitmapFactory?) {
+        bitmapFactory?.let {
+            this.bitmapFactory = it
+            val bitmap = loadBitMap(it)
+            processBitmap(bitmap)
+        }
+    }
+
+    private fun loadBitMap(bitmapFactory: BitmapFactory) : Bitmap {
         val targetWidth = svActReadPhotoPaneContainer.width
         val targetHeight = svActReadPhotoPaneContainer.height
-        return BitmapUtils.loadFromPath(contentResolver, imageUri, targetWidth, targetHeight)
+        return bitmapFactory.buildBitmap(contentResolver, targetWidth, targetHeight)
     }
 
     private fun setActionButtonEnabled(enabled: Boolean) {
@@ -219,9 +222,25 @@ class ReadPhotoActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        savedInstanceState.getParcelable<BitmapFactory>(EXTRA_BITMAP_FACTORY)?.let {
+            bitmapFactory = it
+            ivActReadPhotoPreview.post { //good old post to wait until view hierarchy is measured ;-)
+                val bitmap = loadBitMap(it)
+                ivActReadPhotoPreview.setImageBitmap(bitmap)
+            }
+        }
+    }
+
     override fun onStop() {
         super.onStop()
         ttsEngine.stop()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(EXTRA_BITMAP_FACTORY, bitmapFactory)
     }
 
     public override fun onDestroy() {
@@ -247,6 +266,7 @@ class ReadPhotoActivity : AppCompatActivity() {
         }
 
         private const val TAG = "ReadPhotoActivity"
+        private const val EXTRA_BITMAP_FACTORY = "EXTRA_PICTURE_URI"
         private const val EXTRA_SOURCE_LANGUAGE = "EXTRA_SOURCE_LANGUAGE"
         private const val EXTRA_DESTINATION_LANGUAGE = "EXTRA_DESTINATION_LANGUAGE"
     }

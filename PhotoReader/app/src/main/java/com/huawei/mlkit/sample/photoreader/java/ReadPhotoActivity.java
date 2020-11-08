@@ -215,7 +215,7 @@ public class ReadPhotoActivity extends AppCompatActivity {
     private @NonNull Bitmap loadBitmap(final Uri imageUri) {
         final int targetWidth = binding.svActReadPhotoPaneContainer.getWidth();
         final int targetHeight = binding.svActReadPhotoPaneContainer.getHeight();
-        return BitmapUtils.loadFromPath(getContentResolver(), imageUri, targetWidth, targetHeight);
+        return BitmapUtils.loadFromMediaUri(getContentResolver(), imageUri, targetWidth, targetHeight);
     }
 
     private void processBitmap(final Bitmap bitmap) {

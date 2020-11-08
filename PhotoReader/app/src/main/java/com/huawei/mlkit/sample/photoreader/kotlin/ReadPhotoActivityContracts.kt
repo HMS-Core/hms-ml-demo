@@ -15,37 +15,58 @@
  */
 package com.huawei.mlkit.sample.photoreader.kotlin
 
+import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Parcelable
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContract
+import com.huawei.mlkit.lensengine.BitmapUtils
 import com.huawei.mlkit.sample.photoreader.Constant.EXTRA_IMAGE_PATH
-import java.io.FileInputStream
+import kotlinx.android.parcel.Parcelize
 
-class ChoosePictureContract : ActivityResultContract<Unit, Uri?>() {
+class ChoosePictureContract : ActivityResultContract<Unit, BitmapFactory?>() {
     override fun createIntent(context: Context, input: Unit?): Intent {
         val intent = Intent(Intent.ACTION_PICK)
         intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
         return intent
     }
 
-    override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-        return intent?.data
+    override fun parseResult(resultCode: Int, intent: Intent?): BitmapFactory? {
+        return intent?.data?.let {
+            MediaDataBitmapFactory(it)
+        }
     }
 }
 
-class TakePictureContract : ActivityResultContract<Unit, Bitmap?>() {
+class TakePictureContract : ActivityResultContract<Unit, BitmapFactory?>() {
     override fun createIntent(context: Context, input: Unit?): Intent {
         return Intent(context, CapturePhotoActivity::class.java)
     }
 
-    override fun parseResult(resultCode: Int, intent: Intent?): Bitmap? {
+    override fun parseResult(resultCode: Int, intent: Intent?): BitmapFactory? {
         return intent?.getStringExtra(EXTRA_IMAGE_PATH)?.let {
-            val fis = FileInputStream(it)
-            BitmapFactory.decodeStream(fis)
+            CameraPictureBitmapFactory(it)
         }
+    }
+}
+
+interface BitmapFactory : Parcelable {
+    fun buildBitmap(contentResolver: ContentResolver, width : Int, height : Int) : Bitmap
+}
+
+@Parcelize
+private class CameraPictureBitmapFactory(private val picturePath : String) : BitmapFactory {
+    override fun buildBitmap(contentResolver: ContentResolver, width: Int, height: Int): Bitmap {
+        return BitmapUtils.loadFromFilePath(picturePath, width, height)
+    }
+}
+
+@Parcelize
+private class MediaDataBitmapFactory(private val fileUri : Uri) : BitmapFactory {
+    override fun buildBitmap(contentResolver: ContentResolver, width: Int, height: Int): Bitmap {
+        return BitmapUtils.loadFromMediaUri(contentResolver, fileUri, width, height);
     }
 }
