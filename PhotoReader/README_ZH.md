@@ -23,16 +23,18 @@ Photo Reader使用华为ML Kit的文字识别，翻译和语音合成功能，�
 
 ##### 代码模块目录结构
 
-- App, 全部用Java实现的
-- Kotlin, 全部用Kotlin实现的
+- App, 用Java和Kotlin实现的
 - Lensengine, 封装基于用Java编写的相机实现，用旧android相机API
 
 ## 工程目录结构
 PhotoReader
     |-- com.huawei.mlkit.sample.photoreader
         |-- Activity
-            |-- MainActivity //入口
-            |-- ReadPhotoActivity // 功能界面
+            |-- LauncherActivity //入口
+                |-- java.MainActivity
+                |-- java.ReadPhotoActivity // 功能界面
+                |-- kotlin.MainActivity
+                |-- kotlin.ReadPhotoActivity // 功能界面
 
 ## 更多场景
 华为的文字识别和语音合成还可以帮助开发者实现更多有趣和强大的功能，例如：
