@@ -77,13 +77,6 @@ public class ReadPhotoActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        final ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
-        binding = ActivityReadPhotoBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
         final Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_SOURCE_LANGUAGE)) {
@@ -93,6 +86,15 @@ public class ReadPhotoActivity extends AppCompatActivity {
         if (intent.hasExtra(EXTRA_DESTINATION_LANGUAGE)) {
             dstLanguage = intent.getStringExtra(EXTRA_DESTINATION_LANGUAGE);
         }
+
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        binding = ActivityReadPhotoBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.etActReadPhotoInput.setHint(getString(R.string.recognised_text, srcLanguage));
+        binding.etActReadPhotoTranslated.setHint(getString(R.string.recognised_text, dstLanguage));
 
         initTextAnalyser();
         initRemoteTranslator();
