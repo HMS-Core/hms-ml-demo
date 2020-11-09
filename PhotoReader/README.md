@@ -21,16 +21,18 @@ This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/c
 
 ##### Following Modules are available
 
-- App Module, which is written in Java fully
-- Kotlin Module, which is written in Kotlin fully
+- App Module, which provides implementations in Java and Kotlin
 - Lensengine Module, which is encapsulating the camera implementation based on old android camera API, written in Java
 
 ## Project Directory Structure
 PhotoReader
     |-- com.huawei.mlkit.sample.photoreader
         |-- Activity
-            |-- MainActivity //Entry
-            |-- ReadPhotoActivity // Function interface
+            |-- LauncherActivity //Entry
+                |-- java.MainActivity
+                |-- java.ReadPhotoActivity // Function interface
+                |-- kotlin.MainActivity
+                |-- kotlin.ReadPhotoActivity // Function interface
 
 ## More Scenarios
 Huawei's text recognition and translation services can help you implement more interesting and powerful functions, such as:

@@ -30,7 +30,7 @@ import java.io.IOException;
 public class BitmapUtils {
     private static final String TAG = "BitmapUtils";
 
-    private static String getImagePath(ContentResolver contentResolver, Uri uri) {
+    private static String getImagePathFromMediaStore(ContentResolver contentResolver, Uri uri) {
         String[] projection = {MediaStore.Images.Media.DATA};
         Cursor cursor = contentResolver.query(uri, projection, null, null, null);
         int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
@@ -40,17 +40,20 @@ public class BitmapUtils {
         return path;
     }
 
-    public static Bitmap loadFromPath(ContentResolver contentResolver, Uri uri, int width, int height) {
+    public static Bitmap loadFromMediaUri(ContentResolver contentResolver, Uri uri, int width, int height) {
+        return loadFromFilePath(getImagePathFromMediaStore(contentResolver, uri), width, height);
+    }
+
+    public static Bitmap loadFromFilePath(final String filePath, int width, int height) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
 
-        String path = getImagePath(contentResolver, uri);
-        BitmapFactory.decodeFile(path, options);
+        BitmapFactory.decodeFile(filePath, options);
         options.inSampleSize = calculateInSampleSize(options, width, height);
         options.inJustDecodeBounds = false;
 
-        Bitmap bitmap = zoomImage(BitmapFactory.decodeFile(path, options), width, height);
-        return rotateBitmap(bitmap, getRotationAngle(path));
+        Bitmap bitmap = zoomImage(BitmapFactory.decodeFile(filePath, options), width, height);
+        return rotateBitmap(bitmap, getRotationAngle(filePath));
     }
 
     private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
@@ -129,6 +132,4 @@ public class BitmapUtils {
         }
         return result;
     }
-
 }
-
