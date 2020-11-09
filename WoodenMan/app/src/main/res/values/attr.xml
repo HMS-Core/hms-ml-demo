@@ -8,5 +8,19 @@
         <attr name="leftDownCorner" format="boolean" />
         <attr name="rightDownCorner" format="boolean" />
     </declare-styleable>
-    
+    <!--  count down  -->
+    <declare-styleable name="CircleProgressBar">
+        <attr name="outside_color" format="color" />
+        <attr name="outside_radius" format="dimension" />
+        <attr name="inside_color" format="color" />
+        <attr name="progress_width" format="dimension" />
+        <attr name="max_progress" format="integer" />
+        <attr name="progress" format="float" />
+        <attr name="direction">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>

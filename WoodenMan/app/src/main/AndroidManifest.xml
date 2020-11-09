@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -47,6 +50,16 @@
 
         <activity
             android:name="com.huawei.hms.mlkit.sample.activity.ModelGameStartOneActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+
+        <activity android:name="com.huawei.hms.mlkit.sample.activity.TongueTwisterActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+
+        <activity android:name="com.huawei.hms.mlkit.sample.activity.RecruitRulesActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:exported="true" />

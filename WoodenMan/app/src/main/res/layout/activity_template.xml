@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Template preview"
+            android:text="@string/preview"
             android:textColor="#000000"
             android:textSize="19dp" />
     </androidx.appcompat.widget.Toolbar>

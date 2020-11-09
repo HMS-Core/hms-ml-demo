@@ -20,7 +20,7 @@
         android:textSize="15dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:text="Please enter threshold" />
+        android:text="@string/please" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:inputType="numberDecimal"
-                android:hint="Decimal between 0 and 1"
+                android:hint="@string/et_hiht"
                 android:maxLength="6"/>
             <View
                 android:id="@+id/mb_or_gb_layout_line"
@@ -72,7 +72,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_default_disabled_emui"
-            android:text="@android:string/cancel"
+            android:text="@string/cancel"
             android:layout_marginRight="6dp">
         </Button>
         <Button
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_default_disabled_emui"
             android:layout_marginLeft="6dp"
-            android:text="@android:string/ok">
+            android:text="@string/ok">
         </Button>
     </LinearLayout>
 

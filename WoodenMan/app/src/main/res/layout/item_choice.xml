@@ -33,7 +33,7 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Choice Title" />
+                tools:text="@string/title" />
 
 
             <TextView
@@ -47,7 +47,7 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@+id/item_title"
                 app:layout_constraintTop_toBottomOf="@+id/item_title"
-                tools:text="Choice Description" />
+                tools:text="@string/description" />
 
             <Button
                 android:id="@+id/item_launch_button"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Open"
+                android:text="@string/open"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_description" />

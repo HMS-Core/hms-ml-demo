@@ -30,7 +30,7 @@
         android:layout_below="@id/item_image1"
         android:layout_alignStart="@id/item_image1"
         android:layout_alignEnd="@id/item_image1"
-        android:text="华为基地"
+        android:text="@string/hw"
         android:textAlignment="center"
         android:visibility="gone"/>
 
