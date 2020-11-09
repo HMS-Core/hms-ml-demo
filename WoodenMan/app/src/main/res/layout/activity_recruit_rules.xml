@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tongue_twister"
+    tools:context="com.huawei.hms.mlkit.sample.activity.RecruitRulesActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="19dp"
+        android:layout_height="20.5dp"
+        android:layout_marginStart="25.75dp"
+        android:layout_marginTop="24.5dp"
+        android:background="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/rules_title"
+        android:layout_marginTop="@dimen/dp_87"
+        android:layout_marginStart="@dimen/dp_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tongue_rules"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/wood_white"
+        android:fontFamily="HYQiHei 65S"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_35"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_24"
+        app:layout_constraintTop_toBottomOf="@id/rules_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rules_content"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/wood_white"
+        android:fontFamily="HYQiHei 55S"
+        tools:ignore="SpUsage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

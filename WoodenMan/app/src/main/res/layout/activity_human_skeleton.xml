@@ -9,24 +9,6 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-    <!--<com.huawei.hms.mlkit.sample.camera1.CameraSourcePreview
-        android:id="@+id/firePreview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="-2dp">
-
-        <com.huawei.hms.mlkit.sample.views.overlay.GraphicOverlay
-            android:id="@+id/fireFaceOverlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true" />
-    </com.huawei.hms.mlkit.sample.camera1.CameraSourcePreview>-->
-
     <com.huawei.hms.mlkit.sample.camera.LensEnginePreview
         android:id="@+id/firePreview"
         android:layout_width="match_parent"
@@ -58,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="54dp"
-            android:text="拍张大会纪念照"
+            android:text="@string/photo_souvenir"
             android:textColor="#FFFFFFFF"
             android:textSize="20dp" />
 
@@ -143,7 +125,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:fontFamily="HWtext-55ST"
-            android:text="试试点击下方图片"
+            android:text="@string/click_img"
             android:textAlignment="center"
             android:textColor="#E6000000"
             android:textSize="14dp" />
@@ -166,7 +148,7 @@
             android:background="@drawable/bg_dialog_button"
             android:fontFamily="HWtext-65ST"
             android:gravity="center"
-            android:text="保存图库"
+            android:text="@string/save_gallery"
             android:textAlignment="center"
             android:textColor="#FFFFFFFF"
             android:textSize="16dp" />
@@ -182,7 +164,7 @@
             android:background="@drawable/bg_dialog_button"
             android:fontFamily="HWtext-65ST"
             android:gravity="center"
-            android:text="在玩一次"
+            android:text="@string/to_wan"
             android:textAlignment="center"
             android:textColor="#FFFFFFFF"
             android:textSize="16dp" />
@@ -238,7 +220,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Select Picture"
+                android:text="@string/select_img"
                 android:textColor="#626262"
                 android:textSize="11sp" />
         </RelativeLayout>
@@ -280,7 +262,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Cut"
+                android:text="@string/cut"
                 android:textColor="#626262"
                 android:textSize="11sp" />
 
@@ -323,7 +305,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Background"
+                android:text="@string/background"
                 android:textColor="#626262"
                 android:textSize="11sp" />
         </RelativeLayout>

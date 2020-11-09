@@ -62,6 +62,7 @@ public final class ChooserActivity extends BaseActivity
         findViewById(R.id.face).setOnClickListener(new ClickRepeat(this));
         findViewById(R.id.skeletons).setOnClickListener(new ClickRepeat(this));
         findViewById(R.id.model).setOnClickListener(new ClickRepeat(this));
+        findViewById(R.id.tongue).setOnClickListener(new ClickRepeat(this));
         findViewById(R.id.setting_img).setOnClickListener(new ClickRepeat(this));
         if (!allPermissionsGranted()) {
             getRuntimePermissions();
@@ -85,8 +86,13 @@ public final class ChooserActivity extends BaseActivity
             case R.id.model:
                 startActivity(new Intent(ChooserActivity.this, ModelGameActivity.class));
                 break;
+            case R.id.tongue:
+                startActivity(new Intent(ChooserActivity.this, TongueTwisterActivity.class));
+                break;
             case R.id.setting_img:
                 startActivity(new Intent(ChooserActivity.this, SettingActivity.class));
+                break;
+            default:
                 break;
         }
     }

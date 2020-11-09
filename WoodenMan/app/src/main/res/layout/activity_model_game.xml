@@ -10,25 +10,6 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-<!--    <com.huawei.hms.mlkit.sample.camera1.CameraSourcePreview-->
-<!--        android:id="@+id/firePreview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginStart="0dp"-->
-<!--        android:layout_marginTop="-2dp">-->
-
-<!--        <com.huawei.hms.mlkit.sample.views.overlay.GraphicOverlay-->
-<!--            android:id="@+id/fireFaceOverlay"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_alignParentBottom="true" />-->
-<!--    </com.huawei.hms.mlkit.sample.camera1.CameraSourcePreview>-->
-
-
     <com.huawei.hms.mlkit.sample.camera.LensEnginePreview
         android:id="@+id/firePreview"
         android:layout_width="match_parent"
@@ -93,7 +74,7 @@
             android:layout_width="42dp"
             android:layout_height="19dp"
             android:fontFamily="HWtext-65ST"
-            android:text="第一关"
+            android:text="@string/game_one"
             android:textAlignment="center"
             android:textColor="#FF000000"
             android:textSize="14dp"
@@ -184,7 +165,7 @@
             android:layout_height="18.5dp"
             android:layout_marginTop="24.5dp"
             android:fontFamily="HWtext-65ST"
-            android:text="游戏结束"
+            android:text="@string/over"
             android:textAlignment="center"
             android:textColor="#FFFFFFFF"
             android:textSize="14dp"
@@ -216,7 +197,7 @@
             android:background="@drawable/buttom_result"
             android:fontFamily="HWtext-65ST"
             android:gravity="center"
-            android:text="返回首页"
+            android:text="@string/back_home"
             android:textAlignment="center"
             android:textColor="#FFFFFFFF"
             android:textSize="16dp"
@@ -232,7 +213,7 @@
             android:background="@drawable/buttom_result"
             android:fontFamily="HWtext-65ST"
             android:gravity="center"
-            android:text="再玩一次"
+            android:text="@string/to_wan"
             android:textAlignment="center"
             android:textColor="#FFFFFFFF"
             android:textSize="16dp"
@@ -261,7 +242,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:layout_centerVertical="true"
-            android:text="摆POSE大闯关"
+            android:text="@string/text_post"
             android:textColor="#FFFFFFFF"
             android:textSize="20dp"
             android:visibility="gone"/>
@@ -368,7 +349,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Select Picture"
+                android:text="@string/select_img"
                 android:textColor="#626262"
                 android:textSize="11sp" />
         </RelativeLayout>
@@ -410,7 +391,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Cut"
+                android:text="@string/cut"
                 android:textColor="#626262"
                 android:textSize="11sp" />
 
@@ -453,7 +434,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Background"
+                android:text="@string/background"
                 android:textColor="#626262"
                 android:textSize="11sp" />
         </RelativeLayout>

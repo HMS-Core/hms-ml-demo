@@ -16,6 +16,7 @@
 
 package com.huawei.hms.mlkit.sample.activity;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -150,6 +151,7 @@ public class TemplateActivity extends BaseActivity {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     private void showChooseDialog(View view) {
         PopupMenu popup = new PopupMenu(TemplateActivity.this, view);
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -169,7 +171,7 @@ public class TemplateActivity extends BaseActivity {
         });
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.camera_button_menu, popup.getMenu());
-        // 使用反射，强制显示菜单图标
+        // Use Reflection to force the display of menu icons
         try {
             Field field = popup.getClass().getDeclaredField("mPopup");
             field.setAccessible(true);
