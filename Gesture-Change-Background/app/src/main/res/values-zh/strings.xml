@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gesture-Change-Background</string>
+
+    <string name="change">切换背景</string>
+</resources>
