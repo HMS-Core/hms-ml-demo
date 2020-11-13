@@ -37,6 +37,8 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 |-- CrazyShoppingCart // uses the key point recognition function of Huawei ML Kit to control the movement of the shopping cart to catch dropped items.
 
+|-- Gesture-Change-Background // Use the key point recognition and image segmentation functions of Huawei ML Kit to switch the background by waving your arms.
+
 ## Precautions
 
 The project contains multiple independent projects. After downloading code, open the root project and it
