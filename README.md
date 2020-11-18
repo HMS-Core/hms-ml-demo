@@ -1,61 +1,32 @@
-# HMS ML Demo
+# hms-ml-demo
 
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)  ![Android CI](https://github.com/HMS-Core/hms-ml-demo/workflows/Android%20CI/badge.svg)
 
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_ZH.md)
 
 ## Introduction
-This project contains apps developed based on HUAWEI ML Kit. The project directory is as follows:
 
-|-- MLKit-Sample // ML Kit scenario-based demo, which can be obtained from the HUAWEI Developers website by scanning the QR code: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5.
+This project includes apps developed based on Huawei Machine Learning Service (ML Kit). The project directory is as follows:
 
-|-- ID-Photo-DIY // Uses the image segmentation function of HUAWEI ML Kit to synthesize static images of people into a certificate photo with a blue or white background.
+|-- MLKit-Sample // ML Kit scenario-based demo. You can scan the QR code to obtain the demo from https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5.
 
-|-- Smile-Camera // Uses the face detection function of HUAWEI ML Kit to identify whether a user is smiling and capture the smiling photos of the user.
-
-|-- Photo-Translate // Uses the text recognition and translation functions of HUAWEI ML Kit to translate text in static photos into the required language.
-
-|-- ASRSampleKotlin // Uses the automatic speech recognition function of HUAWEI ML Kit to convert speech into text in real time.
-
-|-- TTSSampleKotlin // Uses the text to speech function of HUAWEI ML Kit to convert text into speech and allow users to choose the volume and speed.
-
-|-- TranslatorKotlin // Use the automatic speech recognition, text translation, and  text to speech services of HUAWEI ML Kit to translate English speech into Chinese speech.
-
-|-- PhotoReader // Use the text recognition, text translation, and TTS functions of the HUAWEI ML Kit to obtain text in photos and convert the text into audio output.
-
-|-- Face2D-Sticker // Use the face detection function of the ML Kit to demonstrate 2D stickers.
-
-|-- Receipt-Text-Recognition // ML Kit is used for text recognition and general text recognition.
-
-|-- Skeleton-Camera // Use the bone detection function of the Huawei ML Kit to recognize human body movements and take snapshots.
-
-|-- WoodenMan // The HUAWEI ML Kit supports human body bone detection, image segmentation, and face detection to segment faces and replace background images.
-
-|-- Skeleton-Camera // uses the skeleton detection function of HUAWEI ML Kit to recognize the human movement and match the corresponding action to capture.
-
-|-- CrazyRockets // Use the facial recognition and gesture recognition functions of Huawei ML Kit to move the rocket to avoid obstacles.
-
-|-- CrazyShoppingCart // uses the key point recognition function of Huawei ML Kit to control the movement of the shopping cart to catch dropped items.
-
-|-- Gesture-Change-Background // Use the key point recognition and image segmentation functions of Huawei ML Kit to switch the background by waving your arms.
+|-- ApplicationCases // Application cases developed based on Huawei Machine Learning Service (ML Kit).
 
 ## Precautions
 
-The project contains multiple independent projects. After downloading code, open the root project and it
-will load all sub projects into IDE, you can execute each project individually.
+The hms-ml-demo project contains two independent projects. After downloading the code, you can load different nested projects to the IDE as required. You can run each project independently.
 
-#### Add a new project
+#### Add a new project.
 
-The root folder already contains a generic `build.gradle` file which load latest Android Gradle plugin, AGConntect and Kotlin into classpath. So if a new project is added, you can remove the project build.gradle file unless you need to add an individual Gradle plugin for this project. Same applies for `gradle.properties`.
+The root folder already contains a common build.gradle, which loads the latest Android Gradle plug-ins, AGConnect, and Kotlin to classpath. Therefore, if you add a new project, delete the project's build.gradle file unless you need to add a unique Gradle plug-in for the project. The same applies to `gradle.properties'.
 
-All projects and nested modules are defined in the root `settings.gradle` file, by adding a new project, add all module entries into the outer settings file and remove the settings file in you projects.
+All projects and nested modules are defined in the root `settings.gradle` setting file, new projects are added, all module entries are added to the external setting file, and then the configuration file of the project is deleted.
 
-## Question or issues
-If you want to evaluate more about HMS Core, [r/HMSCore on Reddit](https://www.reddit.com/r/HuaweiDevelopers/) is for you to keep up with latest news about HMS Core, and to exchange insights with other developers.
+## Technical Support
+If you are still evaluating HMS Core, obtain the latest information about HMS Core and share your insights with other developers at (https://www.reddit.com/r/HuaweiDevelopers/).
 
-If you have questions about how to use HMS samples, try the following options:
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) is the best place for any programming questions. Be sure to tag your question with 
-`huawei-mobile-services`.
-- [Huawei Developer Forum](https://forums.developer.huawei.com/forumPortal/en/home?fid=0101187876626530001) HMS Core Module is great for general questions, or seeking recommendations and opinions.
+If you have any questions about using the HMS sample code, try:
+- If you encounter any problem during the development, ask the [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) under the `huawei-mobile-services' tag. Huawei R&D experts can solve your problem online one-to-one.
+- Communicate with other developers in the (https://developer.huawei.com/consumer/cn/forum/blockdisplay?fid=18) HMS Core section of the Huawei Developer Forum.
 
-If you run into a bug in our samples, please submit an [issue](https://github.com/HMS-Core/hms-ml-demo/issues) to the Repository. Even better you can submit a [Pull Request](https://github.com/HMS-Core/hms-ml-demo/pulls) with a fix.
+If you have problems trying the sample code, submit [issue](https://github.com/HMS-Core/hms-ml-demo/issues) to the repository, and you are welcome to submit [Pull Request](https://github.com/HMS-Core/hms-ml-demo/pulls).
