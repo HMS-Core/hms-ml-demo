@@ -12,6 +12,7 @@ This project includes apps developed based on Huawei Machine Learning Service (M
 
 |-- ApplicationCases // Application cases developed based on Huawei Machine Learning Service (ML Kit).
 
+
 ## Precautions
 
 The hms-ml-demo project contains two independent projects. After downloading the code, you can load different nested projects to the IDE as required. You can run each project independently.
