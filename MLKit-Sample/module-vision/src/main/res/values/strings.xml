@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Kit</string>
+
+    <string name="camera_permission_rationale">This sample app requires camera and storage access in order to
+        demo the API.</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">cancel</string>
+
+    <string name="cloud_classification">Cloud Image Classification</string>
+
+    <string name="select_from_album">Select image from album</string>
+    <string name="take_photo">Take photo</string>
+    <string name="more_face_data">Show more facial data</string>
+    <string name="versions">Version：</string>
+
+    <string name="get_data_failed">Failed to get data.</string>
+    <string name="loading_data">Loading…</string>
+    <string name="load_pictures">Load pictures</string>
+
+    <string name="image_segmentation_s">Image Segmentation</string>
+    <string name="photographed_shopping_s">Product Visual Search</string>
+    <string name="photographed_shopping_s_plugin">Product Visual Search Plugin</string>
+    <string name="face_detection_s">Face Detection</string>
+    <string name="object_detection_s">Object Detection and Tracking</string>
+    <string name="image_classification_s">Image Classification</string>
+    <string name="landmark_s">Landmark Recognition</string>
+
+    <string name="image_segmentation">Segmentation</string>
+    <string name="photographed_shopping">Shopping</string>
+    <string name="face_detection">Face</string>
+    <string name="object_detection">Object</string>
+    <string name="image_classification">Classification</string>
+    <string name="landmark">Landmark</string>
+    <string name="skeletlon">Skeletlon</string>
+S
+    <string name="all">all</string>
+    <string name="coming_soon">coming soon</string>
+    <string name="back">back</string>
+
+    <string name="background_substitution">Substitution</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="cutout">Cutout</string>
+    <string name="cut">Cut</string>
+    <string name="cut_success">Cut success</string>
+    <string name="save_success">Save success</string>
+
+    <string name="replace_background">Background</string>
+    <string name="save">Save</string>
+    <string name="please_select_picture">Please select a picture to process~</string>
+    <string name="click_add_picture">Click to add picture~</string>
+    <string name="no_pic_neededSave">Null Image needed to save</string>
+
+    <string name="target_object">Object</string>
+    <string name="color">Color</string>
+
+    <string name="similar_products">Similar Products</string>
+    <string name="productInfo">Found the following similar products</string>
+    <string name="empty">Empty</string>
+    <string name="empty_product">"No similar products, please stay tuned!"</string>
+
+
+    <!-- image super resolution-->
+    <string name="image_super_resolution">Image Super Resolution</string>
+    <string name="image_super_resolution_s">ISR</string>
+    <string name="isr_upload_picture">Please upload the picture and adjust the resolution you need.</string>
+    <string name="isr_image_width">width:&#160;</string>
+    <string name="isr_upload_picture_tint">Please upload the picture</string>
+    <string name="isr_image_height">height:&#160;</string>
+    <string name="isr_image_1x">1PX</string>
+    <string name="isr_image_3x">3PX</string>
+    <string name="isr_image_original">Original</string>
+    <string name="tips">Tips</string>
+    <string name="isr_tips_content">Before using the image super-resolution service, you need to convert the image into a bitmap in ARGB format, and the output bitmap format is also ARGB. In the 3x super resolution scenario, the maximum size of the input image is 800 x 800 pixels, and the minimum size is not less than 64 x 64 pixels. In the 1x super resolution scenario, the maximum size of an input image is 1024px x 768px or 768px x 1024px, the minimum size is 64px x 64px. The effect is not obvious when the input picture is of good quality and definition. </string>
+
+    <string name="text_super_resolution">Text Image Super Resolution</string>
+    <string name="text_super_resolution_s">TISR</string>
+    <string name="tsr_tips_content">Before using the text image super-resolution service, you need to convert the image into a bitmap in ARGB format, and the output bitmap format is also ARGB. Only 3x super resolution is supported. The maximum size of an input image is 800px x 800px, and the minimum size is 64px x 64px. The effect is not obvious when the input picture is of good quality and definition. </string>
+
+    <string name="cust_model">CustModel</string>
+    <string name="cust_model_title">Model Executor</string>
+    <string name="cust_model_notice1">Click to select Picture.</string>
+    <string name="cust_model_notice2">Please select a picture for reasoning.</string>
+    <string name="cust_model_notice3">The model is ready, please select a picture.</string>
+    <string name="cust_model_download">Download model</string>
+
+    <string name="cust_model_type1">label</string>
+    <string name="cust_model_type2">object</string>
+
+    <string name="scene_detection">Scene Detection</string>
+    <string name="set_up">Sets the maximum number of returned results.:</string>
+    <string name="set_hiht">Please enter an integer from 0 to 100</string>
+
+    <string name="select">Select</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="table">Table Recognition</string>
+    <string name="form_recognition">Form Recognition</string>
+    <string name="from_pic">Please upload the picture</string>
+    <string name="recognition">Recognition</string>
+    <string name="teble_error">Failed to check the table. Change the table image.</string>
+
+</resources>

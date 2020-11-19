@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:keepScreenOn="true"
+    tools:context="com.huawei.mlkit.sample.activity.HandGameActivity">
+
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.huawei.mlkit.sample.views.GameGraphic
+        android:id="@+id/graphic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/gamestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="123dp">
+        <RelativeLayout
+            android:layout_width="312dp"
+            android:layout_height="242dp"
+            android:background="@drawable/handstart"
+            android:layout_centerHorizontal="true">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/handdescription"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="159dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginEnd="13dp"
+                android:textColor="#FFFFFF"
+                android:text="@string/handcontrol"/>
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/start"
+            android:layout_marginTop="190dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/gameover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="96dp"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="312dp"
+            android:layout_height="270dp"
+            android:background="@drawable/gameover"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                android:textColor="#FFFFFF"
+                android:text="80"
+                android:textSize="80sp"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="#FFFFFF"
+                android:text="@string/currentscore"
+                android:textSize="16sp"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gameover"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="13dp"
+            android:textSize="24sp"/>
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/exit"
+            android:layout_marginTop="228dp"
+            android:layout_marginLeft="56dp"/>
+        <ImageView
+            android:id="@+id/restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/restart"
+            android:layout_marginTop="228dp"
+            android:layout_toRightOf="@id/exit"
+            android:layout_marginLeft="30dp"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

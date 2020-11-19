@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Crazy Rockets</string>
+
+    <string name="mlkit">ML Kit Facial Recognition Game</string>
+    <string name="face">Face control</string>
+    <string name="hand">Motion control</string>
+
+    <string name="level">Difficulty Level：</string>
+    <string name="hight">Hight</string>
+    <string name="middle">middle</string>
+    <string name="low">low</string>
+    <string name="gameover">Game Over</string>
+    <string name="score">score：</string>
+    <string name="currentscore">current score</string>
+    <string name="facecontrol">You can control the rocket up and down by controlling your head up and down.Start moving now!</string>
+    <string name="handcontrol">You can control the rocket up and down by using the control gesture.Start moving now!</string>
+
+    <string name="gamename">Crazy Rockets</string>
+    <string name="cancle">cancle</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorSelector">
+        <attr name="indicatorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="outer_border_width" format="dimension" />
+        <attr name="outer_border_color" format="color" />
+        <attr name="inner_border_width" format="dimension" />
+        <attr name="inner_border_color" format="color" />
+        <attr name="middle_border_width" format="dimension" />
+        <attr name="middle_border_color" format="color" />
+    </declare-styleable>
+</resources>

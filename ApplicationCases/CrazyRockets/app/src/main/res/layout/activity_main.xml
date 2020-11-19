@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".activity.MainActivity">
+    
+    <ImageView
+        android:id="@+id/gameimage"
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:src="@drawable/gamename"
+        android:layout_marginTop="91dp" />
+
+    <TextView
+        android:id="@+id/gamename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/gamename"
+        android:layout_marginTop="110dp"
+        android:textSize="35sp"
+        android:textColor="#1FE798"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mainrocket"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="205dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="314dp"
+        android:text="@string/mlkit"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:background="@drawable/group"
+        android:gravity="center"
+        android:fontFamily="HYQiHei 55S"/>
+    
+    <RelativeLayout
+        android:id="@+id/face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="412dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background">
+        <TextView
+            android:id="@+id/text_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/face"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:src="@drawable/face"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/text_face"
+            android:layout_marginEnd="5dp"/>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/hand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/face"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background">
+        <TextView
+            android:id="@+id/text_hand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hand"
+            android:textColor="#000000"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:src="@drawable/hand"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/text_hand"
+            android:layout_marginEnd="5dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hand"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/level"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hight"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

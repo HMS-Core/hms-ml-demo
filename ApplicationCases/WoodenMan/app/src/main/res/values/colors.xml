@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  black transparency  -->
+    <color name="black_10">#1A000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_60">#99000000</color>
+    <color name="black_70">#B3000000</color>
+    <color name="black_80">#CC000000</color>
+    <color name="black_90">#E6000000</color>
+    <color name="black">#000000</color>
+
+    <!--  white transparency  -->
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_30">#4DFFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+    <color name="white_90">#E6FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="control_background">#CC4285f4</color>
+
+    <color name="common_line_color">#D9D9D9</color>
+    <color name="primary_text_color">#A9A9A9</color>
+    <color name="secondary_text_color">#626262</color>
+    <color name="text_color">#1D1D1D</color>
+    <color name="logo_background">#003853</color>
+    <color name="primary_background">#F2F2F2</color>
+    <color name="button_background">#5CACEE</color>
+
+    <color name="color_red_card">#FFFA2A2D</color>
+    <color name="color_red_cancel">#EE6A50</color>
+    
+    <drawable name="white">#F2F2F2</drawable>
+    <color name="theme">#EF4B4B</color>
+
+    <!--  绕口令  -->
+    <color name="wood_white">#FFFBFF</color>
+    <color name="tongue_twister_one">#20104E</color>
+    <color name="tongue_twister_two">#321D9A</color>
+    <color name="tongue_twister_three">#441AA7</color>
+    <color name="tongue_began">#69A2FB</color>
+    <color name="tongue_again">#FFA334</color>
+    <color name="tongue_checkpoint_one">#74A0FC</color>
+    <color name="tongue_checkpoint_two">#766CF8</color>
+    <color name="tongue_title_line">#707070</color>
+    <color name="stopwatch_progress">#7585FA</color>
+    <color name="stopwatch_time">#FBAE15</color>
+    <color name="stopwatch_began">#EBF2FC</color>
+    <color name="stopwatch_began_text">#99060606</color>
+    <color name="tongue_twister_text">#052A75</color>
+    <color name="tongue_twister_hint">#80052A75</color>
+    <color name="tongue_over_one">#4C43FE</color>
+    <color name="tongue_over_two">#7043FE</color>
+
+</resources>

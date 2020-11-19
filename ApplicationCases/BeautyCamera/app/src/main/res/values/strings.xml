@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Beauty-Camera</string>
+
+    <string name="start_camera">start camera</string>
+    <string name="choose_photo">choose photo</string>
+    <string name="take_photo">take photo</string>
+    <string name="hue">hue:</string>
+    <string name="saturation">saturation:</string>
+    <string name="light">light:</string>
+    <string name="big_eyes">big eyes:</string>
+    <string name="thine_face">thine face:</string>
+</resources>

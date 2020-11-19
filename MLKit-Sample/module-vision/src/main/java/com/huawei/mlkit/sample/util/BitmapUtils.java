@@ -1,0 +1,471 @@
+/**
+ * Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.huawei.mlkit.sample.util;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ImageFormat;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import android.hardware.Camera.CameraInfo;
+import android.media.ExifInterface;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.ParcelFileDescriptor;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+
+import com.huawei.hms.ml.common.utils.SmartLog;
+import com.huawei.mlkit.sample.camera.FrameMetadata;
+import com.huawei.hms.mlsdk.common.MLFrame;
+
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
+import androidx.annotation.Nullable;
+
+public class BitmapUtils {
+    private static final String TAG = "BitmapUtils";
+
+    /**
+     * Convert nv21 format byte buffer to bitmap
+     *
+     * @param data ByteBuffer data
+     * @param metadata Frame meta data
+     * @return Bitmap object
+     */
+    @Nullable
+    public static Bitmap getBitmap(ByteBuffer data, FrameMetadata metadata) {
+        data.rewind();
+        byte[] imageBuffer = new byte[data.limit()];
+        data.get(imageBuffer, 0, imageBuffer.length);
+        try {
+            YuvImage yuvImage = new YuvImage(imageBuffer, ImageFormat.NV21, metadata.getWidth(),
+                    metadata.getHeight(), null);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            yuvImage.compressToJpeg(new Rect(0, 0, metadata.getWidth(), metadata.getHeight()), 80, stream);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
+            stream.close();
+            return rotateBitmap(bitmap, metadata.getRotation(), metadata.getCameraFacing());
+        } catch (Exception e) {
+            Log.e(TAG, "Error: " + e.getMessage());
+        }
+        return null;
+    }
+
+
+    public static Bitmap rotateBitmap(Bitmap bitmap, int rotation, int facing) {
+        Matrix matrix = new Matrix();
+        int rotationDegree = 0;
+        if (rotation == MLFrame.SCREEN_SECOND_QUADRANT) {
+            rotationDegree = 90;
+        } else if (rotation == MLFrame.SCREEN_THIRD_QUADRANT) {
+            rotationDegree = 180;
+        } else if (rotation == MLFrame.SCREEN_FOURTH_QUADRANT) {
+            rotationDegree = 270;
+        }
+        matrix.postRotate(rotationDegree);
+        if (facing != CameraInfo.CAMERA_FACING_BACK) {
+            matrix.postScale(-1.0f, 1.0f);
+        }
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    public static void recycleBitmap(Bitmap... bitmaps) {
+        for (Bitmap bitmap : bitmaps) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+                bitmap = null;
+            }
+        }
+    }
+
+    private static String getImagePath(Activity activity, Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = activity.managedQuery(uri, projection, null, null, null);
+        int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(columnIndex);
+    }
+
+
+    public static Bitmap loadFromPathWithoutZoom(Activity activity, Uri uri, int width, int height) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+
+        String path = getImagePath(activity, uri);
+        BitmapFactory.decodeFile(path, options);
+        int sampleSize = calculateInSampleSize(options, width, height);
+        options.inSampleSize = sampleSize;
+        options.inJustDecodeBounds = false;
+
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+        return rotateBitmap(bitmap, getRotationAngle(path));
+    }
+
+    public static Bitmap loadFromPath(Activity activity, Uri uri, int width, int height) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+
+        String path = getImagePath(activity, uri);
+        BitmapFactory.decodeFile(path, options);
+        int sampleSize = calculateInSampleSize(options, width, height);
+        options.inSampleSize = sampleSize;
+        options.inJustDecodeBounds = false;
+
+        Bitmap bitmap = zoomImage(BitmapFactory.decodeFile(path, options), width, height);
+        return rotateBitmap(bitmap, getRotationAngle(path));
+    }
+
+    private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        final int width = options.outWidth;
+        final int height = options.outHeight;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+            // Calculate height and required height scale.
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            // Calculate width and required width scale.
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+            // Take the larger of the values.
+            inSampleSize = heightRatio > widthRatio ? heightRatio : widthRatio;
+        }
+        return inSampleSize;
+    }
+
+    // Scale pictures to screen width.
+    private static Bitmap zoomImage(Bitmap imageBitmap, int targetWidth, int maxHeight) {
+        float scaleFactor =
+                Math.max(
+                        (float) imageBitmap.getWidth() / (float) targetWidth,
+                        (float) imageBitmap.getHeight() / (float) maxHeight);
+        Bitmap resizedBitmap =
+                Bitmap.createScaledBitmap(
+                        imageBitmap,
+                        (int) (imageBitmap.getWidth() / scaleFactor),
+                        (int) (imageBitmap.getHeight() / scaleFactor),
+                        true);
+
+        return resizedBitmap;
+    }
+
+    /**
+     * Get the rotation angle of the photo.
+     *
+     * @param path photo path.
+     * @return angle.
+     */
+    public static int getRotationAngle(String path) {
+        int rotation = 0;
+        try {
+            ExifInterface exifInterface = new ExifInterface(path);
+            int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            switch (orientation) {
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    rotation = 90;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    rotation = 180;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    rotation = 270;
+                    break;
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to get rotation: " + e.getMessage());
+        }
+        return rotation;
+    }
+
+    public static Bitmap rotateBitmap(Bitmap bitmap, int angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        Bitmap result = null;
+        try {
+            result = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        } catch (OutOfMemoryError e) {
+            Log.e(TAG, "Failed to rotate bitmap: " + e.getMessage());
+        }
+        if (result == null) {
+            return bitmap;
+        }
+        return result;
+    }
+
+    /**
+     * Stretch the bitmap based on the given width and height
+     *
+     * @param origin    Original image
+     * @param newWidth  Width of the new bitmap
+     * @param newHeight Height of the new bitmap
+     * @return new Bitmap
+     */
+    public static Bitmap scaleBitmap(Bitmap origin, int newWidth, int newHeight) {
+        float scaleWidth;
+        float scaleHeight;
+        if (origin == null) {
+            return null;
+        }
+        int height = origin.getHeight();
+        int width = origin.getWidth();
+        if (height > width) {
+            scaleWidth = ((float) newWidth) / width;
+            scaleHeight = ((float) newHeight) / height;
+        } else {
+            scaleWidth = ((float) newWidth) / height;
+            scaleHeight = ((float) newHeight) / width;
+        }
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        Bitmap newBitmap = Bitmap.createBitmap(origin, 0, 0, width, height, matrix, false);
+        return newBitmap;
+    }
+
+    /**
+     * Fusion of two images.
+     * @param background background image.
+     * @param foreground foreground image.
+     * @return
+     */
+    public static Bitmap joinBitmap(Bitmap background, Bitmap foreground) {
+        if (background == null || foreground == null) {
+            Log.e(TAG, "bitmap is null.");
+            return null;
+        }
+
+        if (background.getHeight() != foreground.getHeight() || background.getWidth() != foreground.getWidth()) {
+            Log.e(TAG, "bitmap size is not match.");
+            return null;
+        }
+        Bitmap newmap = Bitmap.createBitmap(background.getWidth(), background.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(newmap);
+        canvas.drawBitmap(background, 0, 0, null);
+        canvas.drawBitmap(foreground, 0, 0, null);
+        canvas.save();
+        canvas.restore();
+        return newmap;
+    }
+
+    public static void saveToAlbum(Bitmap bitmap, final Context context) {
+        File file = null;
+        String fileName = System.currentTimeMillis() + ".jpg";
+        File root = new File(Environment.getExternalStorageDirectory().getAbsoluteFile(), context.getPackageName());
+        File dir = new File(root, "image");
+        if (dir.mkdirs() || dir.isDirectory()) {
+            file = new File(dir, fileName);
+        }
+        FileOutputStream os = null;
+        try {
+            os = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            os.flush();
+
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, e.getMessage());
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+            }
+        }
+
+        // Insert pictures into the system gallery.
+        try {
+            if (null != file) {
+                MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getCanonicalPath(), fileName, null);
+            }
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        if (file == null) {
+            return;
+        }
+        // Gallery refresh.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            String path = null;
+            try {
+                path = file.getCanonicalPath();
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+            }
+            MediaScannerConnection.scanFile(context, new String[]{path}, null,
+                    new MediaScannerConnection.OnScanCompletedListener() {
+                        @Override
+                        public void onScanCompleted(String path, Uri uri) {
+                            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                            mediaScanIntent.setData(uri);
+                            context.sendBroadcast(mediaScanIntent);
+                        }
+                    });
+        } else {
+            String relationDir = file.getParent();
+            File file1 = new File(relationDir);
+            context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.fromFile(file1.getAbsoluteFile())));
+        }
+    }
+
+    public static Bitmap loadBitmapFromView(View view, int width, int height) {
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.layout(0, 0, width, height);
+        view.draw(canvas);
+        return bitmap;
+    }
+
+    /**
+     * Returns a transformation matrix from one reference frame into another. Handles cropping (if
+     * maintaining aspect ratio is desired) and rotation.
+     *
+     * @param srcWidth Width of source frame.
+     * @param srcHeight Height of source frame.
+     * @param dstWidth Width of destination frame.
+     * @param dstHeight Height of destination frame.
+     * @param applyRotation Amount of rotation to apply from one frame to another. Must be a multiple
+     *     of 90.
+     * @param maintainAspectRatio If true, will ensure that scaling in x and y remains constant,
+     *     cropping the image if necessary.
+     * @return The transformation fulfilling the desired requirements.
+     */
+    public static Matrix getTransformationMatrix(
+            final int srcWidth,
+            final int srcHeight,
+            final int dstWidth,
+            final int dstHeight,
+            final int applyRotation,
+            final boolean maintainAspectRatio) {
+        final Matrix matrix = new Matrix();
+
+        if (applyRotation != 0) {
+            if (applyRotation % 90 != 0) {
+                Log.w(TAG, "Rotation of %d % 90 != 0  " + applyRotation);
+            }
+
+            // Translate so center of image is at origin.
+            matrix.postTranslate(-srcWidth / 2.0f, -srcHeight / 2.0f);
+
+            // Rotate around origin.
+            matrix.postRotate(applyRotation);
+        }
+
+        // Account for the already applied rotation, if any, and then determine how
+        // much scaling is needed for each axis.
+        final boolean transpose = (Math.abs(applyRotation) + 90) % 180 == 0;
+
+        final int inWidth = transpose ? srcHeight : srcWidth;
+        final int inHeight = transpose ? srcWidth : srcHeight;
+
+        // Apply scaling if necessary.
+        if (inWidth != dstWidth || inHeight != dstHeight) {
+            final float scaleFactorX = dstWidth / (float) inWidth;
+            final float scaleFactorY = dstHeight / (float) inHeight;
+
+            if (maintainAspectRatio) {
+                // Scale by minimum factor so that dst is filled completely while
+                // maintaining the aspect ratio. Some image may fall off the edge.
+                final float scaleFactor = Math.max(scaleFactorX, scaleFactorY);
+                matrix.postScale(scaleFactor, scaleFactor);
+            } else {
+                // Scale exactly to fill dst from src.
+                matrix.postScale(scaleFactorX, scaleFactorY);
+            }
+        }
+
+        if (applyRotation != 0) {
+            // Translate back from origin centered reference to destination frame.
+            matrix.postTranslate(dstWidth / 2.0f, dstHeight / 2.0f);
+        }
+
+        return matrix;
+    }
+
+    public static Bitmap tableGetBitmap(Context context,Uri uri) {
+        BitmapFactory.Options newOpts = new BitmapFactory.Options();
+        newOpts.inJustDecodeBounds = true;
+        getBitmapFromUri(context, uri, newOpts);
+        dealBitmapFactoryOption(newOpts);
+        Bitmap bitmap = getBitmapFromUri(context,uri,newOpts);
+        return bitmap;
+    }
+
+    public static Bitmap getBitmapFromUri(Context context, Uri uri, BitmapFactory.Options opt) {
+        if (uri == null) {
+            return null;
+        }
+        try {
+            ParcelFileDescriptor parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
+            FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+            Bitmap bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor, null, opt);
+            parcelFileDescriptor.close();
+            return bitmap;
+        } catch (FileNotFoundException e) {
+            Log.e("exception", "FileNotFoundException");
+        } catch (IOException e) {
+            Log.e("exception", "IOException");
+        } catch (Exception e) {
+            Log.e("exception", "Exception");
+        }
+        return null;
+    }
+
+    public static void dealBitmapFactoryOption(BitmapFactory.Options newOpts) {
+        int w = newOpts.outWidth;
+        int h = newOpts.outHeight;
+        int minHOrW = w;
+        if (w > h) {
+            minHOrW = h;
+        }
+
+        boolean resizeFlag = true;
+        int targetSize;
+
+        int be = 1;
+        if (resizeFlag) {
+            targetSize = 500;
+        } else {
+            targetSize = 3000;
+        }
+        if (minHOrW > targetSize) {
+            be = Math.round((float) minHOrW / (float) targetSize);
+        }
+        newOpts.inSampleSize = be;
+        newOpts.inJustDecodeBounds = false;
+        newOpts.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        newOpts.inPurgeable = true;
+        newOpts.inInputShareable = true;
+    }
+}
