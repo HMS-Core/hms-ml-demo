@@ -16,7 +16,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyShop
 ## Introduction
 CrazyShoppingCart uses the hand key point recognition function of HUAWEI ML Kit to control the shopping cart to move to catch falling goods.
     
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a red envelopes game app. The purpose is to help you experience the hand key point function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a red envelopes game app. The purpose is to help you experience the hand key point function and integrate HUAWEI ML Kit as soon as possible.
 
 <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyShoppingCart/game.gif" width=180 title="start" border=2>
 
