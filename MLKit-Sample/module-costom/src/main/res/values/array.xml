@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="spinner_array">
-        <item>label</item>
-        <item>hebing</item>
-    </string-array>
-
-</resources>
