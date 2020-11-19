@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Crazy Rockets</string>
+
+    <string name="mlkit">华为HMS Core ML Kit人脸识别小游戏</string>
+    <string name="face">人脸控制</string>
+    <string name="hand">手势控制</string>
+
+    <string name="level">难度等级：</string>
+    <string name="hight">高</string>
+    <string name="middle">中</string>
+    <string name="low">低</string>
+    <string name="gameover">游戏结束</string>
+    <string name="score">得分：</string>
+    <string name="currentscore">当前得分：</string>
+    <string name="facecontrol">通过控制头部上下移动可以控制小火箭上下移动，马上开始行动吧！</string>
+    <string name="handcontrol">通过控制手势上下移动可以控制小火箭上下移动，马上开始行动吧！</string>
+
+    <string name="gamename">Crazy Rockets</string>
+    <string name="cancle">取消</string>
+</resources>

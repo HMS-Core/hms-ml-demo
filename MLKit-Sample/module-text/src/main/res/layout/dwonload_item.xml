@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="36dp">
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/download"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="6dp"
+        android:padding="2dp"
+        app:srcCompat="@mipmap/iv_download_logo" />
+
+
+    <ImageView
+        android:id="@+id/delete_model"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="6dp"
+        android:layout_toStartOf="@id/download"
+        android:padding="2dp"
+        android:visibility="gone"
+        app:srcCompat="@mipmap/download_delete" />
+
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/has_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_toStartOf="@id/delete_model"
+        android:layout_toEndOf="@id/language"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text=""
+        android:textSize="10sp"
+        android:visibility="visible" />
+
+</RelativeLayout>

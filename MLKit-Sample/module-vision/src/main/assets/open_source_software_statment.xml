@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<open-source-software-notice version= "1.1.0.300" update-time="2019-12-03">
+    <item>
+        <software>Table Recongnition</software>
+        <version>3.0.4.300</version>
+        <copyright-notice>Copyright (c) 2020-present, Huawei, Inc. All rights reserved.</copyright-notice>
+        <license-type>mode-vision-apk/LICENSE</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+    <item>
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>2.6.12</version>
+        </dependency>
+        <license-type>GNU Lesser General Public License</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+</open-source-software-notice>

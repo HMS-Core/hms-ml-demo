@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_tongue_twister"
+    tools:context="com.huawei.hms.mlkit.sample.activity.TongueTwisterActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="19dp"
+        android:layout_height="20.5dp"
+        android:layout_marginStart="25.75dp"
+        android:layout_marginTop="24.5dp"
+        android:background="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <!--  entrance  -->
+    <RelativeLayout
+        android:id="@+id/tongue_entrance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tongue_title"
+            android:layout_marginTop="@dimen/dp_81"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_tongue"
+            android:textSize="@dimen/sp_30"
+            android:textColor="@color/wood_white"
+            android:fontFamily="HYQiHei 65S"
+            tools:ignore="SpUsage" />
+
+        <ImageView
+            android:layout_marginTop="@dimen/dp_172"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/dp_275"
+            android:layout_height="@dimen/dp_177"
+            android:src="@drawable/popular"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/tongue_spacecraft"
+            android:layout_marginTop="@dimen/dp_155"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/dp_180"
+            android:layout_height="@dimen/dp_251"
+            android:src="@drawable/spacecraft"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tongue_began"
+            android:layout_below="@id/tongue_spacecraft"
+            android:layout_marginTop="@dimen/dp_38"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="@dimen/dp_152"
+            android:layout_height="@dimen/dp_45"
+            android:background="@drawable/bg_began"
+            android:text="@string/tongue_began"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/white"
+            android:fontFamily="HYQiHei 65S"
+            tools:ignore="SpUsage" />
+
+        <TextView
+            android:id="@+id/tongue_language"
+            android:layout_below="@id/tongue_began"
+            android:layout_marginTop="@dimen/dp_22"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tongue_english"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/white"
+            android:fontFamily="HYQiHei 55S"
+            tools:ignore="SpUsage" />
+
+        <TextView
+            android:id="@+id/tongue_rules"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tongue_rules"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/white"
+            android:fontFamily="HYQiHei 55S"
+            tools:ignore="SpUsage" />
+
+    </RelativeLayout>
+
+    <!--  Tongue twister  -->
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/tongue_twister"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/tongue_head_view"
+            android:layout_marginTop="@dimen/dp_58"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/tongue_head_image"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/dp_26"
+                android:layout_height="@dimen/dp_19"
+                android:src="@drawable/item_language"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_toEndOf="@id/tongue_head_image"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_tongue"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/wood_white"
+                android:fontFamily="HYQiHei 65S"
+                tools:ignore="RelativeOverlap,SpUsage" />
+
+            <TextView
+                android:id="@+id/tongue_progress_text"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/10"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/white"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="HardcodedText,SpUsage" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tongue_head_progress_view"
+            android:layout_marginTop="@dimen/dp_2"
+            android:layout_below="@id/tongue_head_view"
+            android:layout_alignParentEnd="true"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_4"
+            android:background="@drawable/bg_checkpoint_none">
+
+            <View
+                android:id="@+id/tongue_head_progress"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_checkpoint_progress"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_185"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_325"
+            android:background="@drawable/bg_tongue_twister_content">
+
+            <TextView
+                android:id="@+id/tongue_checkpoint"
+                android:layout_marginTop="@dimen/dp_115"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_one"
+                android:textSize="@dimen/sp_30"
+                android:textColor="@color/black"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="SpUsage" />
+
+            <LinearLayout
+                android:id="@+id/tongue_twister_view"
+                android:layout_below="@id/tongue_checkpoint"
+                android:layout_marginTop="@dimen/dp_11"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/dp_14"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/tongue_title_line"/>
+
+                <TextView
+                    android:id="@+id/tongue_twister_title"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/black_60"
+                    android:fontFamily="HYQiHei 55S"
+                    tools:ignore="SpUsage" />
+
+                <View
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/dp_14"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="@color/tongue_title_line"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tongue_stopwatch_text"
+                android:layout_marginTop="@dimen/dp_43"
+                android:layout_marginStart="@dimen/dp_22"
+                android:layout_marginEnd="@dimen/dp_22"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_31"
+                android:background="@drawable/bg_began_text"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/stopwatch_began_text"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tongue_twister_text"
+                android:layout_below="@id/tongue_stopwatch_text"
+                android:layout_marginTop="@dimen/dp_19"
+                android:layout_marginStart="@dimen/dp_19"
+                android:layout_marginEnd="@dimen/dp_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_20"
+                android:textColor="@color/tongue_twister_text"
+                android:textColorHint="@color/tongue_twister_hint"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="SpUsage" />
+
+            <TextView
+                android:id="@+id/tongue_twister_html"
+                android:layout_below="@id/tongue_stopwatch_text"
+                android:layout_marginTop="@dimen/dp_19"
+                android:layout_marginStart="@dimen/dp_19"
+                android:layout_marginEnd="@dimen/dp_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_20"
+                android:textColor="@color/tongue_twister_text"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <TextView
+                android:layout_marginBottom="@dimen/dp_15"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tongue_source"
+                android:textSize="@dimen/sp_10"
+                android:textColor="@color/black_40"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="SpUsage" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/speak_voice"
+                android:layout_marginBottom="@dimen/dp_40"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/dp_43"
+                android:layout_height="@dimen/dp_43"
+                android:src="@drawable/voice"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_marginTop="@dimen/dp_142"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_alignParentEnd="true"
+            android:layout_width="@dimen/dp_72"
+            android:layout_height="@dimen/dp_68"
+            android:src="@drawable/robot"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_150"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:elevation="@dimen/dp_8"
+            android:background="@drawable/bg_stopwatch"
+            tools:ignore="UnusedAttribute">
+
+            <com.huawei.hms.mlkit.sample.views.CircleProgressBar
+                android:id="@+id/tongue_stopwatch_progress"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:outside_color="@color/stopwatch_progress"
+                app:outside_radius="@dimen/dp_30"
+                app:inside_color="@color/black_10"
+                app:progress_width="@dimen/dp_4"
+                app:max_progress="30"
+                app:progress="0"
+                app:direction="top" />
+
+            <ImageView
+                android:id="@+id/tongue_stopwatch_image"
+                android:layout_centerInParent="true"
+                android:layout_width="@dimen/dp_39"
+                android:layout_height="@dimen/dp_42"
+                android:src="@drawable/stopwatch"
+                android:elevation="@dimen/dp_1"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tongue_stopwatch_time"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/stopwatch_time"
+                android:text="5"
+                android:textSize="@dimen/sp_24"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="HardcodedText,SpUsage" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/tongue_trophy_view"
+            android:layout_below="@id/tongue_head_view"
+            android:layout_marginTop="@dimen/dp_28"
+            android:layout_marginStart="@dimen/dp_21"
+            android:layout_marginEnd="@dimen/dp_21"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_32"
+            android:background="@drawable/bg_prompt"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginEnd="@dimen/dp_6"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:src="@drawable/trophy"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tongue_trophy_text"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/white"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="SpUsage" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--  Game over  -->
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/tongue_over"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="@dimen/light_margin"
+            android:layout_marginStart="@dimen/light_margin"
+            android:layout_marginEnd="@dimen/light_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/dp_400"
+            android:layout_height="@dimen/dp_400"
+            android:src="@drawable/light"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_145"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_317"
+            android:elevation="@dimen/dp_1"
+            android:background="@drawable/bg_game_over"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_marginTop="@dimen/dp_50"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/dp_129"
+                android:layout_height="@dimen/dp_126"
+                android:src="@drawable/bg_through"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/over_count"
+                android:layout_marginTop="65dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="@dimen/sp_40"
+                android:textColor="@color/white"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_113"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_40"
+                android:text="@string/over_count"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/white"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="SpUsage" />
+
+            <TextView
+                android:id="@+id/over_text"
+                android:layout_marginTop="@dimen/dp_218"
+                android:layout_marginStart="@dimen/dp_38"
+                android:layout_marginEnd="@dimen/dp_38"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/over_tongue"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                android:fontFamily="HYQiHei 55S"
+                tools:ignore="SpUsage" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/dp_1"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:layout_marginTop="@dimen/dp_81"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/dp_199"
+                android:layout_height="@dimen/dp_89"
+                android:src="@drawable/bg_over"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_131"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_marginEnd="@dimen/dp_9"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="@dimen/dp_5"
+                    android:background="@drawable/over_white_point"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/over"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/white"
+                    android:fontFamily="HYQiHei 65S"
+                    tools:ignore="SpUsage" />
+
+                <View
+                    android:layout_marginStart="@dimen/dp_9"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="@dimen/dp_5"
+                    android:background="@drawable/over_white_point"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_493"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/over_home"
+                android:layout_marginEnd="@dimen/dp_26"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/dp_45"
+                android:layout_height="@dimen/dp_45"
+                android:elevation="@dimen/dp_4"
+                android:background="@drawable/bg_began"
+                tools:ignore="UnusedAttribute">
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="@dimen/dp_21"
+                    android:layout_height="@dimen/dp_21"
+                    android:src="@drawable/home"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/over_again"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_width="@dimen/dp_152"
+                android:layout_height="@dimen/dp_45"
+                android:text="@string/tongue_again"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/white"
+                android:fontFamily="HYQiHei 65S"
+                android:elevation="@dimen/dp_4"
+                android:background="@drawable/bg_again"
+                tools:ignore="SpUsage,UnusedAttribute" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

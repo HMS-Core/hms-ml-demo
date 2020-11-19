@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/large_toolbar_height"
+            android:background="@color/head_blue"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/white_back"
+                android:layout_gravity="top"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14sp"
+                 />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/offline_translate"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_17sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <Spinner
+            android:id="@+id/spSourceType"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/secondary_text_color"
+            android:textAlignment="center"
+            android:overlapAnchor="false"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toStartOf="@id/buttonSwitchLang"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            ></Spinner>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ffe6e6e6"
+            app:layout_constraintStart_toStartOf="@id/spSourceType"
+            app:layout_constraintTop_toBottomOf="@id/spSourceType"
+            app:layout_constraintEnd_toEndOf="@id/spSourceType"
+            />
+        <ImageButton
+            android:id="@+id/buttonSwitchLang"
+            android:layout_width="32dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/translate_switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/spSourceType" />
+
+        <Spinner
+            android:id="@+id/spDestType"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="center"
+            android:overlapAnchor="false"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/secondary_text_color"
+            app:layout_constraintBottom_toBottomOf="@id/spSourceType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonSwitchLang"
+            app:layout_constraintTop_toTopOf="@id/spSourceType"></Spinner>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ffe6e6e6"
+            app:layout_constraintStart_toStartOf="@id/spDestType"
+            app:layout_constraintTop_toBottomOf="@id/spDestType"
+            app:layout_constraintEnd_toEndOf="@id/spDestType"
+            />
+
+        <Button
+            android:id="@+id/downloadModeManagement"
+            android:textSize="@dimen/text_size_12sp"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:layout_width="0dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_back"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@id/spSourceType"
+            app:layout_constraintTop_toBottomOf="@id/spDestType"
+            android:text="@string/offline_model_management">
+
+        </Button>
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_edit_text_corner0"
+            android:gravity="top"
+            android:minLines="5"
+            android:textColor="@color/secondary_text_color"
+            android:padding="5dp"
+            android:text="@string/translate_text_hint"
+            android:textSize="@dimen/text_size_10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/downloadModeManagement" />
+
+
+        <ImageView
+            android:id="@+id/delete_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/translate_delete_text"
+            app:layout_constraintBottom_toBottomOf="@id/et_input"
+            app:layout_constraintEnd_toEndOf="@id/et_input" />
+
+        <TextView
+            android:id="@+id/tv_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_edit_text_corner0_bge6e6e6"
+            android:gravity="top"
+            android:minLines="5"
+            android:padding="5dp"
+            android:textSize="@dimen/text_size_14sp"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_input" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="0 ms"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_output"
+             />
+
+        <TextView
+            android:id="@+id/tv_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:textSize="10sp"
+            android:text="@string/elapsed_time"
+            app:layout_constraintEnd_toStartOf="@id/tv_time"
+            app:layout_constraintTop_toBottomOf="@id/tv_output" />
+
+        <Button
+            android:id="@+id/btn_translator"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginEnd="15dp"
+            android:textSize="@dimen/text_size_12sp"
+            android:background="@drawable/btn_back"
+            android:text="@string/translate_v"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_time_label" />
+
+        <Button
+            android:id="@+id/btn_identification"
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="@dimen/text_size_12sp"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/btn_back"
+            android:text="@string/language_recognition"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_translator"
+            app:layout_constraintTop_toBottomOf="@id/tv_time_label" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

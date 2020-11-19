@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="icr_margin">24dp</dimen>
+    <dimen name="icr_result_margin">10dp</dimen>
+    <dimen name="start_logo_height">200dp</dimen>
+    <dimen name="start_logo_margin">180dp</dimen>
+    <dimen name="start_margin_top">50dp</dimen>
+    <dimen name="text_size_17sp">15sp</dimen>
+    <dimen name="text_size_16sp">15sp</dimen>
+    <dimen name="text_size_15sp">14sp</dimen>
+    <dimen name="text_size_14sp">13sp</dimen>
+    <dimen name="text_size_13sp">13sp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_11sp">11sp</dimen>
+    <dimen name="text_size_9sp">10sp</dimen>
+    <dimen name="text_size_28sp">24sp</dimen>
+</resources>

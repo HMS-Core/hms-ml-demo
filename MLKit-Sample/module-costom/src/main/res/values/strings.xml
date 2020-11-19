@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">module costom</string>
+
+    <string name="back">back</string>
+    <string name="settings">Settings</string>
+    <string name="versions">Version：</string>
+
+    <string name="cust_model">CustModel</string>
+    <string name="cust_model_title">Model\n Executor</string>
+    <string name="cust_model_notice1">Click to select Picture.</string>
+    <string name="cust_model_notice2">Please select a picture for reasoning.</string>
+    <string name="cust_model_notice3">The model is ready, please select a picture.</string>
+    <string name="cust_model_download">Download model</string>
+
+    <string name="cust_model_type1">label</string>
+    <string name="cust_model_type2">object</string>
+    <string name="results">Swipe up to view the result.</string>
+    <string name="switchover">Models can be switched in the upper right corner.</string>
+
+</resources>

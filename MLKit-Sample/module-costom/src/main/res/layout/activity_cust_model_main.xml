@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/start_logo_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/logo_background"
+        android:scaleType="fitXY">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/title"
+            android:src="@mipmap/icon_logo"></ImageView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80dp"
+            android:text="@string/cust_model_title"
+            android:textColor="@color/white"
+            android:textSize="22sp"></TextView>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/start_logo_margin"
+        android:background="@drawable/logo_circle_background"></ImageView>
+
+    <ImageView
+        android:id="@+id/setting_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/icon_setting" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/cust_result_icon_bg"
+                android:onClick="onLableClick"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_shopping"
+                android:textAlignment="center"></ImageButton>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@string/cust_model_type1"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="18sp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/cust_result_icon_bg"
+                android:onClick="onObjectClick"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_classification"
+                android:textAlignment="center"></ImageButton>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@string/cust_model_type2"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="18sp"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

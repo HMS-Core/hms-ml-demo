@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Face Demo</string>
+
+    <string name="more_face_data">显示轮廓点</string>
+    <string name="versions">版本号：</string>
+
+    <string name="empty">无</string>
+</resources>

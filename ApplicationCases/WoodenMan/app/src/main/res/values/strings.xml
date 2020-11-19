@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">WoodenMan</string>
+    <string name="picture">Picture</string>
+    <string name="info">Info</string>
+    <string name="camera_permission_rationale">This sample app requires camera access in order to
+        demo the API.</string>
+    <string name="camera_no_good">No back-facing sufficiently capable camera available!</string>
+    <string name="camera_disabled">Camera is disabled by device policy</string>
+    <string name="camera_disconnected">Camera was disconnected before it was opened</string>
+    <string name="camera_error">Camera service reported an error</string>
+    <string name="camera_unknown">Unknown camera error: %s</string>
+    <string name="camera_permission_denied_explanation">You\'ve denied a permission that the app
+        needs for core functionality. If you selected &quot;don\'t ask again&quot; in the past then
+        you need to use Settings to re-enable the permission.</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="toggle_turn_on">Front</string>
+    <string name="toggle_turn_off">Back</string>
+    <string name="desc_camera_source_activity">Vision detectors demo with live camera preview</string>
+    <string name="desc_still_image_activity">Vision detectors demo with a still image</string>
+    <string name="load_pictures">Click here!</string>
+
+    <string name="background_substitution">Substitution</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="cutout">Cutout</string>
+    <string name="cut">Cut</string>
+    <string name="cut_success">Cut success</string>
+    <string name="save_success">Save success</string>
+
+    <string name="replace_background">Background</string>
+    <string name="save">Save</string>
+    <string name="please_select_picture">Please select a picture to process~</string>
+    <string name="click_add_picture">Click to add picture~</string>
+    <string name="no_pic_neededSave">Null Image needed to save</string>
+
+    <string name="back">back</string>
+    <string name="more_face_data">Show Shapespoint</string>
+    <string name="versions">Version：</string>
+
+    <string name="empty">Empty</string>
+
+    <string name="face_match">HiVision</string>
+    <string name="image_title">Only 2 seconds! That is great!</string>
+
+    <string name="game_one">First Level</string>
+    <string name="game_two">Second level</string>
+    <string name="game_three">Three level</string>
+    <string name="game_four">Fourth level</string>
+    <string name="game_five">Level 5</string>
+    <string name="game_six">Level 6</string>
+    <string name="game_seven">Level 7</string>
+    <string name="game_eight">Level 8</string>
+    <string name="game_nine">Level 9</string>
+    <string name="game_ten">Level 10</string>
+
+    <string name="game_zero_des">Challenge through 0 and beat 0%% of players! Keep trying! </string>
+    <string name="game_one_des">Challenge Passing 1 Pass, Beat 25.16%% of players! Keep trying! </string>
+    <string name="game_two_des">Challenge through 2 levels, beating 40.6% of players! Keep trying! </string>
+    <string name="game_tree_des">Challenge through 3 levels, beating 62.55% of players! Keep trying! </string>
+    <string name="game_four_des">Challenge through 4 levels, beating 78.66% of players! Keep trying! </string>
+    <string name="game_five_des">Challenge through 5 levels and beat 85.88% of players! Keep trying! </string>
+    <string name="game_six_des">Challenge through 6 levels, beating 97.19% of players! Keep trying! </string>
+    <string name="game_seven_des">Challenge Passing 7 Passes and Beats 100% Players! Keep trying! </string>
+    <string name="Saved">Saved</string>
+
+    <string name="text_ancients">Guess which ancients do you look like? </string>
+    <string name="text_souvenir">Photo commemorative photograph</string>
+    <string name="text_souvenir_introduce">Pose a specified pose to take a photo. You can also change it to the background of the stream backside village! </string>
+    <string name="text_post">Post the POSE to the challenge</string>
+    <string name="text_post_introduce">Press the same posture to pass the customs, see how many passes you can hold on! </string>
+    <string name="text_tongue">Tongue twister</string>
+    <string name="text_tongue_introduce">The correct tongue twister can pass customs, see how much you can pass! </string>
+
+    <string name="photo_souvenir">Photo Souvenir</string>
+    <string name="click_img">Click Picturing</string>
+    <string name="save_gallery">Save Gallery</string>
+    <string name="to_wan">playing once</string>
+    <string name="select_img">Select Picture</string>
+    <string name="background">Background</string>
+    <string name="over">Game over</string>
+    <string name="back_home">Back Home Page</string>
+    <string name="instructions">Game Instructions：</string>
+    <string name="tip">Pose the same pose as in the example figure for more than 3 seconds to pass the test. Come and see how many tests you can hold! </string>
+    <string name="single">Single person mode</string>
+    <string name="preview">Template preview</string>
+    <string name="please">Please enter threshold</string>
+    <string name="et_hiht">Decimal between 0 and 1</string>
+    <string name="cancel">Cancel</string>
+    <string name="title">Choice Title</string>
+    <string name="description">Choice Description</string>
+    <string name="open">Open</string>
+    <string name="hw">Huawei base</string>
+    <string name="selete_pic">Select image from album</string>
+    <string name="take_photo">Take photo</string>
+
+    <!--  Tongue twister  -->
+    <string name="tongue_began">Challenge</string>
+    <string name="tongue_again">Challenge again</string>
+    <string name="tongue_chinese">Into Chinese</string>
+    <string name="tongue_english">Into English</string>
+    <string name="tongue_rules">Rules of clearance</string>
+    <string name="tongue_source">Speech recognition capability comes from Huawei ml kit</string>
+    <string name="rules_content">1. Please complete the challenge within the specified time\n2. A wrong word means failure in the challenge</string>
+    <string name="tongue_began_time"> seconds after for the challenge</string>
+    <string name="tongue_began_hint">Please say the following correctly within 30 seconds</string>
+    <string name="tongue_great">That is great! </string>
+    <string name="tongue_trophy"> challenge is success</string>
+    <string name="over_count">Number of customs\nclearance</string>
+    <string name="over_tongue">The tongue does not work? Practice and challenge again. </string>
+    <string name="over_success">Successfully passed</string>
+    <string name="error_no_network">ERROR: Network unavailable, please try again…</string>
+    <string name="error_service_unavailable">ERROR: Service Unavailable</string>
+    <string name="error_no_sound_times_exceed">ERROR: No speech detected within 6S, automatic disconnection</string>
+    <string name="error_no_understand">ERROR: The server could not parse your voice</string>
+    <string name="str_ok">OK</string>
+    <string name="comma">，</string>
+    <string name="end">。</string>
+    <string name="line">__</string>
+
+    <!--  Tongue twister Chinese Text  -->
+    <!--  One  -->
+    <string name="chinese_title_1">老鼠遇老虎</string>
+    <string name="chinese_text_1">老鼠遇老虎，老虎咬老鼠。老鼠躲老虎，老虎咬不着老鼠，老鼠躲过了老虎。</string>
+    <string name="chinese_init_one_1">老</string>
+    <string name="chinese_init_two_1">老鼠</string>
+    <string name="chinese_init_three_1">老鼠遇</string>
+    <string name="chinese_replace_1_1">咬</string>
+    <string name="chinese_replace_2_1">躲</string>
+    <string name="chinese_error_1_1">要</string>
+    <string name="chinese_error_2_1">多</string>
+    <string name="chinese_error_3_1">朵</string>
+    <!--  Two  -->
+    <string name="chinese_title_2">布和醋</string>
+    <string name="chinese_text_2">有个小孩叫小杜，上街打醋又买布。买了布，打了醋。回头看见鹰抓兔。放下布，搁下醋，上前去追鹰和兔，飞了鹰，跑了兔。洒了醋，湿了布。</string>
+    <string name="chinese_init_one_2">有</string>
+    <string name="chinese_init_two_2">有个</string>
+    <string name="chinese_init_three_2">有个小</string>
+    <!--  Three  -->
+    <string name="chinese_title_3">黑化肥与灰化肥</string>
+    <string name="chinese_text_3">黑化肥发灰，灰化肥发黑。黑化肥发黑不发灰，灰化肥发灰不发黑。</string>
+    <string name="chinese_init_one_3">黑</string>
+    <string name="chinese_init_two_3">黑化</string>
+    <string name="chinese_init_three_3">黑化肥</string>
+    <string name="chinese_replace_1_3">灰</string>
+    <string name="chinese_error_1_3">挥</string>
+    <!--  Four  -->
+    <string name="chinese_title_4">粉红墙上画凤凰</string>
+    <string name="chinese_text_4">粉红墙上画凤凰，凤凰画在粉红墙。红凤凰，粉凤凰，红粉凤凰，花凤凰。</string>
+    <string name="chinese_init_one_4">粉</string>
+    <string name="chinese_init_two_4">粉红</string>
+    <string name="chinese_init_three_4">粉红墙</string>
+    <!--  Five  -->
+    <string name="chinese_title_5">户户农户争致富</string>
+    <string name="chinese_text_5">富民政策传户户，户户农户争致富。户户穷户变富户，富户户户带穷户。穷户变富富户富，户富富户户户富。</string>
+    <string name="chinese_init_one_5">富</string>
+    <string name="chinese_init_two_5">富民</string>
+    <string name="chinese_init_three_5">富民政</string>
+    <string name="chinese_replace_1_5">策</string>
+    <string name="chinese_replace_2_5">传</string>
+    <string name="chinese_replace_3_5">户</string>
+    <string name="chinese_replace_4_5">争</string>
+    <string name="chinese_replace_5_5">致</string>
+    <string name="chinese_replace_6_5">变</string>
+    <string name="chinese_replace_7_5">穷</string>
+    <string name="chinese_replace_8_5">带</string>
+    <string name="chinese_error_1_5">赴</string>
+    <string name="chinese_error_2_5">负</string>
+    <string name="chinese_error_3_5">服</string>
+    <string name="chinese_error_4_5">肤</string>
+    <string name="chinese_error_5_5">副</string>
+    <string name="chinese_error_6_5">夫</string>
+    <string name="chinese_error_7_5">付</string>
+    <string name="chinese_error_8_5">复</string>
+    <string name="chinese_error_9_5">蝠</string>
+    <string name="chinese_error_10_5">符</string>
+    <string name="chinese_error_11_5">册</string>
+    <string name="chinese_error_12_5">侧</string>
+    <string name="chinese_error_13_5">船</string>
+    <string name="chinese_error_14_5">互</string>
+    <string name="chinese_error_15_5">护</string>
+    <string name="chinese_error_16_5">沪</string>
+    <string name="chinese_error_17_5">胡</string>
+    <string name="chinese_error_18_5">呼</string>
+    <string name="chinese_error_19_5">糊</string>
+    <string name="chinese_error_20_5">和</string>
+    <string name="chinese_error_21_5">正</string>
+    <string name="chinese_error_22_5">执</string>
+    <string name="chinese_error_23_5">治</string>
+    <string name="chinese_error_24_5">支</string>
+    <string name="chinese_error_25_5">止</string>
+    <string name="chinese_error_26_5">至</string>
+    <string name="chinese_error_27_5">遍</string>
+    <string name="chinese_error_28_5">便</string>
+    <string name="chinese_error_29_5">蝙</string>
+    <string name="chinese_error_30_5">穹</string>
+    <string name="chinese_error_31_5">琼</string>
+    <string name="chinese_error_32_5">大</string>
+    <string name="chinese_error_33_5">代</string>
+    <!--  Tongue twister English Text  -->
+    <!--  One  -->
+    <string name="english_title_1">YOU Can</string>
+    <string name="english_text_1">Can you can a can as a canner can can a can</string>
+    <string name="english_init_one_1">Can</string>
+    <string name="english_replace_1_1">you</string>
+    <string name="english_replace_2_1">a</string>
+    <string name="english_replace_3_1">a can</string>
+    <string name="english_error_1_1">You</string>
+    <string name="english_error_2_1">A</string>
+    <string name="english_error_3_1">occur</string>
+    <!--  Two  -->
+    <string name="english_title_2">ice-cream</string>
+    <string name="english_text_2">I scream you scream we all scream for ice cream</string>
+    <string name="english_replace_1_2">we</string>
+    <string name="english_error_1_2">We</string>
+    <!--  Three  -->
+    <string name="english_title_3">light a night</string>
+    <string name="english_text_3">There is no need to light a night light on a light night like tonight for a bright night light is just like a slight light</string>
+    <string name="english_replace_1_3">light</string>
+    <string name="english_replace_2_3">night</string>
+    <string name="english_replace_3_3">for</string>
+    <string name="english_replace_4_3">like</string>
+    <string name="english_replace_5_3">just</string>
+    <string name="english_replace_6_3">bright</string>
+    <string name="english_error_1_3">Light</string>
+    <string name="english_error_2_3">Late</string>
+    <string name="english_error_3_3">late</string>
+    <string name="english_error_4_3">Night</string>
+    <string name="english_error_5_3">For</string>
+    <string name="english_error_6_3">Like</string>
+    <string name="english_error_7_3">Just</string>
+    <string name="english_error_8_3">Bright</string>
+    <!--  Four  -->
+    <string name="english_title_4">wish</string>
+    <string name="english_text_4">I wish to wish the wish you wish to wish but if you wish the wish the witch wishes I will not wish the wish you wish to wish</string>
+    <string name="english_replace_1_4">wish</string>
+    <string name="english_replace_2_4">but</string>
+    <string name="english_replace_3_4">if</string>
+    <string name="english_error_1_4">Wish</string>
+    <string name="english_error_2_4">But</string>
+    <string name="english_error_3_4">If</string>
+    <!--  Five  -->
+    <string name="english_title_5">Cook</string>
+    <string name="english_text_5">How many cookies could a good cook cook if a good cook could cook cookies a good cook could cook as much cookies as a good cook who could cook cookies</string>
+    <string name="english_replace_1_5">cookies</string>
+    <string name="english_replace_2_5">could</string>
+    <string name="english_replace_3_5">good</string>
+    <string name="english_replace_4_5">cook</string>
+    <string name="english_replace_5_5">who</string>
+    <string name="english_error_1_5">Cookies</string>
+    <string name="english_error_2_5">Could</string>
+    <string name="english_error_3_5">Good</string>
+    <string name="english_error_4_5">Cook</string>
+    <string name="english_error_5_5">Who</string>
+
+</resources>

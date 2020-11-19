@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fireTopLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <com.huawei.mlkit.sample.camera.LensEnginePreview
+        android:id="@+id/firePreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        >
+
+        <com.huawei.mlkit.sample.views.overlay.GraphicOverlay
+            android:id="@+id/fireOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </com.huawei.mlkit.sample.camera.LensEnginePreview>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="@dimen/icon_back_width"
+            android:layout_height="@dimen/icon_back_height"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/icon_back_margin"
+            android:layout_marginTop="@dimen/icon_back_margin"
+            android:background="@drawable/button_circle_background"
+            android:src="@drawable/black_back" />
+
+        <TextView
+            android:id="@+id/mlkit_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="ML Kit"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:visibility="gone"></TextView>
+
+        <LinearLayout
+            android:id="@+id/switch_button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="50dp"
+            android:layout_toRightOf="@+id/back"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/select_template"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:singleLine="false"
+                android:text="Template preview"
+                android:textAllCaps="false"
+                android:background="@color/secondary_text_color"
+                android:textColor="@color/white"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/switch_similarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="Similarity comparison"
+                android:textColor="#ffffff"
+                android:textSize="13dp" />
+
+            <com.huawei.mlkit.sample.views.SwitchButton
+                android:id="@+id/switch_button_similarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/switch_similarity">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="isYogaMode"
+                android:textColor="#ffffff"
+                android:textSize="13dp" />
+
+            <com.huawei.mlkit.sample.views.SwitchButton
+                android:id="@+id/switch_button_yoga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zoomImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/take_picture_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/similarity_layout"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-19dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_similarity"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_above="@+id/template_image_view"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="-19dp"
+            android:text="similarity:0%  "
+            android:textColor="#ffffff"
+            android:textSize="13dp"/>
+
+        <ImageView
+            android:id="@+id/template_image_view"
+            android:layout_width="135dp"
+            android:layout_height="240dp"
+            android:src="@mipmap/test_img" />
+
+    </RelativeLayout>
+
+
+    <ToggleButton
+        android:id="@+id/facingSwitch"
+        android:layout_width="@dimen/circle_stroke_radius"
+        android:layout_height="@dimen/circle_stroke_radius"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/facingswitch_stroke"
+        android:textOff=""
+        android:textOn="" />
+</RelativeLayout>

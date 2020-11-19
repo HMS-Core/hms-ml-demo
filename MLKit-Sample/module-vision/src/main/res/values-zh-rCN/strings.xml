@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ML Kit</string>
+
+    <string name="camera_permission_rationale">示例应用需要相机和存储权限</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">设置</string>
+    <string name="cancel">取消</string>
+
+    <string name="cloud_classification">云端图像分类</string>
+
+    <string name="select_from_album">从相册选择图片</string>
+    <string name="take_photo">拍照</string>
+    <string name="more_face_data">采集更多人脸数据</string>
+    <string name="versions">版本号：</string>
+
+    <string name="get_data_failed">获取数据失败</string>
+    <string name="loading_data">加载中…</string>
+    <string name="load_pictures">加载图片</string>
+
+    <!--全称-->
+    <string name="image_segmentation_s">图像分割</string>
+    <string name="photographed_shopping_s">拍照购</string>
+    <string name="face_detection_s">人脸识别</string>
+    <string name="object_detection_s">对象检测</string>
+    <string name="image_classification_s">图片分类</string>
+    <string name="landmark_s">地标识别</string>
+    <!--简写-->
+    <string name="image_segmentation">图像分割</string>
+    <string name="photographed_shopping">拍照购物</string>
+    <string name="photographed_shopping_s_plugin">拍照购物插件</string>
+    <string name="face_detection">人脸检测</string>
+    <string name="object_detection">对象检测</string>
+    <string name="image_classification">图像分类</string>
+    <string name="landmark">地标识别</string>
+    <string name="skeletlon">人体骨骼</string>
+
+    <string name="all">所有</string>
+    <string name="coming_soon">敬请期待</string>
+    <string name="back">返回</string>
+
+    <string name="background_substitution">背景替换</string>
+    <string name="cutout">人像抠图</string>
+    <string name="select_picture">选择图片</string>
+    <string name="cut">剪切</string>
+    <string name="replace_background">背景</string>
+    <string name="save">保存</string>
+    <string name="cut_success">剪切成功</string>
+    <string name="save_success">保存成功</string>
+
+    <string name="please_select_picture">请选择一张要处理的图片~</string>
+    <string name="click_add_picture">点击添加图片~</string>
+    <string name="no_pic_neededSave">没有可保存的图片</string>
+    <string name="target_object">目标</string>
+    <string name="color">颜色</string>
+
+    <string name="similar_products">相似商品</string>
+    <string name="productInfo">为您找到以下相似商品</string>
+    <string name="empty">无</string>
+    <string name="empty_product">"暂无相似产品，敬请期待！"</string>
+
+    <!-- image super resolution-->
+    <string name="image_super_resolution">图像超分</string>
+    <string name="image_super_resolution_s">图像超分</string>
+    <string name="isr_upload_picture_tint">请上传图片</string>
+    <string name="isr_upload_picture">请选择您需要进行超分的图片.</string>
+    <string name="tips">温馨提示</string>
+    <string name="isr_tips_content">使用图像超分服务前需要将图片转化为ARGB格式的bitmap，经过该服务处理后输出ARGB格式bitmap。3x超分场景下，输入图片最大尺寸为800px*800px，最小尺寸不小于64px*64px。1x超分场景下，为满足横屏和竖屏的需求，输入图片最大尺寸为1024px*768px，也支持768px*1024px，最小尺寸不小于64px*64px。当输入图像质量清晰度较好的图片时，效果不明显。</string>
+    <string name="isr_image_width">宽:&#160;</string>
+    <string name="isr_image_height">高:&#160;</string>
+    <string name="isr_image_1x">1x超分</string>
+    <string name="isr_image_3x">3x超分</string>
+    <string name="isr_image_original">原图</string>
+
+    <string name="text_super_resolution">文字图像超分</string>
+    <string name="text_super_resolution_s">文字图像超分</string>
+    <string name="tsr_tips_content">使用文字图像超分服务前需要将图片转化为ARGB格式的bitmap，经过该服务处理后输出ARGB格式bitmap。文字图像超分仅支持3x超分。输入图片最大尺寸为800px*800px，最小尺寸不小于64px*64px。当输入图像质量清晰度较好的图片时，效果不明显。</string>
+
+    <string name="cust_model">自定义模型</string>
+    <string name="cust_model_title">模型推理</string>
+    <string name="cust_model_notice1">点击选择图片</string>
+    <string name="cust_model_notice2">请选择一张用于推理的图片。</string>
+    <string name="cust_model_notice3">模型已经准备好,请选择一张图片。</string>
+    <string name="cust_model_download">下载模型</string>
+
+    <string name="cust_model_type1">label</string>
+    <string name="cust_model_type2">object</string>
+
+    <string name="scene_detection">场景识别</string>
+    <string name="set_up">设置返回结果最大数量:</string>
+    <string name="set_hiht">请输入0-100之间的整数</string>
+
+    <string name="table">表格识别</string>
+
+    <string name="select">选择</string>
+    <string name="gallery">图库</string>
+    <string name="camera">摄像机</string>
+    <string name="form_recognition">表格识别</string>
+    <string name="from_pic">请上传图片</string>
+    <string name="recognition">识别</string>
+    <string name="teble_error">表格检测失败，请更换表格图片.</string>
+
+</resources>

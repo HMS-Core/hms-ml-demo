@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/currentview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/textembedding"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#005fce"
+        android:gravity="center">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="22dp"
+            android:text="TextEmbedding"
+            android:textColor="#ffffff"
+            android:textSize="17sp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/interface_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textembedding"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#e6e6e6"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_dic_info"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/getVisionValue"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+            <TextView
+                android:id="@+id/tv_word2v"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/word_vector_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+            <TextView
+                android:id="@+id/tv_words2v"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/words_vector_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_sentence2v"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/sentence_vector_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+            <TextView
+                android:id="@+id/tv_word2s"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/word_similarity_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+            <TextView
+                android:id="@+id/tv_sentence2s"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/sentence_similarity_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center" />
+            <TextView
+                android:id="@+id/tv_word_for_simil"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/similar_word_analysis"
+                android:textColor="#333333"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:paddingRight="30dp"
+                android:gravity="center" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <View
+        android:layout_width="25dp"
+        android:layout_height="40dp"
+        android:background="#e6e6e6"
+        android:layout_below="@+id/textembedding"
+        android:layout_alignParentRight="true"/>
+    <LinearLayout
+        android:id="@+id/language_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/interface_selection">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/language"
+            android:textColor="#878787"
+            android:textSize="17sp"
+            android:gravity="left" />
+        <Spinner
+            android:id="@+id/languages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/spingarr"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/show_result_dic_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/language_selection"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_dic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#878787"
+            android:textSize="17sp"
+            android:background="#e6e6e6"
+            android:text="@string/getvision"
+            android:layout_gravity="left"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/Parsing_Result"
+            android:textColor="#878787"
+            android:layout_marginTop="15dp"
+            android:textSize="17sp"
+            android:gravity="left" />
+        <TextView
+            android:id="@+id/result_dic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="left"
+            android:text="@string/vision_nlp"
+            android:textColor="#878787"
+            android:textSize="17sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/show_word_vector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/language_selection"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/linear_react"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/input_word"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="5dp"
+                android:hint="请输入需要解析的词"
+                android:text="你好"
+                android:textColor="#878787"
+                android:textSize="17sp"
+                android:background="@null"
+                android:gravity="left"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom|right"
+                android:padding="5dp">
+                <ImageButton
+                    android:id="@+id/delete_word"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/delete" />
+                <ImageButton
+                    android:id="@+id/search_word"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/search" />
+            </LinearLayout>
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="解析结果"
+                    android:textColor="#878787"
+                    android:textSize="17sp"
+                    android:gravity="left" />
+                <TextView
+                    android:id="@+id/result_word_vector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="词向量："
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </ScrollView>>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/show_words1_vector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/language_selection"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/linear_react"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/input_words1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="5dp"
+                android:hint="请输入需要解析的词组（以英文逗号隔开）"
+                android:text="你好,我好,他好"
+                android:textColor="#878787"
+                android:textSize="17sp"
+                android:background="@null"
+                android:gravity="left"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom|right"
+                android:padding="5dp">
+                <ImageButton
+                    android:id="@+id/delete_words1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/delete" />
+                <ImageButton
+                    android:id="@+id/search_words1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/search" />
+            </LinearLayout>
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="解析结果"
+                    android:textColor="#878787"
+                    android:textSize="17sp"
+                    android:gravity="left" />
+                <TextView
+                    android:id="@+id/result_words1_vector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="词组向量："
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </ScrollView>>
+    </LinearLayout>
+
+    <LinearLayout
+    android:id="@+id/show_sentence_vector"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/language_selection"
+    android:visibility="gone"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/linear_react"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/input_sentence"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            android:hint="请输入需要解析的语句"
+            android:text="今天天气真好"
+            android:textColor="#878787"
+            android:textSize="17sp"
+            android:background="@null"
+            android:gravity="left"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom|right"
+            android:padding="5dp">
+            <ImageButton
+                android:id="@+id/delete_sentence"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/delete" />
+            <ImageButton
+                android:id="@+id/search_sentence"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/search" />
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/input_sentence">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="解析结果"
+                android:textColor="#878787"
+                android:textSize="17sp"
+                android:gravity="left" />
+            <TextView
+                android:id="@+id/result_sentence_vector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="句向量："
+                android:textColor="#878787"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </ScrollView>>
+</LinearLayout>
+
+    <LinearLayout
+    android:id="@+id/show_word_simil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/language_selection"
+    android:layout_marginTop="0dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/linear_react"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/input_words"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/input_word1"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="请输入需要解析的词语"
+                android:text="香锅"
+                android:textColor="#878787"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="And"
+                android:textColor="#878787"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/input_word2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:hint="请输入需要解析的词语"
+                android:text="麻辣烫"
+                android:textColor="#878787"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageButton
+                android:id="@+id/delete_words"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/delete" />
+
+            <ImageButton
+                android:id="@+id/search_word_simil"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/search" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_words"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="解析结果"
+                android:textColor="#878787"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/result_word_simil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="词相似度："
+                android:textColor="#878787"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/show_sentence_simil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/language_selection"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/linear_react"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/input_sentences"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/input_sentence1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入需要解析的语句"
+                    android:text="天气很好"
+                    android:textColor="#878787"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="And"
+                    android:textColor="#878787"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/input_sentence2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:hint="请输入需要解析的语句"
+                    android:text="晴空万里"
+                    android:textColor="#878787"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/delete_sentences"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/delete" />
+
+                <ImageButton
+                    android:id="@+id/search_sentence_simil"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/search" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="解析结果"
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+                <TextView
+                    android:id="@+id/result_sentence_simil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="句相似度："
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/show_simil_words"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/language_selection"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/linear_react"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/input_word_for_simil"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:hint="请输入需要解析的词"
+                    android:text="开心"
+                    android:textColor="#878787"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="And"
+                    android:textColor="#878787"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/input_quantity"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:hint="请输入请求相似词数量"
+                    android:text="5"
+                    android:textColor="#878787"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/delete_word_for_simil"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/delete" />
+                <ImageButton
+                    android:id="@+id/search_simil_words"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/search" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/input_sentences"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="解析结果"
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+                <TextView
+                    android:id="@+id/result_simil_words"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="相似词："
+                    android:textColor="#878787"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>
