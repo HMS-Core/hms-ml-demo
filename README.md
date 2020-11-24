@@ -8,7 +8,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_ZH
 
 This project includes apps developed based on Huawei Machine Learning Service (ML Kit). The project directory is as follows:
 
-|-- MLKit-Sample // ML Kit scenario-based demo. You can scan the QR code to obtain the demo from [Get Demo](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5)
+|-- MLKit-Sample // ML Kit scenario-based demo. You can scan the QR code to obtain the demo from: [Get Demo](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5)
 
 |-- ApplicationCases // Application cases developed based on Huawei Machine Learning Service (ML Kit).
 
