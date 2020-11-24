@@ -4,9 +4,6 @@
 
 [English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README.md) | 中文
 
-## 工程目录结构
-   HMS ML Demo
-
 ## 简介
 
 本项目包含基于华为机器学习服务(ML Kit)开发的APP。工程目录如下：
