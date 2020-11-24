@@ -24,10 +24,10 @@ The root folder already contains a common build.gradle, which loads the latest A
 All projects and nested modules are defined in the root `settings.gradle` setting file, new projects are added, all module entries are added to the external setting file, and then the configuration file of the project is deleted.
 
 ## Technical Support
-If you are still evaluating HMS Core, obtain the latest information about HMS Core and share your insights with other developers at (https://www.reddit.com/r/HuaweiDevelopers/).
+If you are still evaluating HMS Core, obtain the latest information about HMS Core and share your insights with other developers at https://www.reddit.com/r/HuaweiDevelopers/.
 
 If you have any questions about using the HMS sample code, try:
 - If you encounter any problem during the development, ask the [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) under the `huawei-mobile-services' tag. Huawei R&D experts can solve your problem online one-to-one.
-- Communicate with other developers in the (https://developer.huawei.com/consumer/cn/forum/blockdisplay?fid=18) HMS Core section of the Huawei Developer Forum.
+- Communicate with other developers in the [HMS Core section of the Huawei Developer Forum](https://developer.huawei.com/consumer/cn/forum/blockdisplay?fid=18) .
 
 If you have problems trying the sample code, submit [issue](https://github.com/HMS-Core/hms-ml-demo/issues) to the repository, and you are welcome to submit [Pull Request](https://github.com/HMS-Core/hms-ml-demo/pulls).
