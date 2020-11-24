@@ -11,7 +11,7 @@
 
 本项目包含基于华为机器学习服务(ML Kit)开发的APP。工程目录如下：
 
-|-- MLKit-Sample // ML Kit场景化Demo，此Demo可以通过扫描二维码的方式在开发者联盟网站获取：前往获取(https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5。)
+|-- MLKit-Sample // ML Kit场景化Demo，此Demo可以通过扫描二维码的方式在开发者联盟网站获取：[获取Demo](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5。)
 
 |-- ApplicationCases // 基于华为机器学习服务(ML Kit)开发的应用案例。
 
