@@ -40,8 +40,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Import the ASR plug-in.
-    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.5.300'
 
     //Lifecycle Extension
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"

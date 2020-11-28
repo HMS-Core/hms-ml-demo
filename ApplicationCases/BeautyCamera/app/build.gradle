@@ -28,8 +28,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-    implementation 'com.huawei.hms:ml-computer-vision-face:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.5.300'
 }

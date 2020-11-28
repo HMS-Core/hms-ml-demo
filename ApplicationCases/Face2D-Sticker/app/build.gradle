@@ -34,9 +34,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
 
     // Face detection SDK.
-    implementation 'com.huawei.hms:ml-computer-vision-face:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face:2.0.5.300'
     // Face detection model.
-    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.5.300'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

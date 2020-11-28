@@ -42,11 +42,11 @@ dependencies {
     //Lifecycle extensions
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     // Automatic speech recognition
-    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.3.300'
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.5.300'
     // Import the TTS SDK.
-    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.4.300"
+    implementation "com.huawei.hms:ml-computer-voice-tts:2.0.5.300"
     // Import the text translation SDK.
-    implementation "com.huawei.hms:ml-computer-translate:2.0.4.300"
+    implementation "com.huawei.hms:ml-computer-translate:2.0.5.300"
 
 }
