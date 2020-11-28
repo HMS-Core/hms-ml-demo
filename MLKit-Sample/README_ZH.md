@@ -59,10 +59,10 @@ Module-vision。其中包括：图像分割、图像分类、对象检测与跟�
 </tr></table>
 
 ### 人体模块
-Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部关键点。
+Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部关键点、3D人脸检测。
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_module.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_module.png" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/handkey.jpg" width=220 border=2></td>
