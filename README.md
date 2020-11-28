@@ -8,7 +8,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_ZH
 
 This project includes apps developed based on HUAWEI ML Kit. The project directory is as follows:
 
-|-- MLKit-Sample // ML Kit scenario-based demo. You can scan the QR code to obtain the demo.
+|-- MLKit-Sample // ML Kit scenario-based demo. You can scan the QR code to obtain [the demo](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5).
 
 |-- ApplicationCases // Application cases developed based on ML Kit.
 
@@ -24,10 +24,11 @@ The root folder already contains a common build.gradle file, which loads the lat
 All projects and nested modules are defined in the root directory of settings.gradle file. You can create a project, add all module entries of the project to the external settings.gradle file, and delete the settings.gradle file in the new project.
 
 ## Technical Support
-If you are still evaluating HMS Core, obtain the latest information about HMS Core and share your insights with other developers at Reddit.
+
+If you are still evaluating HMS Core, obtain the latest information about HMS Core and share your insights with other developers at [Reddit](https://www.reddit.com/r/HuaweiDevelopers/).
 
 If you have any questions about using the HMS sample code, try:
-- To resolve development issues, please go to Stack Overflow. You can ask questions below the huawei-mobile-services tag, and Huawei R&D experts can solve your problem online on a one-to-one basis.
-- To join the developer discussion, please visit Huawei Developer Forum.
+- To resolve development issues, please go to [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services). You can ask questions below the huawei-mobile-services tag, and Huawei R&D experts can solve your problem online on a one-to-one basis.
+- To join the developer discussion, please visit [Huawei Developer Forum](https://forums.developer.huawei.com/forumPortal/en/forum/hms-core).
 
-If you have problems using the sample code, submit issues and pull requests to the repository.
+If you have problems using the sample code, submit [issues](https://github.com/HMS-Core/hms-ml-demo/issues) and [pull requests](https://github.com/HMS-Core/hms-ml-demo/pulls) to the repository.
