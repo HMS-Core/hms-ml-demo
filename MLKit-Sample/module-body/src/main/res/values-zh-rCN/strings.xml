@@ -10,7 +10,7 @@
     <string name="take_photo">拍照</string>
     <string name="select_from_album">从相册选择图片</string>
     <string name="cloud_handkeypoint">手部关键点</string>
-    <string name="faceVerification">人脸对比</string>
+    <string name="faceVerification">人脸比对</string>
 
     <string name="click_add_template_picture">点击选择模板图片</string>
     <string name="click_add_compare_picture">点击选择对比图片</string>
@@ -21,6 +21,7 @@
     <!--简写-->
 
     <string name="face_detection">人脸检测</string>
+    <string name="face_3d">3D 人脸检测</string>
     <string name="skeletlon">人体骨骼</string>
     <string name="liveness_detection">活体检测</string>
     <string name="handKeypoint">手部关键点</string>
@@ -31,7 +32,10 @@
 
     <string name="more_face_data">人脸数据</string>
     <string name="versions">版本号：</string>
-    <string name="start">启动</string>
+    <string name="start">启动默认UI</string>
+    <string name="custom_start">启动自定义UI</string>
+    <string name="custom_ui">人脸识别</string>
+    <string name="custom_tips">把脸放框里</string>
 
     <string name="face_point">点</string>
     <string name="face_feature">特征</string>

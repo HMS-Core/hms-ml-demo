@@ -21,6 +21,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.huawei.hms.mlsdk.asr.MLAsrConstants;
 import com.huawei.hms.mlsdk.speechrtt.MLSpeechRealTimeTranscription;
 import com.huawei.hms.mlsdk.speechrtt.MLSpeechRealTimeTranscriptionConfig;
 import com.huawei.hms.mlsdk.speechrtt.MLSpeechRealTimeTranscriptionConstants;
@@ -69,6 +70,8 @@ public class RealTimeTranscriptionManager {
                 .enablePunctuation(true)
                 .enableSentenceTimeOffset(true)
                 .enableWordTimeOffset(true)
+                // Set the usage scenario to shopping,Currently, only Chinese scenarios are supported.
+               // .setScenes(MLSpeechRealTimeTranscriptionConstants.SCENES_SHOPPING)
                 .create();
         MLSpeechRealTimeTranscription.getInstance().setRealTimeTranscriptionListener(new SpeechRecognitionListener());
         MLSpeechRealTimeTranscription.getInstance().startRecognizing(config);

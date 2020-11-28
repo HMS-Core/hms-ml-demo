@@ -32,6 +32,10 @@
         <activity
             android:name=".activity.face.FaceDetectionActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.face3d.Live3DFaceAnalyseActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" />
         <!-- HumanSkeleton -->
         <activity
             android:name=".activity.skeleton.HumanSkeletonActivity"
@@ -42,7 +46,12 @@
             android:launchMode="singleTask" />
 
         <!--LivenessDetection-->
-        <activity android:name=".activity.livenessdetection.HumanLivenessDetectionActivity"></activity>
+        <activity android:name=".activity.livenessdetection.HumanLivenessDetectionActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".activity.livenessdetection.LivenessCustomDetectionActivity"
+            android:screenOrientation="portrait"
+            ></activity>
         <!--HandKeypoint-->
         <activity
             android:name=".activity.handkeypoint.HandKeypointActivity"

@@ -66,4 +66,7 @@
     <dimen name="dialog_width">210dp</dimen>
     <dimen name="dialog_height">300dp</dimen>
     <dimen name="speaker_dialog_height">72dp</dimen>
+
+    <dimen name="margin_l">16dp</dimen>
+    <dimen name="margin_m">8dp</dimen>
 </resources>

@@ -51,7 +51,10 @@ public class SpeechRecognizerManager {
         mSpeechRecognizer.setAsrListener(new SpeechRecognitionListener());
         mSpeechRecognizerIntent = new Intent(MLAsrConstants.ACTION_HMS_ASR_SPEECH);
 
-        mSpeechRecognizerIntent.putExtra(MLAsrConstants.LANGUAGE, language).putExtra(MLAsrConstants.FEATURE, MLAsrConstants.FEATURE_WORDFLUX);
+        mSpeechRecognizerIntent.putExtra(MLAsrConstants.LANGUAGE, language)
+                .putExtra(MLAsrConstants.FEATURE, MLAsrConstants.FEATURE_WORDFLUX);
+                // Set the usage scenario to shopping.
+                //.putExtra(MLAsrConstants.SCENES, MLAsrConstants.SCENES_SHOPPING);
     }
 
 

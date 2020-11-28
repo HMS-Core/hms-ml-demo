@@ -5,7 +5,7 @@
  *    you may not use this file except in compliance with the License.
  *    You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  *    Unless required by applicable law or agreed to in writing, software
  *    distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ import android.widget.Toast;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
+import com.huawei.hms.ml.language.common.utils.LanguageCodeUtil;
 import com.huawei.hms.mlsdk.common.MLApplication;
 import com.huawei.hms.mlsdk.langdetect.MLLangDetectorFactory;
 import com.huawei.hms.mlsdk.langdetect.local.MLLocalLangDetector;
@@ -71,8 +73,9 @@ public class LocalTranslateActivity extends BaseActivity {
     private static final String TAG = "LocalTranslateActivity";
 
     private static final ArrayList<String> LANG_CODE_LIST = new ArrayList<>(Arrays.asList(
-            "ZH", "EN", "ES", "DE", "RU", "FR", "IT", "PT", "TH", "AR", "TR", "JA",
-            "DA", "PL", "FI", "KO", "SV", "VI", "MS", "NO"));
+            "ZH", "ZH-HK", "EN", "ES", "DE", "RU", "FR", "IT", "PT", "TH", "AR", "TR", "JA",
+            "DA", "PL", "FI", "KO", "SV", "VI", "MS", "NO", "ID", "CS", "HE", "EL", "HI", "TL",
+            "SR", "RO"));
 
     private static final ArrayList<String> SOURCE_LANGUAGE_CODE = new ArrayList<>();
     private static final ArrayList<String> DEST_LANGUAGE_CODE = new ArrayList<>();
@@ -81,14 +84,17 @@ public class LocalTranslateActivity extends BaseActivity {
     private static final ArrayList<String> SP_SOURCE_LIST_EN = new ArrayList<>();
 
     private static final List<String> LANGUAGE_LIST_EN = new ArrayList<>(Arrays.asList(
-            "Chinese", "English", "Spanish", "German", "Russian", "French", "Italian",
+            "Chinese (Simplified)", "Chinese (Traditional)", "English", "Spanish", "German", "Russian", "French", "Italian",
             "Portuguese", "Thai", "Arabic", "Turkish", "Japanese", "Danish", "Polish",
-            "Finnish", "Korean", "Swedish", "Vietnamese", "Malaysian", "Norwegian"));
+            "Finnish", "Korean", "Swedish", "Vietnamese", "Malaysian", "Norwegian",
+            "Indonesian", "Czech", "Hebrew", " Greek", "Hindi",
+            "Filipino", "Serbian", "Romanian"));
 
     private static final List<String> LANGUAGE_LIST_ZH = new ArrayList<>(Arrays.asList(
-            "中文", "英文", "西班牙语", "德语", "俄语", "法语", "意大利", "葡萄牙", "泰语",
+            "中文简体", "中文繁体", "英文", "西班牙语", "德语", "俄语", "法语", "意大利", "葡萄牙", "泰语",
             "阿拉伯", "土耳其", "日语", "丹麦语", "波兰语", "芬兰语", "韩语", "瑞典语", "越南语",
-            "马来西亚语", "挪威语"));
+            "马来西亚语", "挪威语", "印尼语", "捷克语", "希伯来语", "希腊语", "印地语",
+            "菲律宾语", "塞尔维亚语", "罗马尼亚语"));
 
     private static final List<String> SP_DEST_LIST = new ArrayList<>();
     private static final List<String> SP_DEST_LIST_EN = new ArrayList<>();
@@ -96,21 +102,22 @@ public class LocalTranslateActivity extends BaseActivity {
     private static final List<String> DOWNLOAD_LANG_LIST = new ArrayList<>();
     private static final List<String> DOWNLOAD_LANG_LIST_EN = new ArrayList<>();
 
-    private static final List<String> DEMO_LIST = new ArrayList<>(Arrays.asList("Machine learning", "机器学习", "Machine learning",
+    private static final List<String> DEMO_LIST = new ArrayList<>(Arrays.asList("Machine learning", "机器学习", "機器學習", "Machine learning",
             "Aprendizaje de la máquina", "Maschinelles Lernen", "Машинное обучение", "Apprentissage mécanique"
-            , "Apprendimento delle macchine", "aprendizagem por máquina", "การเรียนรู้ของเครื่อง", "التعلم الآلي", "makine öğrenimi", "機械学習"
-            , " ", "Uczenie się maszyn", "Koneoppiminen", "기계 학습", "Inlärning av maskiner", "Máy học"
-            , "Pembelajaran mesin", "Maskinlæring"));
+            , "Apprendimento delle macchine", "aprendizagem por máquina", "การเรียนรู้ของเครื่อง", "التعلم الآلي",
+            "makine öğrenimi", "機械学習", " ", "Uczenie się maszyn", "Koneoppiminen", "기계 학습", "Inlärning av maskiner", "Máy học"
+            , "Pembelajaran mesin", "Maskinlæring", "Belajar mesin", "Strojové učení", "למידה של מכונה", "Μηχανική μάθηση", "मशीन लर्निंग",
+            "Pag-aaral ng makina", "mašinsko učenje", "învăţarea maşinilor"));
 
 
     private static final List<String> DOWNLOAD_CODE_LIST = new ArrayList<>(Arrays.asList(
             "zh", "es", "de", "ru", "fr", "it", "pt", "th", "ar", "tr",
-            "ja", "da", "pl", "fi", "ko", "sv", "vi", "ms", "no"));
+            "ja", "da", "pl", "fi", "ko", "sv", "vi", "ms", "no", "id", "cs", "he", "el", "hi", "tl", "sr", "ro"));
 
     private final static long M = 1024 * 1024;
 
     private final static int LEFT = 1;
-    private final static int RIGHT  = 2;
+    private final static int RIGHT = 2;
     private final static int AUTO = 3;
 
     private final static int NETWORL_NONE = 1;
@@ -147,8 +154,10 @@ public class LocalTranslateActivity extends BaseActivity {
     private String bestResult;
 
     private CallBcak callBcak;
+
     public abstract static class CallBcak {
         public abstract void download(String language);
+
         public abstract void delete(String language);
     }
 
@@ -168,8 +177,13 @@ public class LocalTranslateActivity extends BaseActivity {
 
         DOWNLOAD_LANG_LIST.addAll(LANGUAGE_LIST_ZH);
         DOWNLOAD_LANG_LIST.remove(1);
+        DOWNLOAD_LANG_LIST.remove(1);
+        DOWNLOAD_LANG_LIST.set(0, "中文");
         DOWNLOAD_LANG_LIST_EN.addAll(LANGUAGE_LIST_EN);
         DOWNLOAD_LANG_LIST_EN.remove(1);
+        DOWNLOAD_LANG_LIST_EN.remove(1);
+        DOWNLOAD_LANG_LIST_EN.set(0, "Chinese");
+
     }
 
     @Override
@@ -184,11 +198,11 @@ public class LocalTranslateActivity extends BaseActivity {
 
         if (isEngLanguage()) {
             downloadAdapter = new TranslateDownloadAdapter(LocalTranslateActivity.this,
-                    (ArrayList)DOWNLOAD_LANG_LIST_EN, (ArrayList)DOWNLOAD_CODE_LIST, downloadModels
+                    (ArrayList) DOWNLOAD_LANG_LIST_EN, (ArrayList) DOWNLOAD_CODE_LIST, downloadModels
                     , downloadMap, callBcak);
         } else {
             downloadAdapter = new TranslateDownloadAdapter(LocalTranslateActivity.this,
-                    (ArrayList)DOWNLOAD_LANG_LIST, (ArrayList)DOWNLOAD_CODE_LIST, downloadModels
+                    (ArrayList) DOWNLOAD_LANG_LIST, (ArrayList) DOWNLOAD_CODE_LIST, downloadModels
                     , downloadMap, callBcak);
         }
 
@@ -218,7 +232,7 @@ public class LocalTranslateActivity extends BaseActivity {
         });
     }
 
-    private void setApiKey(){
+    private void setApiKey() {
         AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
         MLApplication.getInstance().setApiKey(config.getString(API_KEY));
     }
@@ -228,7 +242,7 @@ public class LocalTranslateActivity extends BaseActivity {
         if (this.isEngLanguage()) {
             this.spSourceAdapter = new TranslateSpinnerAdapter(this
                     , SOURCE_LANGUAGE_CODE, downloadModels
-                    ,android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_SOURCE_LIST_EN);
+                    , android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_SOURCE_LIST_EN);
             this.spDestAdapter = new TranslateSpinnerAdapter(this
                     , DEST_LANGUAGE_CODE, downloadModels
                     , android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_DEST_LIST_EN);
@@ -252,11 +266,17 @@ public class LocalTranslateActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 LocalTranslateActivity.this.srcLanguage = LocalTranslateActivity.SOURCE_LANGUAGE_CODE.get(position);
                 Log.i(LocalTranslateActivity.TAG, "srcLanguage: " + LocalTranslateActivity.this.srcLanguage);
-                if( SOURCE_LANGUAGE_CODE.size() > position) {
+                if (SOURCE_LANGUAGE_CODE.size() > position) {
                     String langCode = SOURCE_LANGUAGE_CODE.get(position);
-                    if(!"AUTO".equalsIgnoreCase(langCode) && !"En".equalsIgnoreCase(langCode)) {
-                        if(!downloadModels.contains(langCode.toLowerCase())) {
-                            showToast(getString(R.string.download_prompt));
+                    if (!"AUTO".equalsIgnoreCase(langCode) && !"En".equalsIgnoreCase(langCode)) {
+                        if ((LanguageCodeUtil.ZHHK.equalsIgnoreCase(langCode))) {
+                            if (!downloadModels.contains(LanguageCodeUtil.ZH.toLowerCase(Locale.ENGLISH))){
+                                showToast(getString(R.string.download_prompt));
+                            }
+                        }else{
+                            if (!downloadModels.contains(langCode.toLowerCase())) {
+                                showToast(getString(R.string.download_prompt));
+                            }
                         }
                     }
                 }
@@ -278,12 +298,18 @@ public class LocalTranslateActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 LocalTranslateActivity.this.dstLanguage = LocalTranslateActivity.DEST_LANGUAGE_CODE.get(position);
                 Log.i(LocalTranslateActivity.TAG, "dstLanguage: " + LocalTranslateActivity.this.dstLanguage);
-                if( DEST_LANGUAGE_CODE.size() > position) {
+                if (DEST_LANGUAGE_CODE.size() > position) {
                     String langCode = DEST_LANGUAGE_CODE.get(position);
 
-                    if(!"AUTO".equalsIgnoreCase(langCode) && !"En".equalsIgnoreCase(langCode)) {
-                        if(!downloadModels.contains(langCode.toLowerCase())) {
-                            showToast(getString(R.string.download_prompt));
+                    if (!"AUTO".equalsIgnoreCase(langCode) && !"En".equalsIgnoreCase(langCode)) {
+                        if ((LanguageCodeUtil.ZHHK.equalsIgnoreCase(langCode))) {
+                            if (!downloadModels.contains(LanguageCodeUtil.ZH.toLowerCase(Locale.ENGLISH))){
+                                showToast(getString(R.string.download_prompt));
+                            }
+                        }else{
+                            if (!downloadModels.contains(langCode.toLowerCase())) {
+                                showToast(getString(R.string.download_prompt));
+                            }
                         }
                     }
                 }
@@ -557,7 +583,7 @@ public class LocalTranslateActivity extends BaseActivity {
         Log.e(TAG, "downloadModel languageCode: " + languageCode);
         MLLocalTranslatorModel model = new MLLocalTranslatorModel.Factory(languageCode).create();
         downloadMap.put(languageCode, getString(R.string.waitting));
-        if (btnDownloadMang!= null && downloadAdapter != null) {
+        if (btnDownloadMang != null && downloadAdapter != null) {
             btnDownloadMang.post(new Runnable() {
                 @Override
                 public void run() {
@@ -575,7 +601,7 @@ public class LocalTranslateActivity extends BaseActivity {
         MLModelDownloadStrategy request = new MLModelDownloadStrategy.Factory()
                 .create();
 
-        manager.downloadModel(model, request,modelDownloadListener).addOnSuccessListener(new OnSuccessListener<Void>() {
+        manager.downloadModel(model, request, modelDownloadListener).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 downloadModels.add(languageCode);
@@ -584,7 +610,7 @@ public class LocalTranslateActivity extends BaseActivity {
                 spDestAdapter.notifyDataSetChanged();
                 showToast("DownloadModel Success");
                 downloadMap.remove(languageCode);
-                if (btnDownloadMang!= null && downloadAdapter != null) {
+                if (btnDownloadMang != null && downloadAdapter != null) {
                     btnDownloadMang.post(new Runnable() {
                         @Override
                         public void run() {
@@ -599,7 +625,7 @@ public class LocalTranslateActivity extends BaseActivity {
                 Log.e(TAG, "downloadModel failed: " + e.getMessage());
                 showToast("DownloadModel Failed");
                 downloadMap.remove(languageCode);
-                if (btnDownloadMang!= null && downloadAdapter != null) {
+                if (btnDownloadMang != null && downloadAdapter != null) {
                     btnDownloadMang.post(new Runnable() {
                         @Override
                         public void run() {
@@ -727,6 +753,7 @@ public class LocalTranslateActivity extends BaseActivity {
             }
         });
     }
+
     private void translateImpl(final MLLocalTranslator translator, String input) {
         final long startTime = System.currentTimeMillis();
         translator.asyncTranslate(input).addOnSuccessListener(new OnSuccessListener<String>() {

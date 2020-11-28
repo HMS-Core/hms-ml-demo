@@ -18,6 +18,7 @@ package com.huawei.mlkit.sample.activity.adapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -30,6 +31,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.huawei.hms.ml.language.common.utils.LanguageCodeUtil;
 
 /**
  * Function Description
@@ -67,7 +70,6 @@ public class TranslateSpinnerAdapter extends ArrayAdapter<String> {
         tv.setTextColor(Color.argb(0xff, 0xbf, 0xbf, 0xbf));
         if(languageCodeList != null && languageCodeList.size() > position) {
             String langCode = languageCodeList.get(position);
-
             if("AUTO".equalsIgnoreCase(langCode) || "En".equalsIgnoreCase(langCode)) {
                 tv.setTextColor(Color.argb(0xff, 0x33, 0x33, 0x33));
             } else {
@@ -76,6 +78,11 @@ public class TranslateSpinnerAdapter extends ArrayAdapter<String> {
                     tv.setTextColor(Color.argb(0xff, 0x33, 0x33, 0x33));
                 } else {
                     tv.setTextColor(Color.argb(0xff, 0xbf, 0xbf, 0xbf));
+                }
+
+                if (LanguageCodeUtil.ZHHK.equalsIgnoreCase(langCode)
+                        && downloadModelList.contains(LanguageCodeUtil.ZH.toLowerCase(Locale.ENGLISH))) {
+                    tv.setTextColor(Color.argb(0xff, 0x33, 0x33, 0x33));
                 }
             }
         }

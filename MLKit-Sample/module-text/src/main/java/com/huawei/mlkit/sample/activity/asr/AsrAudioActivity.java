@@ -179,6 +179,8 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent(this, MLAsrCaptureActivity.class)
                 .putExtra(MLAsrCaptureConstants.LANGUAGE, mLanguage)
                 .putExtra(MLAsrCaptureConstants.FEATURE, MLAsrCaptureConstants.FEATURE_WORDFLUX);
+                // Set the usage scenario to shopping,Currently, only Chinese scenarios are supported.
+              // .putExtra(MLAsrConstants.SCENES, MLAsrConstants.SCENES_SHOPPING);
         startActivityForResult(intent, ML_ASR_CAPTURE_CODE);
         overridePendingTransition(R.anim.mlkit_asr_popup_slide_show, 0);
     }

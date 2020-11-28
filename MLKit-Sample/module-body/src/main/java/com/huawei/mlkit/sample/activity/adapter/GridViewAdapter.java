@@ -73,6 +73,11 @@ public class GridViewAdapter extends BaseAdapter {
                 holder = (ViewHolder) convertView.getTag();
             }
             GridViewItem item = this.mDataList.get(position);
+            if(position == 4){
+                holder.imageNew.setBackgroundResource(R.drawable.icon_new);
+            } else {
+                holder.imageNew.setBackground(null);
+            }
             holder.imageView.setImageResource(item.getResourceId());
             holder.textView.setText(item.getStringId());
         } catch (Exception e) {

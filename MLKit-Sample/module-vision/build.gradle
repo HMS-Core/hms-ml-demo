@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.mlkit.sample.vision"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 30004300
-        versionName "3.0.4.300"
+        versionCode 30005300
+        versionName "3.0.5.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,6 +28,8 @@ android {
     }
     lintOptions {
         disable 'GoogleAppIndexingWarning'
+        checkReleaseBuilds false
+        abortOnError false
     }
     aaptOptions {
         noCompress "mslite", "ms"
@@ -37,7 +39,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar','*.jar'])
 
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.5.300'
 
     // image segmentation
     implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.0.4.300'

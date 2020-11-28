@@ -22,10 +22,12 @@
         android:name=".common.MyApp"
         android:allowBackup="false"
         android:icon="@drawable/icon"
-        android:label="ML Kit Text"
+        android:label="ML Text"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/MaterialTheme">
         <activity android:name=".activity.textemdding.TextEmbeddingActivity" />
         <activity android:name=".activity.docdetection.DocDetectionResultActivity" />
+        <activity android:name=".activity.icr.IDCardActivity"></activity>
         <activity
             android:name=".activity.translate.TranslateActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
@@ -48,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.text.TextRecognitionActivity"
+            android:name=".activity.ocr.TextRecognitionActivity"
             android:launchMode="singleTask"
             android:resizeableActivity="false" />
         <activity
@@ -76,6 +78,7 @@
             android:name=".activity.asr.AsrAudioActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
+
         <activity
             android:name=".activity.icr.IDCardRecognitionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"

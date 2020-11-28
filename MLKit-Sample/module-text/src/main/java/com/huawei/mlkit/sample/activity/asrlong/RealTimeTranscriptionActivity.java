@@ -223,6 +223,9 @@ public class RealTimeTranscriptionActivity extends AppCompatActivity implements 
             case MLSpeechRealTimeTranscriptionConstants.ERR_SERVICE_UNAVAILABLE:
                 error_text = getString(R.string.no_service);
                 break;
+            case MLSpeechRealTimeTranscriptionConstants.ERR_SERVICE_CREDIT:
+                error_text = getString(R.string.no_balance);
+                break;
             default:
                 error_text = getString(R.string.errorcode) + errorCode + ",  " + getString(R.string.Others);
                 break;

@@ -142,10 +142,40 @@ public abstract class ModelOperator implements ResultProcessor {
         return result;
     }
 
+
+    public static Map processResult(List<String> labelList, byte[] probabilities) {
+        Log.e("===>", labelList.size() + ":" + probabilities.length);
+        Map<String, Byte> localResult = new HashMap<>();
+        ValueByteComparator compare = new ValueByteComparator(localResult);
+        for (int i = 0; i < probabilities.length; i++) {
+            localResult.put(labelList.get(i), probabilities[i]);
+        }
+        TreeMap<String, Byte> result = new TreeMap<>(compare);
+        result.putAll(localResult);
+        return result;
+    }
+
     private static class ValueComparator implements Comparator<String> {
         Map<String, Float> base;
 
         ValueComparator(Map<String, Float> base) {
+            this.base = base;
+        }
+
+        @Override
+        public int compare(String o1, String o2) {
+            if (base.get(o1) >= base.get(o2)) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    private static class ValueByteComparator implements Comparator<String> {
+        Map<String, Byte> base;
+
+        ValueByteComparator(Map<String, Byte> base) {
             this.base = base;
         }
 

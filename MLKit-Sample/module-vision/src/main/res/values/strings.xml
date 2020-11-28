@@ -73,11 +73,11 @@ S
     <string name="isr_image_3x">3PX</string>
     <string name="isr_image_original">Original</string>
     <string name="tips">Tips</string>
-    <string name="isr_tips_content">Before using the image super-resolution service, you need to convert the image into a bitmap in ARGB format, and the output bitmap format is also ARGB. In the 3x super resolution scenario, the maximum size of the input image is 800 x 800 pixels, and the minimum size is not less than 64 x 64 pixels. In the 1x super resolution scenario, the maximum size of an input image is 1024px x 768px or 768px x 1024px, the minimum size is 64px x 64px. The effect is not obvious when the input picture is of good quality and definition. </string>
+    <string name="isr_tips_content">Before using the image overcommitment service, you need to convert images into ARGB bitmaps. After the service processes the images, the ARGB bitmaps are output. In the 3x overcommitment scenario, the maximum size of the input image is 800 pixels x 800 pixels, and the minimum length of the input image must be greater than or equal to 64 pixels. In the 1X overcommitment scenario, the maximum size of the input image is 1024 pixels x 768 pixels or 768 pixels x 1024 pixels. The minimum length of the input image must be greater than or equal to 64 pixels. The image quality is not obvious when the input image is of good definition. </string>
 
     <string name="text_super_resolution">Text Image Super Resolution</string>
     <string name="text_super_resolution_s">TISR</string>
-    <string name="tsr_tips_content">Before using the text image super-resolution service, you need to convert the image into a bitmap in ARGB format, and the output bitmap format is also ARGB. Only 3x super resolution is supported. The maximum size of an input image is 800px x 800px, and the minimum size is 64px x 64px. The effect is not obvious when the input picture is of good quality and definition. </string>
+    <string name="tsr_tips_content">Before using the text and image overcommitment service, you need to convert images into ARGB bitmaps. After the service processes the images, the ARGB bitmaps are output. Text image overcommitment supports only 3x overcommitment. The maximum size of the input image is 800 pixels x 800 pixels, and the minimum size of the long side is no less than 64 pixels. The image quality is not obvious when the input image is of good definition.</string>
 
     <string name="cust_model">CustModel</string>
     <string name="cust_model_title">Model Executor</string>

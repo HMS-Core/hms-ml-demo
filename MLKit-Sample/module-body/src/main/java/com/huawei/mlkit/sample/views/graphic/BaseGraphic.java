@@ -41,9 +41,15 @@ public abstract class BaseGraphic {
         return x * this.graphicOverlay.getWidthScaleValue();
     }
 
+    public float unScaleX(float horizontal) {
+        return horizontal / graphicOverlay.getWidthScaleValue();
+    }
+
     public float scaleY(float y) {
         return y * this.graphicOverlay.getHeightScaleValue();
     }
+
+    public float unScaleY(float vertical) { return vertical / graphicOverlay.getHeightScaleValue(); }
 
     public Rect translateRect(Rect rect){
         float left = translateX(rect.left);

@@ -49,23 +49,23 @@ public class LabelTfModel extends ModelOperator {
 
     @Override
     protected int getInputType() {
-        return MLModelDataType.FLOAT32;
+        return MLModelDataType.BYTE;
     }
 
     @Override
     protected int getOutputType() {
-        return MLModelDataType.FLOAT32;
+        return MLModelDataType.BYTE;
     }
 
     @Override
     protected Object getInput(Bitmap inputBitmap) {
-        final float[][][][] input = new float[1][BITMAP_SIZE][BITMAP_SIZE][3];
+        final byte[][][][] input = new byte[1][BITMAP_SIZE][BITMAP_SIZE][3];
         for (int i = 0; i < BITMAP_SIZE; i++) {
             for (int j = 0; j < BITMAP_SIZE; j++) {
                 int pixel = inputBitmap.getPixel(i, j);
-                input[batchNum][i][j][0] = ((Color.red(pixel) - IMAGE_MEAN)) / IMAGE_STD;
-                input[batchNum][i][j][1] = ((Color.green(pixel) - IMAGE_MEAN)) / IMAGE_STD;
-                input[batchNum][i][j][2] = ((Color.blue(pixel) - IMAGE_MEAN)) / IMAGE_STD;
+                input[batchNum][i][j][0] = (byte) Color.red(pixel);
+                input[batchNum][i][j][1] = (byte) Color.green(pixel);
+                input[batchNum][i][j][2] = (byte) Color.blue(pixel);
             }
         }
         return input;
@@ -87,9 +87,14 @@ public class LabelTfModel extends ModelOperator {
 
     @Override
     public String[][] resultPostProcess(MLModelOutputs output) {
-        float[][] result = output.getOutput(0); // index
-        float[] probabilities = result[0];
-        TreeMap<String, Float> sequenceResult = (TreeMap<String, Float>) processResult(mLabels, probabilities);
+        byte[][] result = output.getOutput(0); // index
+        byte[] probabilities = result[0];
+        float[] pro =  new float[probabilities.length];
+        for (int i = 0; i < pro.length; i++) {
+            pro[i] = probabilities[i]/255f;
+        }
+        TreeMap<String, Float> sequenceResult = (TreeMap<String, Float>) processResult(mLabels, pro);
+
 
         int total = 0;
         String[][] lastReuslt = new String[printLength][2];

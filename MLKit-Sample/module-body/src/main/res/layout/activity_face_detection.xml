@@ -61,6 +61,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/Point_layout2"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginRight="20dp"
@@ -83,8 +84,7 @@
             android:id="@+id/switch_button_feature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true" />
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
 
     <ToggleButton

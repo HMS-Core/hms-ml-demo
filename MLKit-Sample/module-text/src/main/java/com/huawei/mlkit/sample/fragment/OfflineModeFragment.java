@@ -179,11 +179,16 @@ public class OfflineModeFragment extends Fragment implements View.OnClickListene
      * Set the language and speaker corresponding to the language and speaker code.
      */
     private void initLanguageAndVoice() {
+        languageMap.put("zh-Hans", this.getString(R.string.chinese));
         languageMap.put("en-us", this.getString(R.string.english_choose));
         languageMap.put("fr-fr", this.getString(R.string.french));
         languageMap.put("es-es", this.getString(R.string.spanish));
         languageMap.put("de-de", this.getString(R.string.German));
         languageMap.put("it-it", this.getString(R.string.Italian));
+        speakerMap.put("zh-hans-st-eagle-1", this.getString(R.string.female_zh));
+        speakerMap.put("zh-hans-st-eagle-2", this.getString(R.string.male_zh));
+        speakerMap.put("en-us-st-eagle-1", this.getString(R.string.female_en_eagle));
+        speakerMap.put("en-us-st-eagle-2", this.getString(R.string.male_en_eagle));
         speakerMap.put("en-us-st-bee-1", this.getString(R.string.female_en));
         speakerMap.put("fr-fr-st-bee-1", this.getString(R.string.female_fr));
         speakerMap.put("it-it-st-bee-1", this.getString(R.string.female_it));
@@ -252,7 +257,7 @@ public class OfflineModeFragment extends Fragment implements View.OnClickListene
                 defaultSpeakerCode = mlTtsSpeakerCodeList.get(0).getName();
             }
             for (MLTtsSpeaker str : mlTtsSpeakerCodeList) {
-                if (!speakerList.contains(speakerMap.get(str.getName()))) {
+                if (!speakerList.contains(speakerMap.get(str.getName())) && speakerMap.get(str.getName()) != null) {
                     speakerCodeList.add(str.getName());
                     speakerList.add(speakerMap.get(str.getName()));
                 }

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.mlkit.sample.body"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 30004300
-        versionName "3.0.4.300"
+        versionCode 30005300
+        versionName "3.0.5.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -24,6 +24,8 @@ android {
     }
     lintOptions {
         disable 'GoogleAppIndexingWarning'
+        checkReleaseBuilds false
+        abortOnError false
     }
     aaptOptions {
         noCompress "mslite"
@@ -37,12 +39,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.5.300'
 
     // Face
-    implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.1.300'
-    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.1.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-face-3d-model:2.0.5.300'
 
     // Skeleton detection SDK.
     implementation 'com.huawei.hms:ml-computer-vision-skeleton:2.0.4.300'
@@ -52,7 +56,7 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-yoga-model:2.0.4.300'
 
     // Liveness Detection sdk and FULL SDK
-    implementation 'com.huawei.hms:ml-computer-vision-livenessdetection:2.0.2.300'
+    implementation 'com.huawei.hms:ml-computer-vision-livenessdetection:2.0.5.300'
 
     // handkeypoint
     implementation 'com.huawei.hms:ml-computer-vision-handkeypoint-model:2.0.4.300'

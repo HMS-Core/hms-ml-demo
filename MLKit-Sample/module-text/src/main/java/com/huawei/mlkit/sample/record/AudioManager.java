@@ -158,7 +158,8 @@ public class AudioManager {
     }
 
     public void release() {
-        mRecorder.stop();
+        if (mRecorder != null)
+            mRecorder.stop();
         mRecorder.release();
         mRecorder = null;
     }

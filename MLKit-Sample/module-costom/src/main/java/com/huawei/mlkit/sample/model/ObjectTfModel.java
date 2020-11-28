@@ -49,7 +49,7 @@ public class ObjectTfModel extends ModelOperator {
 
     @Override
     protected int getInputType() {
-        return MLModelDataType.FLOAT32;
+        return MLModelDataType.BYTE;
     }
 
     @Override
@@ -59,13 +59,13 @@ public class ObjectTfModel extends ModelOperator {
 
     @Override
     protected Object getInput(Bitmap inputBitmap) {
-        final float[][][][] input = new float[1][BITMAP_SIZE][BITMAP_SIZE][3];
+        final byte[][][][] input = new byte[1][BITMAP_SIZE][BITMAP_SIZE][3];
         for (int i = 0; i < BITMAP_SIZE; i++) {
             for (int j = 0; j < BITMAP_SIZE; j++) {
                 int pixel = inputBitmap.getPixel(i, j);
-                input[batchNum][j][i][0] = (Color.red(pixel) - IMAGE_MEAN) / IMAGE_STD;
-                input[batchNum][j][i][1] = (Color.green(pixel) - IMAGE_MEAN) / IMAGE_STD;
-                input[batchNum][j][i][2] = (Color.blue(pixel) - IMAGE_MEAN) / IMAGE_STD;
+                input[batchNum][j][i][0] = (byte)Color.red(pixel);
+                input[batchNum][j][i][1] = (byte)Color.red(pixel);
+                input[batchNum][j][i][2] = (byte)Color.red(pixel);
             }
         }
         return input;

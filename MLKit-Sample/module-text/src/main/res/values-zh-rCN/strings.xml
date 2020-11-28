@@ -37,6 +37,7 @@
 
     <!--简写-->
     <string name="translate">文本翻译</string>
+    <string name="id_card">身份证识别</string>
     <string name="aft">音频文件转写</string>
     <string name="bcr">银行卡识别</string>
     <string name="gcr">通用卡证识别</string>
@@ -144,17 +145,22 @@
     <string name="please_enter_text">请输入文字~</string>
 
     <string name="male_zh">中文男声</string>
+    <string name="male_en_eagle">英文男声-eagle</string>
+    <string name="female_en_eagle">英文女声-eagle</string>
     <string name="male_en">英文男声</string>
     <string name="female_fr">法语女声</string>
     <string name="female_es">西班牙语女声</string>
     <string name="female_en">英文女声</string>
     <string name="female_zh">中文女声</string>
+
     <string name="female_de">德语女声</string>
     <string name="female_it">意大利语女声</string>
 
     <string name="init_progress">50%</string>
 
     <string name="online_translate">在线翻译</string>
+    <string name="icr_cn">中国二代身份证</string>
+    <string name="icr_vn">越南身份证</string>
     <string name="offline_translate">离线翻译</string>
     <string name="speech_synthesis">语音合成</string>
     <string name="online_tts">在线合成</string>
@@ -228,6 +234,7 @@
     <string name="Others">其他异常错误</string>
     <string name="no_intnet">网络不可用，……请重试</string>
     <string name="no_service">服务不可用</string>
+    <string name="no_balance">余额不足，请充值</string>
 
     <string name="Word_vector">词向量：</string>
     <string name="Words_vector">词组向量：</string>

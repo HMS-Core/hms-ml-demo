@@ -48,6 +48,7 @@ import java.util.List;
 
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.face.FaceDetectionActivity;
+import com.huawei.mlkit.sample.activity.face3d.Live3DFaceAnalyseActivity;
 import com.huawei.mlkit.sample.activity.handkeypoint.HandKeypointActivity;
 import com.huawei.mlkit.sample.activity.livenessdetection.HumanLivenessDetectionActivity;
 import com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity;
@@ -70,10 +71,10 @@ public final class StartActivity extends BaseActivity
     private static final String TAG = "StartActivity";
     public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton , R.drawable.icon_liveness,R.drawable.icon_handkeypoint,};
+    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton , R.drawable.icon_liveness,R.drawable.icon_handkeypoint,R.drawable.icon_face3d};
 
     private static final int[] TITLES = { com.huawei.mlkit.sample.R.string.face_detection,
-            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint,};
+            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint, R.string.face_3d};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -141,6 +142,10 @@ public final class StartActivity extends BaseActivity
                     case 3:
                         // HandKeypoint
                         startActivity(new Intent(StartActivity.this, HandKeypointActivity.class));
+                        break;
+                    case 4:
+                        // Face3D
+                        startActivity(new Intent(StartActivity.this, Live3DFaceAnalyseActivity.class));
                         break;
                     default:
                         break;

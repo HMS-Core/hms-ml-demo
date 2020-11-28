@@ -167,6 +167,7 @@
                 android:visibility="gone" />
 
             <RelativeLayout
+                android:id="@+id/rn_back"
                 android:layout_width="240dp"
                 android:layout_height="151dp"
                 android:layout_gravity="center_horizontal"
@@ -299,17 +300,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/tips"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/icr_mark"
-        android:textColor="@color/secondary_text_color"
-        android:textSize="@dimen/text_size_12sp"></TextView>
-
 </RelativeLayout>

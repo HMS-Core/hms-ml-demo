@@ -31,20 +31,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.huawei.mlkit.sample.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCapture;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureConfig;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureFactory;
 import com.huawei.hms.mlplugin.card.icr.cn.MLCnIcrCaptureResult;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import com.huawei.mlkit.sample.R;
 
 public class IDCardRecognitionActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "IDCardRecognition";
 
     private boolean lastType = false; // false: front， true：back.
     private static final int REQUEST_CODE = 10;
+    private static final int INT_REQUEST_CODE = 20;
     private static final String[] PERMISSIONS = {Manifest.permission.CAMERA,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.INTERNET};
@@ -68,6 +69,10 @@ public class IDCardRecognitionActivity extends AppCompatActivity implements View
         Window window = getWindow();
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         this.initComponent();
+        if (!this.isGranted(Manifest.permission.CAMERA)) {
+            this.requestPermission(IDCardRecognitionActivity.PERMISSIONS, IDCardRecognitionActivity.INT_REQUEST_CODE);
+            return;
+        }
     }
 
     private void initComponent() {

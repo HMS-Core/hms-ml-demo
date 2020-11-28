@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:orientation="vertical"
+    tools:context="com.huawei.mlkit.sample.activity.TranslateActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/black_back"
+            android:text="@string/back"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/id_card"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_size_17sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/common_margin_top"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/btn_icr_cn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/edit_text"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="HWtext-55ST"
+                android:text="@string/icr_cn"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_down" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/common_line_color" />
+
+        <RelativeLayout
+            android:id="@+id/btn_icr_vn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/edit_text"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="HWtext-55ST"
+                android:text="@string/icr_vn"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_down" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/common_line_color" />
+    </LinearLayout>
+
+</LinearLayout>

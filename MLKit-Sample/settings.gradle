@@ -1,1 +1,1 @@
-include ':module-text', 'module-vision', ':module-costom'
+include ':module-text', 'module-vision', ':module-costom',':module-body'

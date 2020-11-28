@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ML Body</string>
     <string name="face_detection">Face</string>
+    <string name="face_3d">3D Face</string>
     <string name="skeletlon">Skeletlon</string>
     <string name="liveness_detection">Liveness Detection</string>
     <string name="handKeypoint">HandKeyPoint</string>
@@ -30,7 +31,10 @@
 
     <string name="versions">Version：</string>
 
-    <string name="start">Startup</string>
+    <string name="start">Start the default UI</string>
+    <string name="custom_start">Starting the Custom UI</string>
+    <string name="custom_ui">Face Detection</string>
+    <string name="custom_tips">Put your face in the frame.</string>
 
     <string name="face_point">Point</string>
     <string name="face_feature">Feature</string>

@@ -332,6 +332,8 @@ public class AudioFileTranscriptionActivity extends AppCompatActivity implements
                 return R.string.error_aft_internal;
             case MLAftErrors.ERR_AUTHORIZE_FAILED:
                 return R.string.error_aft_authorize_failed;
+            case MLAftErrors.ERR_SERVICE_CREDIT:
+                return R.string.no_balance;
             default:
                 return R.string.error_aft_audio_transcript_failed;
         }

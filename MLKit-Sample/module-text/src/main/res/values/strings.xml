@@ -43,6 +43,9 @@
     <!--简写-->
     <string name="document_recognition">Document</string>
     <string name="translate">Translation</string>
+    <string name="id_card">ID card recognition</string>
+    <string name="icr_cn">Chinese second-generation ID card</string>
+    <string name="icr_vn">Vietnam ID card</string>
     <string name="aft">AFT</string>
     <string name="bcr">BCR</string>
     <string name="gcr">GCR</string>
@@ -151,6 +154,8 @@
     <string name="female_zh">Female-zh</string>
     <string name="female_de">Female-de</string>
     <string name="female_it">Female-it</string>
+    <string name="male_en_eagle">Male-en-eagle</string>
+    <string name="female_en_eagle">Female-en-eagle</string>
 
     <string name="init_progress">50%</string>
 
@@ -229,6 +234,7 @@
     <string name="Others">Other errors</string>
     <string name="no_intnet">The network is unavailable. Please try again.</string>
     <string name="no_service">The service is unavailable.</string>
+    <string name="no_balance">Insufficient balance. Please recharge.</string>
 
     <string name="Word_vector">Word vector：</string>
     <string name="Words_vector">Words vector：</string>

@@ -21,8 +21,12 @@ import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.Point;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -62,6 +66,7 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
     private ImageView desImageView;
     private ImageButton adjustImgButton;
     private Bitmap srcBitmap;
+    private Bitmap getCompressesBitmap;
     private Uri imageUri;
     private MLDocumentSkewCorrectionAnalyzer analyzer;
     private Bitmap corrected;
@@ -167,6 +172,14 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
             }
             try {
                 srcBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                String realPathFromURI = getRealPathFromURI(imageUri);
+                int i = readPictureDegree(realPathFromURI);
+                Bitmap spBitmap = rotaingImageView(i, srcBitmap);
+
+                Matrix matrix = new Matrix();
+                matrix.setScale(0.5f, 0.5f);
+                getCompressesBitmap = Bitmap.createBitmap(spBitmap, 0, 0, spBitmap.getWidth(),
+                        spBitmap.getHeight(), matrix, true);
             } catch (IOException e) {
                 Log.e(TAG, e.getMessage());
             }
@@ -176,6 +189,13 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
             try {
                 if (imageUri != null) {
                     srcBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                    String realPathFromURI = getRealPathFromURI(imageUri);
+                    int i = readPictureDegree(realPathFromURI);
+                    Bitmap spBitmap = rotaingImageView(i, srcBitmap);
+                    Matrix matrix = new Matrix();
+                    matrix.setScale(0.5f, 0.5f);
+                    getCompressesBitmap = Bitmap.createBitmap(spBitmap, 0, 0, spBitmap.getWidth(),
+                            srcBitmap.getHeight(), matrix, true);
                     reloadAndDetectImage();
                 }
             } catch (IOException e) {
@@ -190,7 +210,7 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
         if (imageUri == null) {
             return;
         }
-        frame = MLFrame.fromBitmap(srcBitmap);
+        frame = MLFrame.fromBitmap(getCompressesBitmap);
         Task<MLDocumentSkewDetectResult> task = analyzer.asyncDocumentSkewDetect(frame);
         task.addOnSuccessListener(new OnSuccessListener<MLDocumentSkewDetectResult>() {
 
@@ -211,7 +231,7 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
                     _points[2] = rightBottom;
                     _points[3] = leftBottom;
                     layout_image.setVisibility(View.GONE);
-                    documetScanView.setImageBitmap(srcBitmap);
+                    documetScanView.setImageBitmap(getCompressesBitmap);
                     documetScanView.setPoints(_points);
                 }
             }
@@ -255,6 +275,9 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
         if (srcBitmap != null) {
             srcBitmap.recycle();
         }
+        if (getCompressesBitmap != null) {
+            getCompressesBitmap.recycle();
+        }
         if (corrected != null) {
             corrected.recycle();
         }
@@ -265,5 +288,59 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
                 Log.e(TAG, e.getMessage());
             }
         }
+    }
+
+
+    public static int readPictureDegree(String path) {
+        int degree = 0;
+        try {
+            ExifInterface exifInterface = new ExifInterface(path);
+            int orientation = exifInterface.getAttributeInt(
+                    ExifInterface.TAG_ORIENTATION,
+                    ExifInterface.ORIENTATION_NORMAL);
+            switch (orientation) {
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    degree = 90;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    degree = 180;
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    degree = 270;
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return degree;
+    }
+
+    private String getRealPathFromURI(Uri contentURI) {
+        String result;
+        Cursor cursor = null;
+        try {
+            cursor = getContentResolver().query(contentURI, null, null, null, null);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        if (cursor == null) {
+            result = contentURI.getPath();
+        } else {
+            cursor.moveToFirst();
+            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            result = cursor.getString(idx);
+            cursor.close();
+        }
+        return result;
+    }
+
+    public static Bitmap rotaingImageView(int angle, Bitmap bitmap) {
+        // 旋转图片 动作
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        // 创建新的图片
+        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
+                bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        return resizedBitmap;
     }
 }
