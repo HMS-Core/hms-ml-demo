@@ -44,6 +44,8 @@ With the face detection capability provided by HUAWEI ML Kit, you can not only d
   - Call the asyncanalyseframe method to perform face detection.
   - Contour points are obtained and drawn by the FaceStickerFilter.
 
+For details about the development procedure, please refer to [How to Integrate Face Stickers into Your Apps with HUAWEI ML Kit](https://forums.developer.huawei.com/forumPortal/en/topic/0201333611965550036?fid=0101187876626530001).
+
 ## Supported Environment
 Android 4.4 or later is recommended.
 
