@@ -5,18 +5,18 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/WoodenMan
 
 ## Directory
 
-* [Introduction](#Introduction)
-* [Project directory structure](#Project directory structure)
-* [More Scenarios](#More Scenarios)
-* [Run Step](#Run Step)
-* [Supported Environment] (#Supported Environment)
-* [Licence] (#Licence)
+* [Introduction](#introduction)
+* [Project directory structure](#project-directory-structure)
+* [More Scenarios](#more-scenarios)
+* [Running Procedure](#running-procedure)
+* [Supported Environments](#supported-environment)
+* [License](#license)
 
 
 ## Introduction
 WoodenMan uses the body bone detection, image segmentation, and face detection capabilities of HUAWEI ML Kit to segment faces and replace the background.
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop human body bone detection, image segmentation, and face detection applications, helping you integrate with HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop human body bone detection, image segmentation, and face detection applications, helping you integrate with HUAWEI ML Kit as soon as possible.
 
 ## Project Directory Structure
 Smile-Camera
@@ -39,8 +39,8 @@ The HUAWEI ML Kit provides human body skeleton detection, image segmentation, fa
 
 ## Running Procedure
 - Clone the code library to the local host.
-    - git clone https://github.com/HMS-Core/hms-ml-demo.git
-
+    
+    git clone: https://github.com/HMS-Core/hms-ml-demo.git
 - Compile and run on an Android device or simulator.
 
 - More detailed development steps
@@ -58,8 +58,10 @@ The HUAWEI ML Kit provides human body skeleton detection, image segmentation, fa
         - Invoke the compareSimilarity method to implement bone similarity comparison.
         - Invoke the createAsrRecognizer method to implement speech recognizer。
 
+For details about the development procedure, please refer to [How to Integrate ML Kit's Virtual Human Service](https://forums.developer.huawei.com/forumPortal/en/topic/0201390554975760549?ha_source=hms1).
+
 ## Supported Environments
 Android 4.4 or later is recommended.
 
 ## License
-This sample code has obtained [Apache 2.0 license] (https://www.apache.org/licenses/LICENSE-2.0).
+This sample code has obtained [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
