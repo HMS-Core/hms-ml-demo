@@ -45,9 +45,10 @@ With the hand key point recognition capability and image segmentation provided b
   - Create a LensEngine.
   - Call the lensEngine.run(holder) method to perform hand keypoint recognition to switch background.
 
+For details about the development procedure, please refer to [Changing the Background with a Wave of the Hand to Deliver an Immersive Live Streaming Experience](https://forums.developer.huawei.com/forumPortal/en/topic/0203399495801750086?ha_source=hms1).
+
 ## Supported Environments
 Devices with Android 4.4 or later are recommended.
 
 ##  License
 The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
-
