@@ -15,7 +15,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Applicati
 ## Introduction
     CrazyChristmas uses the hand key point recognition function of HUAWEI ML Kit to control the sled to move to catch falling goods.
 
-    This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a red envelopes game app. The purpose is to help you experience the hand key point function and integrate HUAWEI ML Kit as soon as possible.
+    This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a red envelopes game app. The purpose is to     help you experience the hand key point function and integrate HUAWEI ML Kit as soon as possible.
 
 ## Project directory structure
 CrazyChristmas
