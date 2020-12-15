@@ -43,11 +43,6 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 ## Precautions
 
-The project contains multiple independent projects. After downloading code, open the root project and it
-will load all sub projects into IDE, you can execute each project individually.
-
-## Precautions
-
 ApplicationCases project contains multiple independent projects. After downloading the code, you need to open the root project and load all nested projects to the IDE. You can run each project independently.
 
 #### Add a project.
