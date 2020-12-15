@@ -6,17 +6,17 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/BeautyCam
 ## Table of Contents
 
   * [Introduction](#Introduction)
-  * [Project directory structure](#Project directory structure)
-  * [More Scenarios](#More Scenarios)
-  * [Procedure](#Procedure)
-  * [Supported Environment](#Supported Environment)
-  * [License](#License)
+  * [Project directory structure](#project-directory-structure)
+  * [More Scenarios](#more-scenarios)
+  * [Procedure](#procedure)
+  * [Supported Environment](#supported-environment)
+  * [License](#license)
 
 
 ## Introduction
 BeautyCamera uses the face detection function of HUAWEI ML Kit to identify a face and beauty it.
     
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a face detection app. The purpose is to help you experience the face detection function and integrate HUAWEI ML Kit as soon as possible.
 
 ## Project directory structure
 BeautyCamera
@@ -48,9 +48,11 @@ With the face recognition capability provided by HUAWEI ML Kit, you can not only
   - Call the asyncanalyseframe method to perform face detection.
   - Call the method in ImageHlper to beauty photo.
 
+For details about the development procedure, please refer to [How to Implement Eye-Enlarging and Face-Shaping Functions Using HUAWEI ML Kit's Face Detection Capability](https://forums.developer.huawei.com/forumPortal/en/topic/0201379573209780438?ha_source=hms1).
+
 ## Supported Environments
-    Devices with Android 4.4 or later are recommended.
+Devices with Android 4.4 or later are recommended.
 
 ##  License
-    The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
 

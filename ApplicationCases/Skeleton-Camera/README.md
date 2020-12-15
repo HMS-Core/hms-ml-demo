@@ -5,22 +5,20 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Skeleton-
 
 ## Directory
 
-* [Introduction](#Introduction)
-* [Project directory structure](#Project directory structure)
-* [More Scenarios](#More Scenarios)
-* [Run Step](#Run Step)
-* [Supported Environment] (#Supported Environment)
-* [Licence] (#Licence)
+* [Introduction](#introduction)
+* [Project directory structure](#project-directory-structure)
+* [More Scenarios](#more-scenarios)
+* [Running Step](#running-procedure)
+* [Supported Environments](#supported-environments)
+* [License](#license)
 
 
 ## Introduction
 The Skeleton-Camera uses the bone detection function of Huawei ML Kit to identify human body movements and take snapshots.
 
-This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop a bone capture app. The purpose is to experience bone detection and help you integrate the HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/cn/hms/huawei-mlkit) to quickly develop a bone capture app. The purpose is to experience bone detection and help you integrate the HUAWEI ML Kit as soon as possible.
 
-For details about the development procedure, see (https://developer.huawei.com/consumer/cn/forum/topicview?tid=0202333916402640253&fid=18)..
-
-<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Skeleton-Camera/start.gif" width=180 title="start" border=2>
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/Skeleton-Camera/start.gif" width=180 title="start" border=2>
 
 ## Project Directory Structure
 BeautyCamera
@@ -46,6 +44,8 @@ Based on the text recognition capability provided by HUAWEI ML Kit, you can deve
 - Create a bone detector.
 - Create a LensEngine.
 - Invoke the lensEngine.run(holder) method to detect bones.
+
+For details about the development procedure, please refer to [Easily Capture Body Motion with HUAWEI ML Kit’s Skeleton Detection](https://forums.developer.huawei.com/forumPortal/en/topic/0202361426632160260?ha_source=hms1).
 
 ## Supported Environments
 Android 4.4 or later is recommended.

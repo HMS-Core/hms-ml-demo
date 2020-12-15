@@ -5,20 +5,20 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/Gesture-C
 
 ## Table of Contents
 
-  * [Introduction](#Introduction)
-  * [Project directory structure](#Project directory structure)
-  * [More Scenarios](#More Scenarios)
-  * [Procedure](#Procedure)
-  * [Supported Environment](#Supported Environment)
-  * [License](#License)
+  * [Introduction](#introduction)
+  * [Project directory structure](#project-directory-structure)
+  * [More Scenarios](#more-scenarios)
+  * [Procedure](#procedure)
+  * [Supported Environments](#supported-environments)
+  * [License](#license)
 
 
 ## Introduction
-    Gesture-Change-Background uses the hand key point recognition and image segmentation function of HUAWEI ML Kit to switch the background by waving your hand。
+Gesture-Change-Background uses the hand key point recognition and image segmentation function of HUAWEI ML Kit to switch the background by waving your hand。
     
-    This demo demonstrates how to use [HUAWEI ML Kit] (https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a red envelopes game app. The purpose is to help you experience the hand key point function and integrate HUAWEI ML Kit as soon as possible.
+This demo demonstrates how to use [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit) to quickly develop a red envelopes game app. The purpose is to help you experience the hand key point function and integrate HUAWEI ML Kit as soon as possible.
 
-    <img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/Gesture-Change-Background/background.gif" width=180 title="start" border=2>
+<img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/Gesture-Change-Background/background.gif" width=180 title="start" border=2>
 
 ## Project directory structure
 Gesture-Change-Background
@@ -45,9 +45,10 @@ With the hand key point recognition capability and image segmentation provided b
   - Create a LensEngine.
   - Call the lensEngine.run(holder) method to perform hand keypoint recognition to switch background.
 
+For details about the development procedure, please refer to [Changing the Background with a Wave of the Hand to Deliver an Immersive Live Streaming Experience](https://forums.developer.huawei.com/forumPortal/en/topic/0203399495801750086?ha_source=hms1).
+
 ## Supported Environments
-    Devices with Android 4.4 or later are recommended.
+Devices with Android 4.4 or later are recommended.
 
 ##  License
-    The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
-
+The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).

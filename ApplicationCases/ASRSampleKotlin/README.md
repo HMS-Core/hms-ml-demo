@@ -4,20 +4,20 @@
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ASRSampleKotlin/README_ZH.md)
 ## Contents
 
- * [Introduction](#Introduction)
+ * [Introduction](#introduction)
  * [Project directory structure](#project-directory-structure)
  * [More Scenarios](#more-scenarios)
- * [Procedure](#procedure)
+ * [Getting Started](#getting-started)
  * [Supported Environment](#supported-environment)
- * [License](#License)
+ * [License](#license)
 
 
 ## Introduction
 ASRSample uses the real-time speech recognition function of HUAWEI ML Kit to convert real-time speech into text. Currently, ASRSample can recognize Mandarin Chinese, English, and French.
 
 For details about the service introduction and access guide, visit the following website:
-[HUAWEI ML Kit Development Guide] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
-[HUAWEI ML Kit API Reference] (https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/asrsdkoverview-0000001050747393-V5)
+[HUAWEI ML Kit Development Guide](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
+[HUAWEI ML Kit API Reference](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/asrsdkoverview-0000001050747393-V5)
 
 ## Project directory structure
 AsrSampleKotlin
