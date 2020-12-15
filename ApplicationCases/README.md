@@ -35,11 +35,11 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 |-- [CrazyShoppingCart](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/CrazyShoppingCart) // uses the key point recognition function of Huawei ML Kit to control the movement of the shopping cart to catch dropped items.
 
-|-- Gesture-Change-Background // Use the key point recognition and image segmentation functions of Huawei ML Kit to switch the background by waving your arms.
+|-- [Gesture-Change-Background](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/Gesture-Change-Background) // Use the key point recognition and image segmentation functions of Huawei ML Kit to switch the background by waving your arms.
 
-|-- SceneEnhance // uses scene recognition function of HUAWEI ML Kit to intelligently decorate the scene in the picture.
+|-- [SceneEnhance](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/SceneEnhance) // uses scene recognition function of HUAWEI ML Kit to intelligently decorate the scene in the picture.
 
-|-- CrazyChristmas // uses the hand key point recognition function of HUAWEI ML Kit to control the sled to move to catch falling goods.
+|-- [CrazyChristmas](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/CrazyChristmas) // uses the hand key point recognition function of HUAWEI ML Kit to control the sled to move to catch falling goods.
 
 ## Precautions
 
