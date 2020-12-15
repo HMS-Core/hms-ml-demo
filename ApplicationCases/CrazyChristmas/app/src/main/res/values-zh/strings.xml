@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Red Envelopes Game</string>
+
+    <string name="score">得分：</string>
+    <string name="hand">通过手势可以控制雪橇左右移动哦！</string>
+    <string name="startgame">开始游戏</string>
+    <string name="gameover">游戏结束</string>
+    <string name="scorestring">得分</string>
+    <string name="restart">再来一次</string>
+    <string name="countdown">倒计时</string>
+</resources>

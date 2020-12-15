@@ -1,7 +1,7 @@
 # Photo Translate
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
 
-中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/Photo-Translate)
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/Photo-Translate)
 
 ## 目录
 

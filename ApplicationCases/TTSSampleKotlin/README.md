@@ -1,7 +1,7 @@
 # TTSSample
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
 
-English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/TTSSampleKotlin/README_ZH.md)
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/TTSSampleKotlin/README_ZH.md)
 ## Contents
 
  * [Introduction](#Introduction)

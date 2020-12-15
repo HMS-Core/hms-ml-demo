@@ -1,7 +1,7 @@
 # WoodenMan
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
-English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/WoodenMan/README_ZH.md)
+English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/WoodenMan/README_ZH.md)
 
 ## Directory
 

@@ -1,7 +1,7 @@
 # BeautyCamera
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
-[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/BeautyCamera/README.md) | 中文
+[English](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/BeautyCamera/README.md) | 中文
 
 ## 目录
 

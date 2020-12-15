@@ -39,6 +39,10 @@
 
 |-- Gesture-Change-Background // 使用华为ML Kit的手部关键点识别和图像分割功能通过挥动手臂来切换背景。
 
+|-- SceneEnhance // 使用华为ML Kit的场景识别功能，智能修饰图片中的场景。
+
+|-- CrazyChristmas // 使用华为ML Kit的手部关键点识别功能来控制雪橇进行移动以接住掉落的礼物。
+
 ## 注意事项
 
 ApplicationCases 工程包含多个独立的工程。下载代码后，您需要打开根工程，将所有的嵌套工程加载到IDE，您可以单独运行每个工程。

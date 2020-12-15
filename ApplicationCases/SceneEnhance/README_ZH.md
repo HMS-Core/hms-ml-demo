@@ -1,7 +1,7 @@
 # SceneEnhance
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
-中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/SceneEnhance)
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/SceneEnhance)
 
 ## 目录
 
@@ -18,7 +18,7 @@ SceneEnhance使用华为ML Kit的场景识别功能，智能修饰图片中的�
 
 本Demo演示了如何使用[HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发修饰场景的小程序，目的是让您体验场景识别的功能，帮助您尽快集成HUAWEI ML Kit。
 
-更详细的开发步骤，请参考 [场景识别帮助小白用户实现一键式智能拍照修图](https://developer.huawei.com/consumer/cn/forum/topic/0204423925515690659?fid=18).
+更详细的开发步骤，请参考 [场景识别帮助小白用户实现一键式智能识别相关场景](https://developer.huawei.com/consumer/cn/forum/topic/0204423925515690659?fid=18).
 
 ## 工程目录结构
 SceneEnhance

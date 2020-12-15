@@ -1,7 +1,7 @@
 # ID Photo DIY
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
 
-中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/ID-Photo-DIY)
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/ID-Photo-DIY)
 ## 目录
 
  * [介绍](#介绍)

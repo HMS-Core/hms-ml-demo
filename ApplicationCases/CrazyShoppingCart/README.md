@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
 
-English|[中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/CrazyShoppingCart/README_ZH.md)
+English|[中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/CrazyShoppingCart/README_ZH.md)
 
 ## Table of Contents
 

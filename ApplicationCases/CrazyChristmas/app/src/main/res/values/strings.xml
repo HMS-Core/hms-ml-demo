@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Red Envelopes Game</string>
+
+    <string name="score">score：</string>
+    <string name="hand">You can use gestures to control the movement of the sled.</string>
+    <string name="startgame">Start</string>
+    <string name="gameover">Game Over</string>
+    <string name="scorestring">score</string>
+    <string name="restart">Restart</string>
+    <string name="countdown">countdown</string>
+</resources>

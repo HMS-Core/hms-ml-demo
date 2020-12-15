@@ -37,6 +37,10 @@ This project contains apps developed based on HUAWEI ML Kit. The project directo
 
 |-- Gesture-Change-Background // Use the key point recognition and image segmentation functions of Huawei ML Kit to switch the background by waving your arms.
 
+|-- SceneEnhance // uses scene recognition function of HUAWEI ML Kit to intelligently decorate the scene in the picture.
+
+|-- CrazyChristmas // uses the hand key point recognition function of HUAWEI ML Kit to control the sled to move to catch falling goods.
+
 ## Precautions
 
 The project contains multiple independent projects. After downloading code, open the root project and it

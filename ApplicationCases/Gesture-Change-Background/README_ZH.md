@@ -1,7 +1,7 @@
 # Gesture-Change-Background
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-introduction-4)
 
-中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/Gesture-Change-Background)
+中文 | [English](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases/Gesture-Change-Background)
 
 ## 目录
 
