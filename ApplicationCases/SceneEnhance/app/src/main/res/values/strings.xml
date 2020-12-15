@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">SceneRecognition</string>
+    <string name="app_camera">Camera</string>
+    <string name="app_photo">Photo</string>
+    <string name="app_test">Experience</string>
+    <string name="artwork_master">Artwork master:</string>
+    <string name="area_chart">Area chart:</string>
+    <string name="complex">The scene is too complicated!</string>
+</resources>

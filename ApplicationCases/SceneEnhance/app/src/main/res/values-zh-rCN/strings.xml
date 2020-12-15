@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">场景识别</string>
+    <string name="app_camera">相机</string>
+    <string name="app_photo">相册</string>
+    <string name="app_test">体验</string>
+    <string name="artwork_master">原图：</string>
+    <string name="area_chart">对比：</string>
+    <string name="complex">场景过于复杂！</string>
+</resources>

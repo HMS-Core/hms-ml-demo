@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.huawei.hms.mlkit.sample.activity.SceneActivity">
+
+    <ScrollView
+        android:layout_marginBottom="@dimen/dp_45"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/main_text"
+                android:gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/artwork_master"
+                android:textSize="@dimen/sp_24"
+                tools:ignore="RtlCompat,SpUsage" />
+
+            <ImageView
+                android:id="@+id/main_image"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/copy_text"
+                android:gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/area_chart"
+                android:textSize="@dimen/sp_24"
+                tools:ignore="RtlCompat,SpUsage" />
+
+            <ImageView
+                android:id="@+id/copy_image"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/text_describe"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_camera"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:text="@string/app_camera"
+            android:textSize="@dimen/sp_24"
+            android:background="@drawable/trigger_button"
+            tools:ignore="SpUsage" />
+
+        <TextView
+            android:id="@+id/text_photo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:text="@string/app_photo"
+            android:textSize="@dimen/sp_24"
+            android:background="@drawable/trigger_button"
+            tools:ignore="SpUsage" />
+
+    </LinearLayout>
+
+</RelativeLayout>
