@@ -1,11 +1,6 @@
 # SceneEnhance
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
-
-<<<<<<< HEAD
-English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/SceneEnhance)
-=======
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/SceneEnhance/README_ZH.md)
->>>>>>> 9fe6b8b89a7abdb2808a62770730c066fc0ea3af
 
 ## Contents
 
