@@ -1,15 +1,16 @@
 # CrazyChristmas
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
+
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/ApplicationCases/CrazyChristmas/README_ZH.md)
 
 ## Table of Contents
 
-  * [Introduction](#Introduction)
-  * [Project directory structure](#Project directory structure)
-  * [More Scenarios](#More Scenarios)
-  * [Procedure](#Procedure)
-  * [Supported Environment](#Supported Environment)
-  * [License](#License)
+  * [Introduction](#introduction)
+  * [Project directory structure](#project-directory-structure)
+  * [More Scenarios](#more-scenarios)
+  * [Procedure](#procedure)
+  * [Supported Environment](#supported-environments)
+  * [License](#license)
 
 
 ## Introduction
@@ -44,8 +45,7 @@ With the hand key point recognition capability provided by HUAWEI ML Kit, you ca
   - Call the lensEngine.run(holder) method to perform hand keypoint recognition to move sled.
 
 ## Supported Environments
-    Devices with Android 4.4 or later are recommended.
+Devices with Android 4.4 or later are recommended.
 
 ##  License
-    The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
-
+The face detection sample of HUAWEI ML Kit has obtained the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
