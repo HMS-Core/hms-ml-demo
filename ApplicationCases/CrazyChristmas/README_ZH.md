@@ -16,6 +16,8 @@
 ## 介绍
 CrazyChristmas使用华为ML Kit的手部关键点识别功能来控制雪橇进行移动以接住掉落的礼物。
 
+获取[DemoAPK](https://h5hosting-drcn.dbankcdn.cn/cch5/AIBussiness-MLKit/christmas/apk_release_christmas_game.apk)进行体验
+
 本demo演示了如何使用[HUAWEI ML Kit] (https://developer.huawei.com/consumer/cn/hms/huawei-mlkit)快速开发疯狂圣诞节的应用，目的是让您体验手部关键点识别功能，帮助您尽快集成HUAWEI ML Kit。
 
 ## 工程目录结构
