@@ -15,7 +15,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
 The sample code is used to describe how to use the HMS Core ML SDK. The code consists of the following modules:
 
 ### Text module
-Module-text. including text recognition, document recognition, ID card recognition, bank card recognition, general card recognition, text translation, language detection, real-time speech recognition, speech synthesis, audio file conversion, document correction, voice recognition, text embedding, and real-time speech conversion.
+Module-text. including text recognition, document recognition, ID card recognition, bank card recognition, general card recognition, text translation, language detection, real-time speech recognition, speech synthesis, audio file conversion, voice recognition, text embedding, and real-time speech translation.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_text.jpg" width=220 title="main page" border=2></td>
@@ -36,14 +36,11 @@ Module-text. including text recognition, document recognition, ID card recogniti
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/sound.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text_emd.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg" width=220 border=2></td>
-</tr></table>
-
-<table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr_long.jpg" width=220 border=2></td>
 </tr></table>
 
 ### Vision module
-Module-vision. It includes image segmentation, image classification, object detection and tracking, location identification, image overcommitment, text image overcommitment, scene recognition, and table recognition.
+Module-vision. It includes image segmentation, image classification, object detection and tracking, location identification, image overcommitment, text image overcommitment, scene recognition, table recognition, and document correction.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.png" width=220 title="main page" border=2></td>
@@ -59,7 +56,7 @@ Module-vision. It includes image segmentation, image classification, object dete
 </tr></table>
 
 ### Body module
-Module-body. This module is used for Face detection, human bone detection, live body detection, and key points of hands.
+Module-body. including face detection, human skeleton detection, liveness detection, hand key points detection, 3D face detection, face comparison, and gesture recognition.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_module.png" width=220 title="main page" border=2></td>
@@ -101,8 +98,6 @@ moduletext
             |-- TranslateActivity // Translation entry
             |-- LocalTranslateActivity // LocalTranslation
             |-- RemoteTranslateActivity // RemoteTranslation
-            |-- DocumentSkewStartActivity // Document correction entry
-            |-- DocumentSkewCorretionActivity // Document correction
             |-- SoundDectActivity // Voice recognition
             |-- TextEmbeddingActivity // Text Embedding
 
@@ -126,6 +121,8 @@ modulevision
             |-- SceneDectionActivity // Scene Dection
             |-- TableRecognitionStartActivity // Table recognition entry
             |-- TableRecognitionActivity // Table recognition
+            |-- DocumentSkewStartActivity // Document correction entry
+            |-- DocumentSkewCorretionActivity // Document correction
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulevision Basic Information
@@ -136,11 +133,15 @@ modulebody
     |-- com.mlkit.sample
         |-- Activity
             |-- FaceDetectionActivity //Face detection
+            |-- Live3DFaceAnalyseActivity //3D face detection
+            |-- FaceVerificationActivity // Face match
             |-- HumanSkeletonActivity // Human skeleton
             |-- TemplateActivity // Bone Template Selection Class
             |-- HumanLivenessDetectionActivity // Liveness detection
             |-- HandKeypointActivity // Key points of the hand
             |-- HandKeypointImageActivity // Hand static detection
+            |-- GestureActivity // Gesture recognition
+            |-- GestureImageActivity // Static detection of gesture recognition
             |-- StartActivity  // Service entry
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulebody Basic Information

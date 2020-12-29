@@ -59,7 +59,7 @@ Module-vision。其中包括：图像分割、图像分类、对象检测与跟�
 </tr></table>
 
 ### 人体模块
-Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部关键点、3D人脸检测。
+Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部关键点、3D人脸检测、人脸比对、手势识别。
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_module.png" width=220 title="main page" border=2></td>
@@ -103,8 +103,6 @@ moduletext
             |-- TranslateActivity //文本翻译入口
             |-- LocalTranslateActivity // 端侧文本翻译
             |-- RemoteTranslateActivity // 云测文本翻译
-            |-- DocumentSkewStartActivity // 文档校正入口
-            |-- DocumentSkewCorretionActivity // 文档校正
             |-- SoundDectActivity // 声音识别
             |-- TextEmbeddingActivity // 文本嵌入
 
@@ -127,6 +125,8 @@ modulevision
             |-- SceneDectionActivity // 场景识别
             |-- TableRecognitionStartActivity // 表格识别入口
             |-- TableRecognitionActivity // 场景识别
+            |-- DocumentSkewStartActivity // 文档校正入口
+            |-- DocumentSkewCorretionActivity // 文档校正
 	        |-- BaseActivity  // Activity基类
 	        |-- StartActivity  // 服务入口
 	        |-- SettingActivity  // modulevision基本信息
@@ -137,11 +137,15 @@ modulebody
     |-- com.mlkit.sample
         |-- Activity
             |-- FaceDetectionActivity //人脸检测
+            |-- Live3DFaceAnalyseActivity //3D人脸检测
+            |-- FaceVerificationActivity // 人脸比对
             |-- HumanSkeletonActivity //人体骨骼
             |-- TemplateActivity //骨骼模板选择类
             |-- HumanLivenessDetectionActivity // 活体检测
             |-- HandKeypointActivity // 手部关键点
             |-- HandKeypointImageActivity // 手部关键点静态检测
+            |-- GestureActivity // 手势识别
+            |-- GestureImageActivity // 手势识别静态检测
             |-- BaseActivity  // Activity基类
             |-- StartActivity  // 服务入口
             |-- SettingActivity  // modulebody基本信息
