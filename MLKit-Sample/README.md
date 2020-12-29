@@ -12,7 +12,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
 
 
 ## Introduction
-The sample code is used to describe how to use the HMS Core ML SDK. The code consists of the following modules:
+This sample code describes how to use the ML Kit SDK, including the following modules:
 
 ### Text module
 Module-text. including text recognition, document recognition, ID card recognition, bank card recognition, general card recognition, text translation, language detection, real-time speech recognition, speech synthesis, audio file conversion, voice recognition, text embedding, and real-time speech translation.
