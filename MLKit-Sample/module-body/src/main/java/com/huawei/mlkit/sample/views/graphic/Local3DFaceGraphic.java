@@ -25,11 +25,15 @@ import com.huawei.hms.mlsdk.common.MLPosition;
 import com.huawei.hms.mlsdk.face.face3d.ML3DFace;
 import com.huawei.mlkit.sample.views.overlay.GraphicOverlay;
 
-
 import java.util.ArrayList;
+
 import java.util.List;
 
-
+/**
+ *  Local 3D Face Draw View
+ *
+ *  @since  2020-12-10
+ */
 public class Local3DFaceGraphic extends BaseGraphic {
     private static final String TAG = Local3DFaceGraphic.class.getSimpleName();
     private final GraphicOverlay overlay;

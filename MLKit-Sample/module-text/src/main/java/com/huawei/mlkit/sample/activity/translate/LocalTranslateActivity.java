@@ -75,7 +75,7 @@ public class LocalTranslateActivity extends BaseActivity {
     private static final ArrayList<String> LANG_CODE_LIST = new ArrayList<>(Arrays.asList(
             "ZH", "ZH-HK", "EN", "ES", "DE", "RU", "FR", "IT", "PT", "TH", "AR", "TR", "JA",
             "DA", "PL", "FI", "KO", "SV", "VI", "MS", "NO", "ID", "CS", "HE", "EL", "HI", "TL",
-            "SR", "RO"));
+            "SR", "RO","TA","HU","NL","FA","SK","ET","LV","KM"));
 
     private static final ArrayList<String> SOURCE_LANGUAGE_CODE = new ArrayList<>();
     private static final ArrayList<String> DEST_LANGUAGE_CODE = new ArrayList<>();
@@ -87,14 +87,16 @@ public class LocalTranslateActivity extends BaseActivity {
             "Chinese (Simplified)", "Chinese (Traditional)", "English", "Spanish", "German", "Russian", "French", "Italian",
             "Portuguese", "Thai", "Arabic", "Turkish", "Japanese", "Danish", "Polish",
             "Finnish", "Korean", "Swedish", "Vietnamese", "Malaysian", "Norwegian",
-            "Indonesian", "Czech", "Hebrew", " Greek", "Hindi",
-            "Filipino", "Serbian", "Romanian"));
+            "Indonesian", "Czech", "Hebrew", " Greek", "Hindi", "Filipino", "Serbian",
+            "Romanian","Tamil","Hungarian","Netherlands","Persian","Slovak","Estonian",
+            "Latvian","Khmer"));
 
     private static final List<String> LANGUAGE_LIST_ZH = new ArrayList<>(Arrays.asList(
             "中文简体", "中文繁体", "英文", "西班牙语", "德语", "俄语", "法语", "意大利", "葡萄牙", "泰语",
             "阿拉伯", "土耳其", "日语", "丹麦语", "波兰语", "芬兰语", "韩语", "瑞典语", "越南语",
             "马来西亚语", "挪威语", "印尼语", "捷克语", "希伯来语", "希腊语", "印地语",
-            "菲律宾语", "塞尔维亚语", "罗马尼亚语"));
+            "菲律宾语", "塞尔维亚语", "罗马尼亚语","泰米尔语","匈牙利语","荷兰语","波斯语",
+            "斯洛伐克语","爱沙尼亚语","拉脱维亚语","高棉语"));
 
     private static final List<String> SP_DEST_LIST = new ArrayList<>();
     private static final List<String> SP_DEST_LIST_EN = new ArrayList<>();
@@ -103,16 +105,19 @@ public class LocalTranslateActivity extends BaseActivity {
     private static final List<String> DOWNLOAD_LANG_LIST_EN = new ArrayList<>();
 
     private static final List<String> DEMO_LIST = new ArrayList<>(Arrays.asList("Machine learning", "机器学习", "機器學習", "Machine learning",
-            "Aprendizaje de la máquina", "Maschinelles Lernen", "Машинное обучение", "Apprentissage mécanique"
-            , "Apprendimento delle macchine", "aprendizagem por máquina", "การเรียนรู้ของเครื่อง", "التعلم الآلي",
-            "makine öğrenimi", "機械学習", " ", "Uczenie się maszyn", "Koneoppiminen", "기계 학습", "Inlärning av maskiner", "Máy học"
-            , "Pembelajaran mesin", "Maskinlæring", "Belajar mesin", "Strojové učení", "למידה של מכונה", "Μηχανική μάθηση", "मशीन लर्निंग",
-            "Pag-aaral ng makina", "mašinsko učenje", "învăţarea maşinilor"));
+            "Aprendizaje de la máquina", "Maschinelles Lernen", "Машинное обучение", "Apprentissage mécanique",
+            "Apprendimento delle macchine", "aprendizagem por máquina", "การเรียนรู้ของเครื่อง", "التعلم الآلي",
+            "makine öğrenimi", "機械学習", " ", "Uczenie się maszyn", "Koneoppiminen", "기계 학습", "Inlärning av maskiner", "Máy học",
+            "Pembelajaran mesin", "Maskinlæring", "Belajar mesin", "Strojové učení", "למידה של מכונה", "Μηχανική μάθηση", "मशीन लर्निंग",
+            "Pag-aaral ng makina", "mašinsko učenje", "învăţarea maşinilor","இயந்திரம் கற்றல்","gépi tanulás","leren van machines",
+            "یادگیری ماشین","strojové vzdelávanie","masina õppimine","mašīnu mācīšanās","ការរៀនម៉ាស៊ីន"));
 
 
     private static final List<String> DOWNLOAD_CODE_LIST = new ArrayList<>(Arrays.asList(
             "zh", "es", "de", "ru", "fr", "it", "pt", "th", "ar", "tr",
-            "ja", "da", "pl", "fi", "ko", "sv", "vi", "ms", "no", "id", "cs", "he", "el", "hi", "tl", "sr", "ro"));
+            "ja", "da", "pl", "fi", "ko", "sv", "vi", "ms", "no", "id",
+            "cs", "he", "el", "hi", "tl", "sr", "ro","ta","hu","nl","fa",
+            "sk","et","lv","km"));
 
     private final static long M = 1024 * 1024;
 
@@ -156,8 +161,18 @@ public class LocalTranslateActivity extends BaseActivity {
     private CallBcak callBcak;
 
     public abstract static class CallBcak {
+        /**
+         * download select language
+         *
+         * @param language  language
+         */
         public abstract void download(String language);
 
+        /**
+         * delete language
+         *
+         * @param language language
+         */
         public abstract void delete(String language);
     }
 
@@ -198,12 +213,12 @@ public class LocalTranslateActivity extends BaseActivity {
 
         if (isEngLanguage()) {
             downloadAdapter = new TranslateDownloadAdapter(LocalTranslateActivity.this,
-                    (ArrayList) DOWNLOAD_LANG_LIST_EN, (ArrayList) DOWNLOAD_CODE_LIST, downloadModels
-                    , downloadMap, callBcak);
+                    (ArrayList) DOWNLOAD_LANG_LIST_EN, (ArrayList) DOWNLOAD_CODE_LIST, downloadModels,
+                    downloadMap, callBcak);
         } else {
             downloadAdapter = new TranslateDownloadAdapter(LocalTranslateActivity.this,
-                    (ArrayList) DOWNLOAD_LANG_LIST, (ArrayList) DOWNLOAD_CODE_LIST, downloadModels
-                    , downloadMap, callBcak);
+                    (ArrayList) DOWNLOAD_LANG_LIST, (ArrayList) DOWNLOAD_CODE_LIST, downloadModels,
+                    downloadMap, callBcak);
         }
 
         manager.getModels(MLLocalTranslatorModel.class).addOnSuccessListener(new OnSuccessListener<Set<MLLocalTranslatorModel>>() {
@@ -240,19 +255,19 @@ public class LocalTranslateActivity extends BaseActivity {
 
     private void createSpinner() {
         if (this.isEngLanguage()) {
-            this.spSourceAdapter = new TranslateSpinnerAdapter(this
-                    , SOURCE_LANGUAGE_CODE, downloadModels
-                    , android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_SOURCE_LIST_EN);
-            this.spDestAdapter = new TranslateSpinnerAdapter(this
-                    , DEST_LANGUAGE_CODE, downloadModels
-                    , android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_DEST_LIST_EN);
+            this.spSourceAdapter = new TranslateSpinnerAdapter(this,
+                    SOURCE_LANGUAGE_CODE, downloadModels,
+                    android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_SOURCE_LIST_EN);
+            this.spDestAdapter = new TranslateSpinnerAdapter(this,
+                    DEST_LANGUAGE_CODE, downloadModels,
+                    android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_DEST_LIST_EN);
         } else {
-            this.spSourceAdapter = new TranslateSpinnerAdapter(this
-                    , SOURCE_LANGUAGE_CODE, downloadModels
-                    , android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_SOURCE_LIST);
-            this.spDestAdapter = new TranslateSpinnerAdapter(this
-                    , DEST_LANGUAGE_CODE, downloadModels
-                    , android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_DEST_LIST);
+            this.spSourceAdapter = new TranslateSpinnerAdapter(this,
+                    SOURCE_LANGUAGE_CODE, downloadModels,
+                    android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_SOURCE_LIST);
+            this.spDestAdapter = new TranslateSpinnerAdapter(this,
+                    DEST_LANGUAGE_CODE, downloadModels,
+                    android.R.layout.simple_spinner_dropdown_item, LocalTranslateActivity.SP_DEST_LIST);
         }
 
         this.spSourceAdapter.setDropDownViewResource(R.layout.translate_spinner_drop_item);
@@ -640,8 +655,8 @@ public class LocalTranslateActivity extends BaseActivity {
     private void showProcess(String languageCode, long alreadyDownLength, long totalLength) {
         double downDone = alreadyDownLength * 1.0 / M;
         double downTotal = totalLength * 1.0 / M;
-        String downD = String.format("%.2f", downDone);
-        String downT = String.format("%.2f", downTotal);
+        String downD = String.format(Locale.ROOT,"%.2f", downDone);
+        String downT = String.format(Locale.ROOT,"%.2f", downTotal);
 
         String text = downD + "M" + "/" + downT + "M";
         Log.e(TAG, "stringformat:" + downD);

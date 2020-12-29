@@ -38,12 +38,12 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 
-import com.huawei.hms.ml.common.utils.SmartLog;
 import com.huawei.mlkit.sample.camera.FrameMetadata;
 import com.huawei.hms.mlsdk.common.MLFrame;
 
 
 import java.io.ByteArrayOutputStream;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -254,7 +254,7 @@ public class BitmapUtils {
      * Fusion of two images.
      * @param background background image.
      * @param foreground foreground image.
-     * @return
+     * @return return Bitmap
      */
     public static Bitmap joinBitmap(Bitmap background, Bitmap foreground) {
         if (background == null || foreground == null) {

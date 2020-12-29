@@ -20,6 +20,7 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.huawei.hms.mlsdk.common.MLApplication;
@@ -159,7 +160,7 @@ public class CustModelObjectActivity extends BaseActivity implements View.OnClic
         try {
             mCamera_preview.start(mLensEngine, false);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG,e.getMessage());
         }
     }
 

@@ -1,11 +1,14 @@
 package com.huawei.mlkit.sample.activity.table;
 
 
+import android.annotation.SuppressLint;
+
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,10 +33,12 @@ import com.huawei.mlkit.sample.util.BitmapUtils;
 
 
 import java.io.File;
+
 import java.io.IOException;
 
 
 import jxl.Workbook;
+
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
@@ -44,6 +49,7 @@ import static com.huawei.mlkit.sample.util.CommonUtils.STORAGE_PERMISSION;
 
 
 public class TableRecognitionActivity extends AppCompatActivity {
+    private static final String TAG = "TableRecognitionActivity";
 
     ImageView imageView;
     RecyclerView recyclerView;
@@ -51,6 +57,7 @@ public class TableRecognitionActivity extends AppCompatActivity {
     FloatingActionButton fab;
     private TextView text_error;
 
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +90,7 @@ public class TableRecognitionActivity extends AppCompatActivity {
             }
 
         } catch (RuntimeException e) {
-            e.printStackTrace();
+            Log.e(TAG,e.getMessage());
         }
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,9 +100,9 @@ public class TableRecognitionActivity extends AppCompatActivity {
                     try {
                         createExcel();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        Log.e(TAG,e.getMessage());
                     } catch (WriteException e) {
-                        e.printStackTrace();
+                        Log.e(TAG,e.getMessage());
                     }
                 } else {
                     ActivityCompat.requestPermissions(TableRecognitionActivity.this,new String[]{STORAGE_PERMISSION},PERMISSION_CODE_STORAGE);
@@ -105,15 +112,16 @@ public class TableRecognitionActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_CODE_STORAGE && grantResults!=null&&grantResults.length == 1&&grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             try {
                 createExcel();
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e(TAG,e.getMessage());
             } catch (WriteException e) {
-                e.printStackTrace();
+                Log.e(TAG,e.getMessage());
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

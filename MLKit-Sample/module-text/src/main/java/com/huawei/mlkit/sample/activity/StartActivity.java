@@ -39,11 +39,9 @@ import com.huawei.mlkit.sample.activity.asr.AsrAudioActivity;
 import com.huawei.mlkit.sample.activity.asrlong.RealTimeTranscriptionActivity;
 import com.huawei.mlkit.sample.activity.bcr.BankCardRecognitionActivity;
 import com.huawei.mlkit.sample.activity.docdetection.RemoteDetectionActivity;
-import com.huawei.mlkit.sample.activity.documentskew.DocumentSkewStartActivity;
 import com.huawei.mlkit.sample.activity.entity.GridViewItem;
 import com.huawei.mlkit.sample.activity.gcr.GeneralCardRecognitionActivity;
 import com.huawei.mlkit.sample.activity.icr.IDCardActivity;
-import com.huawei.mlkit.sample.activity.icr.IDCardRecognitionActivity;
 import com.huawei.mlkit.sample.activity.sounddect.SoundDectActivity;
 import com.huawei.mlkit.sample.activity.ocr.TextRecognitionActivity;
 import com.huawei.mlkit.sample.activity.textemdding.TextEmbeddingActivity;
@@ -68,10 +66,10 @@ public final class StartActivity extends BaseActivity
     private static final int PERMISSION_REQUESTS = 1;
     private static final int[] ICONS = {R.drawable.icon_translate, R.drawable.icon_asr ,R.drawable.icon_tts, R.drawable.icon_aft,
             R.drawable.icon_bcr, R.drawable.icon_gcr, R.drawable.icon_text, R.drawable.icon_icr,
-            R.drawable.icon_document,R.drawable.icon_documentskew,R.drawable.icon_sound_dect,R.drawable.icon_textembedding,R.drawable.icon_asr_long_voice};
+            R.drawable.icon_document,R.drawable.icon_sound_dect,R.drawable.icon_textembedding,R.drawable.icon_asr_long_voice};
 
     private static final int[] TITLES = {R.string.translate, R.string.asr,R.string.tts, R.string.aft, R.string.bcr,
-            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,R.string.document_skew,R.string.sound_dect_title,R.string.textembedding,R.string.speechRtt,};
+            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,R.string.sound_dect_title,R.string.textembedding,R.string.speechRtt,};
 
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
@@ -135,7 +133,7 @@ public final class StartActivity extends BaseActivity
                     break;
                 case 7:
                     // ICR
-                    startActivity(new Intent(StartActivity.this, IDCardRecognitionActivity.class));
+                    startActivity(new Intent(StartActivity.this, IDCardActivity.class));
                     break;
                 case 8:
                     // Document recognition
@@ -144,18 +142,14 @@ public final class StartActivity extends BaseActivity
                     startActivity(intent);
                     break;
                 case 9:
-                    // Document Skew Corretion
-                    startActivity(new Intent(StartActivity.this, DocumentSkewStartActivity.class));
-                    break;
-                case 10:
                     // Voice Recognition
                     startActivity(new Intent(StartActivity.this, SoundDectActivity.class));
                     break;
-                case 11:
+                case 10:
                     // Text Embedding
                     startActivity(new Intent(StartActivity.this, TextEmbeddingActivity.class));
                     break;
-                case 12:
+                case 11:
                     // asr Long
                     startActivity(new Intent(StartActivity.this, RealTimeTranscriptionActivity.class));
                     break;

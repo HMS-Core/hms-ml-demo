@@ -115,10 +115,26 @@ public class TtsLocalStyleAdapter extends RecyclerView.Adapter<TtsLocalStyleAdap
     }
 
     public interface OnItemClickListener {
+        /**
+         *  ItemClick speaker
+         *
+         * @param speaker speaker
+         */
         void setOnStyleItemClick(String speaker);
 
+        /**
+         * set Style ItemClick
+         *
+         * @param speaker speaker
+         */
         void setOnDeleteClick(String speaker);
 
+        /**
+         * set Delete speaker
+         *
+         * @param speaker speaker
+         * @param has_download has_download
+         */
         void setOnDownloadClick(String speaker, TextView has_download);
     }
 
@@ -130,7 +146,9 @@ public class TtsLocalStyleAdapter extends RecyclerView.Adapter<TtsLocalStyleAdap
 
     class LanguageViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView speaker, has_download, tv_download;
+        private final TextView speaker;
+        private final TextView has_download;
+        private final TextView tv_download;
         private final ImageView delete_model;
 
         public LanguageViewHolder(@NonNull View itemView) {

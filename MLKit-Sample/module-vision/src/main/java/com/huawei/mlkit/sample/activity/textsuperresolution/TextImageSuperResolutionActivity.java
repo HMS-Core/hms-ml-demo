@@ -47,6 +47,7 @@ import com.huawei.mlkit.sample.util.BitmapUtils;
 
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import androidx.annotation.Nullable;
@@ -112,11 +113,11 @@ public class TextImageSuperResolutionActivity extends BaseActivity implements Vi
         View v = inflater.inflate(R.layout.dialog_layout, null);
         TextView content = v.findViewById(R.id.dialog_content);
         content.setText(R.string.tsr_tips_content);
-        Button btn_cancel = v.findViewById(R.id.dialog_btn_cancel);
+        Button mBtn_cancel = v.findViewById(R.id.dialog_btn_cancel);
         dialog = builder.create();
         dialog.show();
         dialog.getWindow().setContentView(v);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
+        mBtn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 dialog.dismiss();

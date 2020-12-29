@@ -25,6 +25,7 @@
     <string name="skeletlon">人体骨骼</string>
     <string name="liveness_detection">活体检测</string>
     <string name="handKeypoint">手部关键点</string>
+    <string name="gesture">手势识别</string>
 
     <string name="all">所有</string>
     <string name="coming_soon">敬请期待</string>
@@ -39,6 +40,22 @@
 
     <string name="face_point">点</string>
     <string name="face_feature">特征</string>
+    
+    <string name="gesture_one">数字1</string>
+    <string name="gesture_two">数字2</string>
+    <string name="gesture_three">数字3</string>
+    <string name="gesture_four">数字4</string>
+    <string name="gesture_five">数字5</string>
+    <string name="gesture_six">数字6</string>
+    <string name="gesture_seven">数字7</string>
+    <string name="gesture_eight">数字8</string>
+    <string name="gesture_nine">数字9</string>
+    <string name="gesture_diss">差评</string>
+    <string name="gesture_clench">握拳</string>
+    <string name="gesture_likes">点赞</string>
+    <string name="gesture_bx">单手比心</string>
+    <string name="gesture_confirm">确认</string>
+    <string name="gesture_others">其他手势</string>
 
 
 

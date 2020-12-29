@@ -43,8 +43,8 @@ public class TranslateSpinnerAdapter extends ArrayAdapter<String> {
     private Spinner spinner;
     ArrayList<String> downloadModelList;
     ArrayList<String> languageCodeList;
-    public TranslateSpinnerAdapter(@NonNull Context context, ArrayList<String> codes
-            , ArrayList<String> models, int resource, @NonNull List<String> objects) {
+    public TranslateSpinnerAdapter(@NonNull Context context, ArrayList<String> codes,
+        ArrayList<String> models, int resource, @NonNull List<String> objects) {
         super(context, resource, objects);
         this.downloadModelList = models;
         this.languageCodeList = codes;

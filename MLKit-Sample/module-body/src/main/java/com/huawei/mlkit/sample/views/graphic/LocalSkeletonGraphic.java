@@ -29,7 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Bone point custom view
+ * LocalSkeleton Bone point custom view
+ *
+ *  @since  2020-12-10
  */
 public class LocalSkeletonGraphic extends BaseGraphic {
     private List<MLSkeleton> skeletons;

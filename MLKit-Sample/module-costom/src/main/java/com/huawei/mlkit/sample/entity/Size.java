@@ -22,6 +22,8 @@ import static androidx.core.util.Preconditions.checkNotNull;
 
 /**
  * Immutable class for describing width and height dimensions in pixels.
+ *
+ * @since  2020-12-10
  */
 public final class Size {
     /**
@@ -53,13 +55,11 @@ public final class Size {
 
     /**
      * Check if this size is equal to another size.
-     * <p>
+     *
      * Two sizes are equal if and only if both their widths and heights are
+     *
      * equal.
-     * </p>
-     * <p>
      * A size object is never equal to any other type of object.
-     * </p>
      *
      * @return {@code true} if the objects were equal, {@code false} otherwise
      */
@@ -94,25 +94,22 @@ public final class Size {
 
     /**
      * Parses the specified string as a size value.
-     * <p>
      * The ASCII characters {@code \}{@code u002a} ('*') and
      * {@code \}{@code u0078} ('x') are recognized as separators between
      * the width and height.</p>
-     * <p>
+     *
      * For any {@code Size s}: {@code Size.parseSize(s.toString()).equals(s)}.
      * However, the method also handles sizes expressed in the
      * following forms:</p>
-     * <p>
+     *
      * "<i>width</i>{@code x}<i>height</i>" or
      * "<i>width</i>{@code *}<i>height</i>" {@code => new Size(width, height)},
      * where <i>width</i> and <i>height</i> are string integers potentially
      * containing a sign, such as "-10", "+7" or "5".</p>
      *
-     * <pre>{@code
      * Size.parseSize("3*+6").equals(new Size(3, 6)) == true
      * Size.parseSize("-3x-6").equals(new Size(-3, -6)) == true
      * Size.parseSize("4 by 3") => throws NumberFormatException
-     * }</pre>
      *
      * @param string the string representation of a size value.
      * @return the size value represented by {@code string}.
@@ -126,16 +123,16 @@ public final class Size {
             throws NumberFormatException {
         checkNotNull(string, "string must not be null");
 
-        int sep_ix = string.indexOf('*');
-        if (sep_ix < 0) {
-            sep_ix = string.indexOf('x');
+        int sepSix = string.indexOf('*');
+        if (sepSix < 0) {
+            sepSix = string.indexOf('x');
         }
-        if (sep_ix < 0) {
+        if (sepSix < 0) {
             throw invalidSize(string);
         }
         try {
-            return new Size(Integer.parseInt(string.substring(0, sep_ix)),
-                    Integer.parseInt(string.substring(sep_ix + 1)));
+            return new Size(Integer.parseInt(string.substring(0, sepSix)),
+                    Integer.parseInt(string.substring(sepSix + 1)));
         } catch (NumberFormatException e) {
             throw invalidSize(string);
         }

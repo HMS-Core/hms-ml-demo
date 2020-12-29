@@ -17,9 +17,9 @@ public class FileUtil {
     /**
      * Obtains the actual file path based on the URI (compatible with multiple models).
      * 
-     * @param context
-     * @param uri
-     * @return
+     * @param context context
+     * @param uri uri
+     * @return Return Value
      */
     public static String getFilePathByUri(Context context, Uri uri) {
         if ("content".equalsIgnoreCase(uri.getScheme())) {
@@ -106,7 +106,7 @@ public class FileUtil {
     /**
      * Obtain the _data column in the database table, that is, the file path corresponding to the URI is returned.
      *
-     * @return
+     * @return return path
      */
     private static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
         String path = null;

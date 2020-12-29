@@ -39,11 +39,13 @@ import com.huawei.hms.mlsdk.common.MLApplication;
 
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.Imagesupersesolution.ImageSuperResolutionStartActivity;
 import com.huawei.mlkit.sample.activity.adapter.GridViewAdapter;
+import com.huawei.mlkit.sample.activity.documentskew.DocumentSkewStartActivity;
 import com.huawei.mlkit.sample.activity.entity.GridViewItem;
 import com.huawei.mlkit.sample.activity.fragment.ProductFragment;
 import com.huawei.mlkit.sample.activity.imageclassfication.ImageClassificationActivity;
@@ -57,6 +59,7 @@ import com.huawei.mlkit.sample.views.overlay.GraphicOverlay;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
@@ -70,12 +73,12 @@ public final class StartActivity extends BaseActivity
     private static final int[] ICONS = {R.drawable.icon_table,R.drawable.icon_segmentation,
             R.drawable.icon_object, R.drawable.icon_classification,
             R.drawable.icon_landmark, R.drawable.icon_image_super_resolution,
-            R.drawable.icon_text_super_resolution, R.drawable.icon_scene_detection,R.drawable.icon_shopping,};
+            R.drawable.icon_text_super_resolution, R.drawable.icon_scene_detection,R.drawable.icon_shopping,R.drawable.icon_documentskew};
 
     private static final int[] TITLES = {R.string.table,R.string.image_segmentation,
             R.string.object_detection, R.string.image_classification,
             R.string.landmark, R.string.image_super_resolution_s,
-            R.string.text_super_resolution_s, R.string.scene_detection,R.string.photographed_shopping,};
+            R.string.text_super_resolution_s, R.string.scene_detection,R.string.photographed_shopping,R.string.document_skew};
 
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
@@ -156,7 +159,7 @@ public final class StartActivity extends BaseActivity
                         startActivity(intentTsr);
                         break;
                     case 7:
-                        //Custmodel
+                        //Scene
                         startActivity(new Intent(StartActivity.this, SceneStartActivity.class));
                         break;
                     case 8:
@@ -168,6 +171,10 @@ public final class StartActivity extends BaseActivity
                                 .create();
                         MLProductVisionSearchCapture capture = MLProductVisionSearchCaptureFactory.getInstance().create(config);
                         capture.startCapture(StartActivity.this);
+                        break;
+                    case 9:
+                        // Document Skew Corretion
+                        startActivity(new Intent(StartActivity.this, DocumentSkewStartActivity.class));
                         break;
                     default:
                         break;

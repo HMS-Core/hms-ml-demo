@@ -47,8 +47,8 @@ public class TranslateDownloadAdapter extends BaseAdapter {
     HashMap<String, String> downloadMap;
     Context context;
 
-    public TranslateDownloadAdapter(Context context, ArrayList<String> languages, ArrayList<String> codes
-            , ArrayList<String> models, HashMap<String, String> downloadMap, LocalTranslateActivity.CallBcak callBcak){
+    public TranslateDownloadAdapter(Context context, ArrayList<String> languages, ArrayList<String> codes,
+        ArrayList<String> models, HashMap<String, String> downloadMap, LocalTranslateActivity.CallBcak callBcak){
         this.languageList = languages;
         this.downloadModelList = models;
         this.languageCodeList = codes;

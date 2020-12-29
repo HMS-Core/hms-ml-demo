@@ -121,10 +121,16 @@ public class RecordDialog extends Dialog {
     }
 
     public interface OnCompleteListener {
+        /**
+         *  Complete
+         */
         void onComplete();
     }
 
     public interface OnBackPressedListener {
+        /**
+         *  back
+         */
         void onBackPressed();
     }
 

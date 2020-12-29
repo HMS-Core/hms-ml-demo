@@ -2,6 +2,7 @@ package com.huawei.mlkit.sample.activity.table;
 
 
 import android.content.ContentValues;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;

@@ -108,6 +108,7 @@
     <string name="language">语言:</string>
     <string name="stop_record">停止</string>
     <string name="select_file">选择文件</string>
+    <string name="aft_type">转写类型</string>
 
     <string name="error_aft_network">网络连接异常</string>
     <string name="error_aft_internal">内部错误</string>

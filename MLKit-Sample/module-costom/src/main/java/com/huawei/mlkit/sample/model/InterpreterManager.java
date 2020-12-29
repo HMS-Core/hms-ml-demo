@@ -17,6 +17,7 @@
 package com.huawei.mlkit.sample.model;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.huawei.hmf.tasks.OnCompleteListener;
 import com.huawei.hmf.tasks.OnFailureListener;
@@ -41,6 +42,8 @@ import java.util.ArrayList;
 
 /**
  * Customized model inference management class。
+ *
+ * @since 2020-12-10
  */
 public class InterpreterManager {
     private static final String TAG = "InterpreterManager";
@@ -93,6 +96,12 @@ public class InterpreterManager {
     }
 
     public interface ExceutorResult {
+        /**
+         * return Result value
+         *
+         * @param mlModelOutputs value
+         * @return return
+         */
         boolean onResult(MLModelOutputs mlModelOutputs);
     }
 
@@ -102,7 +111,10 @@ public class InterpreterManager {
     }
 
     private void initLocalEnvironment() throws MLException {
-        localModel = new MLCustomLocalModel.Factory(mModelOperator.getModelName()).setAssetPathFile(mModelOperator.getModelFullName()).create();
+        localModel = new MLCustomLocalModel
+                .Factory(mModelOperator.getModelName())
+                .setAssetPathFile(mModelOperator.getModelFullName())
+                .create();
         settings = new MLModelExecutorSettings.Factory(localModel).create();
         try {
             modelExecutor = MLModelExecutor.getInstance(settings);
@@ -174,7 +186,7 @@ public class InterpreterManager {
                     try {
                         initLocalEnvironment();
                     } catch (MLException e) {
-                        e.printStackTrace();
+                        Log.e(TAG,e.getMessage());
                     }
                     setStop(false);
                     setNeedFrame(true);

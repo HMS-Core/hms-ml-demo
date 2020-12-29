@@ -14,6 +14,7 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/icon"
+        android:requestLegacyExternalStorage="true"
         android:label="ML Vision"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
@@ -92,6 +93,16 @@
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask"
             />
+
+        <activity
+            android:name=".activity.documentskew.DocumentSkewCorretionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.documentskew.DocumentSkewStartActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

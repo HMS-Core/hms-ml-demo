@@ -355,7 +355,7 @@ public final class TextRecognitionActivity extends BaseActivity
     public void onResume() {
         super.onResume();
         if (!isInitialization){
-           createLensEngine();
+            createLensEngine();
         }
         this.startLensEngine();
     }

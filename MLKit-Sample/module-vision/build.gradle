@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.mlkit.sample.vision"
         minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 30005300
-        versionName "3.0.5.300"
+        targetSdkVersion 30
+        versionCode 3100300
+        versionName "3.1.0.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,9 +42,9 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.5.300'
 
     // image segmentation
-    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.1.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.1.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.1.0.301'
 
     // classification
     implementation 'com.huawei.hms:ml-computer-vision-classification:2.0.1.300'
@@ -69,8 +69,12 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-scenedetection-model:2.0.3.300'
 
     // form recognition
-    implementation 'com.huawei.hms:ml-computer-vision-formrecognition-model:2.0.4.300'
-    implementation 'com.huawei.hms:ml-computer-vision-formrecognition:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-vision-formrecognition-model:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-formrecognition:2.1.0.300'
+
+    // Document skew correction.
+    implementation 'com.huawei.hms:ml-computer-vision-documentskew:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-documentskew-model:2.1.0.300'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
     implementation 'it.sephiroth.android.library.imagezoom:imagezoom:2.3.0'

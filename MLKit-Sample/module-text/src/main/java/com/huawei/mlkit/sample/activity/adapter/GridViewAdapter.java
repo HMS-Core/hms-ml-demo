@@ -28,8 +28,8 @@ import android.widget.TextView;
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.entity.GridViewItem;
 
-
 import java.util.ArrayList;
+
 
 public class GridViewAdapter extends BaseAdapter {
     private final static String TAG = GridViewAdapter.class.getName();

@@ -41,7 +41,7 @@ public class IDCardActivity extends AppCompatActivity implements View.OnClickLis
         if(view.getId() == R.id.btn_icr_cn){
             startActivity(new Intent(IDCardActivity.this, IDCardRecognitionActivity.class));
         }else if(view.getId() == R.id.btn_icr_vn){
-            startActivity(new Intent(IDCardActivity.this, IDCardRecognitionActivity.class));
+            startActivity(new Intent(IDCardActivity.this, VNIdCardRecognitionActivity.class));
         }else if(view.getId() == R.id.back){
             finish();
         }

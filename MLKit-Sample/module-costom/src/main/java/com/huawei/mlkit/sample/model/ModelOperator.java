@@ -20,8 +20,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
 
-
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -33,6 +33,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * ModelOperator
+ *
+ * @since 2020-12-10
+ */
 public abstract class ModelOperator implements ResultProcessor {
 
     private static final String TAG = "ModelOperator";
@@ -49,13 +54,41 @@ public abstract class ModelOperator implements ResultProcessor {
 
     protected int batchNum = 0;
 
+    /**
+     * getInputType
+     *
+     * @return Input type
+     */
     protected abstract int getInputType();
 
+    /**
+     * getInputType
+     *
+     * @return Output type
+     */
     protected abstract int getOutputType();
+
+    /**
+     * getOutputType
+     *
+     * @param bmp Bitmap
+     * @return return Bitmap
+     */
 
     protected abstract Object getInput(Bitmap bmp);
 
+    /**
+     * getInput
+     *
+     * @return return
+     */
     protected abstract int[] getInputShape();
+
+    /**
+     * getInputShape
+     *
+     * @return list
+     */
 
     protected abstract ArrayList<int[]> getOutputShapeList();
 
@@ -111,7 +144,8 @@ public abstract class ModelOperator implements ResultProcessor {
         InputStream is = null;
         try {
             is = weakContext.get().getAssets().open(assetFileName);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8")); // Construct a BufferedReader class to read files.
+            // Construct a BufferedReader class to read files.
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             String readString;
             while ((readString = br.readLine()) != null) {
                 mLabels.add(readString);

@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
- package com.huawei.mlkit.sample.activity.adapter;
+package com.huawei.mlkit.sample.activity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -71,7 +71,13 @@ public class TTSLocalLanguageAdapter extends RecyclerView.Adapter<TTSLocalLangua
     }
 
     public interface OnItemClickListener {
-        // Entry click event
+        /**
+         * Entry click event
+         *
+         * @param view view
+         * @param position position
+         */
+
         void setOnLanguageItemClick(View view, int position);
     }
 

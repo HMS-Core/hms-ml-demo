@@ -38,7 +38,8 @@ public class CameraConfiguration {
 
     public void setCameraFacing(int facing) {
         synchronized (lock) {
-            if ((facing != CameraConfiguration.CAMERA_FACING_BACK) && (facing != CameraConfiguration.CAMERA_FACING_FRONT)) {
+            if ((facing != CameraConfiguration.CAMERA_FACING_BACK)
+                    && (facing != CameraConfiguration.CAMERA_FACING_FRONT)) {
                 throw new IllegalArgumentException("Invalid camera: " + facing);
             }
             cameraFacing = facing;

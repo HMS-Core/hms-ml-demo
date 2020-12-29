@@ -616,6 +616,7 @@ public class ZoomImageView extends ImageView {
                 break;
             case CENTER_INSIDE:
                 scaleX = scaleY = Math.min(1, Math.min(scaleX, scaleY));
+                // fall through
             case FIT_CENTER:
                 // fall-through
             case FIT_START:

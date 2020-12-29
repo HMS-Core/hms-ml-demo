@@ -321,7 +321,7 @@ public final class HandKeypointImageActivity extends BaseActivity implements OnC
     private void createImageTransactor() {
         switch (this.selectedMode) {
             case Constant.CLOUD_IMAGE_CLASSIFICATION:
-                this.imageTransactor = new HandKeypointTransactor(this.getApplicationContext());
+                this.imageTransactor = new HandKeypointTransactor();
                 break;
             case Constant.CLOUD_LANDMARK_DETECTION:
                 break;

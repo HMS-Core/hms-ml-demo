@@ -44,8 +44,15 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity.isOpenStatus;
+
 import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.*;
 import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.getSelectedIndex;
+
+/**
+ *  SketlonTranstor
+ *
+ * @since  2020-12-10
+ */
 
 public class LocalSketlonTranstor extends BaseTransactor<List<MLSkeleton>> {
     private static final String TAG = "LocalSketlonTransactor";

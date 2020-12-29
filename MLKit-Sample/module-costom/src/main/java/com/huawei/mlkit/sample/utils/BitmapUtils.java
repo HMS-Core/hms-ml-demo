@@ -49,6 +49,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
+/**
+ * Bitmap Utils
+ *
+ * @since  2020-12-10
+ */
 public class BitmapUtils {
     private static final String TAG = "BitmapUtils";
 
@@ -250,7 +255,7 @@ public class BitmapUtils {
      * Fusion of two images.
      * @param background background image.
      * @param foreground foreground image.
-     * @return
+     * @return newmap
      */
     public static Bitmap joinBitmap(Bitmap background, Bitmap foreground) {
         if (background == null || foreground == null) {

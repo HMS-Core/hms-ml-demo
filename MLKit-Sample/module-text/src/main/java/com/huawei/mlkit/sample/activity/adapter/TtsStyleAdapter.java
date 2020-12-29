@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
- package com.huawei.mlkit.sample.activity.adapter;
+package com.huawei.mlkit.sample.activity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -72,7 +72,12 @@ public class TtsStyleAdapter extends RecyclerView.Adapter<TtsStyleAdapter.Langua
     }
 
     public interface OnItemClickListener {
-        // Entry click event
+        /**
+         * Entry click event
+         *
+         * @param view view
+         * @param position position
+         */
         void setOnStyleItemClick(View view, int position);
     }
 

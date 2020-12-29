@@ -116,11 +116,11 @@ public class ImageSuperResolutionActivity extends BaseActivity implements View.O
         View v = inflater.inflate(R.layout.dialog_layout, null);
         TextView content = v.findViewById(R.id.dialog_content);
         content.setText(R.string.isr_tips_content);
-        Button btn_cancel = v.findViewById(R.id.dialog_btn_cancel);
+        Button mBtn_cancel = v.findViewById(R.id.dialog_btn_cancel);
         dialog = builder.create();
         dialog.show();
         dialog.getWindow().setContentView(v);
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
+        mBtn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 dialog.dismiss();

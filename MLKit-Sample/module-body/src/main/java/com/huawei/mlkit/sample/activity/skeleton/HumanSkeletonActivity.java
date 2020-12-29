@@ -49,8 +49,14 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 
 import static com.huawei.mlkit.sample.activity.BaseActivity.*;
+
 import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.getSelectedIndex;
 
+/**
+ *  HumanSkeleton
+ *
+ * @since  2020-12-10
+ */
 public final class HumanSkeletonActivity extends AppCompatActivity
         implements ActivityCompat.OnRequestPermissionsResultCallback, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private static final String TAG = "HumanSkeletonActivity";

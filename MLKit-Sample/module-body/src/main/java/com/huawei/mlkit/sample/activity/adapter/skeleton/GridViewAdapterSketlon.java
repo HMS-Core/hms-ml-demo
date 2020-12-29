@@ -40,7 +40,7 @@ public class GridViewAdapterSketlon extends BaseAdapter {
      * Construction method
      *
      * @param dataList list
-     * @param context
+     * @param context context
      */
     public GridViewAdapterSketlon(List<GridItem> dataList, Context context) {
         super();

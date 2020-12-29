@@ -43,7 +43,8 @@ public final class FaceDetectionActivity extends BaseActivity
     private LensEngine lensEngine = null;
     private LensEnginePreview preview;
     private GraphicOverlay graphicOverlay;
-    private SwitchButton switchFaceFeature, switchFacePoints;
+    private SwitchButton switchFaceFeature;
+    private SwitchButton switchFacePoints;
     private ToggleButton facingSwitch;
     private CameraConfiguration cameraConfiguration = null;
     private int facing = CameraConfiguration.CAMERA_FACING_BACK;

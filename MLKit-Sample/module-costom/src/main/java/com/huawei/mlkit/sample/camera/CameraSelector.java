@@ -12,7 +12,8 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *  2020.2.21-Changed the name from CameraSource to CameraSelector, CameraSelector was part of the original CameraSource.
+ *  2020.2.21-Changed the name from CameraSource to CameraSelector,
+ *  CameraSelector was part of the original CameraSource.
  *  2020.2.21-Changed method CameraSelector, change SizePair to CameraSize.
  *                 Huawei Technologies Co., Ltd.
  */
@@ -63,7 +64,9 @@ public class CameraSelector {
             throw new IOException("Could not find the requested camera.");
         }
         Camera camera = Camera.open(cameraId);
-        CameraSize cameraSize = CameraSelector.selectSizePair(camera, this.configuration.getPreviewWidth(), this.configuration.getPreviewHeight());
+        CameraSize cameraSize = CameraSelector.selectSizePair(camera,
+                this.configuration.getPreviewWidth(),
+                this.configuration.getPreviewHeight());
         if (cameraSize == null) {
             throw new IOException("Could not find suitable preview size.");
         }

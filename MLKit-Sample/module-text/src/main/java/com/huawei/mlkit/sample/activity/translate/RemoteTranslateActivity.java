@@ -46,6 +46,7 @@ import com.huawei.mlkit.sample.activity.adapter.TranslateSpinnerAdapter;
 
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -147,19 +148,19 @@ public class RemoteTranslateActivity extends BaseActivity {
 
     private void createSpinner() {
         if (this.isEngLanguage()) {
-            this.spSourceAdapter = new TranslateSpinnerAdapter(this
-                    , SOURCE_LANGUAGE_CODE, LANG_CODE_LIST
-                    ,android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_SOURCE_LIST_EN);
-            this.spDestAdapter = new TranslateSpinnerAdapter(this
-                    , DEST_LANGUAGE_CODE, LANG_CODE_LIST
-                    , android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_DEST_LIST_EN);
+            this.spSourceAdapter = new TranslateSpinnerAdapter(this,
+                    SOURCE_LANGUAGE_CODE, LANG_CODE_LIST,
+                    android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_SOURCE_LIST_EN);
+            this.spDestAdapter = new TranslateSpinnerAdapter(this,
+                    DEST_LANGUAGE_CODE, LANG_CODE_LIST,
+                    android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_DEST_LIST_EN);
         } else {
-            this.spSourceAdapter = new TranslateSpinnerAdapter(this
-                    , SOURCE_LANGUAGE_CODE, LANG_CODE_LIST
-                    , android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_SOURCE_LIST);
-            this.spDestAdapter = new TranslateSpinnerAdapter(this
-                    , DEST_LANGUAGE_CODE, LANG_CODE_LIST
-                    , android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_DEST_LIST);
+            this.spSourceAdapter = new TranslateSpinnerAdapter(this,
+                    SOURCE_LANGUAGE_CODE, LANG_CODE_LIST,
+                    android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_SOURCE_LIST);
+            this.spDestAdapter = new TranslateSpinnerAdapter(this,
+                    DEST_LANGUAGE_CODE, LANG_CODE_LIST,
+                    android.R.layout.simple_spinner_dropdown_item, RemoteTranslateActivity.SP_DEST_LIST);
         }
 
         this.spSourceAdapter.setDropDownViewResource(R.layout.translate_spinner_drop_item);

@@ -18,7 +18,18 @@ package com.huawei.mlkit.sample.model;
 
 import com.huawei.hms.mlsdk.custom.MLModelOutputs;
 
+/**
+ * MLModelOutputs
+ *
+ * @param <T> model type
+ * @since  2020-12-12
+ */
 public interface ResultProcessor<T> {
-
+    /**
+     * ResultProcessor
+     *
+     * @param output  type
+     * @return type
+     */
     T resultPostProcess(MLModelOutputs output);
 }

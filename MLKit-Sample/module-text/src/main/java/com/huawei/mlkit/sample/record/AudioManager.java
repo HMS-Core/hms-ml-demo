@@ -110,7 +110,7 @@ public class AudioManager {
                 mListener.recordingReady();
             }
         } catch (IOException e) {
-            Log.d(TAG, "IOException");
+            Log.d(TAG, "IOException" + e.toString());
         }
     }
 

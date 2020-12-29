@@ -34,6 +34,7 @@ import android.widget.Toast;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
+import com.huawei.hms.mlsdk.imgseg.MLImageSegmentationScene;
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.BaseActivity;
 import com.huawei.mlkit.sample.callback.ImageSegmentationResultCallBack;

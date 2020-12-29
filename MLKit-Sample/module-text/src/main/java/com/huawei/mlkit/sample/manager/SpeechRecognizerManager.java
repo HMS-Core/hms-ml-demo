@@ -37,10 +37,10 @@ public class SpeechRecognizerManager {
     protected MLAsrRecognizer mSpeechRecognizer;
     protected Intent mSpeechRecognizerIntent;
 
-    private onResultsReady mListener;
+    private OnResultsReady mListener;
     ArrayList<String> mResultsList = new ArrayList<>();
 
-    public SpeechRecognizerManager(Context context, String language, onResultsReady listener) {
+    public SpeechRecognizerManager(Context context, String language, OnResultsReady listener) {
         try {
             mListener = listener;
         } catch (ClassCastException e) {
@@ -130,11 +130,24 @@ public class SpeechRecognizerManager {
         }
     }
 
-    public interface onResultsReady {
+    public interface OnResultsReady {
+        /**
+         * results
+         *
+         * @param results results
+         */
         void onResults(ArrayList<String> results);
 
+        /**
+         *  finish
+         */
         void onFinsh();
 
+        /**
+         * error message
+         *
+         * @param error  error
+         */
         void onError(int error);
     }
 

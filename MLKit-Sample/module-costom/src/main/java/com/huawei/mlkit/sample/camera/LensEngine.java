@@ -12,7 +12,8 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *  2020.2.21-Changed name from CameraSource to LensEngine, and adjusted the architecture, except for the classes: start and stop
+ *  2020.2.21-Changed name from CameraSource to LensEngine,
+ *  and adjusted the architecture, except for the classes: start and stop
  *                  Huawei Technologies Co., Ltd.
  */
 
@@ -197,7 +198,8 @@ public class LensEngine {
     }
 
     /**
-     * Create a buffer for the camera preview callback. The size of the buffer is based on the camera preview size and the camera image format.
+     * Create a buffer for the camera preview callback.
+     * The size of the buffer is based on the camera preview size and the camera image format.
      *
      * @param previewSize Preview size
      * @return Image data from the camera
@@ -262,7 +264,8 @@ public class LensEngine {
         }
 
         /**
-         * Sets the frame data received from the camera. Adds a previously unused frame buffer (if exit) back to the camera.
+         * Sets the frame data received from the camera.
+         * Adds a previously unused frame buffer (if exit) back to the camera.
          */
         void setNextFrame(byte[] data, Camera camera) {
             synchronized (this.lock) {

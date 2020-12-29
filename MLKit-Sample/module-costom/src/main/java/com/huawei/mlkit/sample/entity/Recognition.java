@@ -18,6 +18,8 @@ package com.huawei.mlkit.sample.entity;
 
 import android.graphics.RectF;
 
+import java.util.Locale;
+
 public class Recognition {
     /**
      * A unique identifier for what has been recognized. Specific to the class, not the instance of
@@ -79,7 +81,7 @@ public class Recognition {
         }
 
         if (confidence != null) {
-            resultString += String.format("(%.1f%%) ", confidence * 100.0f);
+            resultString += String.format(Locale.ENGLISH,"(%.1f%%) ", confidence * 100.0f);
         }
 
         if (location != null) {

@@ -30,6 +30,7 @@
 
     <string name="image_segmentation">Segmentation</string>
     <string name="photographed_shopping">Shopping</string>
+    <string name="document_skew">Document Skew Corretion</string>
     <string name="face_detection">Face</string>
     <string name="object_detection">Object</string>
     <string name="image_classification">Classification</string>

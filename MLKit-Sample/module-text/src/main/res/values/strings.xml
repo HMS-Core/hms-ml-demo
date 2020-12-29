@@ -109,6 +109,7 @@
     <string name="convert_failed">Failed:</string>
     <string name="language">Language:</string>
     <string name="stop_record">stop</string>
+    <string name="aft_type">Transcription Type</string>
 
     <string name="error_aft_network">Abnormal network connection</string>
     <string name="error_aft_internal">Internal error</string>

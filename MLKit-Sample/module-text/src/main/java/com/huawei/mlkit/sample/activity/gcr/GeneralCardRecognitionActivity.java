@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 
 import com.huawei.mlkit.sample.R;
+
 import com.huawei.mlkit.sample.activity.dialog.AddPictureDialog;
 import com.huawei.mlkit.sample.activity.entity.GeneralCardResult;
 import com.huawei.mlkit.sample.processor.gcr.GeneralCardProcessor;

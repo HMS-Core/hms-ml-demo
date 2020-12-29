@@ -120,7 +120,7 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
     public static MLLivenessCapture.Callback customCallback = new MLLivenessCapture.Callback() {
         /**
          * Liveness detection success callback.
-         * @param result
+         * @param result result
          */
         @Override
         public void onSuccess(MLLivenessCaptureResult result) {

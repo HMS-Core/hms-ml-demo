@@ -18,6 +18,9 @@ package com.huawei.mlkit.sample.transactor;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -29,25 +32,51 @@ import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypointAnalyzer;
 import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypointAnalyzerFactory;
 import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypointAnalyzerSetting;
 import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypoints;
+import com.huawei.hms.mlsdk.skeleton.MLSkeleton;
+import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzer;
+import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzerFactory;
+import com.huawei.hms.mlsdk.skeleton.MLSkeletonAnalyzerSetting;
+import com.huawei.mlkit.sample.activity.adapter.skeleton.GridItem;
+import com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity;
+import com.huawei.mlkit.sample.activity.skeleton.TemplateActivity;
 import com.huawei.mlkit.sample.camera.FrameMetadata;
 import com.huawei.mlkit.sample.views.graphic.CameraImageGraphic;
 import com.huawei.mlkit.sample.views.graphic.HandKeypointGraphic;
+import com.huawei.mlkit.sample.views.graphic.LocalSkeletonGraphic;
 import com.huawei.mlkit.sample.views.overlay.GraphicOverlay;
 
+import java.io.IOException;
 import java.util.List;
 
-public class HandKeypointTransactor extends BaseTransactor<List<MLHandKeypoints>> {
+import static com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity.isOpenStatus;
+import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.getSelectedIndex;
+import static com.huawei.mlkit.sample.activity.skeleton.TemplateActivity.getTemplateDataMap;
 
-    private static final String TAG = "HandKeypoint";
+/**
+ *  HandKeypointTransactor
+ *
+ * @since  2020-12-10
+ */
+
+public class HandKeypointTransactor extends BaseTransactor<List<MLHandKeypoints>> {
+    private static final String TAG = "LocalSketlonTransactor";
     private static final int MAXHANDRESULTS = 2;
 
-    private final MLHandKeypointAnalyzer analyzer;
+    private static MLHandKeypointAnalyzer analyzer;
 
-    private long start;
-    private Context mContext;
+    private Handler mHandler;
 
-    public HandKeypointTransactor(Context context) {
-        this.mContext = context;
+    public HandKeypointTransactor(MLHandKeypointAnalyzerSetting setting, Context context, Handler handler) {
+        super(context);
+        Log.i(TAG, "analyzer init");
+        this.mHandler = handler;
+        if (analyzer != null) {
+            stop();
+        }
+        analyzer = MLHandKeypointAnalyzerFactory.getInstance().getHandKeypointAnalyzer(setting);
+    }
+
+    public HandKeypointTransactor() {
         MLHandKeypointAnalyzerSetting setting = new MLHandKeypointAnalyzerSetting
                 .Factory()
                 .setSceneType(MLHandKeypointAnalyzerSetting.TYPE_ALL)
@@ -58,40 +87,47 @@ public class HandKeypointTransactor extends BaseTransactor<List<MLHandKeypoints>
 
     @Override
     public void stop() {
-        if (this.analyzer != null){
+        try {
+            Log.i(TAG,   "analyzer stop.");
             this.analyzer.stop();
+        } catch (Exception e) {
+            Log.e(TAG, "Exception thrown while trying to close sketlon transactor: " + e.getMessage());
         }
     }
 
     @Override
-    protected Task<List<MLHandKeypoints>> detectInImage(MLFrame image) {
-        start = System.currentTimeMillis();
+    public Task<List<MLHandKeypoints>> detectInImage(MLFrame image) {
         return this.analyzer.asyncAnalyseFrame(image);
     }
 
     @Override
     protected void onSuccess(
             @Nullable Bitmap originalCameraImage,
-            @NonNull List<MLHandKeypoints> results,
+            @NonNull List<MLHandKeypoints> mlHandKeypoints,
             @NonNull FrameMetadata frameMetadata,
             @NonNull GraphicOverlay graphicOverlay) {
         graphicOverlay.clear();
-        Log.d(TAG, "hand detect time end to end:" + (System.currentTimeMillis() - start));
-        // For synchronous display, if surfaceTexture is used, you need to draw the preview image. If surfaceView is used asynchronously, you do not need to draw the preview image.
-        // In this step, you can choose whether to add the data based on the setting of synchronous or asynchronous display.
         if (originalCameraImage != null) {
             CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, originalCameraImage);
             graphicOverlay.addGraphic(imageGraphic);
         }
 
-        HandKeypointGraphic graphic =
-                new HandKeypointGraphic(graphicOverlay, mContext, results);
-        graphicOverlay.addGraphic(graphic);
+        if (mlHandKeypoints == null || mlHandKeypoints.isEmpty()) {
+            return;
+        }
+		
+        HandKeypointGraphic handKeypointGraphic = new HandKeypointGraphic(graphicOverlay, mlHandKeypoints);
+        graphicOverlay.addGraphic(handKeypointGraphic);
         graphicOverlay.postInvalidate();
     }
 
     @Override
     protected void onFailure(@NonNull Exception e) {
         Log.e(TAG, "HandKeypoint failed: " + e.getMessage());
+    }
+
+    @Override
+    public boolean isFaceDetection() {
+        return true;
     }
 }

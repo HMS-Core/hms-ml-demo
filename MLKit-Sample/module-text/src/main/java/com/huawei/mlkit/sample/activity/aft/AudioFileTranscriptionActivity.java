@@ -487,7 +487,7 @@ public class AudioFileTranscriptionActivity extends AppCompatActivity implements
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-       if (requestCode == REQUEST_CHOOSE_IMAGE) {
+        if (requestCode == REQUEST_CHOOSE_IMAGE) {
             if (resultCode == RESULT_OK) {
                 dealAsrLongUri(data);
             }

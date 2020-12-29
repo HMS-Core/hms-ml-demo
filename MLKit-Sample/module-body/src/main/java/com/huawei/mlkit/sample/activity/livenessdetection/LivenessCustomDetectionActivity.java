@@ -25,16 +25,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import androidx.constraintlayout.solver.Metrics;
-
 import com.huawei.hms.mlsdk.livenessdetection.MLLivenessCaptureResult;
 import com.huawei.hms.mlsdk.livenessdetection.MLLivenessDetectView;
 import com.huawei.hms.mlsdk.livenessdetection.OnMLLivenessDetectCallback;
 import com.huawei.mlkit.sample.R;
 
-
 import static com.huawei.hms.mlsdk.livenessdetection.MLLivenessDetectView.DETECT_MASK;
 
+/**
+ * Custom Liveness
+ *
+ * @since  2020-12-10
+ */
 public class LivenessCustomDetectionActivity extends Activity {
 
     private MLLivenessDetectView mlLivenessDetectView;

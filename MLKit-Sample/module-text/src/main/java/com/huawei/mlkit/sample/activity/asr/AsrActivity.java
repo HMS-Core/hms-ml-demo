@@ -31,6 +31,7 @@ public class AsrActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_asr);
         findViewById(R.id.rl_online).setOnClickListener(this);
+        findViewById(R.id.rl_offline).setOnClickListener(this);
         findViewById(R.id.back).setOnClickListener(this);
     }
 

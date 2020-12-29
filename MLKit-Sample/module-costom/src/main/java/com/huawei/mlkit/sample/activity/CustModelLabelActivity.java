@@ -18,6 +18,7 @@ package com.huawei.mlkit.sample.activity;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -189,7 +190,7 @@ public class CustModelLabelActivity extends BaseActivity implements View.OnClick
         try {
             camera_preview.start(lensEngine, false);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG,e.getMessage());
         }
     }
 

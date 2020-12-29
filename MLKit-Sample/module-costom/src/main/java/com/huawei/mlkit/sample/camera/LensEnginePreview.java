@@ -12,7 +12,8 @@
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *  2020.2.21-Changed name from CameraSourcePreview to LensEnginePreview, in addition, the onTouchEvent, handleZoom, handleFocusMetering method is added.
+ *  2020.2.21-Changed name from CameraSourcePreview to LensEnginePreview, in addition, the onTouchEvent,
+ *  handleZoom, handleFocusMetering method is added.
  *                  Huawei Technologies Co., Ltd.
  */
 
@@ -204,7 +205,10 @@ public class LensEnginePreview extends ViewGroup {
             // One dimension will be cropped. We shift child over or up by this offset and adjust
             // the size to maintain the proper aspect ratio.
             this.getChildAt(i)
-                    .layout(-1 * childXOffset, -1 * childYOffset, childWidth - childXOffset, childHeight - childYOffset);
+                    .layout(-1 * childXOffset,
+                            -1 * childYOffset,
+                            childWidth - childXOffset,
+                            childHeight - childYOffset);
         }
     }
 

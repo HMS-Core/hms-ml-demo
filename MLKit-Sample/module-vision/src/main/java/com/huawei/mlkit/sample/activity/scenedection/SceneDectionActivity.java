@@ -336,7 +336,7 @@ public class SceneDectionActivity extends Activity implements CompoundButton.OnC
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG,e.getMessage());
         }
     }
 

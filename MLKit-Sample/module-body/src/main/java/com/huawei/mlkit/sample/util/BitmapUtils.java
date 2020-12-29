@@ -235,7 +235,7 @@ public class BitmapUtils {
      * Fusion of two images.
      * @param background background image.
      * @param foreground foreground image.
-     * @return
+     * @return image.
      */
     public static Bitmap joinBitmap(Bitmap background, Bitmap foreground) {
         if (background == null || foreground == null) {

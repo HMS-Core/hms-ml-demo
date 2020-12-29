@@ -227,7 +227,7 @@ public class TextEmbeddingActivity extends AppCompatActivity implements View.OnC
                             String result = getString(R.string.Word_vector) + "\n" + jsonObject.toString();
                             result_word_vector.setText(result);
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            Log.e(TAG,e.getMessage());
                         }
 
                     }
@@ -291,7 +291,7 @@ public class TextEmbeddingActivity extends AppCompatActivity implements View.OnC
                             String result = getString(R.string.Sentence_vector) + "\n" + jsonObject.toString();
                             result_sentence_vector.setText(result);
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            Log.e(TAG,e.getMessage());
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {

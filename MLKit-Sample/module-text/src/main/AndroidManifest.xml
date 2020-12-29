@@ -84,6 +84,10 @@
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
         <activity
+            android:name=".activity.icr.VNIdCardRecognitionActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".activity.gcr.GeneralCardRecognitionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
@@ -95,15 +99,6 @@
             android:name=".activity.aft.AudioFileTranscriptionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
-        <activity
-            android:name=".activity.documentskew.DocumentSkewCorretionActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".activity.documentskew.DocumentSkewStartActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.sounddect.SoundDectActivity"
             android:configChanges="orientation|screenSize|screenLayout"

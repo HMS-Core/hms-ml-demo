@@ -49,6 +49,8 @@ import java.util.List;
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.face.FaceDetectionActivity;
 import com.huawei.mlkit.sample.activity.face3d.Live3DFaceAnalyseActivity;
+import com.huawei.mlkit.sample.activity.facecompare.FaceVerificationActivity;
+import com.huawei.mlkit.sample.activity.gesture.GestureActivity;
 import com.huawei.mlkit.sample.activity.handkeypoint.HandKeypointActivity;
 import com.huawei.mlkit.sample.activity.livenessdetection.HumanLivenessDetectionActivity;
 import com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity;
@@ -71,10 +73,11 @@ public final class StartActivity extends BaseActivity
     private static final String TAG = "StartActivity";
     public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton , R.drawable.icon_liveness,R.drawable.icon_handkeypoint,R.drawable.icon_face3d};
+    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton ,
+            R.drawable.icon_liveness,R.drawable.icon_handkeypoint,R.drawable.icon_face3d,R.drawable.icon_faceverification,R.drawable.icon_handkeypoint};
 
     private static final int[] TITLES = { com.huawei.mlkit.sample.R.string.face_detection,
-            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint, R.string.face_3d};
+            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint, R.string.face_3d,R.string.faceVerification,R.string.gesture};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -111,7 +114,7 @@ public final class StartActivity extends BaseActivity
     }
 
     /**
-     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
+     * Read the ApiKey field in the sample-agconnect-services.json to obtain the API key of the application and set it.
      * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
      */
     private void setApiKey(){
@@ -146,6 +149,14 @@ public final class StartActivity extends BaseActivity
                     case 4:
                         // Face3D
                         startActivity(new Intent(StartActivity.this, Live3DFaceAnalyseActivity.class));
+                        break;
+                    case 5:
+                        // FaceVerification
+                        startActivity(new Intent(StartActivity.this, FaceVerificationActivity.class));
+                        break;
+                    case 6:
+                        // HandKeypoint
+                        startActivity(new Intent(StartActivity.this, GestureActivity.class));
                         break;
                     default:
                         break;
@@ -223,7 +234,7 @@ public final class StartActivity extends BaseActivity
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+        @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode != StartActivity.PERMISSION_REQUESTS) {

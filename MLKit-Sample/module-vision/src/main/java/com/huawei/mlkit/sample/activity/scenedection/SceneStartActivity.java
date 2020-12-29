@@ -24,7 +24,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.huawei.mlkit.sample.R;
-import com.huawei.mlkit.sample.activity.scenedection.SceneDectionActivity;
 
 public class SceneStartActivity extends Activity implements View.OnClickListener {
     private ImageView iv_scan;

@@ -59,9 +59,14 @@ import java.util.List;
 import java.util.Map;
 
 import static com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity.*;
+
 import static com.huawei.mlkit.sample.activity.StartActivity.*;
 
-
+/**
+ * Selecting a template
+ *
+ * @since  2020-12-10
+ */
 public class  TemplateActivity extends AppCompatActivity {
     private static final String TAG = "TemplateActivity";
 

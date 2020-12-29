@@ -29,6 +29,7 @@ import com.huawei.hms.mlsdk.speechrtt.MLSpeechRealTimeTranscriptionListener;
 import com.huawei.hms.mlsdk.speechrtt.MLSpeechRealTimeTranscriptionResult;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class RealTimeTranscriptionManager {
 
@@ -40,14 +41,14 @@ public class RealTimeTranscriptionManager {
     private AudioManager mAudioManager;
 
     private boolean mIsListening;
-    private onResultsReady mListener;
+    private OnResultsReady mListener;
     private ArrayList<String> mResultsList = new ArrayList<>();
 
     private MLSpeechRealTimeTranscription mlAsrLongRecognizer;
 
     private String language;
 
-    public RealTimeTranscriptionManager(Context context, String mLanguage, onResultsReady listener) {
+    public RealTimeTranscriptionManager(Context context, String mLanguage, OnResultsReady listener) {
         language = mLanguage;
         try {
             mListener = listener;
@@ -71,7 +72,7 @@ public class RealTimeTranscriptionManager {
                 .enableSentenceTimeOffset(true)
                 .enableWordTimeOffset(true)
                 // Set the usage scenario to shopping,Currently, only Chinese scenarios are supported.
-               // .setScenes(MLSpeechRealTimeTranscriptionConstants.SCENES_SHOPPING)
+                // .setScenes(MLSpeechRealTimeTranscriptionConstants.SCENES_SHOPPING)
                 .create();
         MLSpeechRealTimeTranscription.getInstance().setRealTimeTranscriptionListener(new SpeechRecognitionListener());
         MLSpeechRealTimeTranscription.getInstance().startRecognizing(config);
@@ -159,9 +160,20 @@ public class RealTimeTranscriptionManager {
         return mIsListening;
     }
 
-    public interface onResultsReady {
+    public interface OnResultsReady {
+        /**
+         *  OnResultsReady
+         *
+         * @param results results
+         * @param status Status
+         */
         void onRecognizingResults(ArrayList<String> results, int status);
 
+        /**
+         * Error message
+         *
+         * @param error error
+         */
         void onError(int error);
     }
 }

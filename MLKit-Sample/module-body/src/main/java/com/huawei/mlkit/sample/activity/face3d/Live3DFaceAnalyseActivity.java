@@ -18,7 +18,6 @@ package com.huawei.mlkit.sample.activity.face3d;
 
 
 import android.hardware.Camera;
-
 import android.os.Bundle;
 
 import android.util.Log;
@@ -39,12 +38,12 @@ import com.huawei.mlkit.sample.transactor.LocalFace3DTransactor;
 import com.huawei.mlkit.sample.util.Constant;
 import com.huawei.mlkit.sample.views.overlay.GraphicOverlay;
 
-
 import java.io.IOException;
-
 
 /**
  * Detects face information in camera stream.
+ *
+ * @since  2020-12-10
  */
 public class Live3DFaceAnalyseActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private static final String TAG = Live3DFaceAnalyseActivity.class.getSimpleName();
@@ -69,7 +68,8 @@ public class Live3DFaceAnalyseActivity extends AppCompatActivity implements View
     private boolean isFaceFeatureChecked = false;
 
     private ToggleButton facingSwitch;
-    private RelativeLayout pointLayout,pointLayout2;
+    private RelativeLayout pointLayout;
+    private RelativeLayout pointLayout2;
 
 
     @Override
@@ -175,8 +175,6 @@ public class Live3DFaceAnalyseActivity extends AppCompatActivity implements View
         super.onStop();
         this.mPreview.stop();
     }
-
-
 
     @Override
     protected void onDestroy() {

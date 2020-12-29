@@ -29,6 +29,7 @@
     <!--简写-->
     <string name="image_segmentation">图像分割</string>
     <string name="photographed_shopping">拍照购物</string>
+    <string name="document_skew">文档校正</string>
     <string name="photographed_shopping_s_plugin">拍照购物插件</string>
     <string name="face_detection">人脸检测</string>
     <string name="object_detection">对象检测</string>

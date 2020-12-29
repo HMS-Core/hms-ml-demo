@@ -73,7 +73,7 @@ public class PCMToWav {
 
     // Adding the WAV header information.
     private static void addWaveHeader(FileOutputStream out, long totalAudioLen, long totalDataLen, long longSampleRate,
-                                      int channels, long byteRate, int mediaChannel, int mediaFormat) throws IOException {
+        int channels, long byteRate, int mediaChannel, int mediaFormat) throws IOException {
         byte[] header = new byte[44];
         // Add RIFF header.
         header[0] = 'R';

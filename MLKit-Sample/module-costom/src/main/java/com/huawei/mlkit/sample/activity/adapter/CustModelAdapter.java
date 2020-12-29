@@ -26,7 +26,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.huawei.mlkit.sample.custom.R;
 
-
+/**
+ * CustModel Adapter
+ *
+ * @since  2020-12-10
+ */
 public class CustModelAdapter extends RecyclerView.Adapter<CustModelAdapter.Hodler> {
 
     private String[][] data = null;
@@ -65,7 +69,8 @@ public class CustModelAdapter extends RecyclerView.Adapter<CustModelAdapter.Hodl
     }
 
     class Hodler extends RecyclerView.ViewHolder {
-        TextView tv_type, tv_num;
+        TextView tv_type;
+        TextView tv_num;
 
         public Hodler(@NonNull View itemView) {
             super(itemView);

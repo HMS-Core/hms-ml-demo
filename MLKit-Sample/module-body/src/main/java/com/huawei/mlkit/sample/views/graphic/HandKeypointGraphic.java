@@ -32,8 +32,6 @@ import java.util.List;
 
 public class HandKeypointGraphic extends BaseGraphic {
 
-    private final GraphicOverlay overlay;
-    private Context mContext;
     private final List<MLHandKeypoints> results;
 
     private Paint circlePaint;
@@ -42,10 +40,8 @@ public class HandKeypointGraphic extends BaseGraphic {
     private final Rect rect;
 
 
-    public HandKeypointGraphic(GraphicOverlay overlay, Context context, List<MLHandKeypoints> results) {
+    public HandKeypointGraphic(GraphicOverlay overlay, List<MLHandKeypoints> results) {
         super(overlay);
-        this.overlay = overlay;
-        this.mContext = context;
         this.results = results;
 
 

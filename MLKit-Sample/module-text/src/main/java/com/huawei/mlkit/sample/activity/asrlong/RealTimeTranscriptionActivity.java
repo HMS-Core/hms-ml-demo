@@ -160,7 +160,7 @@ public class RealTimeTranscriptionActivity extends AppCompatActivity implements 
     }
 
     private void setSpeechListener() {
-        mRealTimeManager = new RealTimeTranscriptionManager(this, mLanguage, new RealTimeTranscriptionManager.onResultsReady() {
+        mRealTimeManager = new RealTimeTranscriptionManager(this, mLanguage, new RealTimeTranscriptionManager.OnResultsReady() {
 
             @Override
             public void onRecognizingResults(ArrayList<String> results, int status) {

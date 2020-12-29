@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import android.app.Dialog;
@@ -710,8 +711,8 @@ public class OfflineModeFragment extends Fragment implements View.OnClickListene
     private void showProcess(TextView downloadState, long alreadyDownLength, String buttonText, long totalLength) {
         double downDone = alreadyDownLength * 1.0 / M;
         double downTotal = totalLength * 1.0 / M;
-        String downD = String.format("%.2f", downDone);
-        String downT = String.format("%.2f", downTotal);
+        String downD = String.format(Locale.ROOT,"%.2f", downDone);
+        String downT = String.format(Locale.ROOT,"%.2f", downTotal);
 
         String text = downD + "M" + "/" + downT + "M";
         updateButton(downloadState, text, false);

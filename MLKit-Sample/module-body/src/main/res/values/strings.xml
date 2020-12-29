@@ -5,6 +5,7 @@
     <string name="skeletlon">Skeletlon</string>
     <string name="liveness_detection">Liveness Detection</string>
     <string name="handKeypoint">HandKeyPoint</string>
+    <string name="gesture">Gesture</string>
     <string name="faceVerification">Face Verification</string>
 
     <string name="ok">OK</string>
@@ -38,6 +39,22 @@
 
     <string name="face_point">Point</string>
     <string name="face_feature">Feature</string>
+
+    <string name="gesture_one">Digit 1</string>
+    <string name="gesture_two">Digit 2</string>
+    <string name="gesture_three">Digit 3</string>
+    <string name="gesture_four">Digit 4</string>
+    <string name="gesture_five">Digit 5</string>
+    <string name="gesture_six">Digit 6</string>
+    <string name="gesture_seven">Digit 7</string>
+    <string name="gesture_eight">Digit 8</string>
+    <string name="gesture_nine">Digit 9</string>
+    <string name="gesture_diss">Poor Comments</string>
+    <string name="gesture_clench">Clench Fist</string>
+    <string name="gesture_likes">likes</string>
+    <string name="gesture_bx">One-handed bee hearts</string>
+    <string name="gesture_confirm">OK</string>
+    <string name="gesture_others">Other gestures</string>
 
 
 </resources>
