@@ -16,10 +16,10 @@
 本示例代码目的是为了介绍ML Kit SDK的使用，其中包含以下两个模块：
 
 ### 文本模块
-Module-text。其中包括：文本识别、文档识别、身份证识别、银行卡识别、通用卡证识别、文本翻译、语种检测、实时语音识别、语音合成、音频文件转写、文档校正、声音识别、文本嵌入、实时语音转写。
+Module-text。其中包括：文本识别、文档识别、身份证识别、银行卡识别、通用卡证识别、文本翻译、语种检测、实时语音识别、语音合成、音频文件转写、声音识别、文本嵌入、实时语音转写。
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_text.jpg" width=220 title="main page" border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_text.png" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/language.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/localLanguage.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr.jpg" width=220 border=2></td>
@@ -33,7 +33,6 @@ Module-text。其中包括：文本识别、文档识别、身份证识别、银
 </tr></table>
 
 <table><tr>
-<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/doc_skew.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/sound.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/text_emd.gif" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/bcr.jpg" width=220 border=2></td>
@@ -44,7 +43,7 @@ Module-text。其中包括：文本识别、文档识别、身份证识别、银
 </tr></table>
 
 ### 视觉模块
-Module-vision。其中包括：图像分割、图像分类、对象检测与跟踪、地标识别、图像超分、文字图像超分、场景识别、表格识别。
+Module-vision。其中包括：图像分割、图像分类、对象检测与跟踪、地标识别、图像超分、文字图像超分、场景识别、表格识别、文档校正。
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.png" width=220 title="main page" border=2></td>
@@ -56,6 +55,7 @@ Module-vision。其中包括：图像分割、图像分类、对象检测与跟�
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/image_super.jpg" width=220 title="main page" border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/scene.jpg" width=220 border=2></td>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/doc_skew.gif" width=220 border=2></td>
 </tr></table>
 
 ### 人体模块
@@ -66,6 +66,10 @@ Module-body。其中包括：人脸检测、人体骨骼、活体检测、手部
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/face.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/skeleton.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/handkey.jpg" width=220 border=2></td>
+</tr></table>
+
+<table><tr>
+<td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/gesture.png" width=220 border=2></td>
 </tr></table>
 
 ### 自定义模型模块
