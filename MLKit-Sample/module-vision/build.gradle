@@ -7,12 +7,10 @@ android {
         applicationId "com.mlkit.sample.vision"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 3100300
-        versionName "3.1.0.300"
+        versionCode 3200300
+        versionName "3.2.0.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
-
 
     buildTypes {
         release {
@@ -26,11 +24,13 @@ android {
             dirs 'libs'
         }
     }
+
     lintOptions {
         disable 'GoogleAppIndexingWarning'
         checkReleaseBuilds false
         abortOnError false
     }
+    
     aaptOptions {
         noCompress "mslite", "ms"
     }
@@ -42,16 +42,17 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.5.300'
 
     // image segmentation
-    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.1.0.301'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.1.0.301'
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.1.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-hair-model:2.2.0.300'
 
     // classification
     implementation 'com.huawei.hms:ml-computer-vision-classification:2.0.1.300'
     implementation 'com.huawei.hms:ml-computer-vision-image-classification-model:2.0.1.300'
 
     // object detection
-    implementation 'com.huawei.hms:ml-computer-vision-object-detection-model:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-vision-object-detection-model:2.0.3.301'
 
     // image super resolution
     implementation'com.huawei.hms:ml-computer-vision-imagesuperresolution:2.0.4.300'
@@ -69,8 +70,8 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-scenedetection-model:2.0.3.300'
 
     // form recognition
-    implementation 'com.huawei.hms:ml-computer-vision-formrecognition-model:2.1.0.300'
-    implementation 'com.huawei.hms:ml-computer-vision-formrecognition:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-formrecognition-model:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-formrecognition:2.2.0.300'
 
     // Document skew correction.
     implementation 'com.huawei.hms:ml-computer-vision-documentskew:2.1.0.300'

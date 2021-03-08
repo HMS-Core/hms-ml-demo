@@ -29,6 +29,7 @@
     <string name="landmark_s">Landmark Recognition</string>
 
     <string name="image_segmentation">Segmentation</string>
+    <string name="image_hair">Hair</string>
     <string name="photographed_shopping">Shopping</string>
     <string name="document_skew">Document Skew Corretion</string>
     <string name="face_detection">Face</string>

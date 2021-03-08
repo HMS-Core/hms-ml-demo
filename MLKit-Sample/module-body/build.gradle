@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
@@ -6,8 +7,8 @@ android {
         applicationId "com.mlkit.sample.body"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 3100300
-        versionName "3.1.0.300"
+        versionCode 3200300
+        versionName "3.2.0.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -29,6 +30,7 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+
     aaptOptions {
         noCompress "mslite"
     }
@@ -58,7 +60,7 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-yoga-model:2.0.4.300'
 
     // Liveness Detection sdk and FULL SDK
-    implementation 'com.huawei.hms:ml-computer-vision-livenessdetection:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-livenessdetection:2.2.0.300'
 
     // handkeypoint
     implementation'com.huawei.hms:ml-computer-vision-handkeypoint:2.1.0.300'
@@ -66,8 +68,8 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-vision-gesture-model:2.1.0.300'
 
     //faceVerification
-    implementation 'com.huawei.hms:ml-computer-vision-faceverify:2.1.0.300'
-    implementation 'com.huawei.hms:ml-computer-vision-faceverify-model:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-faceverify:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-vision-faceverify-model:2.2.0.300'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

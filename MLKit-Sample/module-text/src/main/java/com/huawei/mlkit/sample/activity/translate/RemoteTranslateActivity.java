@@ -58,7 +58,7 @@ public class RemoteTranslateActivity extends BaseActivity {
             "ZH", "ZH-HK", "EN", "FR", "TH", "JA", "DE", "RU", "ES",
             "AR", "TR", "PT", "IT","PL","MS","SV","FI","NO","DA","KO",
             "VI", "ID", "CS", "HE", "EL", "HI", "TL", "SR", "RO", "MY",
-            "KM","NL","ET","FA","LV","SK","TA","HU"));
+            "KM","NL","ET","FA","LV","SK","TA","HU","BG","HR"));
 
     private static final ArrayList<String> SOURCE_LANGUAGE_CODE = new ArrayList<>();
     private static final ArrayList<String> DEST_LANGUAGE_CODE = new ArrayList<>();
@@ -68,13 +68,13 @@ public class RemoteTranslateActivity extends BaseActivity {
             "German", "Russian", "Spanish", "Arabic", "Turkish", "Portuguese", "Italian","Polish",
             "Malaysian","Swedish","Finnish","Norwegian","Danish","Korean","Vietnamese", "Indonesian",
             "Czech", "Hebrew", "Greece", "Hindi", "Filipino", "Serbian", "Romanian", "Myanmar",
-            "Khmer","Netherlands","Estonian","Persian","Latvian","Slovak","Tamil","Hungarian"));
+            "Khmer","Netherlands","Estonian","Persian","Latvian","Slovak","Tamil","Hungarian","Bulgarian","Croatian"));
     private static final ArrayList<String> LANGUAGE_LIST_ZH = new ArrayList<>(Arrays.asList(
             "中文简体", "中文繁体", "英文", "法语", "泰语", "日语", "德语", "俄语", "西班牙语",
             "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语","波兰语","马来西亚语","瑞典语","芬兰语",
             "挪威语","丹麦语","韩语","越南语", "印尼语", "捷克语", "希伯来语", "希腊语", "印地语",
             "菲律宾语", "塞尔维亚语", "罗马尼亚语", "缅甸语", "高棉语","荷兰语","爱沙尼亚语","波斯语",
-            "拉脱维亚语","斯洛伐克语","泰米尔语","匈牙利语"));
+            "拉脱维亚语","斯洛伐克语","泰米尔语","匈牙利语","保加利亚语","克罗地亚语"));
 
     private static final ArrayList<String> SP_SOURCE_LIST = new ArrayList<>();
     private static final ArrayList<String> SP_SOURCE_LIST_EN = new ArrayList<>();

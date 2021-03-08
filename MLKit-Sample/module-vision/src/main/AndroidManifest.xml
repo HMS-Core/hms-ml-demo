@@ -53,6 +53,10 @@
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
 
         <activity
+            android:name=".activity.imageseg.LoadHairActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation" />
+
+        <activity
             android:name=".activity.imageseg.TakePhotoActivity"
             android:resizeableActivity="false" />
 

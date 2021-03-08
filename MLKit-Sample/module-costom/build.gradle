@@ -8,9 +8,8 @@ android {
         applicationId "com.huawei.mlkit.sample.custom"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 3100300
-        versionName "3.1.0.300"
-
+        versionCode 3200300
+        versionName "3.2.0.300"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -35,7 +34,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
      // Custom model
-    implementation 'com.huawei.hms:ml-computer-model-executor:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-model-executor:2.1.0.301'
     implementation 'mindspore:mindspore-lite:5.0.5.300'
 
 

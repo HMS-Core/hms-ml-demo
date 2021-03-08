@@ -7,8 +7,8 @@ android {
         applicationId "com.mlkit.sample.text"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 3100300
-        versionName "3.1.0.300"
+        versionCode 3200300
+        versionName "3.2.0.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -25,11 +25,13 @@ android {
             dirs 'libs'
         }
     }
+
     lintOptions {
         disable 'GoogleAppIndexingWarning'
         checkReleaseBuilds false
         abortOnError false
     }
+
     aaptOptions {
         noCompress = ['mslite', 'json']
     }
@@ -65,32 +67,32 @@ dependencies {
     implementation 'com.huawei.hms:ml-computer-card-icr-vn:2.1.0.301'
 
     // Bank card recognition .
-    implementation 'com.huawei.hms:ml-computer-card-bcr:2.0.3.300'
+    implementation 'com.huawei.hms:ml-computer-card-bcr:2.0.3.301'
 
     // Audio file transcription.
-    implementation 'com.huawei.hms:ml-computer-voice-aft:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-aft:2.2.0.300'
 
     // download.
     implementation 'com.huawei.hms:ml-computer-model-download:2.0.4.300'
 
     // Text to speech.
-    implementation 'com.huawei.hms:ml-computer-voice-tts:2.1.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-tts-model-bee:2.1.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-tts-model-eagle:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-tts:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-tts-model-bee:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-tts-model-eagle:2.2.0.300'
 
 
     // Automatic speech recognition Long voice.
-    implementation 'com.huawei.hms:ml-computer-voice-realtimetranscription:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-realtimetranscription:2.2.0.300'
 
     // Automatic speech recognition
-    implementation 'com.huawei.hms:ml-computer-voice-asr:2.1.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.2.0.300'
 
     // Text translation.
-    implementation 'com.huawei.hms:ml-computer-language-detection:2.0.5.300'
-    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.0.5.300'
-    implementation 'com.huawei.hms:ml-computer-translate:2.1.0.300'
-    implementation 'com.huawei.hms:ml-computer-translate-model:2.1.0.300'
+    implementation 'com.huawei.hms:ml-computer-language-detection:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-translate:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-translate-model:2.2.0.300'
 
     // Sound Dect.
     implementation 'com.huawei.hms:ml-speech-semantics-sounddect-model:2.1.0.300'

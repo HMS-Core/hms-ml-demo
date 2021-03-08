@@ -16,22 +16,17 @@
 
 package com.huawei.mlkit.sample.activity.documentskew;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.media.ExifInterface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -56,6 +51,7 @@ import com.huawei.hms.mlsdk.dsc.MLDocumentSkewDetectResult;
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.BaseActivity;
 import com.huawei.mlkit.sample.views.DocumentCorrectImageView;
+import com.huawei.mlkit.sample.util.FileUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -162,45 +158,32 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
 
     private void selectLocalImage() {
         layout_image.setVisibility(View.GONE);
-        if (Build.MANUFACTURER.equalsIgnoreCase("xiaomi")) {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-            startActivityForResult(intent, REQUEST_SELECT_IMAGE);
-        } else {
-            Intent intent = new Intent(Intent.ACTION_PICK, null);
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-            startActivityForResult(intent, REQUEST_SELECT_IMAGE);
-        }
-
+        Intent intent = new Intent(Intent.ACTION_PICK, null);
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+        startActivityForResult(intent, REQUEST_SELECT_IMAGE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_SELECT_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (Build.MANUFACTURER.equalsIgnoreCase("xiaomi") && data != null) {
-                handleImageOnKitKat(data);
-            } else {
-                    if (data != null) {
-                        imageUri = data.getData();
-                    }
-                try {
+            imageUri = data.getData();
+            try {
+                if (imageUri != null) {
                     srcBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
                     String realPathFromURI = getRealPathFromURI(imageUri);
                     int i = readPictureDegree(realPathFromURI);
                     Bitmap spBitmap = rotaingImageView(i, srcBitmap);
-
                     Matrix matrix = new Matrix();
                     matrix.setScale(0.5f, 0.5f);
                     getCompressesBitmap = Bitmap.createBitmap(spBitmap, 0, 0, spBitmap.getWidth(),
                             spBitmap.getHeight(), matrix, true);
-                } catch (IOException e) {
-                    Log.e(TAG, e.getMessage());
+                    reloadAndDetectImage();
                 }
-                reloadAndDetectImage();
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
             }
         } else if (requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
-
             try {
                 if (imageUri != null) {
                     srcBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
@@ -338,20 +321,7 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
 
     private String getRealPathFromURI(Uri contentURI) {
         String result;
-        Cursor cursor = null;
-        try {
-            cursor = getContentResolver().query(contentURI, null, null, null, null);
-        } catch (Throwable e) {
-            Log.e(TAG, e.getMessage());
-        }
-        if (cursor == null) {
-            result = contentURI.getPath();
-        } else {
-            cursor.moveToFirst();
-            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-            result = cursor.getString(idx);
-            cursor.close();
-        }
+        result = FileUtil.getFilePathByUri(this, contentURI);
         return result;
     }
 
@@ -363,52 +333,4 @@ public class DocumentSkewCorretionActivity extends BaseActivity implements View.
         return resizedBitmap;
     }
 
-    @TargetApi(19)
-    private void handleImageOnKitKat(Intent data) {
-        String imagePath = null;
-        Uri uri = data.getData();
-        if (DocumentsContract.isDocumentUri(this, uri)) {
-            String docId = DocumentsContract.getDocumentId(uri);
-            if ("com.android.providers.media.documents".equals(uri.getAuthority())) {
-                String id = docId.split(":")[1];
-                String selection = MediaStore.Images.Media._ID + "=" + id;
-                imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
-            } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
-                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content: //downloads/public_downloads"), Long.valueOf(docId));
-                imagePath = getImagePath(contentUri, null);
-            }
-        } else if ("content".equalsIgnoreCase(uri.getScheme())) {
-            imagePath = getImagePath(uri, null);
-        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
-            imagePath = uri.getPath();
-        }
-
-        try {
-            this.imageUri = uri;
-            srcBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-            int i = readPictureDegree(imagePath);
-            Bitmap spBitmap = rotaingImageView(i, srcBitmap);
-            Matrix matrix = new Matrix();
-            matrix.setScale(0.5f, 0.5f);
-            getCompressesBitmap = Bitmap.createBitmap(spBitmap, 0, 0, spBitmap.getWidth(),
-                    srcBitmap.getHeight(), matrix, true);
-            reloadAndDetectImage();
-        } catch (IOException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-    }
-
-
-    private String getImagePath(Uri uri, String selection) {
-        String path = null;
-        Cursor cursor = getContentResolver().query(uri, null, selection, null, null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-            }
-            cursor.close();
-        }
-        return path;
-    }
 }

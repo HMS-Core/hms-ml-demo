@@ -28,6 +28,7 @@
     <string name="landmark_s">地标识别</string>
     <!--简写-->
     <string name="image_segmentation">图像分割</string>
+    <string name="image_hair">头发分割</string>
     <string name="photographed_shopping">拍照购物</string>
     <string name="document_skew">文档校正</string>
     <string name="photographed_shopping_s_plugin">拍照购物插件</string>
