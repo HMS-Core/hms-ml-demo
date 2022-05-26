@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.huawei.crazyrocketkotlin.ui.fragment.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_faceGameFragment"
+            app:destination="@id/faceGameFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_handGameFragment"
+            app:destination="@id/handGameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/faceGameFragment"
+        android:name="com.huawei.crazyrocketkotlin.ui.fragment.FaceGameFragment"
+        android:label="FaceGameFragment">
+        <argument
+            android:name="level"
+            app:argType="integer"
+            android:defaultValue="4" />
+        <argument
+            android:name="magnification"
+            android:defaultValue="1"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_faceGameFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/handGameFragment"
+        android:name="com.huawei.crazyrocketkotlin.ui.fragment.HandGameFragment"
+        android:label="HandGameFragment">
+        <argument
+            android:name="level"
+            app:argType="integer"
+            android:defaultValue="4" />
+        <argument
+            android:name="magnification"
+            android:defaultValue="1"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_handGameFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
