@@ -17,10 +17,12 @@ class FaceAnalyzerTransactor(gameGraphic: GameGraphic) : MLAnalyzer.MLTransactor
     override fun transactResult(results: MLAnalyzer.Result<MLFace>) {
         val items = results.analyseList
 
+        //If items is null
         if (items.size() <= 0) {
             return
         }
 
+        //Result data about Face
         val centerY = items[0].getFaceKeyPoint(TYPE_TIP_OF_NOSE)
         gameGraphic?.setOffset(centerY.coordinatePoint.y)
         gameGraphic?.invalidate()

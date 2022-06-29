@@ -47,12 +47,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
     }
 
+    //ClickListeners
     private fun initListener() {
         binding.face.setOnClickListener {
-
+                //Create a Face Analyze
                 GameUtils.createFaceAnalyze()
                 magnification = GameUtils.getMagnification() + 0.5f
 
+                //LensEngine initialize
                 GameUtils.initLensEngine(binding.root.context, 0)
 
                 when (choice) {
@@ -66,8 +68,11 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
 
         binding.hand.setOnClickListener {
+                //Create a Hand Analyze
                 GameUtils.createHandAnalyze()
                 magnification = GameUtils.getMagnification() + 0.5f
+
+                //LensEngine initialize
                 GameUtils.initLensEngine(binding.root.context, 1)
 
                 when (choice) {
@@ -84,6 +89,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         cancel?.setOnClickListener { dialog?.cancel() }
 
+        //Select a Level
         radioGroup?.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.hight -> {
@@ -105,6 +111,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         }
     }
 
+    //Initialize level data
     private fun initData() {
         pickString = arrayOf(getString(R.string.hight), getString(R.string.middle), getString(R.string.low))
     }

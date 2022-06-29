@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import com.huawei.crazyrocketkotlin.R
 
+//Rockets
 class Rockets (context: Context, width: Int, height: Int) {
     private var image: Bitmap? = null
     private var index = 0

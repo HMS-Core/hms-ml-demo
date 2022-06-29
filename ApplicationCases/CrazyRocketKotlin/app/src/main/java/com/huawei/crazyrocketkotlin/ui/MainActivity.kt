@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         return checkSelfPermission == PackageManager.PERMISSION_GRANTED
     }
 
+    //Request for Camera and Storage Permissions
     private fun requestPermission(): Boolean {
         if (!isGranted(PERMISSIONS[0])) {
             requestPermissions(PERMISSIONS, REQUEST_CODE)

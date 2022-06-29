@@ -27,17 +27,21 @@ object GameUtils {
     var width = 0
     var height = 0
 
+    //Face Analyze creator
     fun createFaceAnalyze() {
         faceAnalyzer = MLAnalyzerFactory.getInstance().faceAnalyzer
     }
 
+    //Hand Analyze creator
     fun createHandAnalyze() {
         handAnalyzer = MLHandKeypointAnalyzerFactory.getInstance().handKeypointAnalyzer
     }
 
+    //set FaceTransactor
     fun setFaceTransactor(gameGraphic: GameGraphic) =
         faceAnalyzer?.setTransactor(FaceAnalyzerTransactor(gameGraphic))
 
+    //set HandTransactor
     fun setHandTransactor(gameGraphic: GameGraphic) =
         handAnalyzer?.setTransactor(HandKeyPointTransactor(gameGraphic))
 
@@ -59,6 +63,7 @@ object GameUtils {
         return magnification.toFloat()
     }
 
+    //Initialize LensEngine
     fun initLensEngine(context: Context?,analyzeType: Int) {
         when(analyzeType) {
             0 -> lensEngine = LensEngine.Creator(context, faceAnalyzer)
@@ -77,6 +82,7 @@ object GameUtils {
         }
     }
 
+    //Start a LensEngine
     fun startLensEngine(preview: LensEnginePreview) {
             try {
                 preview.start(lensEngine)
@@ -87,8 +93,10 @@ object GameUtils {
             }
     }
 
+    //Stop LensEngine
     fun stopPreview(mPreview: LensEnginePreview) = mPreview.stop()
 
+    //Destroy analyzer
     fun releaseAnalyze(analyzeType: Int) {
         lensEngine?.release()
         when(analyzeType) {

@@ -23,6 +23,7 @@ class FaceGameFragment : BaseFragment(R.layout.fragment_face_game) {
         initListener()
     }
 
+    //setup for lensEnginePreview and initialize Data for gameGraphic. FaceTransactor set as a gameGraphic
     private fun setUp() {
         lensEnginePreview = binding.preview
 
@@ -38,6 +39,7 @@ class FaceGameFragment : BaseFragment(R.layout.fragment_face_game) {
         GameUtils.setFaceTransactor(binding.gameGraphic)
     }
 
+    //ClickListeners
     private fun initListener() {
         binding.start.setOnClickListener {
             binding.gameStart.visibility = View.GONE
@@ -57,11 +59,13 @@ class FaceGameFragment : BaseFragment(R.layout.fragment_face_game) {
 
     }
 
+    //start LensEngine
     override fun onResume() {
         super.onResume()
         lensEnginePreview?.let { GameUtils.startLensEngine(it) }
     }
 
+    //stop LensEngine
     override fun onPause() {
         super.onPause()
         lensEnginePreview?.let { GameUtils.stopPreview(it) }

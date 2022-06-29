@@ -3,6 +3,7 @@ package com.huawei.crazyrocketkotlin.beans
 import android.graphics.Bitmap
 import android.graphics.Canvas
 
+//ground
 class Ground(bitmap: Bitmap, width: Int, height: Int, level: Int) {
 
     private var image: Bitmap? = null

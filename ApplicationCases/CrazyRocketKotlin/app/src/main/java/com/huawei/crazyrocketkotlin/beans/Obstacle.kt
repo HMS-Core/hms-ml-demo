@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import com.huawei.crazyrocketkotlin.util.SizeUtils
 import java.util.*
 
+//Obstacle
 class Obstacle(
     context: Context,
     bitmap: Bitmap,

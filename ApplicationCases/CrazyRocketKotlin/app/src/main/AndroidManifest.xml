@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
 
+        <!--MetaData for ML Face & ML Hand -->
         <meta-data
             android:name="com.huawei.hms.ml.DEPENDENCY"
             android:value="face, handkeypoint" />
