@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Crazy Rocket</string>
+    <string name="difficulty_level">Difficulty Level:</string>
+    <string name="hand">Motion Control</string>
+    <string name="face">Face Control</string>
+
+
+    <string name="handcontrol">You can control the rocket up and down by using the control gesture.Start moving now!</string>
+    <string name="currentscore">current score</string>
+    <string name="gameover">Game Over</string>
+
+    <string name="hight">Hight</string>
+    <string name="middle">middle</string>
+    <string name="low">low</string>
+    <string name="cancel">Cancel</string>
+    <string name="score">score：</string>
+    <string name="level">level</string>
+    <string name="magnification">magnification</string>
+    <string name="hms_ml_kit">HMS ML Kit</string>
+    <string name="not_start_camera">Could not start camera source.</string>
+
+    <string name="facecontrol">You can control the rocket up and down by controlling your head up and down.Start moving now!</string>
+
+
+</resources>
