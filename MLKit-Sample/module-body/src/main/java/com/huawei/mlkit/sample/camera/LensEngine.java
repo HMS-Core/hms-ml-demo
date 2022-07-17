@@ -251,7 +251,7 @@ public class LensEngine {
         @SuppressLint("Assert")
         void release() {
             synchronized (this.lock) {
-                assert (LensEngine.this.transactingThread.getState() == State.TERMINATED);
+                assert LensEngine.this.transactingThread == null || (LensEngine.this.transactingThread.getState() == State.TERMINATED);
             }
         }
 
