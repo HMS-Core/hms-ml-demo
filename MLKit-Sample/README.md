@@ -12,10 +12,10 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
 
 
 ## Introduction
-This sample code describes how to use the ML Kit SDK, including the following modules:
+Sample code demoing features of the [ML Kit](https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/service-introduction-0000001050040017) and split into modules:
 
-### Text module
-Module-text. including text recognition, document recognition, ID card recognition, bank card recognition, general card recognition, text translation, language detection, real-time speech recognition, speech synthesis, audio file conversion, voice recognition, text embedding, and real-time speech translation.
+### Text module (`module-text`)
+**Features:** text recognition, document recognition, ID card recognition, bank card recognition, general card recognition, text translation, language detection, real-time speech recognition, speech synthesis, audio file conversion, voice recognition, text embedding, and real-time speech translation.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_text.png" width=220 title="main page" border=2></td>
@@ -39,8 +39,8 @@ Module-text. including text recognition, document recognition, ID card recogniti
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/asr_long.jpg" width=220 border=2></td>
 </tr></table>
 
-### Vision module
-Module-vision. It includes image segmentation, image classification, object detection and tracking, location identification, image overcommitment, text image overcommitment, scene recognition, table recognition, and document correction.
+### Vision module (`module-vision`)
+**Features:** image segmentation, image classification, object detection and tracking, landmark recognition, image super-resolution, text image super-resolution, scene detection, table/form recognition, and document skew correction.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_vision.png" width=220 title="main page" border=2></td>
@@ -55,8 +55,8 @@ Module-vision. It includes image segmentation, image classification, object dete
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/doc_skew.gif" width=220 border=2></td>
 </tr></table>
 
-### Body module
-Module-body. including face detection, human skeleton detection, liveness detection, hand key points detection, 3D face detection, face comparison, and gesture recognition.
+### Body module (`module-body`)
+**Features:** face detection, skeleton detection, liveness detection, hand key points detection, 3D face detection, face comparison, and hand gesture recognition.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/body_module.png" width=220 title="main page" border=2></td>
@@ -66,20 +66,17 @@ Module-body. including face detection, human skeleton detection, liveness detect
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/gesture.png" width=220 border=2></td>
 </tr></table>
 
-### Custom Model Module
-Module-costom. including the demonstration of the customized model of the label and the customized model of object detection.
+### Custom Model Module (`module-custom`)
+**Features:** use customized models for label and object detection.
 
 <table><tr>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/main_custom.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/label_custom.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object_custom.jpg" width=220 border=2></td>
 </tr></table>
-
-For details about the HMS Core ML SDK, please refer to [HUAWEI ML Kit](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-introduction-4)
-
 ## Project directory structure
 
-moduletext
+`module-text`
 
     |-- com.huawei.mlkit.sample
         |-- Activity
@@ -101,9 +98,7 @@ moduletext
             |-- SoundDectActivity // Voice recognition
             |-- TextEmbeddingActivity // Text Embedding
 
-
-
-modulevision
+`module-vision`
 
     |-- com.huawei.mlkit.sample
         |-- Activity
@@ -127,8 +122,7 @@ modulevision
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulevision Basic Information
 
-
-modulebody
+`module-body`
 
     |-- com.mlkit.sample
         |-- Activity
@@ -146,7 +140,7 @@ modulebody
             |-- BaseActivity  // Activity base class
             |-- SettingActivity  // modulebody Basic Information
 
-modulecostom
+`module-custom`
 
     |-- com.huawei.mlkit.sample
         |-- Activity
@@ -157,8 +151,7 @@ modulecostom
             |-- SettingActivity // Basic module costom information
 
 ## More Scenarios
-HUAWEI ML Kit allows your apps to easily leverage Huawei's long-term proven expertise in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries.
-For more application scenarios, see: [Huawei Machine Learning Service Integration Cases.](https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ml-case-banggood)
+HUAWEI ML Kit allows your apps to easily leverage Huawei's long track record in machine learning to support diverse artificial intelligence (AI) applications throughout a wide range of industries. Check out these [success stories](https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/ml-case-banggood-0000001050990463).
 
 ## Getting Started
  - Clone the code library to the local computer.
@@ -166,8 +159,8 @@ For more application scenarios, see: [Huawei Machine Learning Service Integratio
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
  - If you have not registered as a developer, [register and create an app in AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html).
- - Obtain the agconnect-services.json file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050990353).
- - Replace the sample-agconnect-services.json file in the project.
+ - Obtain the `agconnect-services.json` file from [Huawei Developers](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/config-agc-0000001050990353).
+ - Replace the `sample-agconnect-services.json` file in the project.
  - Compile and run on an Android device or simulator.
 
 Attention:
