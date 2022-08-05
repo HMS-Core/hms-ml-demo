@@ -1,6 +1,6 @@
 # hms-ml-demo
 
-[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5)
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/service-introduction-0000001050040017)
 
 [English](https://github.com/HMS-Core/hms-ml-demo/blob/master/README.md) | 中文
 
@@ -8,7 +8,7 @@
 
 本项目包含基于华为机器学习服务(ML Kit)开发的APP。工程目录如下：
 
-|-- MLKit-Sample // ML Kit场景化Demo，此Demo可以通过扫描二维码的方式在开发者联盟网站获取：[获取Demo](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5)
+|-- MLKit-Sample // ML Kit场景化Demo，此Demo可以通过扫描二维码的方式在开发者联盟网站获取：[获取Demo](https://developer.huawei.com/consumer/en/doc/development/hiai-Examples/sample-code-0000001050265470)
 
 |-- ApplicationCases // 基于华为机器学习服务(ML Kit)开发的应用案例。
 

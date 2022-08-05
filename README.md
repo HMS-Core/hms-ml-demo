@@ -1,6 +1,6 @@
 # hms-ml-demo
 
-[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-introduction-0000001050040017-V5) 
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/service-introduction-0000001050040017) 
 
 English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_ZH.md)
 
@@ -8,7 +8,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/README_ZH
 
 This project includes apps developed based on HUAWEI ML Kit. The project directory is as follows:
 
-|-- [MLKit-Sample](https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample) // ML Kit scenario-based demo. You can scan the QR code to obtain [the demo](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples-V5/sample-code-0000001050265470-V5).
+|-- [MLKit-Sample](https://github.com/HMS-Core/hms-ml-demo/tree/master/MLKit-Sample) // ML Kit scenario-based demo. You can scan the QR code to obtain [the demo](https://developer.huawei.com/consumer/en/doc/development/hiai-Examples/sample-code-0000001050265470).
 
 |-- [ApplicationCases](https://github.com/HMS-Core/hms-ml-demo/tree/master/ApplicationCases) // Application cases developed based on ML Kit.
 
