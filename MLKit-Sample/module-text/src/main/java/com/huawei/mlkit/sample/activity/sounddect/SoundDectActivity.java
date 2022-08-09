@@ -1,17 +1,17 @@
 /**
  * Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.huawei.mlkit.sample.activity.sounddect;
@@ -29,8 +29,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.huawei.hms.mlsdk.sounddect.MLSoundDectListener;
-import com.huawei.hms.mlsdk.sounddect.MLSoundDector;
+import com.huawei.hms.mlsdk.sounddect.MLSoundDetectListener;
+import com.huawei.hms.mlsdk.sounddect.MLSoundDetector;
 import com.huawei.mlkit.sample.R;
 
 import java.text.DecimalFormat;
@@ -57,12 +57,12 @@ public class SoundDectActivity extends AppCompatActivity implements View.OnClick
     private long baseTimer;
     private TimerHandler timerHandler;
     private Vector<String> logList;
-    private MLSoundDector soundDector;
+    private MLSoundDetector soundDector;
 
-    private MLSoundDectListener listener = new MLSoundDectListener() {
+    private MLSoundDetectListener listener = new MLSoundDetectListener() {
         @Override
         public void onSoundSuccessResult(Bundle result) {
-            int voiceType = result.getInt(MLSoundDector.RESULTS_RECOGNIZED);
+            int voiceType = result.getInt(MLSoundDetector.RESULTS_RECOGNIZED);
             if (voiceType > 0 && voiceType < 13) {
                 logList.add(type[voiceType]);
             }
@@ -102,8 +102,8 @@ public class SoundDectActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initModel() {
-        soundDector = MLSoundDector.createSoundDector();
-        soundDector.setSoundDectListener(listener);
+        soundDector = MLSoundDetector.createSoundDetector();
+        soundDector.setSoundDetectListener(listener);
     }
 
     @Override
@@ -144,7 +144,7 @@ public class SoundDectActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-        @NonNull int[] grantResults) {
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == RC_RECORD_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             boolean startSuccess = soundDector.start(SoundDectActivity.this);
