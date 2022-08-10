@@ -1,17 +1,17 @@
 /**
  * Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * https://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.huawei.mlkit.sample.activity.translate;
@@ -30,6 +30,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.huawei.hmf.tasks.OnCompleteListener;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
@@ -56,32 +57,31 @@ public class RemoteTranslateActivity extends BaseActivity {
 
     private static final ArrayList<String> LANG_CODE_LIST = new ArrayList<>(Arrays.asList(
             "ZH", "ZH-HK", "EN", "FR", "TH", "JA", "DE", "RU", "ES",
-            "AR", "TR", "PT", "IT","PL","MS","SV","FI","NO","DA","KO",
+            "AR", "TR", "PT", "IT", "PL", "MS", "SV", "FI", "NO", "DA", "KO",
             "VI", "ID", "CS", "HE", "EL", "HI", "TL", "SR", "RO", "MY",
-            "KM","NL","ET","FA","LV","SK","TA","HU","BG","HR"));
+            "KM", "NL", "ET", "FA", "LV", "SK", "TA", "HU", "BG", "HR"));
 
     private static final ArrayList<String> SOURCE_LANGUAGE_CODE = new ArrayList<>();
     private static final ArrayList<String> DEST_LANGUAGE_CODE = new ArrayList<>();
 
     private static final ArrayList<String> LANGUAGE_LIST_EN = new ArrayList<>(Arrays.asList(
             "Chinese (Simplified)", "Chinese (Traditional)", "English", "French", "Thai", "Japanese",
-            "German", "Russian", "Spanish", "Arabic", "Turkish", "Portuguese", "Italian","Polish",
-            "Malaysian","Swedish","Finnish","Norwegian","Danish","Korean","Vietnamese", "Indonesian",
+            "German", "Russian", "Spanish", "Arabic", "Turkish", "Portuguese", "Italian", "Polish",
+            "Malaysian", "Swedish", "Finnish", "Norwegian", "Danish", "Korean", "Vietnamese", "Indonesian",
             "Czech", "Hebrew", "Greece", "Hindi", "Filipino", "Serbian", "Romanian", "Myanmar",
-            "Khmer","Netherlands","Estonian","Persian","Latvian","Slovak","Tamil","Hungarian","Bulgarian","Croatian"));
+            "Khmer", "Netherlands", "Estonian", "Persian", "Latvian", "Slovak", "Tamil", "Hungarian", "Bulgarian", "Croatian"));
     private static final ArrayList<String> LANGUAGE_LIST_ZH = new ArrayList<>(Arrays.asList(
             "中文简体", "中文繁体", "英文", "法语", "泰语", "日语", "德语", "俄语", "西班牙语",
-            "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语","波兰语","马来西亚语","瑞典语","芬兰语",
-            "挪威语","丹麦语","韩语","越南语", "印尼语", "捷克语", "希伯来语", "希腊语", "印地语",
-            "菲律宾语", "塞尔维亚语", "罗马尼亚语", "缅甸语", "高棉语","荷兰语","爱沙尼亚语","波斯语",
-            "拉脱维亚语","斯洛伐克语","泰米尔语","匈牙利语","保加利亚语","克罗地亚语"));
+            "阿拉伯语", "土耳其语", "葡萄牙语", "意大利语", "波兰语", "马来西亚语", "瑞典语", "芬兰语",
+            "挪威语", "丹麦语", "韩语", "越南语", "印尼语", "捷克语", "希伯来语", "希腊语", "印地语",
+            "菲律宾语", "塞尔维亚语", "罗马尼亚语", "缅甸语", "高棉语", "荷兰语", "爱沙尼亚语", "波斯语",
+            "拉脱维亚语", "斯洛伐克语", "泰米尔语", "匈牙利语", "保加利亚语", "克罗地亚语"));
 
     private static final ArrayList<String> SP_SOURCE_LIST = new ArrayList<>();
     private static final ArrayList<String> SP_SOURCE_LIST_EN = new ArrayList<>();
 
     private static final ArrayList<String> SP_DEST_LIST = new ArrayList<>();
     private static final ArrayList<String> SP_DEST_LIST_EN = new ArrayList<>();
-
 
 
     private Spinner spSourceType;
@@ -102,9 +102,7 @@ public class RemoteTranslateActivity extends BaseActivity {
     private ArrayAdapter<String> spSourceAdapter;
     private ArrayAdapter<String> spDestAdapter;
 
-    private MLRemoteTranslateSetting mlRemoteTranslateSetting;
     private MLRemoteTranslator mlRemoteTranslator;
-    private MLRemoteLangDetectorSetting mlRemoteLangDetectorSetting;
     private MLRemoteLangDetector mlRemoteLangDetector;
 
     static {
@@ -350,80 +348,86 @@ public class RemoteTranslateActivity extends BaseActivity {
     }
 
     private void doTranslate() {
+        stopRemoteTranslator();
         // Translating, get data, and update output boxes.
         String sourceText = this.getInputText();
         String sourceLang = this.getSourceType();
         String targetLang = this.getDestType();
 
-        this.mlRemoteTranslateSetting = new MLRemoteTranslateSetting.Factory()
+        final MLRemoteTranslateSetting remoteTranslateSetting = new MLRemoteTranslateSetting.Factory()
                 .setSourceLangCode(sourceLang)
                 .setTargetLangCode(targetLang)
                 .create();
-        this.mlRemoteTranslator = MLTranslatorFactory.getInstance().getRemoteTranslator(this.mlRemoteTranslateSetting);
+        mlRemoteTranslator = MLTranslatorFactory.getInstance()
+                .getRemoteTranslator(remoteTranslateSetting);
         final long startTime = System.currentTimeMillis();
-        Task<String> task = this.mlRemoteTranslator.asyncTranslate(sourceText);
-        task.addOnSuccessListener(new OnSuccessListener<String>() {
-            @Override
-            public void onSuccess(String text) {
-                long endTime = System.currentTimeMillis();
-                RemoteTranslateActivity.this.updateOutputText(text);
-                RemoteTranslateActivity.this.updateTime(endTime - startTime);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(Exception e) {
-                RemoteTranslateActivity.this.updateOutputText(e.getMessage());
-                showToast(e.getMessage());
-            }
-        });
+        mlRemoteTranslator.asyncTranslate(sourceText)
+                .addOnSuccessListener(new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String text) {
+                        long endTime = System.currentTimeMillis();
+                        RemoteTranslateActivity.this.updateOutputText(text);
+                        RemoteTranslateActivity.this.updateTime(endTime - startTime);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(Exception e) {
+                        RemoteTranslateActivity.this.updateOutputText(e.getMessage());
+                        showToast(e.getMessage());
+                    }
+                });
 
         this.autoUpdateSourceLanguage();
     }
 
     private void autoUpdateSourceLanguage() {
-        this.mlRemoteLangDetectorSetting = new MLRemoteLangDetectorSetting.Factory().setTrustedThreshold(0.01f).create();
-        this.mlRemoteLangDetector = MLLangDetectorFactory.getInstance().getRemoteLangDetector(this.mlRemoteLangDetectorSetting);
-        Task<List<MLDetectedLang>> probabilityDetectTask = this.mlRemoteLangDetector.probabilityDetect(this.getInputText());
-        probabilityDetectTask.addOnSuccessListener(new OnSuccessListener<List<MLDetectedLang>>() {
-            @Override
-            public void onSuccess(List<MLDetectedLang> result) {
-                MLDetectedLang recognizedLang = result.get(0);
-                String langCode = recognizedLang.getLangCode();
-                RemoteTranslateActivity.this.updateSourceLanguage(langCode);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(Exception e) {
-            }
-        });
+        stopRemoteLangDetector();
+        final MLRemoteLangDetectorSetting remoteLangDetectorSetting = new MLRemoteLangDetectorSetting.Factory()
+                .setTrustedThreshold(0.01f)
+                .create();
+        mlRemoteLangDetector = MLLangDetectorFactory.getInstance()
+                .getRemoteLangDetector(remoteLangDetectorSetting);
+        mlRemoteLangDetector.probabilityDetect(this.getInputText())
+                .addOnSuccessListener(new OnSuccessListener<List<MLDetectedLang>>() {
+                    @Override
+                    public void onSuccess(List<MLDetectedLang> result) {
+                        MLDetectedLang recognizedLang = result.get(0);
+                        String langCode = recognizedLang.getLangCode();
+                        RemoteTranslateActivity.this.updateSourceLanguage(langCode);
+                    }
+                });
     }
 
     private void doLanguageRecognition() {
-        this.mlRemoteLangDetectorSetting = new MLRemoteLangDetectorSetting.Factory().setTrustedThreshold(0.01f).create();
-        this.mlRemoteLangDetector = MLLangDetectorFactory.getInstance().getRemoteLangDetector(this.mlRemoteLangDetectorSetting);
-        Task<List<MLDetectedLang>> probabilityDetectTask = this.mlRemoteLangDetector.probabilityDetect(this.getInputText());
+        stopRemoteLangDetector();
+        final MLRemoteLangDetectorSetting remoteLangDetectorSetting = new MLRemoteLangDetectorSetting.Factory()
+                .setTrustedThreshold(0.01f)
+                .create();
+        mlRemoteLangDetector = MLLangDetectorFactory.getInstance()
+                .getRemoteLangDetector(remoteLangDetectorSetting);
         final long startTime = System.currentTimeMillis();
-        probabilityDetectTask.addOnSuccessListener(new OnSuccessListener<List<MLDetectedLang>>() {
-            @Override
-            public void onSuccess(List<MLDetectedLang> result) {
-                long endTime = System.currentTimeMillis();
-                StringBuilder sb = new StringBuilder();
-                for (MLDetectedLang recognizedLang : result) {
-                    String langCode = recognizedLang.getLangCode();
-                    float probability = recognizedLang.getProbability();
-                    sb.append("Language=" + RemoteTranslateActivity.this.getEnLanguageName(langCode) + "(" + langCode + "), score=" + probability);
-                    sb.append(".");
-                }
-                RemoteTranslateActivity.this.updateOutputText(sb.toString());
-                RemoteTranslateActivity.this.updateTime(endTime - startTime);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(Exception e) {
-                RemoteTranslateActivity.this.updateOutputText(e.getMessage());
-            }
-        });
-        this.mlRemoteLangDetector.stop();
+        mlRemoteLangDetector.probabilityDetect(this.getInputText())
+                .addOnSuccessListener(new OnSuccessListener<List<MLDetectedLang>>() {
+                    @Override
+                    public void onSuccess(List<MLDetectedLang> result) {
+                        long endTime = System.currentTimeMillis();
+                        StringBuilder sb = new StringBuilder();
+                        for (MLDetectedLang recognizedLang : result) {
+                            String langCode = recognizedLang.getLangCode();
+                            float probability = recognizedLang.getProbability();
+                            sb.append("Language=" + RemoteTranslateActivity.this.getEnLanguageName(langCode) + "(" + langCode + "), score=" + probability);
+                            sb.append(".");
+                        }
+                        RemoteTranslateActivity.this.updateOutputText(sb.toString());
+                        RemoteTranslateActivity.this.updateTime(endTime - startTime);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(Exception e) {
+                        RemoteTranslateActivity.this.updateOutputText(e.getMessage());
+                    }
+                });
+
     }
 
     private String getLanguageName(String code) {
@@ -462,11 +466,19 @@ public class RemoteTranslateActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (this.mlRemoteTranslator != null) {
-            this.mlRemoteTranslator.stop();
+        stopRemoteTranslator();
+        stopRemoteLangDetector();
+    }
+
+    private void stopRemoteTranslator() {
+        if (mlRemoteTranslator != null) {
+            mlRemoteTranslator.stop();
         }
-        if (this.mlRemoteLangDetector != null) {
-            this.mlRemoteLangDetector.stop();
+    }
+
+    private void stopRemoteLangDetector() {
+        if (mlRemoteLangDetector != null) {
+            mlRemoteLangDetector.stop();
         }
     }
 }

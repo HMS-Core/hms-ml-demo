@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_background"
     android:orientation="vertical"
-    tools:context="com.huawei.mlkit.sample.activity.TranslateActivity">
+    tools:context="com.huawei.mlkit.sample.activity.translate.TranslateActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
