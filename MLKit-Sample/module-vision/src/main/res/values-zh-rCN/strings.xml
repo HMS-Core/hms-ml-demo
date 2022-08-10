@@ -91,7 +91,7 @@
 
     <string name="scene_detection">场景识别</string>
     <string name="set_up">设置返回结果最大数量:</string>
-    <string name="set_hiht">请输入0-100之间的整数</string>
+    <string name="set_hint">请输入0-100之间的整数</string>
 
     <string name="table">表格识别</string>
 
