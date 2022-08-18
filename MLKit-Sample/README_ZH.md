@@ -88,15 +88,15 @@ moduletext
             |-- AsrActivity //实时语音识别服务入口
             |-- AsrAudioActivity //实时语音识别服务
             |-- TtsAnalyseActivity //语音合成服务
-	        |-- AudioFileTranscriptionActivity //音频文件转写服务
-	        |-- IDCardRecognitionActivity // 身份证识别服务
-	        |-- BankCardRecognitionActivity // 银行卡识别服务
-	        |-- GeneralCardRecognitionActivity // 通用卡证识别服务
+            |-- AudioFileTranscriptionActivity //音频文件转写服务
+            |-- IDCardRecognitionActivity // 身份证识别服务
+            |-- BankCardRecognitionActivity // 银行卡识别服务
+            |-- GeneralCardRecognitionActivity // 通用卡证识别服务
             |-- TextRecognitionActivity  // 文字识别服务
             |-- RemoteDetectionActivity  // 文档识别服务
-	        |-- StartActivity  // 服务入口
+            |-- StartActivity  // 服务入口
             |-- BaseActivity  // Activity基类
-	        |-- SettingActivity  // moduletext基本信息
+            |-- SettingActivity  // moduletext基本信息
             |-- TranslateActivity //文本翻译入口
             |-- LocalTranslateActivity // 端侧文本翻译
             |-- RemoteTranslateActivity // 云测文本翻译
@@ -112,21 +112,21 @@ modulevision
             |-- LoadPhotoActivity //图像分割相关
             |-- TakePhotoActivity //背景替换相关
             |-- StillCutPhotoActivity //人像抠图相关
-	        |-- ObjectDetectionActivity //对象检测与跟踪
-	        |-- ImageClassificationActivity //图像分类
-	        |-- RemoteDetectionActivity //地标识别
-	        |-- ImageSuperResolutionStartActivity //图像超分入口
-	        |-- ImageSuperResolutionActivity //图像超分
-	        |-- TextImageSuperResolutionActivity // 文字图像超分
-	        |-- SceneStartActivity // 场景识别入口
+            |-- ObjectDetectionActivity //对象检测与跟踪
+            |-- ImageClassificationActivity //图像分类
+            |-- RemoteDetectionActivity //地标识别
+            |-- ImageSuperResolutionStartActivity //图像超分入口
+            |-- ImageSuperResolutionActivity //图像超分
+            |-- TextImageSuperResolutionActivity // 文字图像超分
+            |-- SceneStartActivity // 场景识别入口
             |-- SceneDectionActivity // 场景识别
             |-- TableRecognitionStartActivity // 表格识别入口
             |-- TableRecognitionActivity // 场景识别
             |-- DocumentSkewStartActivity // 文档校正入口
             |-- DocumentSkewCorretionActivity // 文档校正
-	        |-- BaseActivity  // Activity基类
-	        |-- StartActivity  // 服务入口
-	        |-- SettingActivity  // modulevision基本信息
+            |-- BaseActivity  // Activity基类
+            |-- StartActivity  // 服务入口
+            |-- SettingActivity  // modulevision基本信息
 
 
 modulebody
@@ -160,7 +160,7 @@ modulecostom
 
 ## 更多场景
 华为机器学习服务（HMS ML Kit） 提供机器学习套件，为开发者应用机器学习能力开发各类应用提供优质体验。
-更多应用场景，可参考：[华为机器学习服务集成案例](https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-case-banggood)。
+更多应用场景，可参考：[华为机器学习服务集成案例](https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/ml-case-banggood-0000001050990463)。
 
 ## 运行步骤
  - 将本代码库克隆到本地。
@@ -168,8 +168,8 @@ modulecostom
        git clone https://github.com/HMS-Core/hms-ml-demo.git
 
  - 如果您还没有注册成为开发者，请在[AppGalleryConnect上注册并创建应用](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)。
- - agconnect-services.json文件请从[华为开发者社区](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353)网站申请获取。
- - 替换工程中的sample-agconnect-services.json文件。
+ - `agconnect-services.json`文件请从[华为开发者社区](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/config-agc-0000001050990353)网站申请获取。
+ - 替换工程中的`sample-agconnect-services.json`文件。
  - 编译并且在安卓设备或模拟器上运行。
 
 注意：
