@@ -73,7 +73,6 @@ public class LensEngine {
     public void release() {
         synchronized (this.transactorLock) {
             this.stop();
-            this.transactingRunnable.release();
             if (this.frameTransactor != null) {
                 this.frameTransactor.stop();
                 this.frameTransactor = null;
@@ -232,16 +231,6 @@ public class LensEngine {
         private ByteBuffer pendingFrameData;
 
         FrameTransactingRunnable() {
-        }
-
-        /**
-         * Frees the transactor and can safely perform this operation only after the associated thread has completed.
-         */
-        @SuppressLint("Assert")
-        void release() {
-            synchronized (this.lock) {
-                assert (LensEngine.this.transactingThread.getState() == State.TERMINATED);
-            }
         }
 
         void setActive(boolean active) {

@@ -53,7 +53,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="100dp"
-            android:textColor="@color/upsdk_white" />
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
