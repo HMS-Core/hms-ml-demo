@@ -1,16 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 31
     defaultConfig {
-        applicationId "com.mlkit.sample.text"
+        applicationId "com.huawei.mlkit.sample.afila"
         minSdkVersion 19
-        targetSdkVersion 30
-        versionCode 3200300
-        versionName "3.2.0.300"
+        targetSdkVersion 31
+        versionCode 3700300
+        versionName "3.7.0.300"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        packagingOptions {
+            pickFirst 'lib/arm64-v8a/libml-vadenergy.so'
+            pickFirst 'lib/armeabi-v7a/libml-vadenergy.so'
+        }
     }
 
     buildTypes {
@@ -45,63 +49,69 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar'])
 
-    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:3.7.0.302'
 
     // Text recognition.
-    implementation 'com.huawei.hms:ml-computer-vision-ocr:2.0.5.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:2.0.5.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:2.0.5.300'
-    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:2.0.5.300'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr:3.8.0.303'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:3.8.0.303'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-jk-model:3.8.0.303'
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-latin-model:3.8.0.303'
 
 
     // Text Embedding
-    implementation 'com.huawei.hms:ml-nlp-textembedding:2.0.4.300'
+    implementation 'com.huawei.hms:ml-nlp-textembedding:3.8.0.303'
 
     // General card recognition .
-    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:2.0.1.301'
+    implementation 'com.huawei.hms:ml-computer-card-gcr-plugin:3.7.0.303'
 
     // Chinese ID card recognition.
-    implementation 'com.huawei.hms:ml-computer-card-icr-cn:2.0.3.303'
+    implementation 'com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303'
 
     // Vietnam ID card recognition fullSDK.
-    implementation 'com.huawei.hms:ml-computer-card-icr-vn:2.1.0.301'
+    implementation 'com.huawei.hms:ml-computer-card-icr-vn:3.7.0.303'
 
     // Bank card recognition .
-    implementation 'com.huawei.hms:ml-computer-card-bcr:2.0.3.301'
+    implementation 'com.huawei.hms:ml-computer-card-bcr:3.7.0.302'
 
     // Audio file transcription.
-    implementation 'com.huawei.hms:ml-computer-voice-aft:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-aft:3.7.0.301'
 
     // download.
-    implementation 'com.huawei.hms:ml-computer-model-download:2.0.4.300'
+    implementation 'com.huawei.hms:ml-computer-model-download:3.7.0.302'
 
     // Text to speech.
-    implementation 'com.huawei.hms:ml-computer-voice-tts:2.2.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-tts-model-bee:2.2.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-tts-model-eagle:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-tts:3.7.0.303'
+    implementation 'com.huawei.hms:ml-computer-voice-tts-model-bee:3.6.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-tts-model-eagle:3.6.0.300'
 
 
     // Automatic speech recognition Long voice.
-    implementation 'com.huawei.hms:ml-computer-voice-realtimetranscription:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-realtimetranscription:3.7.0.301'
 
     // Automatic speech recognition
-    implementation 'com.huawei.hms:ml-computer-voice-asr:2.2.0.300'
-    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:3.7.0.301'
+
+    // sisdk
+    implementation 'com.huawei.hms:ml-computer-si-sdk:3.7.0.302'
 
     // Text translation.
-    implementation 'com.huawei.hms:ml-computer-language-detection:2.2.0.300'
-    implementation 'com.huawei.hms:ml-computer-language-detection-model:2.2.0.300'
-    implementation 'com.huawei.hms:ml-computer-translate:2.2.0.300'
-    implementation 'com.huawei.hms:ml-computer-translate-model:2.2.0.300'
+    implementation 'com.huawei.hms:ml-computer-language-detection:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-language-detection-model:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-translate:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-translate-model:3.7.0.301'
 
     // Sound Dect.
-    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-model:2.1.0.300'
-    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-sdk:2.1.0.300'
+    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-model:3.5.0.302'
+    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-sdk:3.5.0.302'
+
+    // Text ner
+    implementation 'com.huawei.hms:ml-computer-ner:3.7.0.301'
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'

@@ -21,4 +21,36 @@
     <color name="text_dark">#878787</color>
     <color name="text_black">#333333</color>
     <color name="bfbfbf">#bfbfbf</color>
+
+    <color name="blue">#00a3e7</color>
+    <color name="black_9">#999999</color>
+    <color name="activity_bg">#f2f2f2</color>
+    <color name="line_bg">#f2f2f2</color>
+    <color name="color_grey">#99ffffff</color>
+    <!--    <color name="activity_bg">#1A000000</color>-->
+
+    <color name="textColorPrimaryActivated">#0A59F7</color>
+    <color name="emui_functional_blue_translucent">#5291FF</color>
+    <color name="btn_bg">@color/colorActivated</color>
+    <color name="colorActivated">#0A59F7</color>
+    <color name="bg_color">#0A59F7</color>
+    <color name="btnClickBg">#ED6F21</color>
+
+    <color name="defaultColor">#000000</color>
+    <color name="clickColor">#7f7f7f</color>
+    <color name="pop_bg">#ffffff</color>
+    <color name="btncolor">#ffffff</color>
+    <color name="color_result">#333333</color>
+    <color name="color_orange">#FF8000</color>
+    <color name="item_select_color">#E3FAE3</color>
+    <color name="line_color">#E4E4E4</color>
+    <color name="translucent_white_100">#00FFFFFF</color>
+
+
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
 </resources>

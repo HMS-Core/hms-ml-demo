@@ -42,6 +42,8 @@ import com.huawei.mlkit.sample.activity.docdetection.RemoteDetectionActivity;
 import com.huawei.mlkit.sample.activity.entity.GridViewItem;
 import com.huawei.mlkit.sample.activity.gcr.GeneralCardRecognitionActivity;
 import com.huawei.mlkit.sample.activity.icr.IDCardActivity;
+import com.huawei.mlkit.sample.activity.ner.TextNerActivity;
+import com.huawei.mlkit.sample.activity.si.activity.MainActivity;
 import com.huawei.mlkit.sample.activity.sounddect.SoundDectActivity;
 import com.huawei.mlkit.sample.activity.ocr.TextRecognitionActivity;
 import com.huawei.mlkit.sample.activity.textemdding.TextEmbeddingActivity;
@@ -66,10 +68,10 @@ public final class StartActivity extends BaseActivity
     private static final int PERMISSION_REQUESTS = 1;
     private static final int[] ICONS = {R.drawable.icon_translate, R.drawable.icon_asr ,R.drawable.icon_tts, R.drawable.icon_aft,
             R.drawable.icon_bcr, R.drawable.icon_gcr, R.drawable.icon_text, R.drawable.icon_icr,
-            R.drawable.icon_document,R.drawable.icon_sound_dect,R.drawable.icon_textembedding,R.drawable.icon_asr_long_voice};
+            R.drawable.icon_document,R.drawable.icon_sound_dect,R.drawable.icon_textembedding,R.drawable.icon_asr_long_voice,R.drawable.icon_textembedding,R.drawable.icon_asr_long_voice};
 
     private static final int[] TITLES = {R.string.translate, R.string.asr,R.string.tts, R.string.aft, R.string.bcr,
-            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,R.string.sound_dect_title,R.string.textembedding,R.string.speechRtt,};
+            R.string.gcr, R.string.text_detection, R.string.icr, R.string.document_recognition,R.string.sound_dect_title,R.string.textembedding,R.string.speechRtt,R.string.textNer,R.string.testSi};
 
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
@@ -93,12 +95,12 @@ public final class StartActivity extends BaseActivity
     }
 
     /**
-     * Read the ApiKey field in the sample-agconnect-services.json to obtain the API key of the application and set it.
-     * For details about how to apply for the sample-agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
      */
     private void setApiKey(){
         AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
         MLApplication.getInstance().setApiKey(config.getString(API_KEY));
+        // MLApplication.getInstance().setAccessToken(config.getString(API_KEY));
     }
 
     private void initClickEvent() {
@@ -153,6 +155,15 @@ public final class StartActivity extends BaseActivity
                     // asr Long
                     startActivity(new Intent(StartActivity.this, RealTimeTranscriptionActivity.class));
                     break;
+                case 12:
+                    // text ner
+                    startActivity(new Intent(StartActivity.this, TextNerActivity.class));
+                    break;
+                case 13:
+                    // text si
+                    startActivity(new Intent(StartActivity.this, MainActivity.class));
+                    break;
+
                 default:
                     Toast.makeText(getApplicationContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show();
                     break;

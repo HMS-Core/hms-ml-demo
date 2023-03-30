@@ -15,4 +15,7 @@
 
     <color name="color_red_card">#FFFA2A2D</color>
     <color name="color_red_cancel">#EE6A50</color>
+    <color name="red">#E84026</color>
+    <color name="green">#64BB5C</color>
+    <color name="text_color_liveness">#FFFFFF</color>
 </resources>

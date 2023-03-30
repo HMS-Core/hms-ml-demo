@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp">
+
+        <ImageView
+            android:id="@+id/serviceTermsIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_privacy"
+            app:tint="@color/emui_functional_blue_translucent" />
+
+        <TextView
+            android:id="@+id/more_operation_privacy"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="serif"
+            android:gravity="center|center_horizontal"
+            android:text="@string/more_operation_privacy"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/upData_privocy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:includeFontPadding="false"
+        android:text="@string/hiai_tv_update_time"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tv_detail_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="24dp"
+        android:fadeScrollbars="true"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="64dp"
+        android:requiresFadingEdge="vertical"
+        android:scrollbarSize="4dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbarThumbVertical="@drawable/tv_scrollbar"
+        android:scrollbarTrackVertical="@drawable/tv_scrollbar_bg"
+        android:scrollbars="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="0dp">
+
+            <TextView
+                android:id="@+id/tv_detail_show_01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_01"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_detail_show_02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_02"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_29"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_29"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_35"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_35"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_36"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_36"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_08"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_08"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_09"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_09"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_30"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_30"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_10"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_31"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_31"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_11"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_detail_show_13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_13"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_14"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_14"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_15"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_16"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/serviceTermsDot_7"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/dot_privacy"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_detail_show_37"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="serif"
+                    android:includeFontPadding="false"
+                    android:text="@string/tv_declare_statement_37"
+                    android:textColor="@color/black"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_detail_show_20"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_20"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_21"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_21"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_22"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_22"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_23"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_23"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_detail_show_24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:fontFamily="serif"
+                android:includeFontPadding="false"
+                android:text="@string/tv_declare_statement_24"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/agree_button"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_default"
+                    android:stateListAnimator="@null"
+                    android:text="@string/know"
+                    android:textColor="@color/textColorPrimaryActivated"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

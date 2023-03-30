@@ -177,7 +177,7 @@ public final class GestureImageActivity extends BaseActivity implements OnClickL
 
     private void initTitle() {
         this.title = this.findViewById(R.id.title);
-        this.title.setText(this.getResources().getText(R.string.cloud_handkeypoint));
+        this.title.setText(this.getResources().getText(R.string.handRecognition));
     }
 
     @Override

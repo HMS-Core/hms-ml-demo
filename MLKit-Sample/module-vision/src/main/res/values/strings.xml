@@ -36,7 +36,7 @@
     <string name="object_detection">Object</string>
     <string name="image_classification">Classification</string>
     <string name="landmark">Landmark</string>
-    <string name="skeletlon">Skeletlon</string>
+    <string name="skeleton">Skeleton</string>
 S
     <string name="all">all</string>
     <string name="coming_soon">coming soon</string>
@@ -103,5 +103,8 @@ S
     <string name="from_pic">Please upload the picture</string>
     <string name="recognition">Recognition</string>
     <string name="teble_error">Failed to check the table. Change the table image.</string>
+
+    <string name="Information_permission">Obtaining related permissions: Camera permissions failed. Some functions cannot be used properly. You need to manually grant permissions on the settings page. </string>
+    <string name="go_authorization">Go Authorization</string>
 
 </resources>

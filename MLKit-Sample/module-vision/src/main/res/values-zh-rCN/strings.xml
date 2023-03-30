@@ -36,7 +36,7 @@
     <string name="object_detection">对象检测</string>
     <string name="image_classification">图像分类</string>
     <string name="landmark">地标识别</string>
-    <string name="skeletlon">人体骨骼</string>
+    <string name="skeleton">人体骨骼</string>
 
     <string name="all">所有</string>
     <string name="coming_soon">敬请期待</string>
@@ -102,5 +102,8 @@
     <string name="from_pic">请上传图片</string>
     <string name="recognition">识别</string>
     <string name="teble_error">表格检测失败，请更换表格图片.</string>
+
+    <string name="Information_permission">获取相关权限:摄像机权限失败 部分功能无法正常使用。 您需要手动在设置页面上授予权限。</string>
+    <string name="go_authorization">去授权</string>
 
 </resources>

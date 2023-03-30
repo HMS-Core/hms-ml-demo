@@ -1,17 +1,17 @@
 /**
  * Copyright 2020. Huawei Technologies Co., Ltd. All rights reserved.
- *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.huawei.mlkit.sample.activity.asr;
@@ -36,7 +36,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity;
 import com.huawei.hms.mlplugin.asr.MLAsrCaptureConstants;
-
 import com.huawei.hms.mlsdk.asr.MLAsrConstants;
 import com.huawei.mlkit.sample.R;
 import com.huawei.mlkit.sample.activity.dialog.RecordDialog;
@@ -55,7 +54,10 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
     private static final String LAN_DE_DE = "de-DE";
     private static final String LAN_ES_ES = "es-ES";
     private static final String LAN_IT_IT = "it-IT";
-
+    private static final String LAN_RU_RU = "ru-RU";
+    private static final String LAN_TH_TH = "th-TH";
+    private static final String LAN_MS_MY = "ms-MY";
+    private static final String LAN_FIL_PH = "fil-PH";
 
     private static final int TYPE_ASR_PLUGIN = 1;
     private static final int TYPE_CUSTOM = 2;
@@ -117,7 +119,7 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         mRecordDialog.setOnBackPressedListener(new RecordDialog.OnBackPressedListener() {
             @Override
             public void onBackPressed() {
-                if(mSpeechManager != null){
+                if (mSpeechManager != null) {
                     mSpeechManager.destroy();
                 }
             }
@@ -150,7 +152,7 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
             tvLanguage.setText(R.string.french);
             mLanguage = LAN_FR_FR;
             this.languageDialog.dismiss();
-        }else if (view.getId() == R.id.spanish) {
+        } else if (view.getId() == R.id.spanish) {
             tvLanguage.setText(R.string.spanish);
             mLanguage = LAN_ES_ES;
             this.languageDialog.dismiss();
@@ -158,11 +160,27 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
             tvLanguage.setText(R.string.German);
             mLanguage = LAN_DE_DE;
             this.languageDialog.dismiss();
-        }else if (view.getId() == R.id.Italian) {
+        } else if (view.getId() == R.id.Italian) {
             tvLanguage.setText(R.string.Italian);
             mLanguage = LAN_IT_IT;
             this.languageDialog.dismiss();
-        }else if (view.getId() == R.id.type_asr_plugin) {
+        } else if (view.getId() == R.id.Russia) {
+            tvLanguage.setText(R.string.Russian);
+            mLanguage = LAN_RU_RU;
+            this.languageDialog.dismiss();
+        } else if (view.getId() == R.id.Thai) {
+            tvLanguage.setText(R.string.Thai);
+            mLanguage = LAN_TH_TH;
+            this.languageDialog.dismiss();
+        } else if (view.getId() == R.id.Malay) {
+            tvLanguage.setText(R.string.Malay);
+            mLanguage = LAN_MS_MY;
+            this.languageDialog.dismiss();
+        } else if (view.getId() == R.id.Pilipino) {
+            tvLanguage.setText(R.string.Pilipino);
+            mLanguage = LAN_FIL_PH;
+            this.languageDialog.dismiss();
+        } else if (view.getId() == R.id.type_asr_plugin) {
             tvType.setText(R.string.asr_sound_pickup_interface_type_plugin);
             mType = TYPE_ASR_PLUGIN;
             this.typeDialog.dismiss();
@@ -179,8 +197,8 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent(this, MLAsrCaptureActivity.class)
                 .putExtra(MLAsrCaptureConstants.LANGUAGE, mLanguage)
                 .putExtra(MLAsrCaptureConstants.FEATURE, MLAsrCaptureConstants.FEATURE_WORDFLUX);
-            // Set the usage scenario to shopping,Currently, only Chinese scenarios are supported.
-            // .putExtra(MLAsrConstants.SCENES, MLAsrConstants.SCENES_SHOPPING);
+        // Set the usage scenario to shopping,Currently, only Chinese scenarios are supported.
+        // .putExtra(MLAsrConstants.SCENES, MLAsrConstants.SCENES_SHOPPING);
         startActivityForResult(intent, ML_ASR_CAPTURE_CODE);
         overridePendingTransition(R.anim.mlkit_asr_popup_slide_show, 0);
     }
@@ -188,7 +206,7 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
     private void startRecodingOnCustom() {
         if (mSpeechManager == null) {
             startListening();
-        } else{
+        } else {
             mSpeechManager.destroy();
             startListening();
         }
@@ -267,6 +285,10 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
     private TextView asrTextES;
     private TextView asrTextDE;
     private TextView asrTextIT;
+    private TextView asrTextRU;
+    private TextView asrTextTH;
+    private TextView asrTextMS;
+    private TextView asrTextPH;
 
     private void showLanguageDialog() {
         initLanguageDialogViews();
@@ -280,6 +302,10 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         this.asrTextES.setSelected(false);
         this.asrTextDE.setSelected(false);
         this.asrTextIT.setSelected(false);
+        this.asrTextRU.setSelected(false);
+        this.asrTextTH.setSelected(false);
+        this.asrTextPH.setSelected(false);
+        this.asrTextMS.setSelected(false);
         switch (mLanguage) {
             case LAN_ZH_CN:
                 this.asrTextCN.setSelected(true);
@@ -298,6 +324,19 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case LAN_IT_IT:
                 this.asrTextIT.setSelected(true);
+                break;
+
+            case LAN_RU_RU:
+                this.asrTextRU.setSelected(true);
+                break;
+            case LAN_TH_TH:
+                this.asrTextTH.setSelected(true);
+                break;
+            case LAN_MS_MY:
+                this.asrTextMS.setSelected(true);
+                break;
+            case LAN_FIL_PH:
+                this.asrTextPH.setSelected(true);
                 break;
             default:
                 break;
@@ -321,6 +360,14 @@ public class AsrAudioActivity extends AppCompatActivity implements View.OnClickL
         this.asrTextDE.setOnClickListener(this);
         this.asrTextIT = view.findViewById(R.id.Italian);
         this.asrTextIT.setOnClickListener(this);
+        this.asrTextRU = view.findViewById(R.id.Russia);
+        this.asrTextRU.setOnClickListener(this);
+        this.asrTextTH = view.findViewById(R.id.Thai);
+        this.asrTextTH.setOnClickListener(this);
+        this.asrTextPH = view.findViewById(R.id.Pilipino);
+        this.asrTextPH.setOnClickListener(this);
+        this.asrTextMS = view.findViewById(R.id.Malay);
+        this.asrTextMS.setOnClickListener(this);
         this.languageDialog.setCanceledOnTouchOutside(true);
         // Set the size of the dialog
         Window dialogWindow = this.languageDialog.getWindow();

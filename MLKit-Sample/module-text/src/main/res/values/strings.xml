@@ -10,7 +10,10 @@
     <string name="cancel">cancel</string>
 
     <string name="cloud_text">Cloud Text Recognition</string>
-
+    <string name="textNer">TextEntityExtraction</string>
+    <string name="online_text_ner">online ner</string>
+    <string name="ner_v">Extraction</string>
+    <string name="ner_text_hint">Beijing Tiananmen Square</string>
     <string name="select_from_album">Select image from album</string>
     <string name="take_photo">Take photo</string>
     <string name="video_frame">Video stream</string>
@@ -89,9 +92,9 @@
     <!--通用卡证-->
     <string name="gcr_upload_self_photo">Upload photos of your card</string>
     <string name="gcr_upload">Upload card</string>
-    <string name="hk_pass">Hong Kong, Macao and Taiwan pass</string>
+    <string name="hk_pass">Hong Kong, Macao pass</string>
     <string name="hk_id_card">Hong Kong Identity Card</string>
-    <string name="home_card">Mainland Travel Permit (Hong Kong, Macao, and Taiwan residents)</string>
+    <string name="home_card">Mainland Travel Permit (Taiwan residents)</string>
     <string name="click_to_switch"><u>Click to switch</u></string>
     <string name="vedio_tip">Recognizing, please align the edges.</string>
     <string name="capture_tip">Taking photo…\nKeep the edges aligned</string>
@@ -157,6 +160,9 @@
     <string name="female_it">Female-it</string>
     <string name="male_en_eagle">Male-en-eagle</string>
     <string name="female_en_eagle">Female-en-eagle</string>
+    <string name="female_th">female-th</string>
+    <string name="female_ms">female-ms</string>
+    <string name="female_ph">femail-ph</string>
 
     <string name="init_progress">50%</string>
 
@@ -174,6 +180,12 @@
     <string name="German">German</string>
     <string name="Indian_english">Indian English</string>
     <string name="Italian">Italian</string>
+    <string name="Polish">Polish</string>
+    <string name="Russian">Russian</string>
+    <string name="Thai">Thai</string>
+    <string name="Pilipino">Pilipino</string>
+    <string name="Malay">Malay</string>
+
     <string name="download_prompt">Download it from the Offline Model Management page.</string>
     <string name="waitting">waitting</string>
     <string name="no_wifi_prompt">You are connected to a mobile network. Downloading offline models may incur traffic fees (Contact your carrier for tariffs). Are you sure you want to continue?</string>
@@ -260,7 +272,7 @@
     <string name="dect_destroy">No speech is detected for 5 seconds. Recognition ends.</string>
     <string name="start_video">Recording started.</string>
     <string name="dect_user">Detects that the user starts to speak.</string>
-SR
+    SR
     <string name="offline_asr">Offline ASR</string>
     <string name="online_asr">Online ASR</string>
 
@@ -279,5 +291,146 @@ SR
     <string name="text_word">Entered : 0 / 500</string>
     <string name="wording">Entered : </string>
     <string name="tts_max_tip">The value can contain a maximum of 500 characters.</string>
+    <string name="recognitionHint" translatable="true">recognition content will be displayed here...</string>
+    <string name="startRecognitionBtn" translatable="true">start to identify</string>
+    <string name="finishRecognitionBtn" translatable="true">end recognition</string>
+    <string name="contentShow" ranslatable="true">Displayed content</string>
+    <string name="voicePlay" ranslatable="true">Speech broadcast</string>
+    <string name="english">English</string>
+    <string name="asrtext">"Speech text "</string>
+    <string name="notBroadcast">"No broadcast "</string>
+    <string name="chineseMaleVoice">"Male voice"</string>
+    <string name="chineseFemaleVoice">"Female voice"</string>
+    <string name="englishMaleVoice">"Male voice"</string>
+    <string name="englishFemaleVoice">"Female voice"</string>
+    <string name="asrText">"Speech text"</string>
+    <string name="asrTextAndTranslation">"Speech text and translated text"</string>
+    <string name="permissionStr">Go to Settings on your phone to enable storage and recording permissions.</string>
+
+
+    <string name="hiai_setting_tips" translatable="false">"提供终端设备智慧开放能力和设备信息互联管理服务"</string>
+    <string name="hiai_update_tips" translatable="false">"WLAN 下自动更新数据文件及插件"</string>
+    <string name="hiai_notice_for_oobe" translatable="false">"“华为智慧能力” 是我们为您提供终端设备智慧开放能力和设备信息互联管理功能的系统增强服务。本应用及其底层服务需&lt;b&gt;联网&lt;/b&gt;，使用您的设备信息、应用信息及网络信息，其中底层服务提供资源更新及数据采集服务。本应用会在 WLAN 环境下自动更新数据文件及插件，您可在应用设置中关闭此功能。勾选此项，即表示您同意我们向您提供终端智慧服务。个人信息处理详情，请见"</string>
+    <string name="hiai_notice_text_tv" translatable="false">"本应用及其底层服务 (提供资源更新、数据采集服务) 需%1$s，使用您的设备信息、应用信息及网络信息，用于提供终端设备智慧开放能力和设备信息互联管理服务。本应用会在 WLAN 环境下自动更新数据文件及插件，您可在应用设置中关闭此功能。打开开关，即表示您同意我们向您提供终端智慧服务。个人信息处理详情，请见"</string>
+    <string name="hiai_full_stop" translatable="false">"。"</string>
+    <string name="tv_declare_title" translatable="false">"关于华为智慧能力与隐私的声明"</string>
+    <string name="hiai_tv_update_time" translatable="false">"更新时间：2022年02月20日"</string>
+    <string name="tv_declare_statement_01" translatable="false">"“同声传译”是由华为终端有限公司（以下简称“我们”或“华为”）为您提供同声传译能力的应用。华为非常重视您的个人信息和隐私保护，我们将会按照法律要求和业界成熟的安全标准，为您的个人信息提供相应的安全保护措施。"</string>
+    <string name="tv_declare_statement_25" translatable="false">"版本变更说明"</string>
+    <string name="tv_declare_statement_26" translatable="false">"请您仔细阅读此次隐私声明的更新内容："</string>
+    <string name="tv_declare_statement_27" translatable="false">"“我们如何收集和使用您的个人信息”章节，新增“数据统计分析服务”。"</string>
+    <string name="tv_declare_statement_28" translatable="false">"“信息存储地点及期限” 章节，增加“数据统计分析服务”中所收集个人信息的存储期限。"</string>
+    <string name="tv_declare_statement_02" translatable="false">"1.我们如何收集和使用您的个人信息"</string>
+    <string name="tv_declare_statement_29" translatable="false">"我们将为您提供同声传译能力，在您使用相关业务功能的过程中，我们会处理下列提供功能所必需的信息，以便履行我们的合同义务。若您不提供相关信息，会影响到您使用本应用的相关功能。"</string>
+    <string name="tv_declare_statement_03" translatable="false">"设备信息互联管理"</string>
+    <string name="tv_declare_statement_04" translatable="false">"“设备信息互联管理”旨在为上层应用提供全场景设备信息的协同管理能力，您需要登录华为帐号才能使用此功能。为实现此功能，我们会将您的设备标识符和蓝牙 MAC 地址、设备名称、设备硬件信息、应用基本信息、应用运行记录及系统基本信息进行端云同步。这些信息将与华为帐号关联并被上传到华为服务器进行存储。为了让这些信息可以在您的所有设备上协同更新，我们可能会根据您的设备标识符、操作系统版本、当前设备用户昵称以及网络信息，向您的所有设备推送更新信息。"</string>
+    <string name="tv_declare_statement_05" translatable="false">"数据文件及插件管理"</string>
+    <string name="tv_declare_statement_06" translatable="false">"我们通过下载和更新数据文件或插件，以不断增强和提高“华为智慧能力”的服务质量，为此我们需要收集您的设备标识符、设备型号及名称、系统基本信息、系统当前时间、应用名称、应用版本号及应用使用信息、当前设备用户昵称以及网络信息，来获取适合本设备的数据资源。"</string>
+    <string name="tv_declare_statement_07" translatable="false">"为了让您可及时获取最新的服务，“华为智慧能力”可在WLAN环境下自动实现更新功能，您可以前往“设置”&gt;“通用”&gt; “高级设置” &gt; “华为智慧能力” &gt;“WLAN 下自动更新”进行设置。"</string>
+    <string name="tv_declare_statement_35" translatable="false">"数据统计分析服务"</string>
+    <string name="tv_declare_statement_36" translatable="false">"为了统计和分析功能使用情况，我们会收集您的设备标识符、应用及系统版本号、系统当前时间、设备类型、您使用本应用的信息，以优化我们的产品设计，为您提供更好服务。"</string>
+    <string name="tv_declare_statement_08" translatable="false">"2.对未成年人的保护"</string>
+    <string name="tv_declare_statement_09" translatable="false">"我们非常重视对未成年人个人信息的保护，华为将严格按照国家法律法规要求，对未成年人提供服务并对其提供保护。如果您是未成年人，需要您的父母或其他监护人同意您使用本应用，并同意相关应用的服务条款。父母或其他监护人也应采取适当的预防措施来保护未成年人，包括监督其对本应用的使用。"</string>
+    <string name="tv_declare_statement_30" translatable="false">"特别地，如果您是儿童 (不满十四周岁的未成年人)，在使用我们的服务前，请务必通知您的父母或其他监护人一起仔细阅读本声明以及我们专门制定的《华为消费者业务儿童隐私保护声明》(https://consumer.huawei.com/cn/privacy/child-policy)，并在您的父母或其他监护人同意或指导后，使用我们的服务或向我们提供信息。如果您是儿童的父母或其他监护人，请确保您监护的儿童在您的同意或指导下，使用我们的服务和向我们提供信息。"</string>
+    <string name="tv_declare_statement_10" translatable="false">"3.管理您的个人信息"</string>
+    <string name="tv_declare_statement_31" translatable="false">"华为非常尊重您对个人信息的关注，并为您提供了以下数据主体权利及选择。"</string>
+    <string name="tv_declare_statement_11" translatable="false">"您可以前往应用“设置”&gt;“应用”&gt; “应用管理”&gt;“同声传译”&gt;“权限”，关闭相关权限，以停止我们对您的个人信息的处理。"</string>
+    <string name="tv_declare_statement_12" translatable="false">"如您对您的数据主体权利有进一步要求或存在任何疑问、意见或建议，可通过本声明中“如何联系我们”章节中所述方式与我们取得联系，并行使您的相关权利。"</string>
+    <string name="tv_declare_statement_13" translatable="false">"4.信息存储地点及期限"</string>
+    <string name="tv_declare_statement_14" translatable="false">"上述信息将会传输并保存至中华人民共和国境内的服务器。"</string>
+    <string name="tv_declare_statement_15" translatable="false">"我们仅在实现本声明所述目的所必需的时间内保留您的个人信息，并在超出下述保留时间后删除或匿名化处理您的个人信息，除非法律法规另有要求。"</string>
+    <string name="tv_declare_statement_16" translatable="false">"您的个人数据具体留存时间如下："</string>
+    <string name="tv_declare_statement_17" translatable="false">在设备信息互联管理功能中，您的个人数据将在本地保存，保存期限最多为90天。</string>
+    <string name="tv_declare_statement_18" translatable="false">"在“数据文件及插件管理”功能中，为了让您可以及时获取最新的服务，在您开启该功能的期间，您的设备标识符、应用版本号及使用信息、设备类型和名称、系统基本信息会一直保存在华为服务器上；在您关闭“华为智慧能力”后，我们将及时删除上述数据。"</string>
+    <string name="tv_declare_statement_37" translatable="false">"您的设备标识符、应用及系统版本号、系统当前时间、设备类型、您使用本应用的信息将会在华为服务器保存3个月，以便我们不断优化产品设计，为您提供更好的服务体验。"</string>
+    <string name="tv_declare_statement_19" translatable="false">"您的其它个人数据不会被华为和第三方保存。"</string>
+    <string name="tv_declare_statement_20" translatable="false">"此外，当我们的产品或服务发生停止运营的情形时，我们将以推送通知、公告等形式通知您，并在合理的期限内删除您的个人信息或进行匿名化处理。"</string>
+    <string name="tv_declare_statement_21" translatable="false">"5.如何联系我们"</string>
+    <string name="tv_declare_statement_22" translatable="false">"我们指定了个人信息保护负责人，您可通过此链接 (https://consumer.huawei.com/cn/legal/privacy-questions/) 联系个人信息保护负责人，也可通过访问隐私问题页面 (https://consumer.huawei.com/cn/legal/privacy-questions/) 与我们取得联系，我们会尽快回复。"</string>
+    <string name="tv_declare_statement_23" translatable="false">"如果您对我们的回复不满意，特别是当我们的个人信息处理行为损害了您的合法权益时，您还可以通过向有管辖权的人民法院提起诉讼、向行业自律协会或政府相关管理机构投诉等外部途径进行解决。您也可以向我们了解可能适用的相关投诉途径的信息。"</string>
+    <string name="tv_declare_statement_24" translatable="false">"华为将始终遵照我们的隐私政策来收集和使用您的信息。有关我们的隐私政策，可参阅华为消费者业务隐私声明（https://consumer.huawei.com/en/legal/privacy-policy/worldwide/）。"</string>
+    <string name="more_operation_privacy" translatable="false">"隐私声明"</string>
+    <!-- tv end -->
+    <string name="hiai_permission_location" translatable="false">"位置信息"</string>
+    <string name="hiai_permission_phone" translatable="false">"电话 (设备信息)"</string>
+    <string name="hiai_permission_instructions" translatable="false">"权限使用说明"</string>
+    <string name="hiai_permission_instructions_title" translatable="false">"“%1$s”权限使用说明"</string>
+    <string name="hiai_permission_location_description" translatable="false">"用于提供基于位置的服务"</string>
+    <string name="hiai_permission_phone_device_information" translatable="false">"设备信息"</string>
+    <string name="hiai_permission_phone_device_information_description" translatable="false">"读取手机号码，作为智能候选词"</string>
+    <string name="hiai_permission_storage_description" translatable="false">"用于获取设备本地的图片信息，作为智能候选词"</string>
+    <string name="hiai_permission_message_description" translatable="false">读取信息/彩信，用于获取您的出行信息，以识别您所处的场景及姓名、车牌号等信息，作为智能候选词</string>
+    <string name="hiai_permission_contacts_description" translatable="false">"用于获取通讯录中的联系人信息，作为智能候选词"</string>
+    <string name="hiai_permission_calllog_description" translatable="false">"用于统计您的日均通话时长等信息，以提供健康使用手机提示等服务"</string>
+    <string name="hiai_permission_instructions_confirm" translatable="false">"知道了"</string>
+    <plurals name="hiai_permission_instructions_description">
+        <item quantity="other" translatable="false">"为确保正常运行，本服务启动时需申请如下 %1$d 个权限："</item>
+    </plurals>
+
+    <!-- permission reason -->
+    <string name="hiai_permission_reason_microphone" translatable="false">"用于获取用户输入的语音，以提供语音识别服务"</string>
+    <string name="hiai_permission_reason_location" translatable="false">"用于提供基于位置的服务，如情景智能中的通勤卡片"</string>
+    <string name="hiai_permission_reason_calendar" translatable="false">"用于提供日历日程提醒服务"</string>
+    <string name="hiai_permission_reason_sms" translatable="false">读取信息，用于及时获取出行信息，以识别您所处的场景和生成出行提醒卡片</string>
+    <string name="hiai_permission_reason_read_phone_state" translatable="false">"读取通话状态和电话号码，用于辅助语音拨号功能"</string>
+    <string name="hiai_permission_reason_contacts" translatable="false">"用于实现语音快速拨打电话"</string>
+    <string name="hiai_permission_reason_camera" translatable="false">"用于获取您使用本设备时的画面信息，以便识别您的使用姿态"</string>
+    <!-- permission reason end -->
+    <string name="settings_state_on" translatable="false">"已开启"</string>
+    <string name="settings_state_off" translatable="false">"已关闭"</string>
+    <string name="plugin_downloading_installing" translatable="false">"正在下载安装插件…"</string>
+    <string name="plugin_downloading_installing_progress" translatable="false">"正在下载安装插件…\n(%1$d/%2$d)"</string>
+    <string name="plugin_updating" translatable="false">"正在更新插件…"</string>
+    <string name="plugin_updating_progress" translatable="false">"正在更新插件…\n(%1$d/%2$d)"</string>
+    <string name="file_updating_progress" translatable="false">"正在更新数据文件…\n(%1$d/%2$d)"</string>
+    <string name="plugin_install_failed" translatable="false">"安装失败"</string>
+    <string name="plugin_install_complete" translatable="false">"安装完成"</string>
+    <string name="downloading_installing_plugins" translatable="false">"正在下载安装%1$s所需插件…"</string>
+    <string name="updating_files" translatable="false">"正在更新%1$s所需数据文件…"</string>
+    <string name="update_file_failed" translatable="false">"%1$s所需数据文件更新失败"</string>
+    <string name="update_file_completed" translatable="false">"%1$s所需数据文件更新完成"</string>
+    <plurals name="install_failure_plugins">
+        <item quantity="other" translatable="false">"%1$d 个%2$s所需插件安装失败"</item>
+    </plurals>
+    <plurals name="update_failure_plugins">
+        <item quantity="other" translatable="false">"%1$d 个%2$s所需插件更新失败"</item>
+    </plurals>
+    <plurals name="update_failure_files">
+        <item quantity="other" translatable="false">"%1$d 个%2$s所需数据文件更新失败"</item>
+    </plurals>
+    <plurals name="plugin_install_failed_detail">
+        <item quantity="other" translatable="false">"%1$d 个插件安装失败"</item>
+    </plurals>
+    <plurals name="plugin_update_failed_detail">
+        <item quantity="other" translatable="false">"%1$d 个插件更新失败"</item>
+    </plurals>
+
+    <string name="hiai_notice_text_watch" translatable="false">"本应用及其底层服务 (资源更新及数据采集) 需%1$s，使用您的华为帐号、设备、网络及应用信息，用于提供终端设备智慧开放能力和设备信息互联管理服务。本应用会在 WLAN 环境下自动为您更新数据文件及插件管理，您可随时通过应用内的设置关闭此功能 。打开开关，即表示您同意我们向您提供终端智慧服务。有关个人信息处理详情，请参阅%2$s。"</string>
+    <string name="hiai_privacy_detail_watch" translatable="false">请先打开手机运动健康 App，再点击手表的“从手机打开”按钮，在手机上查看《关于华为智慧能力与隐私的声明》。</string>
+    <string name="hiai_privacy_open_watch" translatable="false">"从手机打开"</string>
+    <string name="updating_plugins_watch" translatable="false">"正在更新%1$s所需插件…"</string>
+    <string name="enhance_service_watch" translatable="false">“增强服务”</string>
+    <string name="privacy_update_title_watch" translatable="false">“增强服务”更新了关于华为智慧能力与隐私的声明。</string>
+    <string name="privacy_update_detail_watch" translatable="false">"“增强服务”已更新。详细内容请参阅最新的&lt;a&gt;关于华为智慧能力与隐私的声明&lt;/a&gt;。"</string>
+    <string name="nitification_agree_btn_watch" translatable="false">同意</string>
+    <string name="nitification_disagree_btn_watch" translatable="false">不同意</string>
+    <string name="dialog_view_details_btn_watch" translatable="false">查看</string>
+    <string name="dialog_confirm_btn_watch" translatable="false">确认</string>
+    <string name="dialog_cancel_btn_watch" translatable="false">取消</string>
+    <string name="repeated_confirm_privacy_watch" translatable="false">若不同意本声明，将无法继续使用本服务的相关功能。确定不同意？</string>
+    <!-- watch string end -->
+
+    <string name="hiai_notice_text" translatable="false">"本服务及其底层服务 (提供文字处理、资源更新、数据采集及管理服务) 需%1$s，调用%2$s、%3$s、%4$s、%5$s、%6$s、%7$s权限，使用您的位置、网络、应用、华为帐号、设备信息及运动健康信息，并在本地分析第三方应用界面信息，用于提供终端设备智慧开放能力和设备信息互联管理服务。打开开关，即表示您同意我们向您提供终端智慧服务。有关个人信息处理详情，请参阅%8$s、%9$s。"</string>
+    <string name="hiai_notice_text_bloom" translatable="false">"本服务需%2$s，获取设备、应用及网络信息，用于提供终端设备智慧开放能力。打开开关，即表示您同意上述内容及%1$s。"</string>
+    <string name="hiai_oobe_notice_text" translatable="false">"“%1$s”是我们为您提供终端设备智慧开放能力和设备信息互联管理功能的系统增强服务。本服务及其底层服务需&lt;b&gt;联网&lt;/b&gt;，调用&lt;b&gt;存储、电话 (设备信息)、位置信息、通讯录、信息、通话记录&lt;/b&gt;权限，使用您的位置、网络、应用、华为帐号、设备信息及运动健康信息，并在本地分析第三方应用界面信息，其中底层服务提供文字处理、资源更新、数据采集及管理服务。本应用会在 Wi-Fi 环境下自动为您更新数据文件及插件管理，您可随时通过应用内的设置关闭此功能。勾选此项，即表示您同意我们向您提供终端智慧服务。有关个人信息处理详情，请参阅&lt;a&gt;%2$s&lt;/a&gt;、&lt;a&gt;%3$s&lt;/a&gt;。"</string>
+    <string name="hiai_oobe_notice_text_bloom" translatable="false">"“%1$s”是我们为您提供终端设备智慧开放能力的系统增强服务。本服务需&lt;b&gt;联网&lt;/b&gt;，使用您的设备、应用及网络信息。本应用会在 Wi-Fi 环境下自动为您更新数据文件及插件管理，您可随时通过应用内的设置关闭此功能。勾选此项，即表示您同意我们向您提供终端智慧服务。有关个人信息处理详情，请参阅&lt;a&gt;%2$s&lt;/a&gt;。"</string>
+    <string name="hiai_notice_text_bloom_new" translatable="false">本服务需%2$s，使用您的设备、应用及网络信息，用于提供终端设备智慧开放能力。打开开关，即表示您同意我们向您提供终端智慧服务。有关个人信息处理详情，请参阅%1$s。</string>
+    <string name="agree" translatable="false">同意</string>
+    <string name="un_agree" translatable="false">取消</string>
+    <string name="masking_face" translatable="false">面部蒙版</string>
+    <string name="masking_face_switchover" translatable="false">体验反馈</string>
+    <string name="know" translatable="false">我已知悉上述声明</string>
+    <string name="feedback" translatable="false">反馈</string>
+    <string name="testSi">同声传译</string>
 
 </resources>

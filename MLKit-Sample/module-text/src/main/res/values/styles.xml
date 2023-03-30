@@ -65,4 +65,55 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="style_btn_switch">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Dialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <!--Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否显示title-->
+        <item name="android:windowNoTitle">true</item>
+        <!--设置dialog的背景，（#00000000）-->
+        <!--        <item name="android:background">@android:color/transparent</item>-->
+        <!--显示区域背景是否透明，（#00000000）-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5-->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <!--显示区域以外是否使用黑色半透明背景-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="RadioBtnMyIcon">
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:button">@drawable/radiobutton_icon</item>
+    </style>
+
+    <style name="contentVoiceTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="asrTextStrle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">#7f7f7f</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

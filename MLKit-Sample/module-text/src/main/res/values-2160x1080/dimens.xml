@@ -13,4 +13,6 @@
     <dimen name="text_size_11sp">11sp</dimen>
     <dimen name="text_size_9sp">11sp</dimen>
     <dimen name="text_size_28sp">26sp</dimen>
+
+    <dimen name="ner_toolbar_height">200dp</dimen>
 </resources>

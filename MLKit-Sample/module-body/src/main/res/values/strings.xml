@@ -2,11 +2,19 @@
     <string name="app_name">ML Body</string>
     <string name="face_detection">Face</string>
     <string name="face_3d">3D Face</string>
-    <string name="skeletlon">Skeletlon</string>
+    <string name="skeleton">Skeleton</string>
     <string name="liveness_detection">Liveness Detection</string>
+    <string name="interactive_liveness_detection">Interactive Liveness Detection</string>
     <string name="handKeypoint">HandKeyPoint</string>
+    <string name="handRecognition">Gesture recognition</string>
     <string name="gesture">Gesture</string>
     <string name="faceVerification">Face Verification</string>
+
+    <string name="detection_failed" translatable="false">Detection failed</string>
+    <string name="failure_cause" translatable="false">Failure Cause</string>
+    <string name="retest" translatable="false">Retest</string>
+    <string name="exit" translatable="false">exit</string>
+    <string name="start_detection" translatable="false">Start the Detection</string>
 
     <string name="ok">OK</string>
     <string name="settings">Settings</string>
@@ -56,5 +64,20 @@
     <string name="gesture_confirm">OK</string>
     <string name="gesture_others">Other gestures</string>
 
+    <string name="interactive_in_progress">Detected</string>
+    <string name="interactive_spoofing">nonliving body</string>
+    <string name="interactive_live_and_action_correct">Go to the next action.</string>
+    <string name="interactive_guide_detection_success">Boot detection succeeded.</string>
+    <string name="interactive_no_face">No face. Please aim at the face frame.</string>
+    <string name="interactive_part_face">Face offset center. Align with the face frame.</string>
+    <string name="interactive_big_face">The face is too large. Please aim at the face frame.</string>
+    <string name="interactive_small_face">The face is too small. Please aim at the face frame.</string>
+    <string name="interactive_wear_sunglasses">Please remove the sunglasses for inspection.</string>
+    <string name="interactive_wear_mask">Please remove the mask.</string>
+    <string name="interactive_action_mutually_exclusive_error">Action detection mutex error</string>
+    <string name="interactive_all_action_correct">Facial recognition succeeded.</string>
+    <string name="interactive_result_time_out">Detection timeout</string>
+    <string name="interactive_blur">Check in a bright and clear place.</string>
+    <string name="interactive_start">Starting interactive</string>
 
 </resources>

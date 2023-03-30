@@ -29,8 +29,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.huawei.hms.mlsdk.sounddect.MLSoundDectListener;
-import com.huawei.hms.mlsdk.sounddect.MLSoundDector;
+import com.huawei.hms.mlsdk.sounddect.MLSoundDetectListener;
+import com.huawei.hms.mlsdk.sounddect.MLSoundDetector;
 import com.huawei.mlkit.sample.R;
 
 import java.text.DecimalFormat;
@@ -57,12 +57,12 @@ public class SoundDectActivity extends AppCompatActivity implements View.OnClick
     private long baseTimer;
     private TimerHandler timerHandler;
     private Vector<String> logList;
-    private MLSoundDector soundDector;
+    private MLSoundDetector soundDector;
 
-    private MLSoundDectListener listener = new MLSoundDectListener() {
+    private MLSoundDetectListener listener = new MLSoundDetectListener() {
         @Override
         public void onSoundSuccessResult(Bundle result) {
-            int voiceType = result.getInt(MLSoundDector.RESULTS_RECOGNIZED);
+            int voiceType = result.getInt(MLSoundDetector.RESULTS_RECOGNIZED);
             if (voiceType > 0 && voiceType < 13) {
                 logList.add(type[voiceType]);
             }
@@ -102,8 +102,8 @@ public class SoundDectActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initModel() {
-        soundDector = MLSoundDector.createSoundDector();
-        soundDector.setSoundDectListener(listener);
+        soundDector = MLSoundDetector.createSoundDetector();
+        soundDector.setSoundDetectListener(listener);
     }
 
     @Override

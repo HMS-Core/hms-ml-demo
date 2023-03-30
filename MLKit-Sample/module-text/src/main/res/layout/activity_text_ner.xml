@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ner_toolbar_height"
+            android:background="@color/head_blue"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/ner_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/white_back"
+                android:layout_gravity="top"
+                android:text="@string/back"
+                android:onClick="onClick"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14sp"
+                />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/online_text_ner"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_17sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ffe6e6e6"
+            app:layout_constraintStart_toStartOf="@id/spDestType"
+            app:layout_constraintTop_toBottomOf="@id/spDestType"
+            app:layout_constraintEnd_toEndOf="@id/spDestType"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/real_ner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/ner_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/bg_edit_text_corner0"
+                    android:gravity="top"
+                    android:minLines="7"
+                    android:padding="5dp"
+                    android:text="@string/ner_text_hint"
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <ImageView
+                    android:id="@+id/delete_ner_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/ner_input"
+                    android:layout_alignBottom="@+id/ner_input"
+                    android:layout_margin="5dp"
+                    android:onClick="onClick"
+                    app:srcCompat="@drawable/translate_delete_text" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/input_size"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@+id/real_ner"
+                android:layout_alignBottom="@+id/real_ner"
+                android:minLines="1"
+                android:text="0/T"
+                android:layout_marginRight="15dp"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_size_14sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/ner_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_edit_text_corner0_bge6e6e6"
+            android:gravity="top"
+            android:minLines="7"
+            android:padding="5dp"
+            android:textSize="@dimen/text_size_14sp"
+            android:textIsSelectable="true" />
+
+        <Button
+            android:id="@+id/btn_ner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_margin="15dp"
+            android:textSize="@dimen/text_size_12sp"
+            android:background="@drawable/btn_back"
+            android:text="@string/ner_v"
+            android:textAllCaps="false"
+            android:onClick="onClick"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_time_label" />
+    </LinearLayout>
+
+</ScrollView>

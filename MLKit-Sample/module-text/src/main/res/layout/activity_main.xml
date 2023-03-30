@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity_bg"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.huawei.mlkit.sample.activity.si.dialog.MediumBoldTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginLeft="24dp"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <!--切换layout-->
+        <LinearLayout
+            android:id="@+id/layout_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/layout_circle_bg"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/originLan"
+                style="@style/style_btn_switch"
+                android:text="@string/chinese" />
+
+            <ImageView
+                android:id="@+id/switchBtn"
+                style="@style/style_btn_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:src="@drawable/ic_switch" />
+
+            <TextView
+                android:id="@+id/targetLan"
+                style="@style/style_btn_switch"
+                android:text="@string/english" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/layout_item_circle_bg"
+            android:divider="@drawable/divider"
+            android:dividerPadding="13dp"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp">
+
+                <View
+                    android:id="@+id/lineCenter"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/contentTitle"
+                    style="@style/contentVoiceTitleStyle"
+                    android:text="@string/contentShow" />
+
+                <ImageView
+                    android:id="@+id/right_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_right_grey" />
+
+                <TextView
+                    android:id="@+id/contentList"
+                    style="@style/asrTextStrle"
+                    android:layout_alignLeft="@id/lineCenter"
+                    android:layout_toLeftOf="@id/right_icon"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:text="@string/asrtext" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_voice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/voiceTitle"
+                    style="@style/contentVoiceTitleStyle"
+                    android:text="@string/voicePlay" />
+
+                <ImageView
+                    android:id="@+id/right_icon2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_right_grey" />
+
+                <TextView
+                    android:id="@+id/voiceList"
+                    style="@style/asrTextStrle"
+                    android:layout_toLeftOf="@+id/right_icon2"
+                    android:text="@string/notBroadcast" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/layout_item_circle_bg"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/hintTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recognitionHint" />
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:stackFromBottom="false"
+                    android:transcriptMode="disabled" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+
+            <com.huawei.mlkit.sample.activity.si.dialog.MediumBoldTextView
+                android:id="@+id/startBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/btn_circle_bg"
+                android:gravity="center"
+                android:text="@string/startRecognitionBtn"
+                android:textColor="@color/btncolor"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

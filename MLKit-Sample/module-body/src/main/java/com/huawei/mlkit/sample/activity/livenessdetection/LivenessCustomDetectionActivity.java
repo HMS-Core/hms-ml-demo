@@ -46,9 +46,10 @@ public class LivenessCustomDetectionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liveness_custom_detection);
+        setContentView(R.layout.activity_human_liveness_custom_detection);
         mPreviewContainer = findViewById(R.id.surface_layout);
         img_back = findViewById(R.id.img_back);
+        setTitle(R.string.liveness_detection);
 
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,6 @@ public class LivenessCustomDetectionActivity extends Activity {
             }
         });
 
-        //Obtain MLLivenessDetectView
         DisplayMetrics outMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
         int widthPixels = outMetrics.widthPixels;
@@ -116,6 +116,4 @@ public class LivenessCustomDetectionActivity extends Activity {
         super.onResume();
         mlLivenessDetectView.onResume();
     }
-
-
 }

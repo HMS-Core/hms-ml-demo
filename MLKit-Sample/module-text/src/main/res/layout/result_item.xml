@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/originTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="left"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="ASR文字"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/translateTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="left"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="ASRtv"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+
+
+</LinearLayout>

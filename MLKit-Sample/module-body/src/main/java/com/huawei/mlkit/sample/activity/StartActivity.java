@@ -52,6 +52,7 @@ import com.huawei.mlkit.sample.activity.face3d.Live3DFaceAnalyseActivity;
 import com.huawei.mlkit.sample.activity.facecompare.FaceVerificationActivity;
 import com.huawei.mlkit.sample.activity.gesture.GestureActivity;
 import com.huawei.mlkit.sample.activity.handkeypoint.HandKeypointActivity;
+import com.huawei.mlkit.sample.activity.interactivelivenessdetection.LivenessActivity;
 import com.huawei.mlkit.sample.activity.livenessdetection.HumanLivenessDetectionActivity;
 import com.huawei.mlkit.sample.activity.skeleton.HumanSkeletonActivity;
 import com.huawei.mlkit.sample.activity.skeleton.TemplateActivity;
@@ -73,11 +74,15 @@ public final class StartActivity extends BaseActivity
     private static final String TAG = "StartActivity";
     public static final String API_KEY = "client/api_key";
     private static final int PERMISSION_REQUESTS = 1;
-    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton ,
-            R.drawable.icon_liveness,R.drawable.icon_handkeypoint,R.drawable.icon_face3d,R.drawable.icon_faceverification,R.drawable.icon_handkeypoint};
+    private static final int[] ICONS = {com.huawei.mlkit.sample.R.drawable.icon_face, R.drawable.icon_skeleton,
+            R.drawable.icon_liveness, R.drawable.icon_handkeypoint,
+            R.drawable.icon_face3d, R.drawable.icon_faceverification,
+            R.drawable.icon_handkeypoint, R.drawable.icon_liveness};
 
-    private static final int[] TITLES = { com.huawei.mlkit.sample.R.string.face_detection,
-            R.string.skeletlon, R.string.liveness_detection,R.string.handKeypoint, R.string.face_3d,R.string.faceVerification,R.string.gesture};
+    private static final int[] TITLES = { com.huawei.mlkit.sample.R.string.face_detection, R.string.skeleton,
+            R.string.liveness_detection, R.string.handKeypoint,
+            R.string.face_3d, R.string.faceVerification,
+            R.string.gesture, R.string.interactive_liveness_detection};
     private GridView mGridView;
     private ArrayList<GridViewItem> mDataList;
 
@@ -114,8 +119,7 @@ public final class StartActivity extends BaseActivity
     }
 
     /**
-     * Read the ApiKey field in the sample-agconnect-services.json to obtain the API key of the application and set it.
-     * For details about how to apply for the agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
      */
     private void setApiKey(){
         AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());
@@ -157,6 +161,10 @@ public final class StartActivity extends BaseActivity
                     case 6:
                         // HandKeypoint
                         startActivity(new Intent(StartActivity.this, GestureActivity.class));
+                        break;
+                    case 7:
+                        // HandKeypoint
+                        startActivity(new Intent(StartActivity.this, LivenessActivity.class));
                         break;
                     default:
                         break;

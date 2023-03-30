@@ -107,6 +107,11 @@
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.imageseg.ImageSegmentationLiveAnalyseActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

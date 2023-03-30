@@ -13,67 +13,62 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
-        android:requestLegacyExternalStorage="true"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activity.StartActivity">
+        <activity android:name=".activity.interactivelivenessdetection.LivenessActivity"></activity>
+        <activity android:name=".activity.StartActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- bace -->
-        <activity android:name=".activity.BaseActivity" />
-        <!-- setting -->
-        <activity android:name=".activity.SettingActivity" />
-        <!-- face -->
+        </activity> <!-- base -->
+        <activity android:name=".activity.BaseActivity" /> <!-- setting -->
+        <activity android:name=".activity.SettingActivity" /> <!-- face -->
         <activity
             android:name=".activity.face.FaceDetectionActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.face3d.Live3DFaceAnalyseActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask" />
-        <!-- HumanSkeleton -->
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" /> <!-- HumanSkeleton -->
         <activity
             android:name=".activity.skeleton.HumanSkeletonActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.skeleton.TemplateActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
-            android:launchMode="singleTask" />
-
-        <!--LivenessDetection-->
-        <activity android:name=".activity.livenessdetection.HumanLivenessDetectionActivity"
-            android:screenOrientation="portrait"
-            ></activity>
-        <activity android:name=".activity.livenessdetection.LivenessCustomDetectionActivity"
-            android:screenOrientation="portrait"
-            ></activity>
-        <!--HandKeypoint-->
+            android:launchMode="singleTask" /> <!-- LivenessDetection -->
+        <activity
+            android:name=".activity.livenessdetection.HumanLivenessDetectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.livenessdetection.LivenessCustomDetectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.interactivelivenessdetection.InteractiveLivenessDetectionActivity"
+            android:screenOrientation="portrait" /> <!-- HandKeypoint -->
         <activity
             android:name=".activity.handkeypoint.HandKeypointImageActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".activity.handkeypoint.HandKeypointActivity"
-            android:screenOrientation="portrait"
-            />
-
-        <!--Gesture-->
+        <activity
+            android:name=".activity.handkeypoint.HandKeypointActivity"
+            android:screenOrientation="portrait" /> <!-- Gesture -->
         <activity
             android:name=".activity.gesture.GestureActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.gesture.GestureImageActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.facecompare.FaceVerificationActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

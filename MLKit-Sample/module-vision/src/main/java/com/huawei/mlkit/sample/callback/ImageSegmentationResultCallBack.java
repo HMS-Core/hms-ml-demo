@@ -21,7 +21,6 @@ import android.graphics.Bitmap;
 /**
  * Image segmentation result callback
  *
- * @author zWX882937
  * @since 2020-04-14
  */
 public interface ImageSegmentationResultCallBack {

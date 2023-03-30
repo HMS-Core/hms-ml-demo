@@ -384,17 +384,11 @@ public class RemoteTranslateActivity extends BaseActivity {
         this.mlRemoteLangDetectorSetting = new MLRemoteLangDetectorSetting.Factory().setTrustedThreshold(0.01f).create();
         this.mlRemoteLangDetector = MLLangDetectorFactory.getInstance().getRemoteLangDetector(this.mlRemoteLangDetectorSetting);
         Task<List<MLDetectedLang>> probabilityDetectTask = this.mlRemoteLangDetector.probabilityDetect(this.getInputText());
-        probabilityDetectTask.addOnSuccessListener(new OnSuccessListener<List<MLDetectedLang>>() {
-            @Override
-            public void onSuccess(List<MLDetectedLang> result) {
-                MLDetectedLang recognizedLang = result.get(0);
-                String langCode = recognizedLang.getLangCode();
-                RemoteTranslateActivity.this.updateSourceLanguage(langCode);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(Exception e) {
-            }
+        probabilityDetectTask.addOnSuccessListener(result -> {
+            MLDetectedLang recognizedLang = result.get(0);
+            String langCode = recognizedLang.getLangCode();
+            RemoteTranslateActivity.this.updateSourceLanguage(langCode);
+        }).addOnFailureListener(e -> {
         });
     }
 
@@ -403,27 +397,22 @@ public class RemoteTranslateActivity extends BaseActivity {
         this.mlRemoteLangDetector = MLLangDetectorFactory.getInstance().getRemoteLangDetector(this.mlRemoteLangDetectorSetting);
         Task<List<MLDetectedLang>> probabilityDetectTask = this.mlRemoteLangDetector.probabilityDetect(this.getInputText());
         final long startTime = System.currentTimeMillis();
-        probabilityDetectTask.addOnSuccessListener(new OnSuccessListener<List<MLDetectedLang>>() {
-            @Override
-            public void onSuccess(List<MLDetectedLang> result) {
-                long endTime = System.currentTimeMillis();
-                StringBuilder sb = new StringBuilder();
-                for (MLDetectedLang recognizedLang : result) {
-                    String langCode = recognizedLang.getLangCode();
-                    float probability = recognizedLang.getProbability();
-                    sb.append("Language=" + RemoteTranslateActivity.this.getEnLanguageName(langCode) + "(" + langCode + "), score=" + probability);
-                    sb.append(".");
-                }
-                RemoteTranslateActivity.this.updateOutputText(sb.toString());
-                RemoteTranslateActivity.this.updateTime(endTime - startTime);
+        probabilityDetectTask.addOnSuccessListener(result -> {
+            long endTime = System.currentTimeMillis();
+            StringBuilder sb = new StringBuilder();
+            for (MLDetectedLang recognizedLang : result) {
+                String langCode = recognizedLang.getLangCode();
+                float probability = recognizedLang.getProbability();
+                sb.append("Language=" + RemoteTranslateActivity.this.getEnLanguageName(langCode) + "(" + langCode + "), score=" + probability);
+                sb.append(".");
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(Exception e) {
-                RemoteTranslateActivity.this.updateOutputText(e.getMessage());
-            }
+            RemoteTranslateActivity.this.updateOutputText(sb.toString());
+            RemoteTranslateActivity.this.updateTime(endTime - startTime);
+            RemoteTranslateActivity.this.mlRemoteLangDetector.stop();
+        }).addOnFailureListener(e -> {
+            RemoteTranslateActivity.this.updateOutputText(e.getMessage());
+            RemoteTranslateActivity.this.mlRemoteLangDetector.stop();
         });
-        this.mlRemoteLangDetector.stop();
     }
 
     private String getLanguageName(String code) {

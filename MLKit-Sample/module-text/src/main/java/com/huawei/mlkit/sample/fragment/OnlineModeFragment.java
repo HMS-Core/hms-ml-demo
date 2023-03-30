@@ -179,6 +179,10 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
         languageMap.put("it-IT", this.getString(R.string.Italian));
         languageMap.put("de-DE", this.getString(R.string.German));
         languageMap.put("es-ES", this.getString(R.string.spanish));
+        languageMap.put("th-TH", this.getString(R.string.Thai));
+        languageMap.put("ms-MY", this.getString(R.string.Malay));
+        languageMap.put("fil-PH", this.getString(R.string.Pilipino));
+
         speakerMap.put("zh-Hans-st-1", this.getString(R.string.female_zh));
         speakerMap.put("zh-Hans-st-2", this.getString(R.string.male_zh));
         speakerMap.put("en-US-st-1", this.getString(R.string.female_en));
@@ -187,6 +191,10 @@ public class OnlineModeFragment extends Fragment implements View.OnClickListener
         speakerMap.put("it-IT-st-1", this.getString(R.string.female_it));
         speakerMap.put("de-DE-st-1", this.getString(R.string.female_de));
         speakerMap.put("es-ES-st-1", this.getString(R.string.female_es));
+        speakerMap.put("th-TH-st-1", this.getString(R.string.female_th));
+        speakerMap.put("ms-MS-st-1", this.getString(R.string.female_ms));
+        speakerMap.put("pl-PL-st-1", this.getString(R.string.female_ph));
+
     }
 
 

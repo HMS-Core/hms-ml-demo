@@ -17,6 +17,7 @@
 package com.huawei.mlkit.sample.activity.livenessdetection;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -32,8 +33,6 @@ import androidx.core.app.ActivityCompat;
 import com.huawei.hms.mlsdk.livenessdetection.MLLivenessCapture;
 import com.huawei.hms.mlsdk.livenessdetection.MLLivenessCaptureResult;
 import com.huawei.mlkit.sample.R;
-
-import java.text.BreakIterator;
 
 public class HumanLivenessDetectionActivity extends AppCompatActivity {
     private static final String TAG = HumanLivenessDetectionActivity.class.getSimpleName();
@@ -56,13 +55,14 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
         mCustomBtn = findViewById(R.id.custom_btn);
         mTextResult = findViewById(R.id.text_detect_result);
         mImageResult = findViewById(R.id.img_detect_result);
+        setTitle(R.string.liveness_detection);
 
         mBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (ActivityCompat.checkSelfPermission(
-                                        HumanLivenessDetectionActivity.this, Manifest.permission.CAMERA)
+                                HumanLivenessDetectionActivity.this, Manifest.permission.CAMERA)
                                 == PackageManager.PERMISSION_GRANTED) {
                             startCaptureActivity();
                             return;
@@ -86,6 +86,7 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
                                 HumanLivenessDetectionActivity.this, PERMISSIONS, RC_CAMERA_AND_EXTERNAL_STORAGE);
                     }
                 });
+
     }
 
     private void startCaptureActivity() {
@@ -100,6 +101,7 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
 
     private MLLivenessCapture.Callback callback =
             new MLLivenessCapture.Callback() {
+                @SuppressLint("SetTextI18n")
                 @Override
                 public void onSuccess(MLLivenessCaptureResult result) {
                     String [] temp = null;
@@ -111,6 +113,7 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
                     mImageResult.setImageBitmap(result.getBitmap());
                 }
 
+                @SuppressLint("SetTextI18n")
                 @Override
                 public void onFailure(int errorCode) {
                     mTextResult.setText("errorCode:" + errorCode);
@@ -122,6 +125,7 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
          * Liveness detection success callback.
          * @param result result
          */
+        @SuppressLint("SetTextI18n")
         @Override
         public void onSuccess(MLLivenessCaptureResult result) {
             String [] temp = null;
@@ -133,6 +137,7 @@ public class HumanLivenessDetectionActivity extends AppCompatActivity {
             mImageResult.setImageBitmap(result.getBitmap());
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public void onFailure(int errorCode) {
             mTextResult.setText("errorCode:" + errorCode);

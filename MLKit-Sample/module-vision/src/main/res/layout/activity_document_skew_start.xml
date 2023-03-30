@@ -82,7 +82,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="80dp"
                 android:gravity="center_horizontal"
-                android:text="@string/isr_upload_picture"
+                android:text="@string/please_select_picture"
                 android:textColor="#333333"
                 android:layout_marginBottom="30dp"
                 android:textSize="@dimen/text_size_13sp" />

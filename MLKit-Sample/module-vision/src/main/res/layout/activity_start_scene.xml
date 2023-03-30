@@ -17,7 +17,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="50dp"
             android:text="@string/scene_detection"
-            android:textColor="@color/upsdk_white"
+            android:textColor="@color/white"
             android:textSize="16sp" />
     </RelativeLayout>
 

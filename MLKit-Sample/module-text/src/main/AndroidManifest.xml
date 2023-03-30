@@ -24,6 +24,7 @@
         android:icon="@drawable/icon"
         android:label="ML Text"
         android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/MaterialTheme">
         <activity android:name=".activity.textemdding.TextEmbeddingActivity" />
         <activity android:name=".activity.docdetection.DocDetectionResultActivity" />
@@ -107,6 +108,19 @@
             android:name=".activity.asrlong.RealTimeTranscriptionActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ner.TextNerActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|keyboardHidden|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activity.si.activity.PrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.si.activity.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

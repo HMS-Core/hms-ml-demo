@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".activity.interactivelivenessdetection.InteractiveLivenessDetectionActivity">
+
+    <RelativeLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/layout_back"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="0dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="24dp"
+                android:contentDescription="@string/mlkit_liveness_detect_backIcon"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_public_back" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/layout_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.huawei.mlkit.sample.views.MediumBoldTextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:gravity="left|start"
+                android:textColor="@color/textcolor"
+                android:textSize="20sp"
+                android:text="@string/mlkit_liveness_detect_name"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.huawei.mlkit.sample.views.MaskingView
+        android:id="@+id/masking_view"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:layout_marginTop="56dp"
+        android:background="@color/background"
+        android:minHeight="480dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/success_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        app:srcCompat="@drawable/ic_public_todo_succeed"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/detection_failed_imageView"
+        android:layout_width="236dp"
+        android:layout_height="236dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="300dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/success_image" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
+        android:text="@string/detection_passed"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+    <TextView
+        android:id="@+id/detection_failed_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:text="@string/detection_failed"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+    <com.huawei.mlkit.sample.views.MediumBoldTextView
+        android:id="@+id/failure_cause_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="#99000000"
+        android:text="@string/failure_cause"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detection_failed_textView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/retest_button"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selected"
+            android:text="@string/retest"
+            android:textColor="@color/text_color_liveness"
+            android:stateListAnimator="@null"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/exit_button"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selected"
+            android:text="@string/exit"
+            android:textColor="@color/text_color_liveness"
+            android:stateListAnimator="@null"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

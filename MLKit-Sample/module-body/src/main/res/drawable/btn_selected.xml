@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- pressed -->
+    <item android:state_pressed="true"
+        android:drawable="@drawable/btn_down"/>
+
+    <!-- focused -->
+    <item android:state_focused="true"
+        android:drawable="@drawable/btn_default"/>
+
+    <!-- 默认时的背景图片-->
+    <item android:drawable="@drawable/btn_default" />
+</selector>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.huawei.mlkit.sample.util.LensEnginePreview
+        android:id="@+id/segment_preview"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.huawei.mlkit.sample.util.LensEnginePreview>
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <com.huawei.mlkit.sample.util.GraphicOverlay
+        android:id="@+id/segment_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/facingSwitch"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/facingswitch"
+        android:textOff=""
+        android:textOn="" />
+</RelativeLayout>

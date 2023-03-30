@@ -107,8 +107,7 @@ public final class StartActivity extends BaseActivity
     }
 
     /**
-     * Read the ApiKey field in the sample-agconnect-services.json to obtain the API key of the application and set it.
-     * For details about how to apply for the sample-agconnect-services.json, see section https://developer.huawei.com/consumer/cn/doc/development/HMS-Guides/ml-add-agc.
+     * Read the ApiKey field in the agconnect-services.json to obtain the API key of the application and set it.
      */
     private void setApiKey() {
         AGConnectServicesConfig config = AGConnectServicesConfig.fromContext(getApplication());

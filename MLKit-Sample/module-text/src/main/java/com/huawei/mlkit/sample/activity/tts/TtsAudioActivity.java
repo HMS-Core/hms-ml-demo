@@ -161,6 +161,11 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         languageMap.put("it-IT", this.getString(string.Italian));
         languageMap.put("de-DE", this.getString(string.German));
         languageMap.put("es-ES", this.getString(string.spanish));
+//        languageMap.put("", this.getString(string.Polish));
+        languageMap.put("th-TH", this.getString(string.Thai));
+        languageMap.put("ms-MY", this.getString(string.Malay));
+        languageMap.put("fil-PH", this.getString(string.Pilipino));
+
         speakerMap.put("zh-Hans-st-1", this.getString(string.female_zh));
         speakerMap.put("zh-Hans-st-2", this.getString(string.male_zh));
         speakerMap.put("en-US-st-1", this.getString(string.female_en));
@@ -168,7 +173,11 @@ public class TtsAudioActivity extends AppCompatActivity implements View.OnClickL
         speakerMap.put("fr-FR-st-1", this.getString(string.female_fr));
         speakerMap.put("it-IT-st-1", this.getString(string.female_it));
         speakerMap.put("de-DE-st-1", this.getString(string.female_de));
+//        speakerMap.put("")
         speakerMap.put("es-ES-st-1", this.getString(string.female_es));
+        speakerMap.put("th-TH-st-1", this.getString(string.female_th));
+        speakerMap.put("ms-MS-st-1", this.getString(string.female_ms));
+        speakerMap.put("pl-PL-st-1", this.getString(string.female_ph));
     }
 
     private void initView() {

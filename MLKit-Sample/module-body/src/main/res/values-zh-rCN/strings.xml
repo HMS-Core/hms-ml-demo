@@ -10,6 +10,7 @@
     <string name="take_photo">拍照</string>
     <string name="select_from_album">从相册选择图片</string>
     <string name="cloud_handkeypoint">手部关键点</string>
+    <string name="handRecognition">手势识别</string>
     <string name="faceVerification">人脸比对</string>
 
     <string name="click_add_template_picture">点击选择模板图片</string>
@@ -22,10 +23,17 @@
 
     <string name="face_detection">人脸检测</string>
     <string name="face_3d">3D 人脸检测</string>
-    <string name="skeletlon">人体骨骼</string>
+    <string name="skeleton">人体骨骼</string>
     <string name="liveness_detection">活体检测</string>
+    <string name="interactive_liveness_detection">动作活体检测</string>
     <string name="handKeypoint">手部关键点</string>
     <string name="gesture">手势识别</string>
+
+    <string name="detection_failed" translatable="false">验证失败</string>
+    <string name="failure_cause" translatable="false">失败原因</string>
+    <string name="retest" translatable="false">重新检测</string>
+    <string name="exit" translatable="false">退出</string>
+    <string name="start_detection" translatable="false">开始检测</string>
 
     <string name="all">所有</string>
     <string name="coming_soon">敬请期待</string>
@@ -57,9 +65,20 @@
     <string name="gesture_confirm">确认</string>
     <string name="gesture_others">其他手势</string>
 
-
-
-
-
+    <string name="interactive_in_progress">正在检测中</string>
+    <string name="interactive_spoofing">非活体</string>
+    <string name="interactive_live_and_action_correct">请进行下一动作检测</string>
+    <string name="interactive_guide_detection_success">引导检测成功</string>
+    <string name="interactive_no_face">无人脸，请对准人脸框</string>
+    <string name="interactive_part_face">人脸偏移中心，请对准人脸框</string>
+    <string name="interactive_big_face">人脸过大，请对准人脸框</string>
+    <string name="interactive_small_face">人脸过小，请对准人脸框</string>
+    <string name="interactive_wear_sunglasses">墨镜遮挡，请摘下墨镜检测</string>
+    <string name="interactive_wear_mask">口罩遮挡，请摘下口罩检测</string>
+    <string name="interactive_action_mutually_exclusive_error">动作检测互斥错误</string>
+    <string name="interactive_all_action_correct">人脸识别成功</string>
+    <string name="interactive_result_time_out">检测超时</string>
+    <string name="interactive_blur">请到光线明亮清晰处检测</string>
+    <string name="interactive_start">动作活体检测</string>
 
 </resources>

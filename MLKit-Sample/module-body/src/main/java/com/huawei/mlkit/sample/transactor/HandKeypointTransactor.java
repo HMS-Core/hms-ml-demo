@@ -107,6 +107,7 @@ public class HandKeypointTransactor extends BaseTransactor<List<MLHandKeypoints>
             @NonNull FrameMetadata frameMetadata,
             @NonNull GraphicOverlay graphicOverlay) {
         graphicOverlay.clear();
+        Log.d(TAG, "Total MLSkeletons graphicOverlay start");
         if (originalCameraImage != null) {
             CameraImageGraphic imageGraphic = new CameraImageGraphic(graphicOverlay, originalCameraImage);
             graphicOverlay.addGraphic(imageGraphic);
@@ -115,15 +116,16 @@ public class HandKeypointTransactor extends BaseTransactor<List<MLHandKeypoints>
         if (mlHandKeypoints == null || mlHandKeypoints.isEmpty()) {
             return;
         }
-		
+        Log.d(TAG, "Total MLSkeletons hmsMLLocalFaceGraphic start");
         HandKeypointGraphic handKeypointGraphic = new HandKeypointGraphic(graphicOverlay, mlHandKeypoints);
         graphicOverlay.addGraphic(handKeypointGraphic);
         graphicOverlay.postInvalidate();
+        Log.d(TAG, "Total MLSkeletons graphicOverlay end");
     }
 
     @Override
     protected void onFailure(@NonNull Exception e) {
-        Log.e(TAG, "HandKeypoint failed: " + e.getMessage());
+        Log.e(TAG, "Skeleton detection failed: " + e.getMessage());
     }
 
     @Override

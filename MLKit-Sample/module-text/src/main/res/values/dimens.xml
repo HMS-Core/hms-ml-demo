@@ -8,6 +8,7 @@
     <dimen name="toolbar_height">45dp</dimen>
     <dimen name="large_toolbar_height">270dp</dimen>
     <dimen name="btn_height">36dp</dimen>
+    <dimen name="ner_toolbar_height">200dp</dimen>
 
     <dimen name="text_size_28sp">28sp</dimen>
 
