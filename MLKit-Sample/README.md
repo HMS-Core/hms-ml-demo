@@ -163,7 +163,7 @@ HUAWEI ML Kit allows your apps to easily leverage Huawei's long track record in 
 
  - Finally, replace the *applicationId* of each module (under `<module>/build.gradle`) with the package name entered when creating the apps in **AGC ** (at step #3)
 
-### Supported Environments
+## Supported Environments
 Devices with Android 4.4 or later are recommended.
 
 
