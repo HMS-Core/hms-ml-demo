@@ -7,7 +7,7 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
  * [Project directory structure](#project-directory-structure)
  * [More Scenarios](#more-scenarios)
  * [Getting Started](#getting-started)
- * [Supported Environment](#supported-environments)
+ * [Supported Environments](#supported-environments)
  * [License](#license)
 
 
