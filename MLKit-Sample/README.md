@@ -4,10 +4,10 @@ English | [中文](https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sam
 ## Table of Contents
 
  * [Introduction](#introduction)
- * [Project directory structure](#Project-directory-structure)
+ * [Project directory structure](#project-directory-structure)
  * [More Scenarios](#more-scenarios)
  * [Getting Started](#getting-started)
- * [Supported Environment](#supported-environment)
+ * [Supported Environment](#supported-environments)
  * [License](#license)
 
 
@@ -74,8 +74,8 @@ Sample code demoing features of the [ML Kit](https://developer.huawei.com/consum
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/label_custom.jpg" width=220 border=2></td>
 <td><img src="https://github.com/HMS-Core/hms-ml-demo/blob/master/MLKit-Sample/resources/object_custom.jpg" width=220 border=2></td>
 </tr></table>
-## Project directory structure
 
+## Project directory structure
 `module-text`
 
     |-- com.huawei.mlkit.sample
